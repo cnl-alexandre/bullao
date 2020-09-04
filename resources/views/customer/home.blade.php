@@ -4,157 +4,268 @@
 
 @section('content')
 
-<div class="container">
-    <div class="d-flex align-items-center flex-column home-header mt-xl-4 mt-md-3 mt-2 mb-xl-5 mb-md-5 mb-4">
-        <div class="navbar navbar-expand-lg navbar-light mb-auto p-2 mt-xl-4 mt-md-4 mt-sm-4 mt-0 pt-3 pb-3 pl-3 pr-3 d-flex align-self-center header-width card-shadow">
-            <a class="navbar-brand pr-2" href="{{ url('/') }}">
-                <img src="{{ url('/medias/img/logo.svg') }}" class="header-logo" loading="eager" alt="Logo agence immobilière mf-immo">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto d-flex align-self-center pl-5" style="flex-direction: row;">
-                    <li class="nav-item  pl-2">
-                        <a href="{{ url('/annonces/vente') }}" class="nav-link">Acheter</a>
-                    </li>
-                    <li class="nav-item  pl-2">
-                        <a href="{{ url('/agence/estimation') }}" class="nav-link">Estimer</a>
-                    </li>
-                    <li class="nav-item  pl-2">
-                        <a href="{{ url('/annonces/location') }}" class="nav-link">Louer</a>
-                    </li>
-                    <li class="nav-item  pl-2">
-                        <a href="{{ url('/agence/contact') }}" class="nav-link">Contacter</a>
-                    </li>
-                    <li>
-                        <div class="opinion-system-widget-company-rating" data-os-company-id="10538" style="margin-left: 20px ;width: max-content;"></div>
-                    </li>
-                </ul>
-            </div>
+<div class="site-blocks-cover overlay" style="background-image: url('{{ url('/medias/img/hero_bg_2.jpg') }}');" data-aos="fade" data-stellar-background-ratio="0.5" data-aos="fade">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-8 text-center" data-aos="fade-up" data-aos-delay="400">
+            <h1 class="mb-4">Excellent Space For Your Next Home</h1>
+            <p class="mb-5">1105 Madison Plaza Suite 120 Chesapeake, CA, California</p>
+            <p><a href="#" class="btn btn-primary px-5 py-3">Take a Tour</a></p>
+          </div>
         </div>
-        <div class="home-titres">
-            <p class="mb-1">Présenté par Mylène et Franck</p>
-            <h1>Achat, vente et location de maisons et d'appartements autour de Vaires et Brou</h1>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="featured-property-half d-flex">
+        <div class="image" style="background-image: url('{{ url('/medias/img/hero_bg_1.jpg') }}')"></div>
+        <div class="text">
+          <h2>Property Information</h2>
+          <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis quae obcaecati doloribus distinctio, aliquam vero? Molestias, amet, eveniet.</p>
+          <ul class="property-list-details mb-5">
+            <li class="text-black">Property Name: <strong class="text-black">Marga Luxury Suite</strong></li>
+            <li>Room: <strong>2</strong></li>
+            <li>Total Area: <strong>482 Square Feets</strong></li>
+            <li>Category: <strong>Modern House</strong></li>
+            <li>Lunch Date: Jan 20, 2019<strong></strong></li>
+          </ul>
+          <p><a href="#" class="btn btn-primary px-4 py-3">Get Details</a></p>
         </div>
-        <div class="home-option p-2 mb-xl-4 mb-sm-4 mb-2 d-flex">
-            <form class="" action="{{ url('/annonces/vente') }}" method="post">
-              {{ csrf_field() }}
-              <div class="d-flex flex-row home-search card-shadow">
-                  <div class="form-group mr-sm-2 mr-0">
-                      <label for="type">Je recherche</label>
-                      <select id="type" name="type" class="form-control">
-                          <option value="all">Tous les biens</option>
-                          @if(count($types) > 0)
-                              @foreach($types as $type)
-                                  <option value="{{ $type->type_id }}">{{ $type->type->type_libelle }}</option>
-                              @endforeach
-                          @endif
-                      </select>
-                  </div>
-                  <div class="form-group mr-sm-2 mr-0">
-                    <label for="secteur" class="responsiveMobile-hidden">Vers</label>
-                    <select id="secteur" name="ville" class="form-control">
-                        <option value="all">Tout Marne-la-Vallée</option>
-                        @if(count($villes) > 0)
-                            @foreach($villes as $ville)
-                                <option value="{{ $ville->logement_ville }}">{{ $ville->logement_ville }}</option>
-                            @endforeach
-                        @endif
-                    </select>
-                  </div>
-                  <div class="form-group mr-sm-2 mr-0">
-                      <input class="btn text-center" type="submit" value="GO">
-                  </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto">
+            <h2 class="mb-5">Browse Apartments</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, fugit nam obcaecati fuga itaque deserunt
+              officia, error reiciendis ab quod?</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="unit-9">
+              <div class="image" style="background-image: url('{{ url('/medias/img/img_1.jpg') }}');"></div>
+              <div class="unit-9-content">
+                <h2>Nashville</h2>
+                <span>$130/night</span>
+                <!-- <span>with Wendy Matos</span> -->
               </div>
-            </form>
-            <div class="home-vendeur card-shadow pt-2 pb-2 pl-2 pr-2 ml-2">
-                <div>
-                    <p class="text-label responsiveMobile-hidden" style="margin-top: 5px;margin-bottom: 8px;">Vous pouvez aussi</p>
-                    <a href="{{ url('/agence/estimation') }}" class="btn bg-green text-white cta-radius form-control">Vendre votre bien</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    @if(count($annoncesExclu) > 0)
-        <div class="home-caroussel mb-4">
-            <h2>Les exclusivités de l'agence</h2>
-            @include('partials.customer.annonce.carousel', [
-                'annonces'  => $annoncesExclu,
-                'linkMore'  => '/annonces/vente'
-            ])
-        </div>
-    @endif
-
-    <div class="row home-agence d-flex justify-content-between mb-5">
-        <div class="info-agence card-shadow card-localisation">
-            <h6><strong>Ouvert du mardi au samedi</strong></h6>
-            <p class="card-text localisation-texte">
-                De 9h30 à 12h30 et 14h00 à 19h00
-            </p>
-            <h6 class="mt-1 mb-1"><strong>Brou sur Chantereine</strong></h6>
-            <p class="card-text localisation-texte mb-4">
-                22 avenue Jean Jaurès
-                <br>
-                (à la limite de Vaires sur Marne)
-            </p>
-            <div class="text-center">
-                <a href="{{ url('/agence/contact') }}" class="bg-orange cta-radius text-white pt-2 pb-2 pr-4 pl-4">Contacter l'agence</a>
-
-            </div>
-        </div>
-        <div class="rating-google">
-            <a target="_blank" href="{{ url('https://www.google.com/search?client=opera&q=M%26F+Immobilier&sourceid=opera&ie=UTF-8&oe=UTF-8') }}">
-                <img src="{{ url('/medias/img/btn-google.svg') }}" class="mt-3 mr-3" style="visibility:hidden;" alt="Lien Google M&F-Immobilier">
             </a>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="unit-9">
+              <div class="image" style="background-image: url('{{ url('/medias/img/img_2.jpg') }}');"></div>
+              <div class="unit-9-content">
+                <h2>Baltimore</h2>
+                <span>$230/night</span>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+            <a href="#" class="unit-9">
+              <div class="image" style="background-image: url('{{ url('/medias/img/img_3.jpg') }}');"></div>
+              <div class="unit-9-content">
+                <h2>Austin</h2>
+                <span>$130/night</span>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+            <a href="#" class="unit-9">
+              <div class="image" style="background-image: url('{{ url('/medias/img/img_4.jpg') }}');"></div>
+              <div class="unit-9-content">
+                <h2>Atlanta</h2>
+                <span>$150/night</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-12 text-center mt-5" data-aos="fade-up">
+            <a href="#" class="btn btn-primary">Browse All Apartments</a>
+          </div>
         </div>
+      </div>
     </div>
+    
 
-    @if(count($annoncesVille1) > 0)
-        <div class="home-caroussel mb-5">
-            <h2>Les annonces à {{ Session::get('Parametres')['carousel_ville_1'] }}</h2>
-            @include('partials.customer.annonce.carousel', [
-                'annonces'  => $annoncesVille1,
-                'linkMore'  => '/annonces/vente'
-            ])
+    
+    <div class="site-section">
+
+      <div class="container">
+
+        <div class="row">
+          <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto" data-aos="fade-up">
+            <h2 class="mb-5">Featured Apartments</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, fugit nam obcaecati fuga itaque deserunt officia, error reiciendis ab quod?</p>
+          </div>
         </div>
-    @endif
+        
+        <div class="site-block-retro d-block d-md-flex">
 
-    <div class="row justify-content-center mb-5">
-        <div class="col-lg-11 col-md-12 col-sm-12 col-11 agence-bordered">
-            <div class="row d-flex justify-content-between align-items-center py-xl-5 px-xl-4 py-md-5 px-md-3 py-sm-4 py-4 px-3">
-                <div class="col-lg-3 col-md-6 align-self-center">
-                    <img src="{{ url('/medias/img/agence/esti-house.svg') }}" class="align-self-center" style="width: 240px;" alt="Découvrir notre agence M&F-Immobilier">
-                </div>
-                <div class="col-lg-5 col-md-6 media-body agence-content px-xl-4 px-3 pt-sm-4 pt-4">
-                    <h5 class="mt-0 mb-1 mb-xl-2 mb-md-2">Découvrez notre agence</h5>
-                    <p class="mb-0 text-justify">M&F-Immobilier est une agence indépendante présentée par Mylène Gicquel et Franck Caldirola sur le secteur de Brou-sur-Chantereine, Vaires-sur-Marne, Chelles et les communes environnantes.</p>
-                </div>
-                <div class="col-lg-3 col-md-12 pt-4 pt-sm-4">
-                    <div class="d-flex justify-content-around">
-                      <a href="{{ url('/agence/estimation') }}" class="bg-orange cta-radius text-white pt-2 pb-2 pr-4 pl-4">Estimer</a>
-                      <a href="{{ url('/annonces/vente') }}" class="bg-green cta-radius text-white pt-2 pb-2 pr-4 pl-4">Acheter</a>
-                    </div>
-
-                </div>
+          <a href="#" class="col1 unit-9 no-height" data-aos="fade-up" data-aos-delay="100">
+            <div class="image" style="background-image: url('{{ url('/medias/img/img_2.jpg') }}');"></div>
+            <div class="unit-9-content">
+              <h2>Baltimore Apartment</h2>
+              <span>$600/night</span>
             </div>
+          </a>
+
+          <div class="col2 ml-auto">
+
+            <a href="#" class="col2-row1 unit-9 no-height" data-aos="fade-up" data-aos-delay="200">
+              <div class="image" style="background-image: url('{{ url('/medias/img/img_3.jpg') }}');"></div>
+              <div class="unit-9-content">
+                <h2>Austin Apartment</h2>
+                <span>$290/night</span>
+              </div>
+            </a>
+
+            <a href="#" class="col2-row2 unit-9 no-height" data-aos="fade-up" data-aos-delay="300">
+              <div class="image" style="background-image: url('{{ url('/medias/img/img_1.jpg') }}');"></div>
+              <div class="unit-9-content">
+                <h2>Atlanta Apartment</h2>
+                <span>$1,290/night</span>
+              </div>
+            </a>
+
+          </div>
+
         </div>
+        
+      </div>
     </div>
 
-    @if(count($annoncesVille2) > 0)
-        <div class="home-caroussel mb-5">
-            <h2>Les annonces à {{ Session::get('Parametres')['carousel_ville_2'] }}</h2>
-            @include('partials.customer.annonce.carousel', [
-                'annonces'  => $annoncesVille2,
-                'linkMore'  => '/annonces/vente'
-            ])
+    
+    <div class="site-section block-13">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto">
+            <h2 class="mb-5">Love By Our Customers</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, fugit nam obcaecati fuga itaque deserunt officia, error reiciendis ab quod?</p>
+          </div>
         </div>
-    @endif
+        <div class="nonloop-block-13 owl-carousel">
+          
+          <div class="text-center p-3 p-md-5 bg-white">
+            <div class="mb-4">            
+              <img src="{{ url('/medias/img/person_1.jpg') }}" alt="Image" class="w-50 mx-auto img-fluid rounded-circle">
+            </div>
+            <div class="text-black">
+              <h3 class="font-weight-light h5">Megan Smith</h3>
+              <p class="font-italic">&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, iusto. Aliquam illo, cum sed ea? Ducimus quos, ea?&rdquo;</p>
+            </div>
+          </div>
 
-    <div class="row justify-content-center mb-5">
-        <div class="opinion-system-widget-company-rating-detail" data-os-company-id="10538"></div>
+          <div class="text-center p-3 p-md-5 bg-white">
+            <div class="mb-4">            
+              <img src="{{ url('/medias/img/person_2.jpg') }}" alt="Image" class="w-50 mx-auto img-fluid rounded-circle">
+            </div>
+            <div class="text-black">
+              <h3 class="font-weight-light h5">Brooke Cagle</h3>
+              <p class="font-italic">&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, iusto. Aliquam illo, cum sed ea? Ducimus quos, ea?&rdquo;</p>
+            </div>
+          </div>
+
+          <div class="text-center p-3 p-md-5 bg-white">
+            <div class="mb-4">            
+              <img src="{{ url('/medias/img/person_3.jpg') }}" alt="Image" class="w-50 mx-auto img-fluid rounded-circle">
+            </div>
+            <div class="text-black">
+              <h3 class="font-weight-light h5">Philip Martin</h3>
+              <p class="font-italic">&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, iusto. Aliquam illo, cum sed ea? Ducimus quos, ea?&rdquo;</p>
+            </div>
+          </div>
+
+          <div class="text-center p-3 p-md-5 bg-white">
+            <div class="mb-4">            
+              <img src="{{ url('/medias/img/person_1.jpg') }}" alt="Image" class="w-50 mx-auto img-fluid rounded-circle">
+            </div>
+            <div class="text-black">
+              <h3 class="font-weight-light h5">Steven Ericson</h3>
+              <p class="font-italic">&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, iusto. Aliquam illo, cum sed ea? Ducimus quos, ea?&rdquo;</p>
+            </div>
+          </div>
+
+          <div class="text-center p-3 p-md-5 bg-white">
+            <div class="mb-4">            
+              <img src="{{ url('/medias/img/person_2.jpg') }}" alt="Image" class="w-50 mx-auto img-fluid rounded-circle">
+            </div>
+            <div class="text-black">
+              <h3 class="font-weight-light h5">Nathan Dumlao</h3>
+              <p class="font-italic">&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, iusto. Aliquam illo, cum sed ea? Ducimus quos, ea?&rdquo;</p>
+            </div>
+          </div>
+
+          <div class="text-center p-3 p-md-5 bg-white">
+            <div class="mb-4">            
+              <img src="{{ url('/medias/img/person_4.jpg') }}" alt="Image" class="w-50 mx-auto img-fluid rounded-circle">
+            </div>
+            <div class="text-black">
+              <h3 class="font-weight-light h5">Brook Smith</h3>
+              <p class="font-italic">&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, iusto. Aliquam illo, cum sed ea? Ducimus quos, ea?&rdquo;</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>  
+    
+
+    
+    
+
+    <div class="site-section bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto" data-aos="fade-up">
+            <h2 class="mb-5">News &amp; Events</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, fugit nam obcaecati fuga itaque deserunt officia, error reiciendis ab quod?</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+            <a href="single.html"><img src="{{ url('/medias/img/img_4.jpg') }}" alt="Image" class="img-fluid"></a>
+            <div class="p-4 bg-white">
+              <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
+              <h2 class="h5 text-black mb-3"><a href="single.html">Fugit nam obcaecati fuga itaque</a></h2>
+              
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+            <a href="single.html"><img src="{{ url('/medias/img/img_2.jpg') }}" alt="Image" class="img-fluid"></a>
+            <div class="p-4 bg-white">
+              <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
+              <h2 class="h5 text-black mb-3"><a href="single.html">Fugit nam obcaecati fuga itaque</a></h2>
+              
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <a href="single.html"><img src="{{ url('/medias/img/img_3.jpg') }}" alt="Image" class="img-fluid"></a>
+            <div class="p-4 bg-white">
+              <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
+              <h2 class="h5 text-black mb-3"><a href="single.html">Fugit nam obcaecati fuga itaque</a></h2>
+              
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+
+    <div class="bg-primary" data-aos="fade">
+      <div class="container">
+        <div class="row">
+          <a href="#" class="col-2 text-center py-4 social-icon d-block"><span class="icon-facebook text-white"></span></a>
+          <a href="#" class="col-2 text-center py-4 social-icon d-block"><span class="icon-twitter text-white"></span></a>
+          <a href="#" class="col-2 text-center py-4 social-icon d-block"><span class="icon-instagram text-white"></span></a>
+          <a href="#" class="col-2 text-center py-4 social-icon d-block"><span class="icon-linkedin text-white"></span></a>
+          <a href="#" class="col-2 text-center py-4 social-icon d-block"><span class="icon-pinterest text-white"></span></a>
+          <a href="#" class="col-2 text-center py-4 social-icon d-block"><span class="icon-youtube text-white"></span></a>
+        </div>
+      </div>
+    </div>
 
 @endsection

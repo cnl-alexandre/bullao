@@ -1,32 +1,54 @@
-<nav class="navbar navbar-expand-lg navbar-light pt-3 pb-3 header-style fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{ url('/medias/img/logo.svg') }}" class="header-logo" alt="Logo agence immobilière mf-immo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="{{ url('/') }}" class="nav-link">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/annonces/vente') }}" class="nav-link">Acheter</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/agence/estimation') }}" class="nav-link">Estimer</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/annonces/location') }}" class="nav-link">Louer</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/agence/contact') }}" class="nav-link">Contacter</a>
-                </li>
-                <li>
-                    <div class="opinion-system-widget-company-rating" data-os-company-id="10538" style="margin-left: 20px ;width: max-content;"></div>
-                </li>
-            </ul>
+
+
+    <div class="site-navbar mt-4">
+        <div class="container py-1">
+          <div class="row align-items-center">
+            <div class="col-8 col-md-8 col-lg-4">
+              <h1 class="mb-0"><a href="index.html" class="text-white h2 mb-0"><strong>Apart<span class="text-primary">.</span></strong></a></h1>
+            </div>
+            <div class="col-4 col-md-4 col-lg-8">
+              <nav class="site-navigation text-right text-md-right" role="navigation">
+
+                <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+                <ul class="site-menu js-clone-nav d-none d-lg-block">
+                  <li class="active">
+                    <a href="index.html">Home</a>
+                  </li>
+                  <li><a href="about.html">About</a></li>
+                  <li class="has-children">
+                    <a href="apartments.html">Apartments</a>
+                    <ul class="dropdown arrow-top">
+                      <li><a href="#">Apartments</a></li>
+                      <li><a href="#">Rooms</a></li>
+                      <li><a href="#">Suites</a></li>
+                      <li class="has-children">
+                        <a href="#">Sub Menu</a>
+                        <ul class="dropdown">
+                          <li><a href="#">Menu One</a></li>
+                          <li><a href="#">Menu Two</a></li>
+                          <li><a href="#">Menu Three</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="news.html">News</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+           
+
+            </div>
+            </div>
         </div>
     </div>
-</nav>
+
+<div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+</div> <!-- .site-mobile-menu -->

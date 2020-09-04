@@ -1,106 +1,89 @@
-<div class="pb-2" style="background: #fafafa;">
-    <div class="container">
-
-        <div class="my-5 pt-5 footer-head">
-            <div class="mb-5 mb-sm-4 mb-md-0 mb-xl-0">
-                <img src="{{ url('/medias/img/logo.svg') }}" alt="Logo agence immobilière mf-immo">
-            </div>
-            <div style="display: flex;">
-                <a href="https://www.facebook.com/pages/category/Real-Estate-Company/MF-Immobilier-770510189976690/" target="_blank"><img src="{{ url('/medias/img/fb.svg') }}" alt="Lien Facebook M&F-Immobilier" style="width: 45px;margin-right: 25px;"></a>
-                <a href="https://www.instagram.com/mf_immobilier/?hl=fr" target="_blank"><img src="{{ url('/medias/img/in.svg') }}" alt="Lien Instragram M&F-Immobilier" style="width: 45px;margin-right: 25px;"></a>
-                <div class="opinion-system-widget-company-rating" data-os-company-id="10538" style="width: max-content;"></div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
+<footer class="site-footer">
+      <div class="container">
         <div class="row">
-            <div class="col-xl-3 col-md-6 col-sm-6 mb-3 mx-md-0 mx-5">
-                <h5>A propos de l'agence</h5>
-                <p>
-                    À propos de l'Agence
-                    <br>
-                    22 avenue Jean Jaurès
-                    <br>
-                    Brou-sur-Chantereine 77
-                    <br>
-                    (à la limite de Vaires-sur-Marne)
-                    <br>
-                    <br>
-                    Du mardi au samedi
-                    <br>
-                    De 9h30 à 12h30 et 14h00 à 19h00
-                </p>
+          <div class="col-lg-4">
+            <div class="mb-5">
+              <h3 class="footer-heading mb-4">About Apart</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur reprehenderit vero atque, consequatur id ratione, et non dignissimos culpa? Ut veritatis, quos illum totam quis blanditiis, minima minus odio!</p>
             </div>
-            <div class="col-xl-3 col-md-6 col-sm-6 mb-3 mx-md-0 mx-5">
-                <h5>Nos annonces de vente</h5>
-                <ul>
-                    <li>
-                        <a href="{{ url('/annonces/vente/maison/all') }}">- Vente de maison ({{ Session::get('nbVenteMaison') }})</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/annonces/vente/appartement/all') }}">- Vente d'appartement ({{ Session::get('nbVenteAppartement') }})</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/annonces/vente/all/vaires-sur-marne') }}">- Vente à Vaires-sur-Marne ({{ Session::get('nbVenteVaires') }})</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/annonces/vente/all/thorigny-sur-marne') }}">- Vente à Thorigny-sur-Marne ({{ Session::get('nbVenteThorigny') }})</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/annonces/vente/all/brou-sur-chantereine') }}">- Vente à Brou-sur-Chantereine ({{ Session::get('nbVenteBrou') }})</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/annonces/vente/all/lagny-sur-marne') }}">- Vente à Lagny-sur-Marne ({{ Session::get('nbVenteLagny') }})</a>
-                    </li>
+            <div class="mb-5">
+              <h3 class="footer-heading mb-4">Subscribe</h3>
+              <form action="#" method="post" class="site-block-subscribe">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control border-secondary bg-transparent" placeholder="Enter your email"
+                    aria-label="Enter Email" aria-describedby="button-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary rounded-top-right-0" type="button" id="button-addon2">Subscribe</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="row mb-5">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Navigations</h3>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Apartments</a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Featured Apartment</a></li>
                 </ul>
-            </div>
-            <div class="col-xl-3 col-md-6 col-sm-6 mb-3 mx-md-0 mx-5">
-                <h5>Découvrez notre agence</h5>
-                <ul>
-                    <li>
-                        <a href="{{ url('/agence/presentation') }}">- Présentation</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/agence/estimation') }}">- Estimation</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/agence/contact') }}">- Nous contacter</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/agence/tarification') }}">- Tarification appliquée</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/agence/rgpd') }}">- RGPD</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/agence/mentions') }}">- Mentions légales</a>
-                    </li>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Membership</a></li>
                 </ul>
+              </div>
             </div>
-            <div class="col-xl-3 col-md-6 col-sm-6 mb-3 mx-md-0 mx-5">
-                <h5>Liens externes et parutions</h5>
-                <ul>
-                    <li>
-                        <a target="_blank" href="https://www.google.com/search?client=opera&q=m%26f+immobilier&sourceid=opera&ie=UTF-8&oe=UTF-8">- Avis Google</a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://www.societe.com/societe/m-f-immobilier-844678375.html">- Société.com</a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://www.brousurchantereine.info/wp-content/uploads/Brou-info-n%C2%B027-bd-1.pdf">- Journal de Brou-sur-Chantereine</a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://www.brousurchantereine.info/decouvrir-la-ville/commerces-artisans-entreprises/">- Commercant de Brou</a>
-                    </li>
-                </ul>
+
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Follow Us</h3>
+
+                <div>
+                  <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                </div>
+              </div>
             </div>
+
+          </div>
+
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="mb-5">
+              <h3 class="footer-heading mb-4">Watch Live Streaming</h3>
+
+              <div class="block-16">
+                <figure>
+                  <img src="{{ url('/medias/img/img_1.jpg') }}" alt="Image placeholder" class="img-fluid rounded">
+                  <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-button popup-vimeo"><span class="icon-play"></span></a>
+                </figure>
+              </div>
+
+            </div>
+
+            
+
+          </div>
+          
         </div>
-    </div>
-</div>
-<div>
-    <div class="container">
-        <p class="mt-3 mb-3 px-3 px-sm-3">
-            M&F Immobilier : des annonces immobilières autour de Brou-sur-Chantereine, Vaires-sur-Marne et secteur de Lagny-sur-Marne. le site www.mf-immo.com propose des annonces de location et de vente immobilières sur Marne la Vallée. Vous trouverez de nombreuses annonces : des maisons à vendre et des annonces de ventes d'appartement.
-        </p>
-    </div>
-</div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
