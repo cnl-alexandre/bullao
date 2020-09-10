@@ -36,7 +36,7 @@
         <div class="container">
             <div class="row align-items-center position-relative">
                 <div class="site-logo">
-                  <a href="index.html" class="text-black"><span class="text-primary">Bullao</a>
+                  <a href="#" class="text-black"><span class="text-primary">Bullao</a>
                 </div>
                 <div class="col-12">
                     <nav class="site-navigation text-right ml-auto " role="navigation">
