@@ -10,8 +10,8 @@
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-12 col-lg-7">
-                    <h1 data-aos="fade-up" data-aos-delay="">Découvrez Bullao</h1>
-                    <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Location de spa - jaccuzi<br>à Marne-la-Vallée</p>
+                    <h1 data-aos="fade-up" data-aos-delay="">Prenez le temps de vous détendre</h1>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Découvrez Bullao : Location de spa - jaccuzi<br>à Marne-la-Vallée</p>
                     <!-- <p data-aos="fade-up" data-aos-delay="200"><a href="#" class="btn btn-outline-white border-w-2 btn-md">Get in touch</a></p> -->
                 </div>
             </div>
@@ -100,7 +100,7 @@
         <div class="icon mb-3">
           <span class="flaticon-mining"></span>
         </div>
-        <h3 class="mb-3">Surface Mining</h3>
+        <h3 class="mb-3">Réservation</h3>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis.
       </div>
     </div>
@@ -109,7 +109,7 @@
         <div class="icon mb-3">
           <span class="flaticon-gold-ingots"></span>
         </div>
-        <h3 class="mb-3">Gold Nuggets</h3>
+        <h3 class="mb-3">Installation</h3>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis.
       </div>
     </div>
@@ -118,7 +118,7 @@
         <div class="icon mb-3">
           <span class="flaticon-wagon"></span>
         </div>
-        <h3 class="mb-3">Soil Carrier</h3>
+        <h3 class="mb-3">Hygiène</h3>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis.
       </div>
     </div>
@@ -128,7 +128,7 @@
         <div class="icon mb-3">
           <span class="flaticon-refinery"></span>
         </div>
-        <h3 class="mb-3">Gold Refinery</h3>
+        <h3 class="mb-3">Localisation</h3>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis.
       </div>
     </div>
@@ -137,7 +137,7 @@
         <div class="icon mb-3">
           <span class="flaticon-blacksmith"></span>
         </div>
-        <h3 class="mb-3">Anvil Blacksmith</h3>
+        <h3 class="mb-3">Personnalisation</h3>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis.
       </div>
     </div>
@@ -146,54 +146,8 @@
         <div class="icon mb-3">
           <span class="flaticon-crucible"></span>
         </div>
-        <h3 class="mb-3">Gold Melt Crucible</h3>
+        <h3 class="mb-3">bonheur</h3>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis.
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-
-<div class="site-section bg-dark" id="about-section">
-<div class="container">
-  <div class="row justify-content-center mb-4 block-img-video-1-wrap">
-    <div class="col-md-12 mb-5">
-      <figure class="block-img-video-1" data-aos="fade">
-        <a href="https://vimeo.com/45830194" data-fancybox data-ratio="2">
-          <span class="icon"><span class="icon-play"></span></span>
-          <img src="{{ url('medias/img/hero_1.jpg') }}" alt="Image" class="img-fluid">
-        </a>
-      </figure>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-6 col-md-6 mb-4 col-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="">
-          <div class="block-counter-1">
-            <span class="number"><span data-number="30">0</span>+</span>
-            <span class="caption">Year of Experience</span>
-          </div>
-        </div>
-        <div class="col-6 col-md-6 mb-4 col-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-          <div class="block-counter-1">
-            <span class="number"><span data-number="300">0</span>+</span>
-            <span class="caption">Expert Engineers</span>
-          </div>
-        </div>
-        <div class="col-6 col-md-6 mb-4 col-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-          <div class="block-counter-1">
-            <span class="number"><span data-number="2000">0</span>+</span>
-            <span class="caption">Number of Employees</span>
-          </div>
-        </div>
-        <div class="col-6 col-md-6 mb-4 col-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-          <div class="block-counter-1">
-            <span class="number"><span data-number="1500">0</span>+</span>
-            <span class="caption">Number of Golds</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -216,12 +170,10 @@
         <figure>
           <img src="{{ url('medias/img/person_1.jpg') }}" alt="Image" class="img-fluid rounded-circle">
         </figure>
-        <h3 class="font-size-20 text-black">Jean Smith</h3>
-        <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Mining Expert</span>
+        <h3 class="font-size-20 text-black">Grégoire Conil</h3>
+        <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Créateur et installateur Bullao</span>
         <div class="block-social-1">
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-facebook"></span></a>
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-twitter"></span></a>
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-instagram"></span></a>
+          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-linkedin"></span></a>
         </div>
       </div>
     </div>
@@ -231,12 +183,10 @@
         <figure>
           <img src="{{ url('medias/img/person_2.jpg') }}" alt="Image" class="img-fluid rounded-circle">
         </figure>
-        <h3 class="font-size-20 text-black">Bob Carry</h3>
-        <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Project Manager</span>
+        <h3 class="font-size-20 text-black">Alexandre Conil</h3>
+        <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Prestataire Product Design</span>
         <div class="block-social-1">
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-facebook"></span></a>
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-twitter"></span></a>
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-instagram"></span></a>
+          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-linkedin"></span></a>
         </div>
       </div>
     </div>
@@ -247,11 +197,9 @@
           <img src="{{ url('medias/img/person_1.jpg') }}" alt="Image" class="img-fluid rounded-circle">
         </figure>
         <h3 class="font-size-20 text-black">Ricky Fisher</h3>
-        <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Engineer</span>
+        <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Prestataire Community Management</span>
         <div class="block-social-1">
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-facebook"></span></a>
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-twitter"></span></a>
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-instagram"></span></a>
+          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-linkedin"></span></a>
         </div>
       </div>
     </div>
