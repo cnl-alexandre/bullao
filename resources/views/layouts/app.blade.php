@@ -24,7 +24,7 @@
 
         <link rel="stylesheet" href="{{ url('/css/customer/style.css') }}">
     </head>
-    <body>
+    <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
         <div class="site-wrap">
             @include('partials.customer.header')
 

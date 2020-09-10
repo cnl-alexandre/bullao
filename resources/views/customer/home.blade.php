@@ -4,32 +4,31 @@
 
 @section('content')
 
-<div class="site-section-cover overlay img-bg-section" style="background-image: url({{ url('medias/img/hero_3.jpg') }}); " >
-  <div class="container">
-    <div class="row align-items-center justify-content-center text-center">
-      <div class="col-md-12 col-lg-7">
-        <h1 data-aos="fade-up" data-aos-delay="">Welcome to UnEarth</h1>
-        <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, cumque vitae animi.</p>
-        <p data-aos="fade-up" data-aos-delay="200"><a href="#" class="btn btn-outline-white border-w-2 btn-md">Get in touch</a></p>
-      </div>
+<div class="owl-carousel slide-one-item">
+
+    <div class="site-section-cover overlay img-bg-section" style="background-image: url({{ url('medias/img/hero_3.jpg') }}); " >
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-12 col-lg-7">
+                    <h1 data-aos="fade-up" data-aos-delay="">Découvrez Bullao</h1>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Location de spa - jaccuzi<br>à Marne-la-Vallée</p>
+                    <!-- <p data-aos="fade-up" data-aos-delay="200"><a href="#" class="btn btn-outline-white border-w-2 btn-md">Get in touch</a></p> -->
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-</div>
-
-<div class="site-section-cover overlay img-bg-section" style="background-image: url({{ url('medias/img/hero_2.jpg') }}); " >
-  <div class="container">
-    <div class="row align-items-center justify-content-center text-center">
-      <div class="col-md-12 col-lg-8">
-        <h1 data-aos="fade-up" data-aos-delay="">New Generation of Mining</h1>
-        <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est odit dolorum voluptates!</p>
-        <p data-aos="fade-up" data-aos-delay="200"><a href="#" class="btn btn-outline-white border-w-2 btn-md">Get in touch</a></p>
-      </div>
-    </div>
-  </div>
-
-</div>
-
+    <!-- <div class="site-section-cover overlay img-bg-section" style="background-image: url({{ url('medias/img/hero_2.jpg') }}); " >
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-12 col-lg-8">
+                    <h1 data-aos="fade-up" data-aos-delay="">New Generation of Mining</h1>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est odit dolorum voluptates!</p>
+                    <p data-aos="fade-up" data-aos-delay="200"><a href="#" class="btn btn-outline-white border-w-2 btn-md">Get in touch</a></p>
+                </div>
+            </div>
+        </div>
+    </div> -->
 
 </div>
 
@@ -44,7 +43,7 @@
 
 
       <div class="col-lg-5 ml-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="">
-        <h2 class="mb-3 text-black">Land &amp; Property</h2>
+        <h2 class="mb-3 text-black">Soirée détente à remous et à domicile</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus id dignissimos nemo minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur distinctio, maiores facere officiis. Cum, esse, iusto?</p>
 
         <p>Minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur distinctio, maiores facere officiis. Cum, esse, iusto?</p>
@@ -74,7 +73,7 @@
 
 
       <div class="col-lg-5 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade-right" data-aos-delay="">
-        <h2 class="mb-3 text-black">Surface Mining</h2>
+        <h2 class="mb-3 text-black">Réservez-le pour une occasion (ou non)</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus id dignissimos nemo minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur distinctio, maiores facere officiis. Cum, esse, iusto?</p>
 
         <p>Minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur distinctio, maiores facere officiis. Cum, esse, iusto?</p>
@@ -206,7 +205,7 @@
   <div class="row mb-5 justify-content-center">
     <div class="col-md-7 text-center">
       <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-        <h2>Our Team</h2>
+        <h2>L'équipe</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere at delectus laudantium, deserunt, atque eveniet. Voluptatem, fuga quos rerum inventore.</p>
       </div>
     </div>
@@ -257,50 +256,6 @@
       </div>
     </div>
 
-    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-      <div class="block-team-member-1 text-center rounded">
-        <figure>
-          <img src="{{ url('medias/img/person_2.jpg') }}" alt="Image" class="img-fluid rounded-circle">
-        </figure>
-        <h3 class="font-size-20 text-black">Jean Smith</h3>
-        <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Mining Expert</span>
-        <div class="block-social-1">
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-facebook"></span></a>
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-twitter"></span></a>
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-instagram"></span></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-      <div class="block-team-member-1 text-center rounded">
-        <figure>
-          <img src="{{ url('medias/img/person_1.jpg') }}" alt="Image" class="img-fluid rounded-circle">
-        </figure>
-        <h3 class="font-size-20 text-black">Bob Carry</h3>
-        <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Project Manager</span>
-        <div class="block-social-1">
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-facebook"></span></a>
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-twitter"></span></a>
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-instagram"></span></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-      <div class="block-team-member-1 text-center rounded">
-        <figure>
-          <img src="{{ url('medias/img/person_2.jpg') }}" alt="Image" class="img-fluid rounded-circle">
-        </figure>
-        <h3 class="font-size-20 text-black">Ricky Fisher</h3>
-        <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Engineer</span>
-        <div class="block-social-1">
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-facebook"></span></a>
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-twitter"></span></a>
-          <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-instagram"></span></a>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 </div>
@@ -311,7 +266,7 @@
   <div class="row mb-5 justify-content-center text-center">
     <div class="col-md-7">
       <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-        <h2>Pricing</h2>
+        <h2>Nos tarifs</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quae temporibus tenetur vitae iusto suscipit alias, laudantium, porro unde tempora.</p>
       </div>
     </div>
@@ -319,17 +274,16 @@
   <div class="row mb-5">
     <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="">
       <div class="pricing">
-        <h3 class="text-center text-black">Basic</h3>
+        <h3 class="text-center text-black">1 soirée</h3>
         <div class="price text-center mb-4 ">
-          <span><span>$47</span> / year</span>
+          <span><span>90€</span></span>
         </div>
         <ul class="list-unstyled ul-check success mb-5">
 
-          <li>Officia quaerat eaque neque</li>
-          <li>Possimus aut consequuntur incidunt</li>
-          <li class="remove">Lorem ipsum dolor sit amet</li>
-          <li class="remove">Consectetur adipisicing elit</li>
-          <li class="remove">Dolorum esse odio quas architecto sint</li>
+          <li>Spa intex 4 places</li>
+          <li>Spot lumineux led</li>
+          <li class="remove">Filtration neuve</li>
+          <li class="remove">Livraison et installation à domicile</li>
         </ul>
         <p class="text-center">
           <a href="#" class="btn btn-secondary btn-md">Buy Now</a>
@@ -339,17 +293,16 @@
 
     <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="100">
       <div class="pricing">
-        <h3 class="text-center text-black">Premium</h3>
+        <h3 class="text-center text-black">1 soirée XL</h3>
         <div class="price text-center mb-4 ">
-          <span><span>$200</span> / year</span>
+            <span><span>130€</span></span>
         </div>
         <ul class="list-unstyled ul-check success mb-5">
 
-          <li>Officia quaerat eaque neque</li>
-          <li>Possimus aut consequuntur incidunt</li>
-          <li>Lorem ipsum dolor sit amet</li>
-          <li>Consectetur adipisicing elit</li>
-          <li class="remove">Dolorum esse odio quas architecto sint</li>
+          <li>Spa intex 6 places</li>
+          <li>Spot lumineux led</li>
+          <li class="remove">Filtration neuve</li>
+          <li class="remove">Livraison et installation à domicile</li>
         </ul>
         <p class="text-center">
           <a href="#" class="btn btn-primary btn-md text-white">Buy Now</a>
@@ -359,17 +312,15 @@
 
     <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="200">
       <div class="pricing">
-        <h3 class="text-center text-black">Professional</h3>
+        <h3 class="text-center text-black">Votre ambiance</h3>
         <div class="price text-center mb-4 ">
-          <span><span>$750</span> / year</span>
+            <span><span>20€</span><br>à partir de</span>
         </div>
-        <ul class="list-unstyled ul-check success mb-5">
+        <ul class="list-unstyled ul-check mb-5">
 
           <li>Officia quaerat eaque neque</li>
-          <li>Possimus aut consequuntur incidunt</li>
           <li>Lorem ipsum dolor sit amet</li>
-          <li>Consectetur adipisicing elit</li>
-          <li>Dolorum esse odio quas architecto sint</li>
+          <li>Lorem ipsum dolor sit amet</li>
         </ul>
         <p class="text-center">
           <a href="#" class="btn btn-secondary btn-md">Buy Now</a>
@@ -380,7 +331,7 @@
 
   <div class="row site-section" id="faq-section">
     <div class="col-12 text-center" data-aos="fade">
-      <h2 class="section-title text-primary">Frequently Ask Questions</h2>
+      <h2 class="section-title text-primary">Encore un doûte ?</h2>
     </div>
   </div>
   <div class="row">
@@ -433,46 +384,12 @@
 </section>
 
 
-<div class="site-section" id="press-section">
-<div class="container">
-  <div class="row">
-    <div class="col-lg-4 mb-5 mb-lg-0">
-      <div class="block-heading-1" data-aos="fade-right" data-aos-delay="">
-        <h2>Press</h2>
-      </div>
-    </div>
-    <div class="col-lg-6">
-      <ul class="list-unstyled">
-        <li class="mb-5" data-aos="fade-right" data-aos-delay="">
-          <span class="d-block text-muted mb-3">Apr 19, 2019</span>
-          <h2 class="h4"><a href="press-single.html" class="text-black">How To Find Gold In Mining</a></h2>
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis, perferendis molestias commodi adipisci.</p>
-        </li>
-        <li class="mb-5" data-aos="fade-right" data-aos-delay="100">
-          <span class="d-block text-muted mb-3">Apr 19, 2019</span>
-          <h2 class="h4"><a href="press-single.html" class="text-black">How To Find Gold In Mining</a></h2>
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis, perferendis molestias commodi adipisci.</p>
-        </li>
-        <li class="mb-5" data-aos="fade-right" data-aos-delay="200">
-          <span class="d-block text-muted mb-3">Apr 19, 2019</span>
-          <h2 class="h4"><a href="press-single.html" class="text-black">How To Find Gold In Mining</a></h2>
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis, perferendis molestias commodi adipisci.</p>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-</div>
-
 <div class="site-section bg-light block-13" id="testimonials-section" data-aos="fade">
 <div class="container">
 
   <div class="text-center mb-5">
     <div class="block-heading-1">
-      <h2>Testimonial</h2>
+      <h2>Ils ont adoré</h2>
     </div>
   </div>
 
@@ -551,8 +468,8 @@
   <div class="row">
     <div class="col-12 text-center mb-5">
       <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-        <span>Latest Blog Posts</span>
-        <h2>Our Blog</h2>
+        <span>Les articles</span>
+        <h2>Nous sommes renseignés</h2>
       </div>
     </div>
   </div>
