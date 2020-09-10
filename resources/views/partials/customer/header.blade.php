@@ -43,25 +43,10 @@
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                             <li><a href="#home-section" class="nav-link">Home</a></li>
                             <li><a href="#services-section" class="nav-link">Services</a></li>
-                            <li class="has-children">
-                                <a href="#about-section" class="nav-link">About Us</a>
-                                <ul class="dropdown arrow-top">
-                                    <li><a href="#team-section" class="nav-link">Team</a></li>
-                                    <li><a href="#pricing-section" class="nav-link">Pricing</a></li>
-                                    <li><a href="#faq-section" class="nav-link">FAQ</a></li>
-                                    <!-- <li class="has-children">
-                                        <a href="#">More Links</a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">Menu One</a></li>
-                                            <li><a href="#">Menu Two</a></li>
-                                            <li><a href="#">Menu Three</a></li>
-                                        </ul>
-                                    </li> -->
-                                </ul>
-                            </li>
-                            <!-- <li><a href="#press-section" class="nav-link">Press</a></li> -->
-                            <!-- <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li> -->
-                            <!-- <li><a href="#blog-section" class="nav-link">Blog</a></li> -->
+                            <li><a href="#team-section" class="nav-link">Équipe</a></li>
+                            <li><a href="#pricing-section" class="nav-link">Tarifs</a></li>
+                            <li><a href="#faq-section" class="nav-link">FAQ</a></li>
+
                             <li><a href="#contact-section" class="nav-link">Contact</a></li>
                         </ul>
                     </nav>
