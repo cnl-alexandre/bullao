@@ -1,7 +1,7 @@
 <div id="overlayer"></div>
 <div class="loader">
     <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Loading...</span>
+        <span class="sr-only">Chargement...</span>
     </div>
 </div>
 
@@ -41,8 +41,8 @@
                 <div class="col-12">
                     <nav class="site-navigation text-right ml-auto " role="navigation">
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li><a href="#home-section" class="nav-link">Home</a></li>
-                            <li><a href="#services-section" class="nav-link">Services</a></li>
+                            <li><a href="#home-section" class="nav-link">Bonjour</a></li>
+                            <li><a href="#services-section" class="nav-link">Concept</a></li>
                             <li><a href="#team-section" class="nav-link">Équipe</a></li>
                             <li><a href="#pricing-section" class="nav-link">Tarifs</a></li>
                             <li><a href="#faq-section" class="nav-link">FAQ</a></li>

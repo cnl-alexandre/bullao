@@ -58,7 +58,7 @@
                 <div class="col-lg-5 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 text-black">Réservez-le pour une occasion (ou non)</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus id dignissimos nemo minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur distinctio, maiores facere officiis. Cum, esse, iusto?</p>
-                    <p>Minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur distinctio, maiores facere officiis. Cum, esse, iusto?</p>
+                    <p>(Ciblage) Notre service se propose tout aussi bien pour les particuliers comme les professionnels à Marne-la-Vallée pour l'instant.</p>
                     <ul class="ul-check primary list-unstyled mt-5">
                         <li>Lorem ipsum dolor.</li>
                         <li>Quod, amet. Provident.</li>
@@ -98,7 +98,7 @@
                         <span class="flaticon-wagon"></span>
                     </div>
                     <h3 class="mb-3">Hygiène</h3>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis.
+                    Les jacuzzis ainsi que les accessoires sont nettoyés et désinfectés après chaque utilisation pour vous assurer une qualité de prestation propre et saine.
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
@@ -107,7 +107,7 @@
                         <span class="flaticon-refinery"></span>
                     </div>
                     <h3 class="mb-3">Localisation</h3>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis.
+                    Nous agissons pour le moment sur le secteur Marne-la-Vallée en priorité du fait de notre situation géographique, nous comptons desservir d'autres secteurs rapidement.
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
@@ -116,7 +116,7 @@
                         <span class="flaticon-blacksmith"></span>
                     </div>
                     <h3 class="mb-3">Personnalisation</h3>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis.
+                    Ajustez le thème de votre soirée spa ! Pour cela nous vous proposons plusieurs thèmes et nous sommes prêt à fournir une expérience sur-mesure à votre demande.
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
@@ -125,7 +125,7 @@
                         <span class="flaticon-crucible"></span>
                     </div>
                     <h3 class="mb-3">bonheur</h3>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis.
+                    Une fois votre soirée réservée, détendez-vous et on s'occupe du reste !
                 </div>
             </div>
         </div>
@@ -190,12 +190,12 @@
             <div class="col-md-7">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                     <h2>Nos tarifs</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quae temporibus tenetur vitae iusto suscipit alias, laudantium, porro unde tempora.</p>
+                    <p>La prestation se base sur un délai d'utilisation de 24h (1 soirée), pour cela nous privilégions l'installation du jacuzzi en début d'après-midi.</p>
                 </div>
             </div>
         </div>
         <div class="row mb-5">
-            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="">
+            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="" style="margin-left: auto;margin-right: 0;">
                 <div class="pricing">
                     <h3 class="text-center text-black">1 soirée</h3>
                     <div class="price text-center mb-4 ">
@@ -208,11 +208,11 @@
                         <li class="remove">Livraison et installation à domicile</li>
                     </ul>
                     <p class="text-center">
-                        <a href="#" class="btn btn-secondary btn-md">Buy Now</a>
+                        <a href="#" class="btn btn-primary btn-md text-white">Buy Now</a>
                     </p>
                 </div>
             </div>
-            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">
                 <div class="pricing">
                     <h3 class="text-center text-black">1 soirée XL</h3>
                     <div class="price text-center mb-4 ">
@@ -229,7 +229,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <!-- <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="pricing">
                     <h3 class="text-center text-black">Votre ambiance</h3>
                     <div class="price text-center mb-4 ">
@@ -244,7 +244,7 @@
                         <a href="#" class="btn btn-secondary btn-md">Buy Now</a>
                     </p>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="row site-section" id="faq-section">
             <div class="col-12 text-center" data-aos="fade">
