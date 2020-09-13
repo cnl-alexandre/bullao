@@ -19,9 +19,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <a href="#" class="text-white"><span class="mr-2 text-white icon-envelope-open-o"></span> <span class="d-none d-md-inline-block">contact@bullao.com</span></a>
+                    <a href="mailto: {{ env('SUPPORT_EMAIL') }}" class="text-white">
+                        <span class="mr-2 text-white icon-envelope-open-o"></span> <span class="d-none d-md-inline-block">{{ env('SUPPORT_EMAIL') }}</span>
+                    </a>
                     <span class="mx-md-2 d-inline-block"></span>
-                    <a href="#" class="text-white"><span class="mr-2 text-white icon-phone"></span> <span class="d-none d-md-inline-block">06 13 37 71 28</span></a>
+                    <a href="tel: {{ env('SUPPORT_PHONE') }}" class="text-white">
+                        <span class="mr-2 text-white icon-phone"></span> <span class="d-none d-md-inline-block">{{ env('SUPPORT_PHONE') }}</span>
+                    </a>
                     <div class="float-right">
                         <a href="#" class="text-white"><span class="mr-2 text-white icon-facebook"></span> <span class="d-none d-md-inline-block">Facebook</span></a>
                         <span class="mx-md-2 d-inline-block"></span>
