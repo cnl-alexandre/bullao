@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 // HOME
 Route::get('/', 'customer\HomeController@home')                                                                             ->middleware('cache.headers');
+Route::get('/reservation', 'customer\HomeController@reservation');
 
 /**
  *  ######  ##    ##  ######  ######## ######## ##     ##

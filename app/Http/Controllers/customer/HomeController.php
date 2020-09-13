@@ -14,4 +14,9 @@ class HomeController extends Controller
     {
         return view('customer.home')->with([]);
     }
+
+    public function reservation()
+    {
+        return view('customer.reservation')->with([]);
+    }
 }
