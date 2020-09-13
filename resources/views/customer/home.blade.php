@@ -80,7 +80,7 @@
                         <span class="flaticon-mining"></span>
                     </div>
                     <h3 class="mb-3">Réservation</h3>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis.
+                    Pour le moment nous acceptons les réservations par téléphone, par mail et par la messagerie instantannée. Vous obtiendrez une réponse sous peu de temps.
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
@@ -158,7 +158,7 @@
             <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="block-team-member-1 text-center rounded">
                     <figure>
-                        <img src="{{ url('medias/img/person_2.jpg') }}" alt="Image" class="img-fluid rounded-circle">
+                        <img src="{{ url('medias/img/person.jpg') }}" alt="Image" class="img-fluid rounded-circle">
                     </figure>
                     <h3 class="font-size-20 text-black">Alexandre Conil</h3>
                     <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Prestataire Product Design</span>
