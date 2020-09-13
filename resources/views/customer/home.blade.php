@@ -11,7 +11,7 @@
                 <div class="col-md-12 col-lg-7">
                     <h1 data-aos="fade-up" data-aos-delay="">Prenez le temps de vous détendre</h1>
                     <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Découvrez Bullao : Location de spa - jaccuzi<br>à Marne-la-Vallée</p>
-                    <!-- <p data-aos="fade-up" data-aos-delay="200"><a href="#" class="btn btn-outline-white border-w-2 btn-md">Get in touch</a></p> -->
+                    <p data-aos="fade-up" data-aos-delay="200"><a href="{{ url('/reservation') }}" class="btn btn-outline-white border-w-2 btn-md">Réserver</a></p>
                 </div>
             </div>
         </div>
@@ -208,7 +208,7 @@
                         <li class="remove">Livraison et installation à domicile</li>
                     </ul>
                     <p class="text-center">
-                        <a href="#" class="btn btn-primary btn-md text-white">Buy Now</a>
+                        <a href="#" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
                 </div>
             </div>
@@ -225,7 +225,7 @@
                         <li class="remove">Livraison et installation à domicile</li>
                     </ul>
                     <p class="text-center">
-                        <a href="#" class="btn btn-primary btn-md text-white">Buy Now</a>
+                        <a href="#" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
                 </div>
             </div>

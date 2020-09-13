@@ -13,7 +13,7 @@
         <div class="container mt-4 mb-4">
             <div class="row position-relative">
                 <div class="site-logo"  style="margin: auto;">
-                  <a href="#" class="text-black"><span class="text-primary">Bullao</a>
+                  <a href="{{ url('/') }}" class="text-black"><span class="text-primary">Bullao</a>
                 </div>
 
             </div>
