@@ -173,7 +173,7 @@
                         <img src="{{ url('medias/img/person_1.jpg') }}" alt="Image" class="img-fluid rounded-circle">
                     </figure>
                     <h3 class="font-size-20 text-black">Ricky Fisher</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Prestataire Community Management</span>
+                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Prestataire ...</span>
                     <div class="block-social-1">
                         <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-linkedin"></span></a>
                     </div>
@@ -203,7 +203,7 @@
                     </div>
                     <ul class="list-unstyled ul-check success mb-4">
                         <li>Spa intex jusqu'à 4 places</li>
-                        <li>140 diffuseurs de bulles</li>
+                        <li>120-140 diffuseurs de bulles</li>
                         <li>2 appui-têtes Classique</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>

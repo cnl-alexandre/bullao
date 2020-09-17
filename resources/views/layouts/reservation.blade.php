@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="{{ url('/css/customer/aos.css') }}">
 
         <link rel="stylesheet" href="{{ url('/css/customer/style.css') }}">
+
+        <link rel="stylesheet" href="{{ url('/css/customer/custom.css') }}">
     </head>
     <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
         <div class="site-wrap">
@@ -22,7 +24,7 @@
 
             @yield('content')
 
-            @include('partials.customer.footer')
+            @include('partials.customer.footer-tunnel')
         </div>
 
         <script src="{{ url('/js/customer/jquery-3.3.1.min.js') }}"></script>
@@ -53,9 +55,12 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
         <script>
+
+
             $(function() {
+
               $('input[name="daterange"]').daterangepicker({
-                opens: 'left'
+                opens: 'center'
               }, function(start, end, label) {
                 console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
               });
