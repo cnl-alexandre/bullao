@@ -10,7 +10,7 @@
     </div>
 
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
-        <div class="container mt-4 mb-4">
+        <div class="container mt-3 mb-3">
             <div class="row position-relative">
                 <div class="site-logo"  style="margin: auto;">
                   <a href="{{ url('/') }}" class="text-black"><span class="text-primary">Bullao</a>

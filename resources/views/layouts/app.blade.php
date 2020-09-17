@@ -23,6 +23,8 @@
         <link rel="stylesheet" href="{{ url('/css/customer/aos.css') }}">
 
         <link rel="stylesheet" href="{{ url('/css/customer/style.css') }}">
+
+        <link rel="stylesheet" href="{{ url('/css/customer/custom.css') }}">
     </head>
     <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
         <div class="site-wrap">

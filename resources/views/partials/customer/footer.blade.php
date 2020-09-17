@@ -41,9 +41,9 @@
                 </form>
             </div>
         </div>
-        <div class="row pt-5 mt-5 text-center">
+        <div class="row pt-3 mt-3 text-center">
             <div class="col-md-12">
-                <div class="border-top pt-5">
+                <div class="border-top pt-3">
                     <p class="copyright"><small>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;{{ date('Y') }} Tous droits réservés

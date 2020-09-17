@@ -8,9 +8,9 @@
     <div class="site-section-cover overlay img-bg-section" style="background-image: url({{ url('medias/img/hero_3.jpg') }}); " >
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
-                <div class="col-md-12 col-lg-7">
+                <div class="col-md-12 col-lg-8">
                     <h1 data-aos="fade-up" data-aos-delay="">Prenez le temps de vous détendre</h1>
-                    <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Découvrez Bullao : Location de spa - jaccuzi<br>à Marne-la-Vallée</p>
+                    <p class="mt-3 mb-4" data-aos="fade-up" data-aos-delay="100">Nouveau et seulement à Marne-la-Vallée<br>Bullao : Location de spa - jaccuzi</p>
                     <p data-aos="fade-up" data-aos-delay="200"><a href="{{ url('/reservation') }}" class="btn btn-outline-white border-w-2 btn-md">Réserver</a></p>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                         <span class="flaticon-gold-ingots"></span>
                     </div>
                     <h3 class="mb-3">Installation</h3>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores voluptas obcaecati quo consequuntur mollitia facilis.
+                    On s'occupe de tout ! La procédure prend environ 1h pour que le spa soit mis en place à votre domicile. Nous recommandons une installation en début d'après-midi.
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
@@ -138,7 +138,7 @@
             <div class="col-md-7 text-center">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                     <h2>L'équipe</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere at delectus laudantium, deserunt, atque eveniet. Voluptatem, fuga quos rerum inventore.</p>
+                    <p>On se présente à vous, pas de mauvaise surprise avec l'équipe Bullao !</p>
                 </div>
             </div>
         </div>
@@ -161,7 +161,7 @@
                         <img src="{{ url('medias/img/person.jpg') }}" alt="Image" class="img-fluid rounded-circle">
                     </figure>
                     <h3 class="font-size-20 text-black">Alexandre Conil</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Prestataire Product Design</span>
+                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Prestataire Product Management</span>
                     <div class="block-social-1">
                         <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-linkedin"></span></a>
                     </div>
@@ -189,7 +189,7 @@
         <div class="row mb-5 justify-content-center text-center">
             <div class="col-md-7">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <h2>Nos tarifs</h2>
+                    <h2>Nos prix</h2>
                     <p>La prestation se base sur un délai d'utilisation de 24h (1 soirée), pour cela nous privilégions l'installation du jacuzzi en début d'après-midi.</p>
                 </div>
             </div>
@@ -201,14 +201,18 @@
                     <div class="price text-center mb-4 ">
                         <span><span>90€</span></span>
                     </div>
-                    <ul class="list-unstyled ul-check success mb-5">
-                        <li>Spa intex 4 places</li>
-                        <li>Spot lumineux led</li>
-                        <li class="remove">Filtration neuve</li>
-                        <li class="remove">Livraison et installation à domicile</li>
+                    <ul class="list-unstyled ul-check success mb-4">
+                        <li>Spa intex jusqu'à 4 places</li>
+                        <li>140 diffuseurs de bulles</li>
+                        <li>2 appui-têtes Classique</li>
+                        <li>Filtration et traitement de l'eau</li>
+                        <li>Livraison et installation à domicile</li>
+                    </ul>
+                    <ul class="list-unstyled mb-4 text-center">
+                        <li>-10% du lundi au jeudi !</li>
                     </ul>
                     <p class="text-center">
-                        <a href="#" class="btn btn-primary btn-md text-white">Réserver</a>
+                        <a href="{{ url('/reservation') }}" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
                 </div>
             </div>
@@ -218,14 +222,18 @@
                     <div class="price text-center mb-4 ">
                         <span><span>130€</span></span>
                     </div>
-                    <ul class="list-unstyled ul-check success mb-5">
-                        <li>Spa intex 6 places</li>
-                        <li>Spot lumineux led</li>
-                        <li class="remove">Filtration neuve</li>
-                        <li class="remove">Livraison et installation à domicile</li>
+                    <ul class="list-unstyled ul-check success mb-4">
+                        <li>Spa intex jusqu'à 6 places</li>
+                        <li>170 diffuseurs de bulles</li>
+                        <li>2 appui-têtes Deluxe</li>
+                        <li>Filtration et traitement de l'eau</li>
+                        <li>Livraison et installation à domicile</li>
+                    </ul>
+                    <ul class="list-unstyled mb-4 text-center">
+                        <li>-10% du lundi au jeudi !</li>
                     </ul>
                     <p class="text-center">
-                        <a href="#" class="btn btn-primary btn-md text-white">Réserver</a>
+                        <a href="{{ url('/reservation') }}" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
                 </div>
             </div>

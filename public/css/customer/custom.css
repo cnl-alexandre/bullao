@@ -1,0 +1,10 @@
+
+@font-face {
+	font-family: "Oxygen";
+	src: url("../../fonts/Oxygen/Oxygen-Bold.ttf");
+}
+
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+  font-family: "Oxygen"; }
