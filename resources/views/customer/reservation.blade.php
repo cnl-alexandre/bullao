@@ -71,8 +71,9 @@
                     <h2 class="h2-reservation">Quand cela vous fait envie ?</h2>
                     <br>
 
-                    <div class="text-center">
-                        <input type="text" id="daterange" name="daterange" value="01/01/2018 - 01/15/2018" />
+                    <div class="text-center" id="containerdaterange">
+                        <input type="text" id="daterangestart" class="daterange" name="daterangestart">
+                        <input type="text" id="daterangeend" class="daterange" name="daterangeend">
                     </div>
                 </div>
             </div>
@@ -236,5 +237,55 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+
+        $('.daterange').dateRangePicker({
+        autoClose: false,
+        format: 'DD/MM/YYYY',
+        separator: ' à ',
+        language: 'fr',
+        startOfWeek: 'monday',
+        getValue: function()
+        {
+            if ($('#daterangestart').val() && $('#daterangeend').val() )
+                return $('#daterangestart').val() + ' à ' + $('#daterangeend').val();
+            else
+                return '';
+        },
+        setValue: function(s,s1,s2)
+        {
+            $('#daterangestart').val(s1);
+            $('#daterangeend').val(s2);
+        },
+        startDate: false,
+        endDate: false,
+        time: {
+            enabled: false
+        },
+        minDays: 1,
+        maxDays: 14,
+        showShortcuts: false,
+        /*beforeShowDay: function(t)
+        {
+            var day = (t.getDate()<10) ? ('0'+t.getDate()) : t.getDate();
+            var month = (t.getMonth()<9) ? ('0'+(t.getMonth()+1)) : (t.getMonth()+1);
+            var year = t.getFullYear();
+
+            //console.log('Day : '+day+' - Month : '+month+' - Year : '+year);
+            var valid = !(
+                (day == '20' && month == '09' && year == '2020')
+                || (day == '21' && month == '10' && year == '2020')
+            );
+            var _class = '';
+            var _tooltip = valid ? '' : 'Indisponible';
+            return [valid,_class,_tooltip];
+        },*/
+        customShortcuts : [],
+        container:'body',
+        alwaysOpen:true,
+        });
+    });
+</script>
 
 @endsection
