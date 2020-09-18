@@ -9,7 +9,7 @@
         <div class="site-mobile-menu-body"></div>
     </div>
 
-    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+    <header class="site-navbar site-navbar-target" role="banner" style="position: fixed;background-color: white;">
         <div class="container mt-3 mb-3">
             <div class="row position-relative">
                 <div class="site-logo"  style="margin: auto;">
