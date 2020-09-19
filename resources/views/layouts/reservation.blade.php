@@ -9,15 +9,15 @@
         <link rel="stylesheet" href="{{ url('/fonts/icomoon/style.css') }}">
 
         <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ url('/css/customer/bootstrap-datepicker.css') }}">
+        <link rel="stylesheet" href="{{ url('/css/customer/bootstrap-daterangepicker.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/bootstrap-reboot.css') }}">
 
         <link rel="stylesheet" href="{{ url('/css/customer/aos.css') }}">
 
-        <link rel="stylesheet" href="{{ url('/css/customer/style.css') }}">
-        <link rel="stylesheet" href="{{ url('/css/customer/daterangepicker.css') }}">
+        <!-- <link rel="stylesheet" href="{{ url('/css/customer/daterangepicker.css') }}"> -->
 
         <link rel="stylesheet" href="{{ url('/css/customer/custom.css') }}">
+        <link rel="stylesheet" href="{{ url('/css/customer/style.css') }}">
 
         <script src="{{ url('/js/customer/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -46,12 +46,11 @@
         <script src="{{ url('/js/customer/jquery.sticky.js') }}"></script>
         <script src="{{ url('/js/customer/jquery.waypoints.min.js') }}"></script>
         <script src="{{ url('/js/customer/jquery.magnific-popup.min.js') }}"></script>
-        <script src="{{ url('/js/customer/bootstrap-datepicker.min.js') }}"></script>
+        <!-- <script src="{{ url('/js/customer/bootstrap-datepicker.min.js') }}"></script> -->
         <script src="{{ url('/js/customer/aos.js') }}"></script>
         <script src="{{ url('/js/customer/slick.min.js') }}"></script>
         <script src="{{ url('/js/customer/typed.js') }}"></script>
-        <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
-        <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
         <script src="{{ url('/js/customer/main.js') }}"></script>
     </body>
