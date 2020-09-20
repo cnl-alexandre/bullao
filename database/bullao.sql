@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : Dim 13 sep. 2020 à 16:36
+-- Généré le : Dim 20 sep. 2020 à 00:57
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -74,6 +74,19 @@ CREATE TABLE `clients` (
   `client_phone` varchar(10) NOT NULL,
   `client_type_logement` varchar(50) DEFAULT NULL,
   `client_emplacement` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `indisponibilites`
+--
+
+CREATE TABLE `indisponibilites` (
+  `indisponibilite_id` int(11) NOT NULL,
+  `indisponibilite_date` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -173,6 +186,12 @@ ALTER TABLE `clients`
   ADD KEY `client_user_id` (`client_user_id`);
 
 --
+-- Index pour la table `indisponibilites`
+--
+ALTER TABLE `indisponibilites`
+  ADD PRIMARY KEY (`indisponibilite_id`);
+
+--
 -- Index pour la table `packs`
 --
 ALTER TABLE `packs`
@@ -220,6 +239,12 @@ ALTER TABLE `administrateurs`
 --
 ALTER TABLE `clients`
   MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `indisponibilites`
+--
+ALTER TABLE `indisponibilites`
+  MODIFY `indisponibilite_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `packs`

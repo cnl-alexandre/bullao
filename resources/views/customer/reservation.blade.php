@@ -9,7 +9,7 @@
 <section class="site-section bg-light" id="pricing-section">
     <div class="container">
         <div class="row mt-5 mb-5 justify-content-center text-center">
-            <div class="col-md-7">
+            <div class="col-md-8">
                 <div class="block-heading-1" data-aos="" data-aos-delay="">
                     <h2>Réserver un spa</h2>
                     <p></p>
@@ -34,7 +34,7 @@
                         <li>-10% du lundi au jeudi !</li>
                     </ul>
                     <p class="text-center">
-                        <a href="{{ url('/reservation') }}" class="btn btn-primary btn-md text-white">Réserver</a>
+                        <a href="{{ url('/reservation#datepicker-section') }}" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                         <li>-10% du lundi au jeudi !</li>
                     </ul>
                     <p class="text-center">
-                        <a href="{{ url('/reservation') }}" class="btn btn-primary btn-md text-white">Réserver</a>
+                        <a href="{{ url('/reservation#datepicker-section') }}" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
                 </div>
             </div>
@@ -66,7 +66,7 @@
 <div class="site-section" id="datepicker-section">
     <div class="container">
         <div class="row mb-4 justify-content-center">
-            <div class="col-md-7 text-center">
+            <div class="col-md-8 text-center">
                 <div class="block-heading-1" data-aos="" data-aos-delay="">
                     <h2 class="h2-reservation">Quand cela vous fait envie ?</h2>
                     <br>
@@ -85,11 +85,10 @@
     </div>
 </div>
 
-
 <div class="site-section bg-light" id="spas-section">
     <div class="container">
         <div class="row mb-4 justify-content-center">
-            <div class="col-md-7 text-center">
+            <div class="col-md-8 text-center">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                     <h2 class="h2-reservation">Quel spa souhaitez-vous</h2>
                     <br>
@@ -131,7 +130,7 @@
 <div class="site-section" id="packs-section">
     <div class="container">
         <div class="row mb-4 justify-content-center">
-            <div class="col-md-7 text-center">
+            <div class="col-md-8 text-center">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                     <h2 class="h2-reservation">Personnalisez votre soirée !</h2>
                     <br>
@@ -173,7 +172,7 @@
 <div class="site-section bg-light" id="accessoires-section">
     <div class="container">
         <div class="row mb-4 justify-content-center">
-            <div class="col-md-7 text-center">
+            <div class="col-md-8 text-center">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                     <h2 class="h2-reservation">Complétez la décoration !</h2>
                     <br>
@@ -244,7 +243,7 @@
 <div class="site-section" id="formdata-section">
     <div class="container">
       <div class="row mb-4 justify-content-center">
-          <div class="col-md-7 text-center">
+          <div class="col-md-8 text-center">
               <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                   <h2 class="h2-reservation">Finalisez votre réservation !</h2>
                   <br>
@@ -279,10 +278,12 @@
             autoApply: true,
             alwaysShowCalendars: true,
             maxSpan: {
-                days: 3
+                days: 5
             },
             drops: "auto"
         });
+
+        daterangepicker.prototype.outsideClick = function(e) {}
 
         /*$('#daterange').dateRangePicker({
             autoClose: false,
