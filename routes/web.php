@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// HOME
+Route::get('/', 'HomeController@home');
+Route::get('/reservation', 'HomeController@reservation');
+
+// LOGIN
+Route::get('/account/login', 'AccountController@login');
+Route::post('/account/login', 'AccountController@loginSubmit');
+Route::get('/account/forgot-password', 'AccountController@forgotPassword');
+Route::post('/account/forgot-password', 'AccountController@forgotPasswordSubmit');
+Route::get('/account/logout', 'AccountController@logout');
+
 /**
  *  ######  ##     ##  ######  ########  #######  ##     ## ######## ########
  * ##    ## ##     ## ##    ##    ##    ##     ## ###   ### ##       ##     ##
@@ -23,9 +34,12 @@ use Illuminate\Support\Facades\Route;
  *  ######   #######   ######     ##     #######  ##     ## ######## ##     ##
  */
 
-// HOME
-Route::get('/', 'customer\HomeController@home');
-Route::get('/reservation', 'customer\HomeController@reservation');
+// My account
+Route::get('/account/dashboard', 'customer\AccountController@dashboard');
+Route::get('/account/orders', 'customer\AccountController@orders');
+Route::get('/account/addresses', 'customer\AccountController@addresses');
+Route::get('/account/profil', 'customer\AccountController@profil');
+Route::get('/account/preferences', 'customer\AccountController@preferences');
 
 /**
  *  ######  ##    ##  ######  ######## ######## ##     ##
@@ -36,13 +50,6 @@ Route::get('/reservation', 'customer\HomeController@reservation');
  * ##    ##    ##    ##    ##    ##    ##       ##     ##
  *  ######     ##     ######     ##    ######## ##     ##
  */
-
-// LOGIN
-Route::get('/account/login', 'system\AccountController@login');
-Route::post('/account/login', 'system\AccountController@loginSubmit');
-Route::get('/account/forgot-password', 'system\AccountController@forgotPassword');
-Route::post('/account/forgot-password', 'system\AccountController@forgotPasswordSubmit');
-Route::get('/account/logout', 'system\AccountController@logout');
 
 // ADMINISTRATION
 Route::get('/administration/dashboard', 'system\BackOfficeController@dashboard')                                            ->middleware('cache.headers');

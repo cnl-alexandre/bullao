@@ -25,11 +25,11 @@
     </head>
     <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
         <div class="site-wrap">
-            @include('partials.customer.header-tunnel')
+            @include('partials.header-tunnel')
 
             @yield('content')
 
-            @include('partials.customer.footer-tunnel')
+            @include('partials.footer-tunnel')
         </div>
 
         <script src="{{ url('/js/customer/jquery-migrate-3.0.1.min.js') }}"></script>

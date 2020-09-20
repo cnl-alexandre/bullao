@@ -4,12 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class Client extends Model
 {
     protected $connection = 'mysql';
     protected $table = 'clients';
     protected $primaryKey = 'client_id';
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'client_user_id', 'user_id');
+    }
     
     public function create($array)
     {
@@ -22,6 +28,13 @@ class Client extends Model
         $this->client_email         = $array->email;
         $this->client_phone         = $array->phone;
         $this->save();
+    }
+
+    public function createSession()
+    {
+        Session::forget('Client');
+        Session::pull('Client');
+        Session::put('Client', $this);
     }
     
     public function getDateCreatedAttribute()

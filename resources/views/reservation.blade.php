@@ -4,8 +4,6 @@
 
 @section('content')
 
-
-
 <section class="site-section bg-light" id="pricing-section">
     <div class="container">
         <div class="row mt-5 mb-5 justify-content-center text-center">
@@ -90,7 +88,7 @@
         <div class="row mb-4 justify-content-center">
             <div class="col-md-8 text-center">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <h2 class="h2-reservation">Quel spa souhaitez-vous</h2>
+                    <h2 class="h2-reservation">Quel spa souhaitez-vous ?</h2>
                     <br>
                 </div>
             </div>

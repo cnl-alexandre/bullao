@@ -1,12 +1,12 @@
 <?php
-namespace App\Http\Controllers\system;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\User;
 use App\Administrateur;
-use App\Http\Controllers\system\SchedulerController;
+use App\Client;
 
 class AccountController extends Controller
 {
@@ -35,7 +35,7 @@ class AccountController extends Controller
             }
         }
         
-        return view('system.account.login')->with([]);
+        return view('account.login')->with([]);
     }
 
     public function loginSubmit(Request $request)
@@ -66,15 +66,40 @@ class AccountController extends Controller
             $user->save();
 
             $user->createSession();
-            
-            $admin = Administrateur::where('administrateur_user_id','=',$user->user_id)->first();
-            $admin->createSession();
 
-            $scheduler = new SchedulerController;
-            $scheduler->actualisationArchivage();
+            // En fonction du rang de l'utilisateur qui se connecte...
+            switch($user->rank->rank_libelle)
+            {
+                case "Administrateur";
+                    $admin = Administrateur::where('administrateur_user_id','=',$user->user_id)->first();
+                    $admin->createSession();
 
-            Session::put('success', 'Bonjour <strong>'.$admin->administrateur_prenom.'</strong>, bienvenue sur le tableau de bord !');
-            return redirect('/administration/dashboard');
+                    $link = '/administration/dashboard';
+
+                    Session::put('success', 'Bonjour <strong>'.$admin->administrateur_prenom.'</strong>, bienvenue sur le tableau de bord !');
+                    break;
+                
+                case "Client":
+                    $client = Client::where('client_user_id','=',$user->user_id)->first();
+                    $client->createSession();
+
+                    if(Session::get('Order'))
+                    {
+                        $link = Session::get('Order');
+                    }
+                    else
+                    {
+                        $link = '/account/dashboard';
+                    }
+
+                    Session::put('success', 'Bonjour <strong>'.$client->client_name.'</strong> !');
+                    break;
+            }
+
+            // $scheduler = new SchedulerController;
+            // $scheduler->actualisationArchivage();
+
+            return redirect($link);
         }
         else
         {
@@ -85,7 +110,7 @@ class AccountController extends Controller
 
     public function forgotPassword()
     {
-        return view('system.account.forgot-password')->with([]);
+        return view('account.forgot-password')->with([]);
     }
 
     public function forgotPasswordSubmit(Request $request)

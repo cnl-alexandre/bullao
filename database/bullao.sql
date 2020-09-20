@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : Dim 20 sep. 2020 à 00:57
+-- Généré le : Dim 20 sep. 2020 à 23:02
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -56,6 +56,13 @@ CREATE TABLE `administrateurs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `administrateurs`
+--
+
+INSERT INTO `administrateurs` VALUES
+(1, 'Jérémy Lémont', '0631727083', 'jerem-lem@hotmail.fr', 1, '2020-09-19 22:00:00', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -72,11 +79,16 @@ CREATE TABLE `clients` (
   `client_ville` varchar(100) NOT NULL,
   `client_email` varchar(100) NOT NULL,
   `client_phone` varchar(10) NOT NULL,
-  `client_type_logement` varchar(50) DEFAULT NULL,
-  `client_emplacement` varchar(50) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `clients`
+--
+
+INSERT INTO `clients` VALUES
+(1, 'Jérémy Lémont', 2, '11 rue Pablo Néruda', 'Interphone au nom de SKYBYK', '77200', 'Torcy', 'jerem-lem@hotmail.fr', '0631727083', '2020-09-20 22:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -90,6 +102,14 @@ CREATE TABLE `indisponibilites` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `indisponibilites`
+--
+
+INSERT INTO `indisponibilites` VALUES
+(1, '2020-09-21', NULL, NULL),
+(2, '2020-09-22', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -106,6 +126,27 @@ CREATE TABLE `packs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ranks`
+--
+
+CREATE TABLE `ranks` (
+  `rank_id` int(11) NOT NULL,
+  `rank_libelle` varchar(100) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `ranks`
+--
+
+INSERT INTO `ranks` VALUES
+(1, 'Administrateur', NULL, NULL),
+(2, 'Client', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -157,9 +198,20 @@ CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `user_login` varchar(100) NOT NULL,
   `user_password` varchar(100) NOT NULL,
+  `user_rank_id` int(11) NOT NULL,
+  `user_last_connection` datetime DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` VALUES
+(1, 'jlemontAdmin', '8feddb3014a070097df081ed63f1ca7c2cae3499', 1, NULL, NULL, '2020-09-19 22:00:00', NULL),
+(2, 'jlemontCustomer', '8feddb3014a070097df081ed63f1ca7c2cae3499', 2, NULL, NULL, '2020-09-20 22:00:00', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -198,6 +250,12 @@ ALTER TABLE `packs`
   ADD PRIMARY KEY (`pack_id`);
 
 --
+-- Index pour la table `ranks`
+--
+ALTER TABLE `ranks`
+  ADD PRIMARY KEY (`rank_id`);
+
+--
 -- Index pour la table `reservations`
 --
 ALTER TABLE `reservations`
@@ -216,7 +274,8 @@ ALTER TABLE `spas`
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `user_rank_id` (`user_rank_id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -232,25 +291,31 @@ ALTER TABLE `accessoires`
 -- AUTO_INCREMENT pour la table `administrateurs`
 --
 ALTER TABLE `administrateurs`
-  MODIFY `administrateur_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `administrateur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `indisponibilites`
 --
 ALTER TABLE `indisponibilites`
-  MODIFY `indisponibilite_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `indisponibilite_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `packs`
 --
 ALTER TABLE `packs`
   MODIFY `pack_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `ranks`
+--
+ALTER TABLE `ranks`
+  MODIFY `rank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `reservations`
@@ -268,7 +333,7 @@ ALTER TABLE `spas`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
@@ -293,6 +358,12 @@ ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`reservation_accessoire_1_id`) REFERENCES `accessoires` (`accessoire_id`),
   ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`reservation_accessoire_2_id`) REFERENCES `accessoires` (`accessoire_id`),
   ADD CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`reservation_pack_id`) REFERENCES `packs` (`pack_id`);
+
+--
+-- Contraintes pour la table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_rank_id`) REFERENCES `ranks` (`rank_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
