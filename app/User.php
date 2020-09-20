@@ -27,6 +27,11 @@ class User extends Model
         return $this->hasMany('App\Administrateur', 'administrateur_user_id');
     }
     
+    public function clients()
+    {
+        return $this->hasMany('App\Client', 'client_user_id');
+    }
+    
     public function getStatus()
     {
         if($this->user_last_connection != NULL && (time() - strtotime($this->user_last_connection)) <= 60)

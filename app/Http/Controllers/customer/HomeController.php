@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\customer;
 
 use App\Http\Controllers\Controller;
+use App\Indisponibilite;
 
 class HomeController extends Controller
 {
@@ -17,6 +18,10 @@ class HomeController extends Controller
 
     public function reservation()
     {
-        return view('customer.reservation')->with([]);
+        $indispos = Indisponibilite::where('indisponibilite_date', '>=', date('Y-m-d'))->get();
+
+        return view('customer.reservation')->with([
+            'indispos'  => $indispos
+        ]);
     }
 }

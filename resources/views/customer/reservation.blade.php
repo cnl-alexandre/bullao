@@ -265,25 +265,66 @@
 <script>
     $(document).ready(function() {
 
-        $('.daterange').daterangepicker({
+        setTimeout(function(){
+            $('#daterange').trigger('click');
+        }, 1);
+
+        var some_date_range = [
+            @if(count($indispos) > 0)
+                @foreach($indispos as $indispo)
+                    '{{ $indispo->indisponibilite_date }}',
+                @endforeach
+            @endif
+        ];
+
+        $('#daterange').daterangepicker({
             minDate: "{{ date('d/m/Y') }}",
             maxDate: "31/12/{{ (date('Y')+1) }}",
             showDropdowns: true,
-            minYear: "{{ date('Y') }}",
-            maxYear: "{{ (date('Y')+1) }}",
             opens: "center",
             locale: {
-                format: 'DD/MM/YYYY'
+                format: 'DD/MM/YYYY',
+                daysOfWeek: [
+                    "Dim",
+                    "Lun",
+                    "Mar",
+                    "Mer",
+                    "Jeu",
+                    "Ven",
+                    "Sam"
+                ],
+                monthNames: [
+                    "Janvier",
+                    "Février",
+                    "Mars",
+                    "Avril",
+                    "Mai",
+                    "Juin",
+                    "Juillet",
+                    "Août",
+                    "Septembre",
+                    "Octobre",
+                    "Novembre",
+                    "Décembre"
+                ],
+                firstDay: 1
             },
             autoApply: true,
             alwaysShowCalendars: true,
             maxSpan: {
                 days: 5
             },
-            drops: "auto"
+            drops: "auto",
+            isInvalidDate: function(date) {
+                for(var ii = 0; ii < some_date_range.length; ii++){
+                    if (date.format('YYYY-MM-DD') == some_date_range[ii]){
+                        return true;
+                    }
+                }
+            }
         });
 
-        daterangepicker.prototype.outsideClick = function(e) {}
+        daterangepicker.prototype.outsideClick = function(e) {};
 
         /*$('#daterange').dateRangePicker({
             autoClose: false,
