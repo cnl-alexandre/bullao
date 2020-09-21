@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <h2 class="footer-heading mb-4">A propos</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+                        <p>Bullao propose des locations de spa et jacuzzi à domicile sur le secteur de Paris et Marne-la-Vallée.</p>
                     </div>
                   <div class="col-md-4 ml-auto">
                       <h2 class="footer-heading mb-4">Rubriques</h2>
@@ -22,8 +22,7 @@
                 </div>
             </div>
             <div class="col-md-4 ml-auto">
-
-                <div class="mb-5">
+                <!-- <div class="mb-5">
                     <h2 class="footer-heading mb-4">S'inscrire à la Newsletter</h2>
                     <form action="#" method="post" class="footer-suscribe-form">
                         <div class="input-group mb-3">
@@ -32,13 +31,11 @@
                                 <button class="btn btn-primary text-white" type="button" id="button-addon2">S'inscrire</button>
                             </div>
                         </div>
-                  </div>
-                  <h2 class="footer-heading mb-4">Suivez-nous !</h2>
-                      <a href="#about-section" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span></a>
-                      <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                      <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                      <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-                </form>
+                    </form>
+                </div> -->
+                <h2 class="footer-heading mb-4">Suivez-nous !</h2>
+                <a href="#about-section" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
             </div>
         </div>
         <div class="row pt-3 mt-3 text-center">

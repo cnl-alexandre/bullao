@@ -190,7 +190,7 @@
             <div class="col-md-7">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                     <h2>Nos prix</h2>
-                    <p>La prestation se base sur un délai d'utilisation de 24h (1 soirée), pour cela nous privilégions l'installation du jacuzzi en début d'après-midi.</p>
+                    <p>La prestation se base sur un délai d'utilisation de 24h (1 soirée), pour cela nous privilégions l'installation du jacuzzi en fin de matinée ou début d'après-midi.</p>
                 </div>
             </div>
         </div>
