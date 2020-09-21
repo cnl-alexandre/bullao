@@ -64,12 +64,12 @@
 <div class="site-section" id="datepicker-section">
     <div class="container">
         <div class="row mb-4 justify-content-center">
-            <div class="col-md-8 text-center">
+            <div class="col-md-7 text-center">
                 <div class="block-heading-1" data-aos="" data-aos-delay="">
                     <h2 class="h2-reservation">Quand cela vous fait envie ?</h2>
                     <br>
 
-                    <div class="text-center" id="containerdaterange" style="height:400px;">
+                    <div class="text-center" id="containerdaterange" style="height:250px;">
                       <div class="form-group">
                           <label for="daterange">Dates de résevation</label>
                           <input type="text" id="daterange" class="form-control daterange text-center" name="daterange">
@@ -251,7 +251,7 @@
       <div class="row">
           <div class="col-md-6">
               <h4>Vos informations</h4>
-              
+
           </div>
           <div class="col-md-6">
               <h4>Récapitulatif</h4>

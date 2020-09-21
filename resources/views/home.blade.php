@@ -132,7 +132,7 @@
     </div>
 </div>
 
-<div class="site-section" id="team-section">
+<!-- <div class="site-section" id="team-section">
     <div class="container">
         <div class="row mb-5 justify-content-center">
             <div class="col-md-7 text-center">
@@ -142,7 +142,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center text-center">
             <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
                 <div class="block-team-member-1 text-center rounded">
                     <figure>
@@ -181,7 +181,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <section class="site-section bg-light" id="pricing-section">
@@ -256,43 +256,43 @@
         </div>
         <div class="row site-section" id="faq-section">
             <div class="col-12 text-center" data-aos="fade">
-                <h2 class="section-title text-primary">Encore un doûte ?</h2>
+                <h2 class="section-title text-primary">Encore un doute ?</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6">
               <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                  <h3 class="text-black h4 mb-4">Can I accept both Paypal and Stripe?</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
+                  <h3 class="text-black h6 mb-2">Les conditions pour installer un jacuzzi :</h3>
+                  <p>Vous devez disposer de 2m sur 2m sur une surface béton sous le sol, d'un point d'eau avec robinet extérieur ou de cuisine et une prise électrique à porté (20m maximum).</p>
               </div>
               <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                  <h3 class="text-black h4 mb-4">What available is refund period?</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
+                  <h3 class="text-black h6 mb-2">Le temps d'installer et de désinstaller :</h3>
+                  <p>En règle général, nous prenons une heure pour installer et vérifier le bon fonctionnement du matériel. Le spa et les accessoires sont désinfectés après la réservation.</p>
               </div>
               <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                  <h3 class="text-black h4 mb-4">Can I accept both Paypal and Stripe?</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
+                  <h3 class="text-black h6 mb-2">Le moment de l'installation :</h3>
+                  <p>Nous recommandons une installation en début de journée afin que l'eau soit chauffée rapidement et de profiter du spa le reste de la journée et de la nuit.</p>
               </div>
               <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                  <h3 class="text-black h4 mb-4">What available is refund period?</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
+                  <h3 class="text-black h6 mb-2">La quantité d'eau des spas :</h3>
+                  <p>Les spas 4 places contiennent jusqu'à 700 litres et les spas 6 places jusqu'à 110 litres. Cela représente entre 3,5€ et 5€ sur votre facture d'eau.</p>
               </div>
             </div>
             <div class="col-lg-6">
                 <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-black h4 mb-4">Where are you from?</h3>
-                    <p>Voluptatum nobis obcaecati perferendis dolor totam unde dolores quod maxime corporis officia et. Distinctio assumenda minima maiores.</p>
+                    <h3 class="text-black h6 mb-2">Les conditions de paiement :</h3>
+                    <p>Pour des raisons pratiques, nous vous proposons le paiement de votre réservation par Paypal ou par virement bancaire. Le paiement carte bleue arrive bientôt !</p>
                 </div>
                 <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-black h4 mb-4">What is your opening time?</h3>
+                    <h3 class="text-black h6 mb-2">Les avantages avec Bullao :</h3>
+                    <p>Fini les locations douteuses sur les réseaux sociaux, vous avez la garantie d'avoir un service impéccable, une hygiène irréprochable et la bonne humeur !</p>
+                </div>
+                <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-black h6 mb-2">Can I accept both Paypal and Stripe?</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
                 </div>
                 <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-black h4 mb-4">Can I accept both Paypal and Stripe?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
-                </div>
-                <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-black h4 mb-4">What available is refund period?</h3>
+                    <h3 class="text-black h6 mb-2">What available is refund period?</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
                 </div>
             </div>
@@ -301,7 +301,7 @@
 </section>
 
 
-<div class="site-section bg-light block-13" id="testimonials-section" data-aos="fade">
+<!-- <div class="site-section bg-light block-13" id="testimonials-section" data-aos="fade">
     <div class="container">
         <div class="text-center mb-5">
             <div class="block-heading-1">
@@ -389,10 +389,10 @@
 
         </div>
     </div>
-</div>
+</div> -->
 
 
-<div class="site-section bg-light" id="contact-section">
+<div class="site-section" id="contact-section">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-delay="">
