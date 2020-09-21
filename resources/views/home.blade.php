@@ -220,7 +220,7 @@
                 <div class="pricing">
                     <h3 class="text-center text-black">1 soirée XL</h3>
                     <div class="price text-center mb-4 ">
-                        <span><span>130€</span></span>
+                        <span><span>120€</span></span>
                     </div>
                     <ul class="list-unstyled ul-check success mb-4">
                         <li>Spa intex jusqu'à 6 places</li>
@@ -275,7 +275,7 @@
               </div>
               <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
                   <h3 class="text-black h6 mb-2">La quantité d'eau des spas :</h3>
-                  <p>Les spas 4 places contiennent jusqu'à 700 litres et les spas 6 places jusqu'à 110 litres. Cela représente entre 3,5€ et 5€ sur votre facture d'eau.</p>
+                  <p>Les spas 4 places contiennent jusqu'à 700 litres et les spas 6 places jusqu'à 1100 litres. Cela représente entre 3,5€ et 5€ sur votre facture d'eau.</p>
               </div>
             </div>
             <div class="col-lg-6">

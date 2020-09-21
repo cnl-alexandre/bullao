@@ -40,7 +40,7 @@
                 <div class="pricing">
                     <h3 class="text-center text-black">1 soirée XL</h3>
                     <div class="price text-center mb-4 ">
-                        <span><span>130€</span></span>
+                        <span><span>120€</span></span>
                     </div>
                     <ul class="list-unstyled ul-check success mb-4">
                         <li>Spa intex jusqu'à 6 places</li>
