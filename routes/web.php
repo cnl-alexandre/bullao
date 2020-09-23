@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 // HOME
 Route::get('/', 'HomeController@home');
-Route::get('/reservation', 'HomeController@reservation');
+Route::get('/reservation', 'ReservationController@reservation');
+Route::post('/reservation', 'ReservationController@reservationSubmit');
 
 // LOGIN
 Route::get('/account/login', 'AccountController@login');
