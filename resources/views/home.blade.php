@@ -212,7 +212,7 @@
                         <li>-10% du lundi au jeudi !</li>
                     </ul>
                     <p class="text-center">
-                        <a href="{{ url('/reservation') }}" class="btn btn-primary btn-md text-white">Réserver</a>
+                        <a href="{{ url('/reservation/4places') }}" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
                 </div>
             </div>
@@ -233,7 +233,7 @@
                         <li>-10% du lundi au jeudi !</li>
                     </ul>
                     <p class="text-center">
-                        <a href="{{ url('/reservation') }}" class="btn btn-primary btn-md text-white">Réserver</a>
+                        <a href="{{ url('/reservation/6places') }}" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
                 </div>
             </div>

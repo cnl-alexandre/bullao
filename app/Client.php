@@ -20,9 +20,7 @@ class Client extends Model
     public function create($array)
     {
         $this->client_name          = $array->name;
-        $this->client_user_id       = $array->user_id;
         $this->client_adresse_1     = $array->adresse1;
-        $this->client_adresse_2     = $array->adresse2;
         $this->client_cp            = $array->cp;
         $this->client_ville         = $array->ville;
         $this->client_email         = $array->email;

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Indisponibilite;
+use App\Spa;
 
 class HomeController extends Controller
 {
@@ -14,14 +15,5 @@ class HomeController extends Controller
     public function home()
     {
         return view('home')->with([]);
-    }
-
-    public function reservation()
-    {
-        $indispos = Indisponibilite::where('indisponibilite_date', '>=', date('Y-m-d'))->get();
-
-        return view('reservation')->with([
-            'indispos'  => $indispos
-        ]);
     }
 }
