@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 23 sep. 2020 à 17:00
+-- Généré le : mer. 23 sep. 2020 à 21:44
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -36,6 +36,7 @@ CREATE TABLE `accessoires` (
   `accessoire_description` text NOT NULL,
   `accessoire_prix` decimal(10,2) NOT NULL,
   `accessoire_stock` int(11) NOT NULL DEFAULT '0',
+  `accessoire_chemin_img` varchar(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -45,12 +46,12 @@ CREATE TABLE `accessoires` (
 --
 
 INSERT INTO `accessoires` VALUES
-(1, 'Enceinte Bose', 'Description', '9.00', 1, NULL, NULL),
-(2, 'Marche pied', 'Description', '5.00', 0, NULL, NULL),
-(3, 'Parfum 1', 'Description', '7.00', 0, NULL, NULL),
-(4, 'Parfum 2', 'Description', '7.00', 0, NULL, NULL),
-(5, 'Parfum 1', 'Description', '7.00', 0, NULL, NULL),
-(6, 'Pouf lumineux', 'Description', '5.00', 0, NULL, NULL);
+(1, 'Enceinte Bose', 'Description', '9.00', 1, '', NULL, NULL),
+(2, 'Marche pied', 'Description', '5.00', 0, '', NULL, NULL),
+(3, 'Parfum 1', 'Description', '7.00', 0, '', NULL, NULL),
+(4, 'Parfum 2', 'Description', '7.00', 0, '', NULL, NULL),
+(5, 'Parfum 1', 'Description', '7.00', 0, '', NULL, NULL),
+(6, 'Pouf lumineux', 'Description', '5.00', 0, '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -136,6 +137,7 @@ CREATE TABLE `packs` (
   `pack_description` text NOT NULL,
   `pack_stock` int(11) NOT NULL DEFAULT '0',
   `pack_prix` decimal(10,2) NOT NULL,
+  `pack_chemin_img` varchar(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -145,9 +147,9 @@ CREATE TABLE `packs` (
 --
 
 INSERT INTO `packs` VALUES
-(1, 'Pack Fun', 'Description', 1, '20.00', NULL, NULL),
-(2, 'Pack Romance', 'Description', 1, '20.00', NULL, NULL),
-(3, 'Pack Chill', 'Description', 1, '20.00', NULL, NULL);
+(1, 'Pack Fun', 'Description', 1, '20.00', '', NULL, NULL),
+(2, 'Pack Romance', 'Description', 1, '20.00', '', NULL, NULL),
+(3, 'Pack Chill', 'Description', 1, '20.00', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -189,6 +191,8 @@ CREATE TABLE `reservations` (
   `reservation_prix_accessoire_1` decimal(10,2) DEFAULT NULL,
   `reservation_accessoire_2_id` int(11) DEFAULT NULL,
   `reservation_prix_accessoire_2` decimal(10,2) DEFAULT NULL,
+  `reservation_accessoire_3_id` int(11) DEFAULT NULL,
+  `reservation_prix_accessoire_3` decimal(10,2) DEFAULT NULL,
   `reservation_montant_total` decimal(10,2) NOT NULL,
   `reservation_promo` decimal(5,2) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -297,7 +301,8 @@ ALTER TABLE `reservations`
   ADD PRIMARY KEY (`reservation_id`),
   ADD KEY `reservation_accessoire_1_id` (`reservation_accessoire_1_id`),
   ADD KEY `reservation_accessoire_2_id` (`reservation_accessoire_2_id`),
-  ADD KEY `reservation_pack_id` (`reservation_pack_id`);
+  ADD KEY `reservation_pack_id` (`reservation_pack_id`),
+  ADD KEY `reservation_accessoire_3_id` (`reservation_accessoire_3_id`);
 
 --
 -- Index pour la table `spas`
@@ -392,7 +397,8 @@ ALTER TABLE `clients`
 ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`reservation_accessoire_1_id`) REFERENCES `accessoires` (`accessoire_id`),
   ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`reservation_accessoire_2_id`) REFERENCES `accessoires` (`accessoire_id`),
-  ADD CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`reservation_pack_id`) REFERENCES `packs` (`pack_id`);
+  ADD CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`reservation_pack_id`) REFERENCES `packs` (`pack_id`),
+  ADD CONSTRAINT `reservations_ibfk_4` FOREIGN KEY (`reservation_accessoire_3_id`) REFERENCES `accessoires` (`accessoire_id`);
 
 --
 -- Contraintes pour la table `users`

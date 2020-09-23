@@ -152,7 +152,7 @@
                         <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}">
                         <div class="block-team-member-1 text-center rounded">
                             <figure>
-                                {{-- <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle"> --}}
+                                <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                             </figure>
                             <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
                             <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $pack->pack_description; ?></span>
@@ -181,7 +181,7 @@
                         <input type="radio" name="accessoire" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}">
                         <div class="block-team-member-1 text-center rounded">
                             <figure>
-                                {{-- <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle"> --}}
+                                <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                             </figure>
                             <h3 class="font-size-20 text-black">{{ $accessoire->accessoire_libelle }} - {{ $accessoire->accessoire_prix }}€</h3>
                             <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $accessoire->accessoire_description; ?></span>
