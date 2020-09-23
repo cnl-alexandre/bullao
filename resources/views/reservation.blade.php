@@ -98,8 +98,8 @@
 
             @if(count($spas) > 0)
                 @foreach($spas as $spa)
-                    <label for="{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                        <input type="radio" name="spa" id="{{ $spa->spa_id }}" autocomplete="off" value="{{ $spa->spa_id }}">
+                    <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
+                        <input type="radio" name="spa" id="spa-{{ $spa->spa_id }}" autocomplete="off" value="{{ $spa->spa_id }}">
                         <div class="block-team-member-1 text-center rounded">
                             <figure>
                                 <img src="{{ url($spa->spa_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
@@ -146,33 +146,20 @@
             </div>
         </div>
         <div class="row">
-          <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-              <div class="block-team-member-1 text-center rounded">
-                  <figure>
-                      <img src="{{ url('medias/img/spas/couleur-baltik.png') }}" alt="Image" class="img-fluid rounded-circle">
-                  </figure>
-                  <h3 class="font-size-20 text-black">Pack Fun - 20€</h3>
-                  <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Description ?</span>
-              </div>
-          </div>
-            <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                <div class="block-team-member-1 text-center rounded">
-                    <figure>
-                        <img src="{{ url('medias/img/spas/couleur-baltik.png') }}" alt="Image" class="img-fluid rounded-circle">
-                    </figure>
-                    <h3 class="font-size-20 text-black">Pack Romance - 20€</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Description ?</span>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                <div class="block-team-member-1 text-center rounded">
-                    <figure>
-                        <img src="{{ url('medias/img/spas/couleur-baltik.png') }}" alt="Image" class="img-fluid rounded-circle">
-                    </figure>
-                    <h3 class="font-size-20 text-black">Pack Chill - 20€</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Description ?</span>
-                </div>
-            </div>
+            @if(count($packs) > 0)
+                @foreach($packs as $pack)
+                    <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
+                        <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}">
+                        <div class="block-team-member-1 text-center rounded">
+                            <figure>
+                                {{-- <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle"> --}}
+                            </figure>
+                            <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
+                            <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $pack->pack_description; ?></span>
+                        </div>
+                    </label>
+                @endforeach
+            @endif
         </div>
     </div>
 </div>
@@ -188,62 +175,20 @@
             </div>
         </div>
         <div class="row">
-          <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-              <div class="block-team-member-1 text-center rounded">
-                  <figure>
-                      <img src="{{ url('medias/img/spas/couleur-baltik.png') }}" alt="Image" class="img-fluid rounded-circle">
-                  </figure>
-                  <h3 class="font-size-20 text-black">Accessoire 1</h3>
-                  <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Description ?</span>
-              </div>
-          </div>
-            <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                <div class="block-team-member-1 text-center rounded">
-                    <figure>
-                        <img src="{{ url('medias/img/spas/couleur-baltik.png') }}" alt="Image" class="img-fluid rounded-circle">
-                    </figure>
-                    <h3 class="font-size-20 text-black">Accessoire 2</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Description ?</span>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                <div class="block-team-member-1 text-center rounded">
-                    <figure>
-                        <img src="{{ url('medias/img/spas/couleur-baltik.png') }}" alt="Image" class="img-fluid rounded-circle">
-                    </figure>
-                    <h3 class="font-size-20 text-black">Accessoire 3</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Description ?</span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-              <div class="block-team-member-1 text-center rounded">
-                  <figure>
-                      <img src="{{ url('medias/img/spas/couleur-baltik.png') }}" alt="Image" class="img-fluid rounded-circle">
-                  </figure>
-                  <h3 class="font-size-20 text-black">Accessoire 4</h3>
-                  <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Description ?</span>
-              </div>
-          </div>
-            <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                <div class="block-team-member-1 text-center rounded">
-                    <figure>
-                        <img src="{{ url('medias/img/spas/couleur-baltik.png') }}" alt="Image" class="img-fluid rounded-circle">
-                    </figure>
-                    <h3 class="font-size-20 text-black">Accessoire 5</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Description ?</span>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                <div class="block-team-member-1 text-center rounded">
-                    <figure>
-                        <img src="{{ url('medias/img/spas/couleur-baltik.png') }}" alt="Image" class="img-fluid rounded-circle">
-                    </figure>
-                    <h3 class="font-size-20 text-black">Accessoire 6</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Description ?</span>
-                </div>
-            </div>
+            @if(count($accessoires) > 0)
+                @foreach($accessoires as $accessoire)
+                    <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
+                        <input type="radio" name="accessoire" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}">
+                        <div class="block-team-member-1 text-center rounded">
+                            <figure>
+                                {{-- <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle"> --}}
+                            </figure>
+                            <h3 class="font-size-20 text-black">{{ $accessoire->accessoire_libelle }} - {{ $accessoire->accessoire_prix }}€</h3>
+                            <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $accessoire->accessoire_description; ?></span>
+                        </div>
+                    </label>
+                @endforeach
+            @endif
         </div>
     </div>
 </div>

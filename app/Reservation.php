@@ -25,8 +25,8 @@ class Reservation extends Model
         $this->reservation_prix_accessoire_1    = $array->prix_accessoire_1;
         $this->reservation_accessoire_2_id      = $array->accessoire_2_id;
         $this->reservation_prix_accessoire_2    = $array->prix_accessoire_2;
-        $this->reservation_accessoire_2_id      = $array->accessoire_3_id;
-        $this->reservation_prix_accessoire_2    = $array->prix_accessoire_3;
+        $this->reservation_accessoire_3_id      = $array->accessoire_3_id;
+        $this->reservation_prix_accessoire_3    = $array->prix_accessoire_3;
         $this->reservation_montant_total        = $array->montant_total;
         $this->reservation_promo                = $array->promo;
         $this->save();
