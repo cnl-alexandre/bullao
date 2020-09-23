@@ -93,16 +93,46 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-              <div class="block-team-member-1 text-center rounded">
-                  <figure>
-                      <img src="{{ url('medias/img/spas/couleur-baltik.png') }}" alt="Image" class="img-fluid rounded-circle">
-                  </figure>
-                  <h3 class="font-size-20 text-black">Spa Sahara</h3>
-                  <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Couleur sable<br> idéal pour l'intérieurs</span>
-              </div>
-          </div>
+        <div class="d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
+
+
+              <label for="phone" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
+                  <input type="radio" name="type" id="ongletPhone" autocomplete="off" value="phone">
+                  <div class="block-team-member-1 text-center rounded">
+                      <figure>
+                          <img src="{{ url('medias/img/spas/couleur-navy.png') }}" alt="Image" class="img-fluid rounded-circle">
+                      </figure>
+                      <h3 class="font-size-20 text-black">Spa Sahara</h3>
+                      <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Couleur sable<br> idéal pour l'intérieurs</span>
+                  </div>
+              </label>
+
+
+              <label for="email" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
+                  <input type="radio" name="type" id="ongletEmail" autocomplete="off" value="email">
+                  <div class="block-team-member-1 text-center rounded">
+                      <figure>
+                          <img src="{{ url('medias/img/spas/couleur-navy.png') }}" alt="Image" class="img-fluid rounded-circle">
+                      </figure>
+                      <h3 class="font-size-20 text-black">Spa Navy</h3>
+                      <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Couleur bleu nuit<br> idéal pour une soirée</span>
+                  </div>
+              </label>
+
+
+              <label for="email" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
+                  <input type="radio" name="type" id="ongletEmail" autocomplete="off" value="email">
+                  <div class="block-team-member-1 text-center rounded">
+                      <figure>
+                          <img src="{{ url('medias/img/spas/couleur-baltik.png') }}" alt="Image" class="img-fluid rounded-circle">
+                      </figure>
+                      <h3 class="font-size-20 text-black">Spa Baltik</h3>
+                      <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Couleur gris broisé<br> idéal pour l'extérieur</span>
+                  </div>
+              </label>
+
+
+            <!--
             <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
                 <div class="block-team-member-1 text-center rounded">
                     <figure>
@@ -120,7 +150,7 @@
                     <h3 class="font-size-20 text-black">Spa Baltik</h3>
                     <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Couleur gris broisé<br> idéal pour l'extérieur</span>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -309,6 +339,73 @@
     </div>
 </div>
 
+
+<script>
+    $(document).ready(function() {
+        $("#divemail").hide();
+    });
+
+    $("input[name='type']").change(function(){
+        if($("input[name='type']:checked").val() == "phone")
+        {
+            $("#divemail").hide();
+            $("#divphone").show();
+        }
+        else if($("input[name='type']:checked").val() == "email")
+        {
+            $("#divphone").hide();
+            $("#divemail").show();
+        }
+    });
+
+    $("#btnMessageSent").click(function() {
+        var type = $("input[name='type']:checked").val();
+
+        var name = $('#name').val();
+        var phone = $('#tel').val();
+        var email = $('#mail').val();
+        var note = $('#note').val();
+        var rgpd = $('#rgpd').val();
+
+        if(type != "" && name != "" && (phone != "" || email != "") && note != "" && rgpd != "")
+        {
+            $('#btnMessageSent').val("Envoi en cours...");
+            $('#btnMessageSent').attr("disabled", "disabled");
+
+            $.ajax({
+                url : "{{ url('/send-message') }}",
+                type : 'POST',
+                data : '_token={{ csrf_token() }}&type=' + type + '&name=' + name + '&phone=' + phone + '&email=' + email + '&note=' + note,
+                success : function(response, statut){
+                    $('#modalMessageSent').modal();
+
+                    $('#name').val(null);
+                    $('#tel').val(null);
+                    $('#mail').val(null);
+                    $('#note').val(null);
+                    $('#rgpd').prop("checked", false);
+
+                    $('#divError').html(null);
+
+                    $('#btnMessageSent').val("Envoyer");
+                    $('#btnMessageSent').attr("disabled", false);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $('#divError').html(jqXHR.responseText);
+
+                    $('#btnMessageSent').val("Envoyer");
+                    $('#btnMessageSent').attr("disabled", false);
+                }
+            });
+        }
+        else
+        {
+            $('#divError').html('Un des champs n\'est pas rempli...');
+        }
+    });
+</script>
+
+
 <script>
     $(document).ready(function() {
 
@@ -432,5 +529,6 @@
         });*/
     });
 </script>
+
 
 @endsection

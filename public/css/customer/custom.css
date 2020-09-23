@@ -13,3 +13,12 @@ h1, h2, h3, h4, h5,
 .block-heading-1 .h2-reservation {
     font-size: 2.5rem;
 }
+
+
+.radio-custom .active .block-team-member-1{
+    border: solid 1.5px #f5a623;
+}
+
+.radio-custom label {
+  outline: none;
+}
