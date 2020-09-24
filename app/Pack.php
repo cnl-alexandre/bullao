@@ -19,6 +19,20 @@ class Pack extends Model
         $this->pack_prix            = $array->prix;
         $this->save();
     }
+
+    public function stock()
+    {
+        if($this->pack_stock == 0)
+        {
+            echo '<span class="text-danger">';
+                echo 'Victime de son succès';
+            echo '</span>';
+        }
+        else
+        {
+            echo "<span><br></span>";
+        }
+    }
     
     public function getDateCreatedAttribute()
     {

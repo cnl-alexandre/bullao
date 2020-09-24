@@ -19,6 +19,20 @@ class Accessoire extends Model
         $this->accessoire_prix            = $array->prix;
         $this->save();
     }
+
+    public function stock()
+    {
+        if($this->accessoire_stock == 0)
+        {
+            echo '<span class="text-danger">';
+                echo 'Victime de son succès';
+            echo '</span>';
+        }
+        else
+        {
+            echo "<span><br></span>";
+        }
+    }
     
     public function getDateCreatedAttribute()
     {

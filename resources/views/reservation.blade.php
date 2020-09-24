@@ -93,9 +93,8 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
-
-
+        <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
+        
             @if(count($spas) > 0)
                 @foreach($spas as $spa)
                     <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
@@ -110,7 +109,6 @@
                     </label>
                 @endforeach
             @endif
-
 
             <!--
             <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
@@ -145,10 +143,10 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
             @if(count($packs) > 0)
                 @foreach($packs as $pack)
-                    <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
+                    <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 disabled" data-aos="fade-up">
                         <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}">
                         <div class="block-team-member-1 text-center rounded">
                             <figure>
@@ -156,6 +154,7 @@
                             </figure>
                             <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
                             <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $pack->pack_description; ?></span>
+                            {{ $pack->stock() }}
                         </div>
                     </label>
                 @endforeach
@@ -174,17 +173,18 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row d-flex justify-content-around btn-group btn-group-toggle checkbox-custom" data-toggle="buttons">
             @if(count($accessoires) > 0)
                 @foreach($accessoires as $accessoire)
-                    <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                        <input type="radio" name="accessoire" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}">
+                    <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
+                        <input type="checkbox" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}">
                         <div class="block-team-member-1 text-center rounded">
                             <figure>
                                 <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                             </figure>
                             <h3 class="font-size-20 text-black">{{ $accessoire->accessoire_libelle }} - {{ $accessoire->accessoire_prix }}€</h3>
                             <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $accessoire->accessoire_description; ?></span>
+                            {{ $accessoire->stock() }}
                         </div>
                     </label>
                 @endforeach
