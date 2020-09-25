@@ -94,7 +94,7 @@
             </div>
         </div>
         <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
-        
+
             @if(count($spas) > 0)
                 @foreach($spas as $spa)
                     <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
