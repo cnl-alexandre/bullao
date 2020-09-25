@@ -17,10 +17,16 @@ h1, h2, h3, h4, h5,
     font-size: 2.5rem;
 }
 
-.radio-custom .active .block-team-member-1, .checkbox-custom .active .block-team-member-1{
+.radio-custom .active .block, .checkbox-custom .active .block{
     border: solid 1.5px #f5a623;
 }
 
-.radio-custom label, .checkbox-custom label {
+.btn:focus {
   outline: none;
+  box-shadow: 0 0 0 0;
+}
+
+.disabled:hover
+{
+    cursor: pointer;
 }
