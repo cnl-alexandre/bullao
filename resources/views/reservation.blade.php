@@ -60,188 +60,190 @@
         </div>
     </div>
 </section>
+<form action="{{ url('/reservation') }}" method="post">
+    {{ csrf_field() }}
+    <div class="site-section" id="datepicker-section">
+        <div class="container">
+            <div class="row mb-4 justify-content-center">
+                <div class="col-md-7 text-center">
+                    <div class="block-heading-1" data-aos="" data-aos-delay="">
+                        <h2 class="h2-reservation">Quand cela vous fait envie ?</h2>
+                        <br>
 
-<div class="site-section" id="datepicker-section">
-    <div class="container">
-        <div class="row mb-4 justify-content-center">
-            <div class="col-md-7 text-center">
-                <div class="block-heading-1" data-aos="" data-aos-delay="">
-                    <h2 class="h2-reservation">Quand cela vous fait envie ?</h2>
-                    <br>
-
-                    <div class="text-center" id="containerdaterange" style="height:330px;">
-                      <div class="form-group">
-                          <label for="daterange">Dates de résevation</label>
-                          <input type="text" id="daterange" class="form-control daterange text-center" name="daterange">
-                      </div>
+                        <div class="text-center" id="containerdaterange" style="height:330px;">
+                        <div class="form-group">
+                            <label for="daterange">Dates de résevation</label>
+                            <input type="text" id="daterange" class="form-control daterange text-center" name="daterange">
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
-
     </div>
-</div>
 
-<div class="site-section bg-light" id="spas-section">
-    <div class="container">
-        <div class="row mb-4 justify-content-center">
-            <div class="col-md-8 text-center">
-                <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <h2 class="h2-reservation">Quel spa souhaitez-vous ?</h2>
-                    <br>
+    <div class="site-section bg-light" id="spas-section">
+        <div class="container">
+            <div class="row mb-4 justify-content-center">
+                <div class="col-md-8 text-center">
+                    <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
+                        <h2 class="h2-reservation">Quel spa souhaitez-vous ?</h2>
+                        <br>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
+            <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
 
-            @if(count($spas) > 0)
-                @foreach($spas as $spa)
-                    <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                        <input type="radio" name="spa" id="spa-{{ $spa->spa_id }}" autocomplete="off" value="{{ $spa->spa_id }}">
-                        <div class="block-team-member-1 text-center rounded">
-                            <figure>
-                                <img src="{{ url($spa->spa_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
-                            </figure>
-                            <h3 class="font-size-20 text-black">{{ $spa->spa_libelle }}</h3>
-                            <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $spa->spa_desc; ?></span>
-                        </div>
-                    </label>
-                @endforeach
-            @endif
-        </div>
-    </div>
-</div>
-
-<div class="site-section" id="packs-section">
-    <div class="container">
-        <div class="row mb-4 justify-content-center">
-            <div class="col-md-8 text-center">
-                <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <h2 class="h2-reservation">Personnalisez votre soirée !</h2>
-                    <br>
-                </div>
+                @if(count($spas) > 0)
+                    @foreach($spas as $spa)
+                        <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
+                            <input type="radio" name="spa" id="spa-{{ $spa->spa_id }}" autocomplete="off" value="{{ $spa->spa_id }}">
+                            <div class="block-team-member-1 text-center rounded">
+                                <figure>
+                                    <img src="{{ url($spa->spa_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
+                                </figure>
+                                <h3 class="font-size-20 text-black">{{ $spa->spa_libelle }}</h3>
+                                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $spa->spa_desc; ?></span>
+                            </div>
+                        </label>
+                    @endforeach
+                @endif
             </div>
         </div>
-        <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
-            @if(count($packs) > 0)
-                @foreach($packs as $pack)
-                    <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                        <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}">
-                        <div class="block-team-member-1 text-center rounded">
-                            <figure>
-                                <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
-                            </figure>
-                            <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
-                            <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $pack->pack_description; ?></span>
-                            {{ $pack->stock() }}
-                        </div>
-                    </label>
-                @endforeach
-            @endif
-        </div>
     </div>
-</div>
 
-<div class="site-section bg-light" id="accessoires-section">
-    <div class="container">
-        <div class="row mb-4 justify-content-center">
-            <div class="col-md-8 text-center">
-                <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <h2 class="h2-reservation">Complétez la décoration !</h2>
-                    <br>
+    <div class="site-section" id="packs-section">
+        <div class="container">
+            <div class="row mb-4 justify-content-center">
+                <div class="col-md-8 text-center">
+                    <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
+                        <h2 class="h2-reservation">Personnalisez votre soirée !</h2>
+                        <br>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row d-flex justify-content-around btn-group btn-group-toggle checkbox-custom" data-toggle="buttons">
-            @if(count($accessoires) > 0)
-                @foreach($accessoires as $accessoire)
-                    <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                        <input type="checkbox" class="disabled" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}">
-                        <div class="block-team-member-1 text-center rounded">
-                            <figure>
-                                <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
-                            </figure>
-                            <h3 class="font-size-20 text-black">{{ $accessoire->accessoire_libelle }} - {{ $accessoire->accessoire_prix }}€</h3>
-                            <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $accessoire->accessoire_description; ?></span>
-                            {{ $accessoire->stock() }}
-                        </div>
-                    </label>
-                @endforeach
-            @endif
+            <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
+                @if(count($packs) > 0)
+                    @foreach($packs as $pack)
+                        <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
+                            <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}">
+                            <div class="block-team-member-1 text-center rounded">
+                                <figure>
+                                    <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
+                                </figure>
+                                <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
+                                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $pack->pack_description; ?></span>
+                                {{ $pack->stock() }}
+                            </div>
+                        </label>
+                    @endforeach
+                @endif
+            </div>
         </div>
     </div>
-</div>
 
-<div class="site-section" id="formdata-section">
-    <div class="container">
-      <div class="row mb-4 justify-content-center">
-          <div class="col-md-7 text-center">
-              <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                  <h2 class="h2-reservation">Finalisez votre réservation !</h2>
-                  <br>
-              </div>
-          </div>
-      </div>
-      <div class="row">
-          <div class="col-md-5" style="margin: 0 auto;">
-              <h5 class="mb-4">Gestion du spa :</h5>
-              <div class="form-group mb-4">
-                  <label for="emplacement">L'emplacement</label>
-                  <select class="form-control" name="emplacement">
-                      <option value="" disabled selected hidden>Choisir l'emplacement du spa</option>
-                      <option value="interieur">Intérieur</option>
-                      <option value="exterieur">Exterieur</option>
-                  </select>
-              </div>
-              <div class="form-group mb-5">
-                  <label for="emplacement">Créneau d'installation</label>
-                  <select class="form-control" name="emplacement" placeholder="">
-                      <option value="" disabled selected hidden>Choisir un moment de la journée</option>
-                      <option value="interieur">Matin (8h à 12h)</option>
-                      <option value="exterieur">Après-Midi (12h à 17h)</option>
-                      <option value="exterieur">Soirée (17h à 21h)</option>
-                  </select>
-              </div>
-              <hr>
-              <h5 class="mt-5 mb-4">Informations personnelles :</h5>
-              <div class="form-group mb-4">
-                  <label for="name">Votre nom et prénom :</label>
-                  <input type="text" id="name" class="form-control" name="name" required>
-              </div>
-              <div class="form-group mb-4">
-                  <label for="email">L'adresse mail :</label>
-                  <input type="email" id="email" class="form-control" name="email" required>
-              </div>
-              <div class="form-group mb-5">
-                  <label for="phone">Numéro de téléphone :</label>
-                  <input type="tel" id="phone" class="form-control" name="phone" required>
-              </div>
-              <hr>
-              <h5 class="mt-5 mb-4">Informations de livraison :</h5>
-              <div class="form-group mb-4">
-                  <label for="adresse1">L'adresse :</label>
-                  <input type="text" id="adresse1" class="form-control" name="adresse1" required>
-              </div>
-              <div class="row">
-                <div class="col-7 form-group mb-4">
-                    <label for="ville">La ville :</label>
-                    <input type="text" id="ville" class="form-control" name="ville" required>
+    <div class="site-section bg-light" id="accessoires-section">
+        <div class="container">
+            <div class="row mb-4 justify-content-center">
+                <div class="col-md-8 text-center">
+                    <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
+                        <h2 class="h2-reservation">Complétez la décoration !</h2>
+                        <br>
+                    </div>
                 </div>
-                <div class="col-5 form-group mb-4">
-                    <label for="cp">Le code postal :</label>
-                    <input type="tel" id="cp" class="form-control" name="cp" required>
-                </div>
-              </div>
-          </div>
-          <!-- <div class="col-md-6">
-              <h4>Récapitulatif</h4>
-          </div> -->
-      </div>
-      <div class="row justify-content-center mt-4">
-        <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
-      </div>
+            </div>
+            <div class="row d-flex justify-content-around btn-group btn-group-toggle checkbox-custom" data-toggle="buttons">
+                @if(count($accessoires) > 0)
+                    @foreach($accessoires as $accessoire)
+                        <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
+                            <input type="checkbox" class="disabled" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}">
+                            <div class="block-team-member-1 text-center rounded">
+                                <figure>
+                                    <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
+                                </figure>
+                                <h3 class="font-size-20 text-black">{{ $accessoire->accessoire_libelle }} - {{ $accessoire->accessoire_prix }}€</h3>
+                                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $accessoire->accessoire_description; ?></span>
+                                {{ $accessoire->stock() }}
+                            </div>
+                        </label>
+                    @endforeach
+                @endif
+            </div>
+        </div>
     </div>
-</div>
+
+    <div class="site-section" id="formdata-section">
+        <div class="container">
+            <div class="row mb-4 justify-content-center">
+                <div class="col-md-7 text-center">
+                    <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
+                        <h2 class="h2-reservation">Finalisez votre réservation !</h2>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5" style="margin: 0 auto;">
+                    <h5 class="mb-4">Gestion du spa :</h5>
+                    <div class="form-group mb-4">
+                        <label for="emplacement">L'emplacement</label>
+                        <select class="form-control" name="emplacement">
+                            <option value="" disabled selected hidden>Choisir l'emplacement du spa</option>
+                            <option value="interieur">Intérieur</option>
+                            <option value="exterieur">Exterieur</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-5">
+                        <label for="emplacement">Créneau d'installation</label>
+                        <select class="form-control" name="emplacement" placeholder="">
+                            <option value="" disabled selected hidden>Choisir un moment de la journée</option>
+                            <option value="interieur">Matin (8h à 12h)</option>
+                            <option value="exterieur">Après-Midi (12h à 17h)</option>
+                            <option value="exterieur">Soirée (17h à 21h)</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <h5 class="mt-5 mb-4">Informations personnelles :</h5>
+                    <div class="form-group mb-4">
+                        <label for="name">Votre nom et prénom :</label>
+                        <input type="text" id="name" class="form-control" name="name">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="email">L'adresse mail :</label>
+                        <input type="email" id="email" class="form-control" name="email">
+                    </div>
+                    <div class="form-group mb-5">
+                        <label for="phone">Numéro de téléphone :</label>
+                        <input type="tel" id="phone" class="form-control" name="phone">
+                    </div>
+                    <hr>
+                    <h5 class="mt-5 mb-4">Informations de livraison :</h5>
+                    <div class="form-group mb-4">
+                        <label for="adresse1">L'adresse :</label>
+                        <input type="text" id="adresse1" class="form-control" name="adresse1">
+                    </div>
+                    <div class="row">
+                        <div class="col-7 form-group mb-4">
+                            <label for="ville">La ville :</label>
+                            <input type="text" id="ville" class="form-control" name="ville">
+                        </div>
+                        <div class="col-5 form-group mb-4">
+                            <label for="cp">Le code postal :</label>
+                            <input type="tel" id="cp" class="form-control" name="cp">
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-6">
+                    <h4>Récapitulatif</h4>
+                </div> -->
+            </div>
+            <div class="row justify-content-center mt-4">
+                <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
+            </div>
+        </div>
+    </div>
+</form>
 
 
 <script>

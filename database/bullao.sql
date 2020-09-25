@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 25 sep. 2020 à 14:37
+-- Généré le : ven. 25 sep. 2020 à 21:05
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -46,12 +46,12 @@ CREATE TABLE `accessoires` (
 --
 
 INSERT INTO `accessoires` VALUES
-(1, 'Enceinte Bose', 'Description', '9.00', 1, 'medias/img/no-image.png', NULL, NULL),
-(2, 'Marche pied', 'Description', '5.00', 0, 'medias/img/no-image.png', NULL, NULL),
-(3, 'Parfum 1', 'Description', '7.00', 0, 'medias/img/no-image.png', NULL, NULL),
-(4, 'Parfum 2', 'Description', '7.00', 0, 'medias/img/no-image.png', NULL, NULL),
-(5, 'Parfum 1', 'Description', '7.00', 0, 'medias/img/no-image.png', NULL, NULL),
-(6, 'Pouf lumineux', 'Description', '5.00', 0, 'medias/img/no-image.png', NULL, NULL);
+(1, 'Enceinte Bose', 'Description', '9.00', 1, 'medias/img/accessoires/enceinte.jpg', NULL, NULL),
+(2, 'Marche pied', 'Description', '5.00', 0, 'medias/img/accessoires/marche-pied.jpg', NULL, NULL),
+(3, 'Parfum 1', 'Description', '7.00', 0, 'medias/img/accessoires/parfum-1.jpg', NULL, NULL),
+(4, 'Parfum 2', 'Description', '7.00', 0, 'medias/img/accessoires/parfum-2.jpg', NULL, NULL),
+(5, 'Parfum 1', 'Description', '7.00', 0, 'medias/img/accessoires/parfum-3.jpg', NULL, NULL),
+(6, 'Pouf lumineux', 'Description', '5.00', 0, 'medias/img/accessoires/pouf.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -187,16 +187,21 @@ CREATE TABLE `reservations` (
   `reservation_prix` decimal(10,2) NOT NULL,
   `reservation_pack_id` int(11) DEFAULT NULL,
   `reservation_prix_pack` decimal(10,2) DEFAULT NULL,
-  `reservation_accessoire_1_id` int(11) DEFAULT NULL,
-  `reservation_prix_accessoire_1` decimal(10,2) DEFAULT NULL,
-  `reservation_accessoire_2_id` int(11) DEFAULT NULL,
-  `reservation_prix_accessoire_2` decimal(10,2) DEFAULT NULL,
-  `reservation_accessoire_3_id` int(11) DEFAULT NULL,
-  `reservation_prix_accessoire_3` decimal(10,2) DEFAULT NULL,
   `reservation_montant_total` decimal(10,2) NOT NULL,
   `reservation_promo` decimal(5,2) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reservations_accessoires`
+--
+
+CREATE TABLE `reservations_accessoires` (
+  `ra_reservation_id` int(11) NOT NULL,
+  `ra_accessoire_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -212,6 +217,7 @@ CREATE TABLE `spas` (
   `spa_nb_place` int(11) NOT NULL DEFAULT '0',
   `spa_desc` text,
   `spa_chemin_img` varchar(100) DEFAULT NULL,
+  `spa_prix` decimal(10,2) NOT NULL DEFAULT '0.00',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -221,11 +227,11 @@ CREATE TABLE `spas` (
 --
 
 INSERT INTO `spas` VALUES
-(1, 1, 'Spa Sahara', 4, 'Couleur sable<br>idéal pour l\'interieur', 'medias/img/spas/couleur-sahara.png', NULL, NULL),
-(2, 1, 'Spa Navy', 4, 'Couleur bleu nuit<br>idéal pour une soirée', 'medias/img/spas/couleur-navy.png', NULL, NULL),
-(3, 1, 'Spa Baltik', 4, 'Couleur gris boisé<br>idéal pour l\'extérieur', 'medias/img/spas/couleur-baltik.png', NULL, NULL),
-(4, 0, 'Spa Navy', 6, 'Rond et bleu nuit<br>idéal pour une soirée', 'medias/img/spas/couleur-navy.png', NULL, NULL),
-(5, 0, 'Spa Baltik', 6, 'Octogonal et gris boisé<br>idéal pour l\'extérieur', 'medias/img/spas/couleur-baltik.png', NULL, NULL);
+(1, 1, 'Spa Sahara', 4, 'Couleur sable<br>idéal pour l\'interieur', 'medias/img/spas/couleur-sahara.png', '90.00', NULL, NULL),
+(2, 1, 'Spa Navy', 4, 'Couleur bleu nuit<br>idéal pour une soirée', 'medias/img/spas/couleur-navy.png', '90.00', NULL, NULL),
+(3, 1, 'Spa Baltik', 4, 'Couleur gris boisé<br>idéal pour l\'extérieur', 'medias/img/spas/couleur-baltik.png', '90.00', NULL, NULL),
+(4, 0, 'Spa Navy', 6, 'Rond et bleu nuit<br>idéal pour une soirée', 'medias/img/spas/couleur-navy.png', '120.00', NULL, NULL),
+(5, 0, 'Spa Baltik', 6, 'Octogonal et gris boisé<br>idéal pour l\'extérieur', 'medias/img/spas/couleur-baltik.png', '120.00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -299,10 +305,14 @@ ALTER TABLE `ranks`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`reservation_id`),
-  ADD KEY `reservation_accessoire_1_id` (`reservation_accessoire_1_id`),
-  ADD KEY `reservation_accessoire_2_id` (`reservation_accessoire_2_id`),
-  ADD KEY `reservation_pack_id` (`reservation_pack_id`),
-  ADD KEY `reservation_accessoire_3_id` (`reservation_accessoire_3_id`);
+  ADD KEY `reservation_pack_id` (`reservation_pack_id`);
+
+--
+-- Index pour la table `reservations_accessoires`
+--
+ALTER TABLE `reservations_accessoires`
+  ADD PRIMARY KEY (`ra_reservation_id`,`ra_accessoire_id`),
+  ADD KEY `ra_accessoire_id` (`ra_accessoire_id`);
 
 --
 -- Index pour la table `spas`
@@ -395,10 +405,14 @@ ALTER TABLE `clients`
 -- Contraintes pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`reservation_accessoire_1_id`) REFERENCES `accessoires` (`accessoire_id`),
-  ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`reservation_accessoire_2_id`) REFERENCES `accessoires` (`accessoire_id`),
-  ADD CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`reservation_pack_id`) REFERENCES `packs` (`pack_id`),
-  ADD CONSTRAINT `reservations_ibfk_4` FOREIGN KEY (`reservation_accessoire_3_id`) REFERENCES `accessoires` (`accessoire_id`);
+  ADD CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`reservation_pack_id`) REFERENCES `packs` (`pack_id`);
+
+--
+-- Contraintes pour la table `reservations_accessoires`
+--
+ALTER TABLE `reservations_accessoires`
+  ADD CONSTRAINT `reservations_accessoires_ibfk_1` FOREIGN KEY (`ra_reservation_id`) REFERENCES `reservations` (`reservation_id`),
+  ADD CONSTRAINT `reservations_accessoires_ibfk_2` FOREIGN KEY (`ra_accessoire_id`) REFERENCES `accessoires` (`accessoire_id`);
 
 --
 -- Contraintes pour la table `users`
