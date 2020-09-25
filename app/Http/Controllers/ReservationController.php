@@ -7,6 +7,8 @@ use App\Spa;
 use App\Pack;
 use App\Accessoire;
 use Illuminate\Http\Request;
+use App\Reservation;
+use Illuminate\Support\Facades\Session;
 
 class ReservationController extends Controller
 {
@@ -106,14 +108,12 @@ class ReservationController extends Controller
             'adresse1'          => 'required',
             'ville'             => 'required',
             'cp'                => 'required'
-        ]);
+        ]);*/
 
         $reservation                            = new Reservation;
         $reservation->create($request);
 
-        Session::put('success', 'L\'annonce a bien été ajoutée.');
-        return redirect('/administration/annonce/edit/'.$annonce->logement_id);*/
-
-        echo $request->daterange;
+        Session::put('reservation', $reservation->reservation_id);
+        return redirect('/reservation/paiement');
     }
 }

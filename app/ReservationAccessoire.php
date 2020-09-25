@@ -10,10 +10,10 @@ class ReservationAccessoire extends Model
     protected $connection = 'mysql';
     protected $table = 'reservations_accessoires';
     
-    public function create($array)
+    public function create($accessoire_id, $reservation_id)
     {
-        $this->ra_reservation    = $array->reservation;
-        $this->ra_accessoire     = $array->accessoire;
+        $this->ra_reservation_id    = $reservation_id;
+        $this->ra_accessoire_id     = $accessoire_id;
         $this->save();
     }
 

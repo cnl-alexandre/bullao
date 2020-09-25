@@ -104,8 +104,8 @@
 
                 @if(count($spas) > 0)
                     @foreach($spas as $spa)
-                        <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                            <input type="radio" class="spa-recap" name="spa" id="spa-{{ $spa->spa_id }}" autocomplete="off" value="{{ $spa->spa_id }}" rel="{{ $spa->spa_prix }}">
+                        <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap" data-aos="fade-up" rel="{{ $spa->spa_prix }}">
+                            <input type="radio" name="spa" id="spa-{{ $spa->spa_id }}" autocomplete="off" value="{{ $spa->spa_id }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
                                     <img src="{{ url($spa->spa_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
@@ -133,7 +133,7 @@
             <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
                 @if(count($packs) > 0)
                     @foreach($packs as $pack)
-                        <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
+                        <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" id="label-pack-{{ $pack->pack_id }}" data-aos="fade-up">
                             <input type="radio" class="pack-recap" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}"  rel="{{ $pack->pack_prix }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
@@ -146,6 +146,9 @@
                         </label>
                     @endforeach
                 @endif
+            </div>
+            <div class="text-center">
+                <button  class="btn btn-link" id="btn-pack-clear">Supprimer le pack</button>
             </div>
         </div>
     </div>
@@ -258,14 +261,15 @@
                         <label for="promo">Code promo :</label>
                         <input type="text" id="promo" class="form-control" name="promo">
                     </div>
-                    <input type="text" name="prix" id="prix" value="" hidden>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <h4>Récapitulatif</h4>
                 </div>
             </div>
             <div class="row justify-content-center mt-4">
-              <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
+                <input type="hidden" name="prix" id="prix">
+                <input type="hidden" name="montant_total" id="montant_total">
+                <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
             </div>
         </div>
     </div>
@@ -274,6 +278,22 @@
 
 
 <script>
+
+    $(".spa-recap").click(function() {
+        var prix = $(this).attr("rel");
+        $('#prix').val(prix);
+        $('#montant_total').val(prix);
+    });
+
+    @if(count($packs) > 0)
+        $("#btn-pack-clear").click(function() {
+            @foreach($packs as $pack)
+                console.log('la');
+                $("#label-pack-{{ $pack->pack_id }}").removeClass("active");
+            @endforeach
+            return false;
+        });
+    @endif
 
     $(document).ready(function() {
 

@@ -14,8 +14,6 @@
 
         <link rel="stylesheet" href="{{ url('/css/customer/aos.css') }}">
 
-        <!-- <link rel="stylesheet" href="{{ url('/css/customer/daterangepicker.css') }}"> -->
-
         <link rel="stylesheet" href="{{ url('/css/customer/style.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/custom.css') }}">
 
@@ -46,13 +44,13 @@
         <script src="{{ url('/js/customer/jquery.sticky.js') }}"></script>
         <script src="{{ url('/js/customer/jquery.waypoints.min.js') }}"></script>
         <script src="{{ url('/js/customer/jquery.magnific-popup.min.js') }}"></script>
-        <!-- <script src="{{ url('/js/customer/bootstrap-datepicker.min.js') }}"></script> -->
         <script src="{{ url('/js/customer/aos.js') }}"></script>
         <script src="{{ url('/js/customer/slick.min.js') }}"></script>
         <script src="{{ url('/js/customer/typed.js') }}"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
         <script src="{{ url('/js/customer/main.js') }}"></script>
+        <script src="{{ url('/js/customer/functions.js') }}"></script>
     </body>
 
     <script async type="text/javascript" src="https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/97a46987366d4fc1a2fcbc378a7e6083639ed01f06c64dc19d0d10401fe30d47.js"></script> 

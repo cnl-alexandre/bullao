@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use App\Client;
+use App\ReservationAccessoire;
+use App\Pack;
 
 class Reservation extends Model
 {
@@ -14,30 +16,46 @@ class Reservation extends Model
     
     public function accessoires()
     {
-        return $this->hasMany('App\Accessoire', 'ra_accessoire_id');
+        return $this->hasMany('App\ReservationAccessoire', 'ra_accessoire_id');
     }
     
     public function create($array)
     {
-        $this->reservation_date_debut           = $array->date_debut;
-        $this->reservation_date_fin             = $array->date_fin;
+        $daterange = $array->daterange;
+        $dates = explode(' - ', $daterange);
+
+        $dateDebut = $this->dateFr2Us($dates[0]);
+        $dateFin = $this->dateFr2Us($dates[1]);
+
+        $this->reservation_date_debut           = $dateDebut;
+        $this->reservation_date_fin             = $dateFin;
         $this->reservation_emplacement          = $array->emplacement;
         $this->reservation_type_logement        = $array->type_logement;
+        $this->reservation_creneau              = $array->creneau;
         $this->reservation_prix                 = $array->prix;
-        $this->reservation_pack_id              = $array->pack;
-        $this->reservation_prix_pack            = $array->prix_pack;
-        $this->reservation_accessoire_1_id      = $array->accessoire_1_id;
-        $this->reservation_prix_accessoire_1    = $array->prix_accessoire_1;
-        $this->reservation_accessoire_2_id      = $array->accessoire_2_id;
-        $this->reservation_prix_accessoire_2    = $array->prix_accessoire_2;
-        $this->reservation_accessoire_3_id      = $array->accessoire_3_id;
-        $this->reservation_prix_accessoire_3    = $array->prix_accessoire_3;
+
+        if($array->pack != "")
+        {
+            $this->reservation_pack_id          = $array->pack;
+            $pack = Pack::find($array->pack);
+            $this->reservation_prix_pack        = $pack->pack_prix;
+        }
+
         $this->reservation_montant_total        = $array->montant_total;
         $this->reservation_promo                = $array->promo;
         $this->save();
 
-        $client = new Client;
-        $client->create($array);
+        if(count($array->accessoires) > 0)
+        {
+            foreach($array->accessoires as $accessoire)
+            {
+                $reservationAccessoire = new ReservationAccessoire;
+                $reservationAccessoire->create($accessoire, $this->reservation_id);
+            }
+        }
+
+        /*$client = new Client;
+        $client->create($array);*/
     }
     
     public function getDateCreatedAttribute()
@@ -48,5 +66,27 @@ class Reservation extends Model
     public function getDateUpdatedAttribute()
     {
         return Carbon::parse($this->attributes['updated_at']);
+    }
+
+    function dateUs2Fr($date)
+    {
+        $split = explode("-",$date);
+
+        $annee = $split[0];
+        $mois = $split[1];
+        $jour = $split[2];
+
+        return "$jour"."/"."$mois"."/"."$annee";
+    }
+
+    function dateFr2Us($date)
+    {
+        $split = explode("/",$date);
+
+        $annee = $split[2];
+        $mois = $split[1];
+        $jour = $split[0];
+
+        return "$annee"."-"."$mois"."-"."$jour";
     }
 }
