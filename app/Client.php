@@ -16,11 +16,12 @@ class Client extends Model
     {
         return $this->belongsTo('App\User', 'client_user_id', 'user_id');
     }
-    
+
     public function create($array)
     {
         $this->client_name          = $array->name;
         $this->client_adresse_1     = $array->adresse1;
+        $this->client_adresse_2     = $array->adresse2;
         $this->client_cp            = $array->cp;
         $this->client_ville         = $array->ville;
         $this->client_email         = $array->email;
@@ -34,12 +35,12 @@ class Client extends Model
         Session::pull('Client');
         Session::put('Client', $this);
     }
-    
+
     public function getDateCreatedAttribute()
     {
         return Carbon::parse($this->attributes['created_at']);
     }
-    
+
     public function getDateUpdatedAttribute()
     {
         return Carbon::parse($this->attributes['updated_at']);

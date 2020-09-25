@@ -25,6 +25,8 @@
                         <li>Spa intex jusqu'à 4 places</li>
                         <li>120-140 diffuseurs de bulles</li>
                         <li>2 appui-têtes Classique</li>
+                        <li>1 porte-verre double</li>
+                        <li>1 Spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
                     </ul>
@@ -46,6 +48,8 @@
                         <li>Spa intex jusqu'à 6 places</li>
                         <li>170 diffuseurs de bulles</li>
                         <li>2 appui-têtes Deluxe</li>
+                        <li>2 porte-verre double</li>
+                        <li>1 Spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
                     </ul>
@@ -60,8 +64,11 @@
         </div>
     </div>
 </section>
-<form action="{{ url('/reservation') }}" method="post">
-    {{ csrf_field() }}
+
+<form class="" action="{{ url('/reservation') }}" method="post">
+
+{{ csrf_field() }}
+
     <div class="site-section" id="datepicker-section">
         <div class="container">
             <div class="row mb-4 justify-content-center">
@@ -71,10 +78,10 @@
                         <br>
 
                         <div class="text-center" id="containerdaterange" style="height:330px;">
-                        <div class="form-group">
-                            <label for="daterange">Dates de résevation</label>
-                            <input type="text" id="daterange" class="form-control daterange text-center" name="daterange">
-                        </div>
+                          <div class="form-group">
+                              <label for="daterange">Dates de résevation</label>
+                              <input type="text" id="daterange" class="form-control daterange text-center" name="daterange">
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -98,13 +105,13 @@
                 @if(count($spas) > 0)
                     @foreach($spas as $spa)
                         <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                            <input type="radio" name="spa" id="spa-{{ $spa->spa_id }}" autocomplete="off" value="{{ $spa->spa_id }}">
+                            <input type="radio" name="spa" id="spa-{{ $spa->spa_id }}" autocomplete="off" value="{{ $spa->spa_id }}" rel="{{ $spa->spa_prix }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
                                     <img src="{{ url($spa->spa_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
                                 <h3 class="font-size-20 text-black">{{ $spa->spa_libelle }}</h3>
-                                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $spa->spa_desc; ?></span>
+                                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3"><?php echo $spa->spa_desc; ?></span>
                             </div>
                         </label>
                     @endforeach
@@ -127,13 +134,13 @@
                 @if(count($packs) > 0)
                     @foreach($packs as $pack)
                         <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                            <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}">
+                            <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}"  rel="{{ $pack->pack_prix }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
                                     <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
                                 <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
-                                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $pack->pack_description; ?></span>
+                                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3"><?php echo $pack->pack_description; ?></span>
                                 {{ $pack->stock() }}
                             </div>
                         </label>
@@ -156,14 +163,14 @@
             <div class="row d-flex justify-content-around btn-group btn-group-toggle checkbox-custom" data-toggle="buttons">
                 @if(count($accessoires) > 0)
                     @foreach($accessoires as $accessoire)
-                        <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                            <input type="checkbox" class="disabled" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}">
+                        <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-3 col-md-4 mb-3" data-aos="fade-up">
+                            <input type="checkbox" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}" rel="{{ $accessoire->accessoire_prix }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
                                     <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
-                                <h3 class="font-size-20 text-black">{{ $accessoire->accessoire_libelle }} - {{ $accessoire->accessoire_prix }}€</h3>
-                                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"><?php echo $accessoire->accessoire_description; ?></span>
+                                <h3 class="font-size-18 text-black">{{ $accessoire->accessoire_libelle }}</h3>
+                                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3">{{ $accessoire->accessoire_prix }}€</span>
                                 {{ $accessoire->stock() }}
                             </div>
                         </label>
@@ -184,8 +191,16 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-5" style="margin: 0 auto;">
+                <div class="col-lg-5 col-md-6" style="margin: 0 auto;">
                     <h5 class="mb-4">Gestion du spa :</h5>
+                    <div class="form-group mb-4">
+                        <label for="type_logement">Type d'habitation</label>
+                        <select class="form-control" name="type_logement">
+                            <option value="" disabled selected hidden>Choisir le type d'habitation</option>
+                            <option value="maison">Maison</option>
+                            <option value="appartement">Appartement</option>
+                        </select>
+                    </div>
                     <div class="form-group mb-4">
                         <label for="emplacement">L'emplacement</label>
                         <select class="form-control" name="emplacement">
@@ -195,12 +210,12 @@
                         </select>
                     </div>
                     <div class="form-group mb-5">
-                        <label for="emplacement">Créneau d'installation</label>
-                        <select class="form-control" name="emplacement" placeholder="">
+                        <label for="creneau">Créneau d'installation</label>
+                        <select class="form-control" name="creneau" placeholder="">
                             <option value="" disabled selected hidden>Choisir un moment de la journée</option>
-                            <option value="interieur">Matin (8h à 12h)</option>
-                            <option value="exterieur">Après-Midi (12h à 17h)</option>
-                            <option value="exterieur">Soirée (17h à 21h)</option>
+                            <option value="matin">Matin (8h à 12h)</option>
+                            <option value="aprem">Après-Midi (12h à 17h) Recommandé</option>
+                            <option value="soir">Soirée (17h à 21h)</option>
                         </select>
                     </div>
                     <hr>
@@ -224,14 +239,24 @@
                         <input type="text" id="adresse1" class="form-control" name="adresse1">
                     </div>
                     <div class="row">
-                        <div class="col-7 form-group mb-4">
-                            <label for="ville">La ville :</label>
-                            <input type="text" id="ville" class="form-control" name="ville">
-                        </div>
-                        <div class="col-5 form-group mb-4">
-                            <label for="cp">Le code postal :</label>
-                            <input type="tel" id="cp" class="form-control" name="cp">
-                        </div>
+                      <div class="col-7 form-group">
+                          <label for="ville">La ville :</label>
+                          <input type="text" id="ville" class="form-control" name="ville">
+                      </div>
+                      <div class="col-5 form-group">
+                          <label for="cp">Le code postal :</label>
+                          <input type="tel" id="cp" class="form-control" name="cp">
+                      </div>
+                    </div>
+                    <div class="form-group mb-5">
+                        <label for="adresse2">Complément d'adresse :</label>
+                        <input type="text" id="adresse2" class="form-control" name="adresse2">
+                    </div>
+                    <hr>
+                    <h5 class="mt-5 mb-4">Vous avez une réduction ?</h5>
+                    <div class="form-group mb-4">
+                        <label for="promo">Code promo :</label>
+                        <input type="text" id="promo" class="form-control" name="promo">
                     </div>
                 </div>
                 <!-- <div class="col-md-6">
@@ -239,60 +264,15 @@
                 </div> -->
             </div>
             <div class="row justify-content-center mt-4">
-                <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
+              <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
             </div>
         </div>
     </div>
+
 </form>
 
 
 <script>
-
-    $("#btnMessageSent").click(function() {
-        var type = $("input[name='type']:checked").val();
-
-        var name = $('#name').val();
-        var phone = $('#tel').val();
-        var email = $('#mail').val();
-        var note = $('#note').val();
-        var rgpd = $('#rgpd').val();
-
-        if(type != "" && name != "" && (phone != "" || email != "") && note != "" && rgpd != "")
-        {
-            $('#btnMessageSent').val("Envoi en cours...");
-            $('#btnMessageSent').attr("disabled", "disabled");
-
-            $.ajax({
-                url : "{{ url('/send-message') }}",
-                type : 'POST',
-                data : '_token={{ csrf_token() }}&type=' + type + '&name=' + name + '&phone=' + phone + '&email=' + email + '&note=' + note,
-                success : function(response, statut){
-                    $('#modalMessageSent').modal();
-
-                    $('#name').val(null);
-                    $('#tel').val(null);
-                    $('#mail').val(null);
-                    $('#note').val(null);
-                    $('#rgpd').prop("checked", false);
-
-                    $('#divError').html(null);
-
-                    $('#btnMessageSent').val("Envoyer");
-                    $('#btnMessageSent').attr("disabled", false);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    $('#divError').html(jqXHR.responseText);
-
-                    $('#btnMessageSent').val("Envoyer");
-                    $('#btnMessageSent').attr("disabled", false);
-                }
-            });
-        }
-        else
-        {
-            $('#divError').html('Un des champs n\'est pas rempli...');
-        }
-    });
 
     $(document).ready(function() {
 
