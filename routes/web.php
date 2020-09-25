@@ -19,6 +19,10 @@ Route::get('/reservation', 'ReservationController@reservation');
 Route::get('/reservation/{nbPlace}places', 'ReservationController@reservation');
 Route::post('/reservation', 'ReservationController@reservationSubmit');
 
+// PRESS & ARTICLES
+Route::get('/cgv-bullao', 'ArticleController@cgv');
+Route::get('/mentions-legales', 'ArticleController@mentions');
+
 // LOGIN
 Route::get('/account/login', 'AccountController@login');
 Route::post('/account/login', 'AccountController@loginSubmit');
