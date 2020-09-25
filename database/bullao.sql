@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 23 sep. 2020 à 21:44
+-- Généré le : ven. 25 sep. 2020 à 14:37
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -46,12 +46,12 @@ CREATE TABLE `accessoires` (
 --
 
 INSERT INTO `accessoires` VALUES
-(1, 'Enceinte Bose', 'Description', '9.00', 1, '', NULL, NULL),
-(2, 'Marche pied', 'Description', '5.00', 0, '', NULL, NULL),
-(3, 'Parfum 1', 'Description', '7.00', 0, '', NULL, NULL),
-(4, 'Parfum 2', 'Description', '7.00', 0, '', NULL, NULL),
-(5, 'Parfum 1', 'Description', '7.00', 0, '', NULL, NULL),
-(6, 'Pouf lumineux', 'Description', '5.00', 0, '', NULL, NULL);
+(1, 'Enceinte Bose', 'Description', '9.00', 1, 'medias/img/no-image.png', NULL, NULL),
+(2, 'Marche pied', 'Description', '5.00', 0, 'medias/img/no-image.png', NULL, NULL),
+(3, 'Parfum 1', 'Description', '7.00', 0, 'medias/img/no-image.png', NULL, NULL),
+(4, 'Parfum 2', 'Description', '7.00', 0, 'medias/img/no-image.png', NULL, NULL),
+(5, 'Parfum 1', 'Description', '7.00', 0, 'medias/img/no-image.png', NULL, NULL),
+(6, 'Pouf lumineux', 'Description', '5.00', 0, 'medias/img/no-image.png', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,9 +147,9 @@ CREATE TABLE `packs` (
 --
 
 INSERT INTO `packs` VALUES
-(1, 'Pack Fun', 'Description', 1, '20.00', '', NULL, NULL),
-(2, 'Pack Romance', 'Description', 1, '20.00', '', NULL, NULL),
-(3, 'Pack Chill', 'Description', 1, '20.00', '', NULL, NULL);
+(1, 'Pack Fun', 'Description', 1, '20.00', 'medias/img/no-image.png', NULL, NULL),
+(2, 'Pack Romance', 'Description', 1, '20.00', 'medias/img/no-image.png', NULL, NULL),
+(3, 'Pack Chill', 'Description', 1, '20.00', 'medias/img/no-image.png', NULL, NULL);
 
 -- --------------------------------------------------------
 
