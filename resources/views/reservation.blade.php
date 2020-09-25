@@ -105,7 +105,7 @@
                 @if(count($spas) > 0)
                     @foreach($spas as $spa)
                         <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                            <input type="radio" name="spa" id="spa-{{ $spa->spa_id }}" autocomplete="off" value="{{ $spa->spa_id }}" rel="{{ $spa->spa_prix }}">
+                            <input type="radio" class="spa-recap" name="spa" id="spa-{{ $spa->spa_id }}" autocomplete="off" value="{{ $spa->spa_id }}" rel="{{ $spa->spa_prix }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
                                     <img src="{{ url($spa->spa_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
@@ -134,7 +134,7 @@
                 @if(count($packs) > 0)
                     @foreach($packs as $pack)
                         <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                            <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}"  rel="{{ $pack->pack_prix }}">
+                            <input type="radio" class="pack-recap" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}"  rel="{{ $pack->pack_prix }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
                                     <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
@@ -164,7 +164,7 @@
                 @if(count($accessoires) > 0)
                     @foreach($accessoires as $accessoire)
                         <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-3 col-md-4 mb-3" data-aos="fade-up">
-                            <input type="checkbox" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}" rel="{{ $accessoire->accessoire_prix }}">
+                            <input type="checkbox" class="accessoire-recap" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}" rel="{{ $accessoire->accessoire_prix }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
                                     <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
@@ -191,7 +191,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-5 col-md-6" style="margin: 0 auto;">
+                <div class="col-lg-6 col-md-6" >
                     <h5 class="mb-4">Gestion du spa :</h5>
                     <div class="form-group mb-4">
                         <label for="type_logement">Type d'habitation</label>
@@ -258,10 +258,11 @@
                         <label for="promo">Code promo :</label>
                         <input type="text" id="promo" class="form-control" name="promo">
                     </div>
+                    <input type="text" name="prix" id="prix" value="" hidden>
                 </div>
-                <!-- <div class="col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <h4>Récapitulatif</h4>
-                </div> -->
+                </div>
             </div>
             <div class="row justify-content-center mt-4">
               <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
