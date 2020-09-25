@@ -39,4 +39,6 @@
 
         <script src="{{ url('/js/customer/main.js') }}"></script>
     </body>
+
+    <script async type="text/javascript" src="https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/97a46987366d4fc1a2fcbc378a7e6083639ed01f06c64dc19d0d10401fe30d47.js"></script> 
 </html>
