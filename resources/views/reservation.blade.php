@@ -1,4 +1,4 @@
-@extends('layouts.reservation')
+@extends('layouts.tunnel')
 
 @section('pageTitle', 'Réservation | '.env('APP_NAME'))
 
@@ -74,7 +74,6 @@
                           <label for="daterange">Dates de résevation</label>
                           <input type="text" id="daterange" class="form-control daterange text-center" name="daterange">
                       </div>
-                        <!-- <input type="text" id="daterangeend" class="daterange" name="daterangeend"> -->
                     </div>
                 </div>
             </div>
@@ -109,26 +108,6 @@
                     </label>
                 @endforeach
             @endif
-
-            <!--
-            <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                <div class="block-team-member-1 text-center rounded">
-                    <figure>
-                        <img src="{{ url('medias/img/spas/couleur-navy.png') }}" alt="Image" class="img-fluid rounded-circle">
-                    </figure>
-                    <h3 class="font-size-20 text-black">Spa Navy</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Couleur bleu nuit<br> idéal pour une soirée</span>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up">
-                <div class="block-team-member-1 text-center rounded">
-                    <figure>
-                        <img src="{{ url('medias/img/spas/couleur-baltik.png') }}" alt="Image" class="img-fluid rounded-circle">
-                    </figure>
-                    <h3 class="font-size-20 text-black">Spa Baltik</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Couleur gris broisé<br> idéal pour l'extérieur</span>
-                </div>
-            </div> -->
         </div>
     </div>
 </div>

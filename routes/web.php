@@ -23,6 +23,11 @@ Route::post('/reservation', 'ReservationController@reservationSubmit');
 Route::get('/cgv-bullao', 'ArticleController@cgv');
 Route::get('/mentions-legales', 'ArticleController@mentions');
 
+// PAIEMENT
+Route::get('/reservation/paiement', 'PaiementController@paiement');
+Route::get('/reservation/paiement-accepte', 'PaiementController@success');
+Route::get('/reservation/paiement-refuse', 'PaiementController@cancel');
+
 // LOGIN
 Route::get('/account/login', 'AccountController@login');
 Route::post('/account/login', 'AccountController@loginSubmit');
