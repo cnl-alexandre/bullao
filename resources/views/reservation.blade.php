@@ -146,7 +146,7 @@
         <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
             @if(count($packs) > 0)
                 @foreach($packs as $pack)
-                    <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 disabled" data-aos="fade-up">
+                    <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
                         <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}">
                         <div class="block-team-member-1 text-center rounded">
                             <figure>
@@ -178,7 +178,7 @@
                 @foreach($accessoires as $accessoire)
                     <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-4 col-md-6 mb-3" data-aos="fade-up">
                         <input type="checkbox" class="disabled" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}">
-                        <div class="block text-center rounded">
+                        <div class="block-team-member-1 text-center rounded">
                             <figure>
                                 <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                             </figure>

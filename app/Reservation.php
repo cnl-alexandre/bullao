@@ -12,6 +12,11 @@ class Reservation extends Model
     protected $table = 'reservations';
     protected $primaryKey = 'reservation_id';
     
+    public function accessoires()
+    {
+        return $this->hasMany('App\Accessoire', 'ra_accessoire_id');
+    }
+    
     public function create($array)
     {
         $this->reservation_date_debut           = $array->date_debut;

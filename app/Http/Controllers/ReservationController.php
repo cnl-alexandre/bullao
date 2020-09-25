@@ -21,6 +21,12 @@ class ReservationController extends Controller
         $packs          = Pack::orderby('pack_id', 'ASC')->get();
         $accessoires    = Accessoire::orderby('accessoire_id', 'ASC')->get();
 
+        // $spaArray = [];
+        // foreach($spas as $spa)
+        // {
+        //     array_push($spaArray, array($spa['spa_id'], $spa['spa_libelle'], $spa['spa_chemin_img'], $spa['spa_desc'], ));
+        // }
+
         return view('reservation')->with([
             'indispos'      => $indispos,
             'spas'          => $spas,

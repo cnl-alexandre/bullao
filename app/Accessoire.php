@@ -10,6 +10,11 @@ class Accessoire extends Model
     protected $connection = 'mysql';
     protected $table = 'accessoires';
     protected $primaryKey = 'accessoire_id';
+
+    public function reservations()
+    {
+        return $this->hasMany('App\Reservation', 'ra_reservation_id');
+    }
     
     public function create($array)
     {
