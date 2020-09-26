@@ -197,7 +197,7 @@
         <div class="row mb-5">
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="" style="margin-left: auto;margin-right: 0;">
                 <div class="pricing">
-                    <h3 class="text-center text-black">1 soirée</h3>
+                    <h3 class="text-center text-black">1 soirée (24h)</h3>
                     <div class="price text-center mb-4 ">
                         <span><span>90€</span></span>
                     </div>
@@ -205,12 +205,14 @@
                         <li>Spa intex jusqu'à 4 places</li>
                         <li>120-140 diffuseurs de bulles</li>
                         <li>2 appui-têtes Classique</li>
+                        <li>1 porte-verre double</li>
+                        <li>1 Spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
                     </ul>
-                    <ul class="list-unstyled mb-4 text-center">
+                    <!-- <ul class="list-unstyled mb-4 text-center">
                         <li>-10% du lundi au jeudi !</li>
-                    </ul>
+                    </ul> -->
                     <p class="text-center">
                         <a href="{{ url('/reservation/4places') }}" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
@@ -218,7 +220,7 @@
             </div>
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">
                 <div class="pricing">
-                    <h3 class="text-center text-black">1 soirée XL</h3>
+                    <h3 class="text-center text-black">1 soirée XL (24h)</h3>
                     <div class="price text-center mb-4 ">
                         <span><span>120€</span></span>
                     </div>
@@ -226,12 +228,14 @@
                         <li>Spa intex jusqu'à 6 places</li>
                         <li>170 diffuseurs de bulles</li>
                         <li>2 appui-têtes Deluxe</li>
+                        <li>2 porte-verre double</li>
+                        <li>1 Spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
                     </ul>
-                    <ul class="list-unstyled mb-4 text-center">
+                    <!-- <ul class="list-unstyled mb-4 text-center">
                         <li>-10% du lundi au jeudi !</li>
-                    </ul>
+                    </ul> -->
                     <p class="text-center">
                         <a href="{{ url('/reservation/6places') }}" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
