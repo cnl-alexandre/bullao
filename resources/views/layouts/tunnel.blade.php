@@ -19,7 +19,10 @@
 
         <script src="{{ url('/js/customer/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-        <script src="{{ url('/js/customer/jquery.daterangepicker.min.js') }}"></script>
+
+        <script src="https://js.stripe.com/v3/"></script>
+
+        <script src="{{ url('/js/customer/functions.js') }}"></script>
     </head>
     <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
         <div class="site-wrap">
@@ -50,7 +53,6 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
         <script src="{{ url('/js/customer/main.js') }}"></script>
-        <script src="{{ url('/js/customer/functions.js') }}"></script>
     </body>
 
     <script async type="text/javascript" src="https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/97a46987366d4fc1a2fcbc378a7e6083639ed01f06c64dc19d0d10401fe30d47.js"></script> 

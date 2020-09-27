@@ -101,10 +101,9 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
-
                 @if(count($spas) > 0)
                     @foreach($spas as $spa)
-                        <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap" data-aos="fade-up" rel="{{ $spa->spa_prix }}">
+                        <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap" data-aos="fade-up" rel="{{ $spa->spa_prix }}" rel2="{{ $spa->spa_libelle }} {{ $spa->spa_nb_place }} places">
                             <input type="radio" name="spa" id="spa-{{ $spa->spa_id }}" autocomplete="off" value="{{ $spa->spa_id }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
@@ -117,6 +116,7 @@
                     @endforeach
                 @endif
             </div>
+            <input type="hidden" name="prixSpa" id="prixSpa" value="0.00">
         </div>
     </div>
 
@@ -133,8 +133,8 @@
             <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
                 @if(count($packs) > 0)
                     @foreach($packs as $pack)
-                        <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3" id="label-pack-{{ $pack->pack_id }}" data-aos="fade-up">
-                            <input type="radio" class="pack-recap" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}"  rel="{{ $pack->pack_prix }}">
+                        <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 pack-recap" id="label-pack-{{ $pack->pack_id }}" data-aos="fade-up" rel="{{ $pack->pack_prix }}" rel2="{{ $pack->pack_libelle }}">
+                            <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
                                     <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
@@ -150,6 +150,7 @@
             <div class="text-center">
                 <button  class="btn btn-link" id="btn-pack-clear">Supprimer le pack</button>
             </div>
+            <input type="hidden" name="prixPack" id="prixPack" value="0.00">
         </div>
     </div>
 
@@ -166,8 +167,8 @@
             <div class="row d-flex justify-content-around btn-group btn-group-toggle checkbox-custom" data-toggle="buttons">
                 @if(count($accessoires) > 0)
                     @foreach($accessoires as $accessoire)
-                        <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-3 col-md-4 mb-3" data-aos="fade-up">
-                            <input type="checkbox" class="accessoire-recap" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}" rel="{{ $accessoire->accessoire_prix }}">
+                        <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-3 col-md-4 mb-3 accessoire-recap" data-aos="fade-up">
+                            <input type="checkbox" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}" rel="{{ $accessoire->accessoire_prix }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
                                     <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
@@ -180,6 +181,7 @@
                     @endforeach
                 @endif
             </div>
+            <input type="hidden" name="prixAccessoire" id="prixAccessoire" value="0.00">
         </div>
     </div>
 
@@ -264,6 +266,47 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <h4>Récapitulatif</h4>
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            Date début
+                        </div>
+                        <div class="col-6 text-right">
+                            <span id="recap-date-debut"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            Date fin
+                        </div>
+                        <div class="col-6 text-right">
+                            <span id="recap-date-fin"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            <span id="recap-spa-libelle"></span>
+                        </div>
+                        <div class="col-6 text-right">
+                            <span id="recap-spa-prix"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            <span id="recap-pack-libelle"></span>
+                        </div>
+                        <div class="col-6 text-right">
+                            <span id="recap-pack-prix"></span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            <h3>TOTAL</h3>
+                        </div>
+                        <div class="col-6 text-right">
+                            <span id="recap-montant-total">0.00</span>€
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center mt-4">
@@ -279,11 +322,47 @@
 
 <script>
 
-    $(".spa-recap").click(function() {
-        var prix = $(this).attr("rel");
-        $('#prix').val(prix);
-        $('#montant_total').val(prix);
+    $(".daterange").change(function() {
+        var d = $('#daterange').val();
+        var dates = d.split(" - ");
+
+        $('#recap-date-debut').html(dates[0]);
+        $('#recap-date-fin').html(dates[1]);
     });
+
+    $(".spa-recap").click(function() {
+        var prixSpa = $(this).attr("rel");
+        var spa = $(this).attr("rel2");
+
+        $('#recap-spa-libelle').html(spa);
+        $('#recap-spa-prix').html(prixSpa+"€");
+
+        $('#prix').val(prixSpa);
+
+        // Montant total
+        var d = $('#daterange').val();
+        var dates = d.split(" - ");
+        var p = calculPrixReservation(dates[0], dates[1], prixSpa);
+
+        $('#montant_total').val(p);
+        $('#recap-montant-total').html(p);
+    });
+
+    $(".pack-recap").click(function() {
+        var pack = $(this).attr("rel2");
+        var prix = $(this).attr("rel");
+
+        $('#recap-pack-libelle').html(pack);
+        $('#recap-pack-prix').html(prix+"€");
+    });
+
+    /*$(".accessoire-recap").click(function() {
+        var pack = $(this).attr("rel2");
+        var prix = $(this).attr("rel");
+
+        $('#recap-pack-libelle').html(pack);
+        $('#recap-pack-prix').html(prix+"€");
+    });*/
 
     @if(count($packs) > 0)
         $("#btn-pack-clear").click(function() {

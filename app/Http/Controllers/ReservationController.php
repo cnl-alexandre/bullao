@@ -97,18 +97,19 @@ class ReservationController extends Controller
 
     public function reservationSubmit(Request $request)
     {
-        /*$this->validate($request,[
+        $this->validate($request,[
             'daterange'         => 'required',
             'spa'               => 'required',
             'emplacement'       => 'required',
             'installation'      => 'required',
+            'creneau'           => 'required',
             'name'              => 'required',
             'email'             => 'required',
             'phone'             => 'required',
             'adresse1'          => 'required',
             'ville'             => 'required',
             'cp'                => 'required'
-        ]);*/
+        ]);
 
         $reservation                            = new Reservation;
         $reservation->create($request);
