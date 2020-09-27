@@ -167,8 +167,8 @@
             <div class="row d-flex justify-content-around btn-group btn-group-toggle checkbox-custom" data-toggle="buttons">
                 @if(count($accessoires) > 0)
                     @foreach($accessoires as $accessoire)
-                        <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-3 col-md-4 mb-3 accessoire-recap" data-aos="fade-up">
-                            <input type="checkbox" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}" rel="{{ $accessoire->accessoire_prix }}">
+                        <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-3 col-md-4 mb-3 accessoire-recap" data-aos="fade-up" rel="{{ $accessoire->accessoire_prix }}" rel2="{{ $accessoire->accessoire_libelle }}">
+                            <input type="checkbox" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
                                     <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
@@ -276,6 +276,14 @@
                     </div>
                     <div class="row">
                         <div class="col-6 text-left">
+                        <span id="recap-jours-libelle"></span>
+                        </div>
+                        <div class="col-6 text-right">
+                            <span id="recap-jours-prix"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-left">
                             Date fin
                         </div>
                         <div class="col-6 text-right">
@@ -298,6 +306,14 @@
                             <span id="recap-pack-prix"></span>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            <span id="recap-accessoires-libelle"></span>
+                        </div>
+                        <div class="col-6 text-right">
+                            <span id="recap-accessoires-prix"></span>
+                        </div>
+                    </div>
                     <hr>
                     <div class="row">
                         <div class="col-6 text-left">
@@ -310,8 +326,8 @@
                 </div>
             </div>
             <div class="row justify-content-center mt-4">
-                <input type="hidden" name="prix" id="prix">
                 <input type="hidden" name="montant_total" id="montant_total">
+                <input type="hidden" name="prix" id="prix">
                 <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
             </div>
         </div>
@@ -325,9 +341,10 @@
     $(".daterange").change(function() {
         var d = $('#daterange').val();
         var dates = d.split(" - ");
+        var nbJours = calculNbJoursReservation(dates[0], dates[1]);
 
         $('#recap-date-debut').html(dates[0]);
-        $('#recap-date-fin').html(dates[1]);
+        $('#recap-date-fin').html(dates[1]+"<br>");
     });
 
     $(".spa-recap").click(function() {
@@ -337,7 +354,7 @@
         $('#recap-spa-libelle').html(spa);
         $('#recap-spa-prix').html(prixSpa+"€");
 
-        $('#prix').val(prixSpa);
+        $('#prixSpa').val(prixSpa);
 
         // Montant total
         var d = $('#daterange').val();
@@ -345,31 +362,111 @@
         var p = calculPrixReservation(dates[0], dates[1], prixSpa);
 
         $('#montant_total').val(p);
+        $('#prix').val(p);
         $('#recap-montant-total').html(p);
+
+        // Calcul des jours de réservation
+        var nbJours = calculNbJoursReservation(dates[0], dates[1]);
+
+        var jours = "";
+        var prix = "";
+
+        for(i=1; i <= nbJours; i++)
+        {
+            jours += "Jour "+i+"<br>";
+
+            if(i == 1)
+            {
+                prix = prixSpa+"€";
+            }
+            else if(i == 2)
+            {
+                prix += "<br>40.00€";
+            }
+            else if(i == 3)
+            {
+                prix += "<br>40.00€";
+            }
+            else if(i == 4)
+            {
+                prix += "<br>30.00€";
+            }
+            else if(i > 4)
+            {
+                prix += "<br>20.00€";
+            }
+        }
+
+        $('#recap-jours-libelle').html(jours);
+        $('#recap-jours-prix').html(prix);
     });
 
     $(".pack-recap").click(function() {
         var pack = $(this).attr("rel2");
         var prix = $(this).attr("rel");
 
+        $('#prixPack').val(prix);
+
         $('#recap-pack-libelle').html(pack);
         $('#recap-pack-prix').html(prix+"€");
+
+        // Montant total
+        var p = $('#prix').val();
+
+        var pPack = parseFloat(p)+parseFloat(prix);
+
+        $('#montant_total').val(pPack);
+        $('#recap-montant-total').html(pPack);
     });
 
-    /*$(".accessoire-recap").click(function() {
-        var pack = $(this).attr("rel2");
-        var prix = $(this).attr("rel");
+    $('.accessoire-recap').click(function() {
+        setTimeout(function(){
+            var lib = "";
+            var price = "";
+            var pAccessoire = 0.00;
+            $('label.accessoire-recap.active').each(function() {
+                var libelle = $(this).attr("rel2");
+                var prix = $(this).attr("rel");
 
-        $('#recap-pack-libelle').html(pack);
-        $('#recap-pack-prix').html(prix+"€");
-    });*/
+                lib += libelle+"<br>";
+                price += prix+"€<br>";
+
+                pAccessoire += parseFloat(prix);
+            });
+
+            $('#recap-accessoires-libelle').html(lib);
+            $('#recap-accessoires-prix').html(price);
+
+            // Montant total
+            var p = $('#prix').val();
+            var pPack = $('#prixPack').val();
+
+            var prixAccessoire = parseFloat(p)+parseFloat(pAccessoire)+parseFloat(pPack)
+
+            $('#montant_total').val(prixAccessoire);
+            $('#recap-montant-total').html(prixAccessoire);
+        }, 100);
+    });
 
     @if(count($packs) > 0)
         $("#btn-pack-clear").click(function() {
             @foreach($packs as $pack)
-                console.log('la');
                 $("#label-pack-{{ $pack->pack_id }}").removeClass("active");
             @endforeach
+
+            $('#recap-pack-libelle').html(null);
+            $('#recap-pack-prix').html(null);
+
+            // Montant total
+            var pPack = $('#prixPack').val();
+            var prix = $('#recap-montant-total').html();
+            var total = parseFloat(prix)-parseFloat(pPack);
+
+            $('#montant_total').val(total);
+            $('#recap-montant-total').html(total);
+
+            $('#prixPack').val("0.00");
+
             return false;
         });
     @endif
