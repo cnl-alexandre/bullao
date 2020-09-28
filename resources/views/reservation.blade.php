@@ -9,8 +9,8 @@
         <div class="row mt-5 mb-5 justify-content-center text-center">
             <div class="col-md-8">
                 <div class="block-heading-1" data-aos="" data-aos-delay="">
-                    <h2>Réserver un spa</h2>
-                    <p></p>
+                    <h2 class="h2-reservation">1. Votre formule</h2>
+                    <p>Choisissez la formule de votre choix qui vous semble la plus adaptée.</p>
                 </div>
             </div>
         </div>
@@ -30,9 +30,9 @@
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
                     </ul>
-                    <ul class="list-unstyled mb-4 text-center">
+                    <!-- <ul class="list-unstyled mb-4 text-center">
                         <li>-10% du lundi au jeudi !</li>
-                    </ul>
+                    </ul> -->
                     <p class="text-center">
                         <a href="{{ url('/reservation/4places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-4">Réserver</a>
                     </p>
@@ -53,9 +53,9 @@
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
                     </ul>
-                    <ul class="list-unstyled mb-4 text-center">
+                    <!-- <ul class="list-unstyled mb-4 text-center">
                         <li>-10% du lundi au jeudi !</li>
-                    </ul>
+                    </ul> -->
                     <p class="text-center">
                         <a href="{{ url('/reservation/6places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-6">Réserver</a>
                     </p>
@@ -74,7 +74,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="" data-aos-delay="">
-                        <h2 class="h2-reservation">Quand cela vous fait envie ?</h2>
+                        <h2 class="h2-reservation">2. Vos disponibilités</h2>
                         <br>
 
                         <div class="text-center" id="containerdaterange" style="height:330px;">
@@ -95,8 +95,8 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">Quel spa souhaitez-vous ?</h2>
-                        <br>
+                        <h2 class="h2-reservation">3. Votre spa</h2>
+                        <p>Quel spa vous fait le plus envie ? Faites-vous plaisir pour ce coup là !</p>
                     </div>
                 </div>
             </div>
@@ -125,8 +125,8 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">Personnalisez votre soirée !</h2>
-                        <br>
+                        <h2 class="h2-reservation">4. Votre thème</h2>
+                        <p>Vous souhaitez thématiser simplement votre soirée ? Vous avons ce qu'il vous faut !</p>
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@
                                     <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
                                 <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
-                                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3"><?php echo $pack->pack_description; ?></span>
+                                <span class="d-block font-gray-5 font-size-14 mb-2"><?php echo $pack->pack_description; ?></span>
                                 {{ $pack->stock() }}
                             </div>
                         </label>
@@ -159,8 +159,8 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">Complétez la décoration !</h2>
-                        <br>
+                        <h2 class="h2-reservation">5. Vos accessoires</h2>
+                        <p>Ajoutez le petit détail qui fera la différence à votre soirée spa !</p>
                     </div>
                 </div>
             </div>
@@ -174,7 +174,7 @@
                                     <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
                                 <h3 class="font-size-18 text-black">{{ $accessoire->accessoire_libelle }}</h3>
-                                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3">{{ $accessoire->accessoire_prix }}€</span>
+                                <span class="d-block font-gray-5 font-size-14 mb-2">{{ $accessoire->accessoire_prix }}€</span>
                                 {{ $accessoire->stock() }}
                             </div>
                         </label>
@@ -190,13 +190,13 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">Finalisez votre réservation !</h2>
+                        <h2 class="h2-reservation">6. Votre réservation</h2>
                         <br>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-md-6" >
+                <div class="col-lg-5 col-md-6" >
                     <h5 class="mb-4">Gestion du spa :</h5>
                     <div class="form-group mb-4">
                         <label for="type_logement">Type d'habitation</label>
@@ -222,6 +222,7 @@
                             <option value="aprem">Après-Midi (12h à 17h) Recommandé</option>
                             <option value="soir">Soirée (17h à 21h)</option>
                         </select>
+                        <small>Idéal en début de journée pour une eau à température</small>
                     </div>
                     <hr>
                     <h5 class="mt-5 mb-4">Informations personnelles :</h5>
@@ -249,8 +250,13 @@
                           <input type="text" id="ville" class="form-control" name="ville">
                       </div>
                       <div class="col-5 form-group">
-                          <label for="cp">Le code postal :</label>
-                          <input type="tel" id="cp" class="form-control" name="cp">
+                          <label for="cp">Le département :</label>
+                          <select class="form-control" name="cp">
+                              <option value="" disabled selected hidden>Dept</option>
+                              <option value="75">75</option>
+                              <option value="77">77</option>
+                          </select>
+                          <!-- <input type="tel" id="cp" class="form-control" name="cp"> -->
                       </div>
                     </div>
                     <div class="form-group mb-5">
@@ -265,7 +271,8 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    <h4>Récapitulatif</h4>
+                    <h4>Mon panier</h4>
+                    <hr>
                     <div class="row">
                         <div class="col-6 text-left">
                             Date début
@@ -317,7 +324,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-6 text-left">
-                            <h3>TOTAL</h3>
+                            <h4>TOTAL</h4>
                         </div>
                         <div class="col-6 text-right">
                             <span id="recap-montant-total">0.00</span>€

@@ -1,20 +1,34 @@
 @extends('layouts.stripe')
 
-@section('pageTitle', 'Bullao : Paiement  | '.env('APP_NAME'))
+@section('pageTitle', 'Paiement | '.env('APP_NAME'))
 
 @section('content')
 
 <section>
-    <div class="container">
-        <img src="" alt="">
-    </div>
+
 </section>
 <section>
-    <div class="container" style="max-width: 380px; margin: 30vh auto auto auto;" >
-        <form action="/charge" method="post" id="payment-form">
+    <div class="container" style="max-width: 380px; margin: 22vh auto auto auto;">
+        <div class="" style="text-align: center;">
+            <img src="{{ url('/medias/img/logo-bleu.svg')}}" alt="" style="width:250px;">
+        </div>
+
+        <div class="" style="text-align: center;">
+            <img src="{{ url('/medias/img/paiement-stripe.jpg')}}" alt="" style="width:250px;">
+        </div>
+
+        <div style="background-color: #fff;border-radius: .25rem;padding: .2rem .5rem;text-align: center">
+            <p class="font-size-14">
+                Spa Sahara 4 places
+                <br>28/10/2020 - 29/10/2020
+                <br>Montant total : 110€
+            </p>
+        </div>
+
+        <form action="/charge" method="post" id="payment-form" style="margin-top: 3vh;">
             <div class="form-row" >
-                <label for="card-element">
-                  Credit or debit card
+                <label for="card-element" class="font-size-14">
+                  Merci de renseigner votre carte
                 </label>
                 <div id="card-element">
                   <!-- A Stripe Element will be inserted here. -->
@@ -24,7 +38,7 @@
                 <div id="card-errors" role="alert"></div>
             </div>
 
-            <button style="margin-top: 35px; margin-left: 30%; margin-right: 30%; width: 40%; height: 40px;">Submit Payment</button>
+            <button style="color: #fff;background-color: #007bff;border-color: #007bff;margin-top: 35px; margin-left: 30%; margin-right: 30%; width: 40%; height: 40px;cursor: pointer;border-radius: .25rem;">Payer la réservation</button>
         </form>
     </div>
 </section>
