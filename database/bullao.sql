@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Sep 28, 2020 at 11:18 PM
+-- Generation Time: Sep 30, 2020 at 07:39 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -69,7 +69,7 @@ CREATE TABLE `administrateurs` (
 
 INSERT INTO `administrateurs` (`administrateur_id`, `administrateur_name`, `administrateur_phone`, `administrateur_email`, `administrateur_user_id`, `created_at`, `updated_at`) VALUES
 (1, 'Jérémy Lémont', '0631727083', 'jerem-lem@hotmail.fr', 1, '2020-09-19 22:00:00', NULL),
-(2, 'Alexandre', '0613377128', 'cnl.alexandre@gmail.com', 1, NULL, NULL);
+(2, 'Alexandre', '0613377128', 'cnl.alexandre@gmail.com', 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -148,22 +148,26 @@ INSERT INTO `packs` (`pack_id`, `pack_libelle`, `pack_description`, `pack_stock`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `promo`
+-- Table structure for table `promos`
 --
 
-CREATE TABLE `promo` (
+CREATE TABLE `promos` (
   `promo_id` int(5) NOT NULL,
   `promo_libelle` varchar(25) NOT NULL,
-  `promo_valeur` int(5) NOT NULL
+  `promo_valeur` int(5) NOT NULL,
+  `promo_date_debut` datetime DEFAULT NULL,
+  `promo_date_fin` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `promo`
+-- Dumping data for table `promos`
 --
 
-INSERT INTO `promo` (`promo_id`, `promo_libelle`, `promo_valeur`) VALUES
-(1, 'MONTEV2020', 0),
-(2, 'COPAIN2020', 0);
+INSERT INTO `promos` (`promo_id`, `promo_libelle`, `promo_valeur`, `promo_date_debut`, `promo_date_fin`, `created_at`, `updated_at`) VALUES
+(1, 'MONTEV2020', 10, NULL, NULL, NULL, NULL),
+(2, 'COPAIN2020', 15, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -204,6 +208,7 @@ CREATE TABLE `reservations` (
   `reservation_prix_pack` decimal(10,2) DEFAULT NULL,
   `reservation_montant_total` decimal(10,2) NOT NULL,
   `reservation_promo` varchar(20) DEFAULT NULL,
+  `reservation_paye` int(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -212,8 +217,9 @@ CREATE TABLE `reservations` (
 -- Dumping data for table `reservations`
 --
 
-INSERT INTO `reservations` (`reservation_id`, `reservation_date_debut`, `reservation_date_fin`, `reservation_creneau`, `reservation_emplacement`, `reservation_type_logement`, `reservation_prix`, `reservation_pack_id`, `reservation_prix_pack`, `reservation_montant_total`, `reservation_promo`, `created_at`, `updated_at`) VALUES
-(1, '2020-09-28', '2020-09-30', 'aprem', 'exterieur', 'appartement', '90.00', 3, '20.00', '90.00', 'F2P9K4', '2020-09-25 23:04:14', '2020-09-25 23:04:14');
+INSERT INTO `reservations` (`reservation_id`, `reservation_date_debut`, `reservation_date_fin`, `reservation_creneau`, `reservation_emplacement`, `reservation_type_logement`, `reservation_prix`, `reservation_pack_id`, `reservation_prix_pack`, `reservation_montant_total`, `reservation_promo`, `reservation_paye`, `created_at`, `updated_at`) VALUES
+(1, '2020-09-28', '2020-09-30', 'aprem', 'exterieur', 'appartement', '90.00', 3, '20.00', '90.00', 'F2P9K4', 0, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
+(2, '2020-10-14', '2020-10-15', 'aprem', 'exterieur', 'appartement', '90.00', 2, '20.00', '119.00', 'COPAIN2020', 0, '2020-09-30 16:03:02', '2020-09-30 16:03:02');
 
 -- --------------------------------------------------------
 
@@ -235,7 +241,8 @@ CREATE TABLE `reservations_accessoires` (
 INSERT INTO `reservations_accessoires` (`ra_reservation_id`, `ra_accessoire_id`, `created_at`, `updated_at`) VALUES
 (1, 1, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
 (1, 2, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
-(1, 6, '2020-09-25 23:04:14', '2020-09-25 23:04:14');
+(1, 6, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
+(2, 1, '2020-09-30 16:03:02', '2020-09-30 16:03:02');
 
 -- --------------------------------------------------------
 
@@ -289,7 +296,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `user_login`, `user_password`, `user_rank_id`, `user_last_connection`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'jlemontAdmin', '8feddb3014a070097df081ed63f1ca7c2cae3499', 1, NULL, NULL, '2020-09-19 22:00:00', NULL),
-(2, 'jlemontCustomer', '8feddb3014a070097df081ed63f1ca7c2cae3499', 2, NULL, NULL, '2020-09-20 22:00:00', NULL);
+(2, 'jlemontCustomer', '8feddb3014a070097df081ed63f1ca7c2cae3499', 2, NULL, NULL, '2020-09-20 22:00:00', NULL),
+(3, 'Alexandre', 'a64df9f267517d5caddc282637e244bd0688dc3a', 1, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -328,9 +336,9 @@ ALTER TABLE `packs`
   ADD PRIMARY KEY (`pack_id`);
 
 --
--- Indexes for table `promo`
+-- Indexes for table `promos`
 --
-ALTER TABLE `promo`
+ALTER TABLE `promos`
   ADD PRIMARY KEY (`promo_id`);
 
 --
@@ -401,9 +409,9 @@ ALTER TABLE `packs`
   MODIFY `pack_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `promo`
+-- AUTO_INCREMENT for table `promos`
 --
-ALTER TABLE `promo`
+ALTER TABLE `promos`
   MODIFY `promo_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -416,7 +424,7 @@ ALTER TABLE `ranks`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `spas`
@@ -428,7 +436,7 @@ ALTER TABLE `spas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
