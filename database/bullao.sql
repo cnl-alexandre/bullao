@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Sep 30, 2020 at 07:39 PM
+-- Generation Time: Sep 30, 2020 at 09:03 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -203,6 +203,8 @@ CREATE TABLE `reservations` (
   `reservation_creneau` varchar(25) NOT NULL,
   `reservation_emplacement` varchar(100) NOT NULL,
   `reservation_type_logement` varchar(100) NOT NULL,
+  `reservation_spa_id` int(11) DEFAULT NULL,
+  `reservation_spa_libelle` varchar(100) NOT NULL,
   `reservation_prix` decimal(10,2) NOT NULL,
   `reservation_pack_id` int(11) DEFAULT NULL,
   `reservation_prix_pack` decimal(10,2) DEFAULT NULL,
@@ -217,9 +219,11 @@ CREATE TABLE `reservations` (
 -- Dumping data for table `reservations`
 --
 
-INSERT INTO `reservations` (`reservation_id`, `reservation_date_debut`, `reservation_date_fin`, `reservation_creneau`, `reservation_emplacement`, `reservation_type_logement`, `reservation_prix`, `reservation_pack_id`, `reservation_prix_pack`, `reservation_montant_total`, `reservation_promo`, `reservation_paye`, `created_at`, `updated_at`) VALUES
-(1, '2020-09-28', '2020-09-30', 'aprem', 'exterieur', 'appartement', '90.00', 3, '20.00', '90.00', 'F2P9K4', 0, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
-(2, '2020-10-14', '2020-10-15', 'aprem', 'exterieur', 'appartement', '90.00', 2, '20.00', '119.00', 'COPAIN2020', 0, '2020-09-30 16:03:02', '2020-09-30 16:03:02');
+INSERT INTO `reservations` (`reservation_id`, `reservation_date_debut`, `reservation_date_fin`, `reservation_creneau`, `reservation_emplacement`, `reservation_type_logement`, `reservation_spa_id`, `reservation_spa_libelle`, `reservation_prix`, `reservation_pack_id`, `reservation_prix_pack`, `reservation_montant_total`, `reservation_promo`, `reservation_paye`, `created_at`, `updated_at`) VALUES
+(1, '2020-09-28', '2020-09-30', 'aprem', 'exterieur', 'appartement', 0, '', '90.00', 3, '20.00', '90.00', 'F2P9K4', 0, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
+(2, '2020-10-14', '2020-10-15', 'aprem', 'exterieur', 'appartement', 0, '', '90.00', 2, '20.00', '119.00', 'COPAIN2020', 0, '2020-09-30 16:03:02', '2020-09-30 16:03:02'),
+(3, '2020-10-06', '2020-10-08', 'aprem', 'exterieur', 'appartement', 0, '', '130.00', 2, '20.00', '153.00', NULL, 0, '2020-09-30 19:55:14', '2020-09-30 19:55:14'),
+(4, '2020-10-06', '2020-10-08', 'aprem', 'exterieur', 'appartement', 0, '', '130.00', 2, '20.00', '159.00', NULL, 0, '2020-09-30 19:59:25', '2020-09-30 19:59:25');
 
 -- --------------------------------------------------------
 
@@ -242,7 +246,9 @@ INSERT INTO `reservations_accessoires` (`ra_reservation_id`, `ra_accessoire_id`,
 (1, 1, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
 (1, 2, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
 (1, 6, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
-(2, 1, '2020-09-30 16:03:02', '2020-09-30 16:03:02');
+(2, 1, '2020-09-30 16:03:02', '2020-09-30 16:03:02'),
+(3, 3, '2020-09-30 19:55:14', '2020-09-30 19:55:14'),
+(4, 1, '2020-09-30 19:59:25', '2020-09-30 19:59:25');
 
 -- --------------------------------------------------------
 
@@ -352,7 +358,8 @@ ALTER TABLE `ranks`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`reservation_id`),
-  ADD KEY `reservation_pack_id` (`reservation_pack_id`);
+  ADD KEY `reservation_pack_id` (`reservation_pack_id`),
+  ADD KEY `reservation_spa_id` (`reservation_spa_id`);
 
 --
 -- Indexes for table `reservations_accessoires`
@@ -424,7 +431,7 @@ ALTER TABLE `ranks`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `spas`
