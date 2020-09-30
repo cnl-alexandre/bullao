@@ -16,17 +16,6 @@
             </div>
         </div>
     </div>
-    <!-- <div class="site-section-cover overlay img-bg-section" style="background-image: url({{ url('medias/img/hero_2.jpg') }}); " >
-        <div class="container">
-            <div class="row align-items-center justify-content-center text-center">
-                <div class="col-md-12 col-lg-8">
-                    <h1 data-aos="fade-up" data-aos-delay="">New Generation of Mining</h1>
-                    <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est odit dolorum voluptates!</p>
-                    <p data-aos="fade-up" data-aos-delay="200"><a href="#" class="btn btn-outline-white border-w-2 btn-md">Get in touch</a></p>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </div>
 
 <div class="site-section">
@@ -56,7 +45,7 @@
                 <div class="col-12 col-lg-6 block__73422 order-lg-2" style="background-image: url({{ url('medias/img/img_2.jpg') }});" data-aos="fade" data-aos-delay="">
                 </div>
                 <div class="col-lg-5 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade" data-aos-delay="">
-                    <h2 class="mb-3 text-black">S'adapter  </h2>
+                    <h2 class="mb-3 text-black">Créez votre soirée</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus id dignissimos nemo minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur distinctio, maiores facere officiis. Cum, esse, iusto?</p>
                     <p>(Ciblage) Notre service se propose tout aussi bien pour les particuliers comme les professionnels à Marne-la-Vallée pour l'instant.</p>
                     <ul class="ul-check primary list-unstyled mt-5">
@@ -74,7 +63,7 @@
 <div class="site-section bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
+            <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="">
                 <div class="block__35630">
                     <div class="icon mb-3">
                         <span class="flaticon-mining"></span>
@@ -83,7 +72,7 @@
                     Pour le moment nous acceptons les réservations par téléphone, par mail et par la messagerie instantannée. Vous obtiendrez une réponse sous peu de temps.
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
                 <div class="block__35630">
                     <div class="icon mb-3">
                         <span class="flaticon-gold-ingots"></span>
@@ -92,7 +81,7 @@
                     On s'occupe de tout ! La procédure prend environ 1h pour que le spa soit mis en place à votre domicile. Nous recommandons une installation en début d'après-midi.
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
                 <div class="block__35630">
                     <div class="icon mb-3">
                         <span class="flaticon-wagon"></span>
@@ -101,7 +90,7 @@
                     Les jacuzzis ainsi que les accessoires sont nettoyés et désinfectés après chaque utilisation pour vous assurer une qualité de prestation propre et saine.
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
+            <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="">
                 <div class="block__35630">
                     <div class="icon mb-3">
                         <span class="flaticon-refinery"></span>
@@ -110,7 +99,7 @@
                     Nous agissons pour le moment sur le secteur Marne-la-Vallée en priorité du fait de notre situation géographique, nous comptons desservir d'autres secteurs rapidement.
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
                 <div class="block__35630">
                     <div class="icon mb-3">
                         <span class="flaticon-blacksmith"></span>
@@ -119,7 +108,7 @@
                     Ajustez le thème de votre soirée spa ! Pour cela nous vous proposons plusieurs thèmes et nous sommes prêt à fournir une expérience sur-mesure à votre demande.
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
                 <div class="block__35630">
                     <div class="icon mb-3">
                         <span class="flaticon-crucible"></span>
@@ -131,58 +120,6 @@
         </div>
     </div>
 </div>
-
-<!-- <div class="site-section" id="team-section">
-    <div class="container">
-        <div class="row mb-5 justify-content-center">
-            <div class="col-md-7 text-center">
-                <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <h2>L'équipe</h2>
-                    <p>On se présente à vous, pas de mauvaise surprise avec l'équipe Bullao !</p>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-                <div class="block-team-member-1 text-center rounded">
-                    <figure>
-                        <img src="{{ url('medias/img/person_1.jpg') }}" alt="Image" class="img-fluid rounded-circle">
-                    </figure>
-                    <h3 class="font-size-20 text-black">Grégoire Conil</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Créateur et installateur Bullao</span>
-                    <div class="block-social-1">
-                        <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-linkedin"></span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="block-team-member-1 text-center rounded">
-                    <figure>
-                        <img src="{{ url('medias/img/person.jpg') }}" alt="Image" class="img-fluid rounded-circle">
-                    </figure>
-                    <h3 class="font-size-20 text-black">Alexandre Conil</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Prestataire Product Management</span>
-                    <div class="block-social-1">
-                        <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-linkedin"></span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="block-team-member-1 text-center rounded">
-                    <figure>
-                        <img src="{{ url('medias/img/person_1.jpg') }}" alt="Image" class="img-fluid rounded-circle">
-                    </figure>
-                    <h3 class="font-size-20 text-black">Ricky Fisher</h3>
-                    <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Prestataire ...</span>
-                    <div class="block-social-1">
-                        <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span class="icon-linkedin"></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 
 <section class="site-section bg-light" id="pricing-section">
     <div class="container">
@@ -196,7 +133,7 @@
         </div>
         <div class="row mb-5">
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="" style="margin-left: auto;margin-right: 0;">
-                <div class="pricing">
+                <div class="pricing mb-2">
                     <h3 class="text-center text-black">1 soirée (24h)</h3>
                     <div class="price text-center mb-4 ">
                         <span><span>90€</span></span>
@@ -217,9 +154,25 @@
                         <a href="{{ url('/reservation/4places') }}" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
                 </div>
+                <div class="d-flex pricing text-center">
+                    <div class="row">
+                      <div class="col-6 mb-4">
+                          2 jours :<br> <b>130€</b>
+                      </div>
+                      <div class="col-6 mb-4">
+                          3 jours :<br> <b>170€</b>
+                      </div>
+                      <div class="col-6">
+                          4 jours :<br> <b>200€</b>
+                      </div>
+                      <div class="col-6">
+                          5 jours :<br> <b>220€</b>
+                      </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">
-                <div class="pricing">
+                <div class="pricing mb-2">
                     <h3 class="text-center text-black">1 soirée XL (24h)</h3>
                     <div class="price text-center mb-4 ">
                         <span><span>120€</span></span>
@@ -240,23 +193,23 @@
                         <a href="{{ url('/reservation/6places') }}" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
                 </div>
-            </div>
-            <!-- <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing">
-                    <h3 class="text-center text-black">Votre ambiance</h3>
-                    <div class="price text-center mb-4 ">
-                        <span><span>20€</span><br>à partir de</span>
+                <div class="d-flex pricing text-center">
+                    <div class="row">
+                      <div class="col-6 mb-4">
+                          2 jours :<br> <b>160€</b>
+                      </div>
+                      <div class="col-6 mb-4">
+                          3 jours :<br> <b>200€</b>
+                      </div>
+                      <div class="col-6">
+                          4 jours :<br> <b>230€</b>
+                      </div>
+                      <div class="col-6">
+                          5 jours :<br> <b>250€</b>
+                      </div>
                     </div>
-                    <ul class="list-unstyled ul-check mb-5">
-                        <li>Officia quaerat eaque neque</li>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Lorem ipsum dolor sit amet</li>
-                    </ul>
-                    <p class="text-center">
-                        <a href="#" class="btn btn-secondary btn-md">Buy Now</a>
-                    </p>
                 </div>
-            </div> -->
+            </div>
         </div>
         <div class="row site-section" id="faq-section">
             <div class="col-12 text-center" data-aos="fade">
@@ -304,98 +257,6 @@
     </div>
 </section>
 
-
-<!-- <div class="site-section bg-light block-13" id="testimonials-section" data-aos="fade">
-    <div class="container">
-        <div class="text-center mb-5">
-            <div class="block-heading-1">
-                <h2>Ils ont adoré</h2>
-            </div>
-        </div>
-        <div class="owl-carousel nonloop-block-13">
-            <div>
-                <div class="block-testimony-1 text-center">
-                    <blockquote class="mb-4">
-                        <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, fugit excepturi sapiente voluptatum nulla odio quaerat quibusdam tempore similique doloremque veritatis et cupiditate, maiores cumque repudiandae explicabo tempora deserunt consequuntur?&rdquo;</p>
-                    </blockquote>
-                    <figure>
-                        <img src="{{ url('medias/img/person_4.jpg') }}" alt="Image" class="img-fluid rounded-circle mx-auto">
-                    </figure>
-                    <h3 class="font-size-20 text-black">Ricky Fisher</h3>
-                </div>
-            </div>
-            <div>
-                <div class="block-testimony-1 text-center">
-                    <figure>
-                        <img src="{{ url('medias/img/person_2.jpg') }}" alt="Image" class="img-fluid rounded-circle mx-auto">
-                    </figure>
-                    <h3 class="font-size-20 mb-4 text-black">Ken Davis</h3>
-                    <blockquote class="mb-4">
-                        <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, fugit excepturi sapiente voluptatum nulla odio quaerat quibusdam tempore similique doloremque veritatis et cupiditate, maiores cumque repudiandae explicabo tempora deserunt consequuntur?&rdquo;</p>
-                    </blockquote>
-                </div>
-            </div>
-            <div>
-                <div class="block-testimony-1 text-center">
-                  <blockquote class="mb-4">
-                      <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, fugit excepturi sapiente voluptatum nulla odio quaerat quibusdam tempore similique doloremque veritatis et cupiditate, maiores cumque repudiandae explicabo tempora deserunt consequuntur?&rdquo;</p>
-                  </blockquote>
-                  <figure>
-                      <img src="{{ url('medias/img/person_1.jpg') }}" alt="Image" class="img-fluid rounded-circle mx-auto">
-                  </figure>
-                  <h3 class="font-size-20 text-black">Mellisa Griffin</h3>
-                </div>
-            </div>
-            <div>
-                <div class="block-testimony-1 text-center">
-                  <figure>
-                      <img src="{{ url('medias/img/person_3.jpg') }}" alt="Image" class="img-fluid rounded-circle mx-auto">
-                  </figure>
-                  <h3 class="font-size-20 mb-4 text-black">Robert Steward</h3>
-                  <blockquote class="mb-4">
-                      <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, fugit excepturi sapiente voluptatum nulla odio quaerat quibusdam tempore similique doloremque veritatis et cupiditate, maiores cumque repudiandae explicabo tempora deserunt consequuntur?&rdquo;</p>
-                  </blockquote>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="site-section" id="blog-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <span>Les articles</span>
-                    <h2>Nous sommes renseignés</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="">
-                <div>
-                    <a href="single.html" class="mb-4 d-block"><img src="{{ url('medias/img/hero_2.jpg') }}" alt="Image" class="img-fluid rounded"></a>
-                    <h2><a href="single.html">How To Find Gold In Mining</a></h2>
-                    <p class="text-muted mb-3 text-uppercase small"><span class="mr-2">January 18, 2019</span> By <a href="single.html" class="by">James Cooper</a></p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat et suscipit iste libero neque. Vitae quidem ducimus voluptatibus nemo cum odio ab enim nisi, itaque, libero fuga veritatis culpa quis!</p>
-                    <p><a href="single.html">Read More</a></p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                <div>
-                    <a href="single.html" class="mb-4 d-block"><img src="{{ url('medias/img/hero_3.jpg') }}" alt="Image" class="img-fluid rounded"></a>
-                    <h2><a href="single.html">How To Find Gold In Mining</a></h2>
-                    <p class="text-muted mb-3 text-uppercase small"><span class="mr-2">January 18, 2019</span> By <a href="single.html" class="by">James Cooper</a></p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat et suscipit iste libero neque. Vitae quidem ducimus voluptatibus nemo cum odio ab enim nisi, itaque, libero fuga veritatis culpa quis!</p>
-                    <p><a href="single.html">Read More</a></p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div> -->
-
-
 <div class="site-section" id="contact-section">
     <div class="container">
         <div class="row">
@@ -412,8 +273,7 @@
             </div>
             <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="200">
                 <h2 class="text-black">Laissez-nous un message</h2>
-                <p>Afin de fluidifer la communication avec vous, utilisez le module de messagerie en bas à droite de votre écran. Généralement nous sommes connectés et on vous répond dans l'heure, sinon laissez un message et nous reviendrons vers vous au plus vite.</p>
-                <!-- <p><a href="#" class="btn btn-primary text-white">Get Started</a></p> -->
+                <p>Afin de faciliter la communication avec vous, utilisez le module de messagerie en bas à droite de votre écran. Généralement nous sommes connectés et on vous répond dans l'heure, sinon laissez un message et nous reviendrons vers vous au plus vite.</p>
             </div>
         </div>
     </div>

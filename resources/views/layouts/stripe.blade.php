@@ -12,7 +12,7 @@
 
         <script src="https://js.stripe.com/v3/"></script>
     </head>
-    <body style='background-color: #f8f9fa!important;font-family: "Oxygen";'>
+    <body class="body-stripe">
 
 
         @yield('content')
