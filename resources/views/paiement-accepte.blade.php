@@ -16,10 +16,10 @@
         <div class="row mb-5 d-flex align-items-center">
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="" style="margin-left: auto;margin-right: 0;">
                 <div class="text-center">
-                    <img src="{{ url('/medias/img/checked.svg') }}" alt="Paiement accepté" class="img-fluid rounded-circle" width="200px;" >
+                    <img src="{{ url('/medias/img/checked.svg') }}" alt="Paiement accepté" class="img-fluid rounded-circle" width="180px;" >
                 </div>
             </div>
-            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">
+            <div class="col-md-6 mb-4 mb-lg-0 col-lg-5" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">
                 <div class="pricing">
                     <h4 class="text-center text-black mb-5">Réservation validée !</h4>
                     <p class="text-center text-black mb-4">Un mail de confirmation vous a été envoyé suite à votre réservation sur notre site Bullao.</p>
