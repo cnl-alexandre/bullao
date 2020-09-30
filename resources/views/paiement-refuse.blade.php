@@ -9,7 +9,7 @@
         <div class="row mb-5 justify-content-center text-center">
             <div class="col-md-7">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <h2>Paiement refusé</h2>
+                    <h2>Oups, une erreur</h2>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
             </div>
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-5" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">
                 <div class="pricing">
-                    <h4 class="text-center text-black mb-4">Il y a un soucis</h4>
+                    <h4 class="text-center text-black mb-4">Paiement refusé</h4>
                     <p class="text-center text-black mb-4">Quelque chose s'est mal passé lors du paiement et nous ne pouvons donner suite à votre réservation pour le moment.</p>
                     <p class="text-center text-black mb-5">On vous invitons à vérifier votre moyen de paiement et recommencer la réservation. Vous y étiez presque, courage !</p>
                     <p class="text-center">
