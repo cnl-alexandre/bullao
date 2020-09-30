@@ -2,16 +2,16 @@
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Sep 30, 2020 at 09:03 PM
--- Server version: 5.7.26
--- PHP Version: 7.3.8
+-- Hôte : localhost:8889
+-- Généré le :  mer. 30 sep. 2020 à 21:10
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `bullao`
+-- Base de données :  `bullao`
 --
 CREATE DATABASE IF NOT EXISTS `bullao` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `bullao`;
@@ -19,7 +19,7 @@ USE `bullao`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `accessoires`
+-- Structure de la table `accessoires`
 --
 
 CREATE TABLE `accessoires` (
@@ -34,7 +34,7 @@ CREATE TABLE `accessoires` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `accessoires`
+-- Déchargement des données de la table `accessoires`
 --
 
 INSERT INTO `accessoires` (`accessoire_id`, `accessoire_libelle`, `accessoire_description`, `accessoire_prix`, `accessoire_stock`, `accessoire_chemin_img`, `created_at`, `updated_at`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `accessoires` (`accessoire_id`, `accessoire_libelle`, `accessoire_de
 -- --------------------------------------------------------
 
 --
--- Table structure for table `administrateurs`
+-- Structure de la table `administrateurs`
 --
 
 CREATE TABLE `administrateurs` (
@@ -64,7 +64,7 @@ CREATE TABLE `administrateurs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `administrateurs`
+-- Déchargement des données de la table `administrateurs`
 --
 
 INSERT INTO `administrateurs` (`administrateur_id`, `administrateur_name`, `administrateur_phone`, `administrateur_email`, `administrateur_user_id`, `created_at`, `updated_at`) VALUES
@@ -74,7 +74,7 @@ INSERT INTO `administrateurs` (`administrateur_id`, `administrateur_name`, `admi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clients`
+-- Structure de la table `clients`
 --
 
 CREATE TABLE `clients` (
@@ -92,7 +92,7 @@ CREATE TABLE `clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `clients`
+-- Déchargement des données de la table `clients`
 --
 
 INSERT INTO `clients` (`client_id`, `client_name`, `client_user_id`, `client_adresse_1`, `client_adresse_2`, `client_cp`, `client_ville`, `client_email`, `client_phone`, `created_at`, `updated_at`) VALUES
@@ -101,7 +101,7 @@ INSERT INTO `clients` (`client_id`, `client_name`, `client_user_id`, `client_adr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `indisponibilites`
+-- Structure de la table `indisponibilites`
 --
 
 CREATE TABLE `indisponibilites` (
@@ -112,7 +112,7 @@ CREATE TABLE `indisponibilites` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `indisponibilites`
+-- Déchargement des données de la table `indisponibilites`
 --
 
 INSERT INTO `indisponibilites` (`indisponibilite_id`, `indisponibilite_date`, `created_at`, `updated_at`) VALUES
@@ -122,7 +122,7 @@ INSERT INTO `indisponibilites` (`indisponibilite_id`, `indisponibilite_date`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `packs`
+-- Structure de la table `packs`
 --
 
 CREATE TABLE `packs` (
@@ -137,7 +137,7 @@ CREATE TABLE `packs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `packs`
+-- Déchargement des données de la table `packs`
 --
 
 INSERT INTO `packs` (`pack_id`, `pack_libelle`, `pack_description`, `pack_stock`, `pack_prix`, `pack_chemin_img`, `created_at`, `updated_at`) VALUES
@@ -148,7 +148,7 @@ INSERT INTO `packs` (`pack_id`, `pack_libelle`, `pack_description`, `pack_stock`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `promos`
+-- Structure de la table `promos`
 --
 
 CREATE TABLE `promos` (
@@ -162,7 +162,7 @@ CREATE TABLE `promos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `promos`
+-- Déchargement des données de la table `promos`
 --
 
 INSERT INTO `promos` (`promo_id`, `promo_libelle`, `promo_valeur`, `promo_date_debut`, `promo_date_fin`, `created_at`, `updated_at`) VALUES
@@ -172,7 +172,7 @@ INSERT INTO `promos` (`promo_id`, `promo_libelle`, `promo_valeur`, `promo_date_d
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ranks`
+-- Structure de la table `ranks`
 --
 
 CREATE TABLE `ranks` (
@@ -183,7 +183,7 @@ CREATE TABLE `ranks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ranks`
+-- Déchargement des données de la table `ranks`
 --
 
 INSERT INTO `ranks` (`rank_id`, `rank_libelle`, `created_at`, `updated_at`) VALUES
@@ -193,7 +193,7 @@ INSERT INTO `ranks` (`rank_id`, `rank_libelle`, `created_at`, `updated_at`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservations`
+-- Structure de la table `reservations`
 --
 
 CREATE TABLE `reservations` (
@@ -216,19 +216,19 @@ CREATE TABLE `reservations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `reservations`
+-- Déchargement des données de la table `reservations`
 --
 
 INSERT INTO `reservations` (`reservation_id`, `reservation_date_debut`, `reservation_date_fin`, `reservation_creneau`, `reservation_emplacement`, `reservation_type_logement`, `reservation_spa_id`, `reservation_spa_libelle`, `reservation_prix`, `reservation_pack_id`, `reservation_prix_pack`, `reservation_montant_total`, `reservation_promo`, `reservation_paye`, `created_at`, `updated_at`) VALUES
-(1, '2020-09-28', '2020-09-30', 'aprem', 'exterieur', 'appartement', 0, '', '90.00', 3, '20.00', '90.00', 'F2P9K4', 0, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
-(2, '2020-10-14', '2020-10-15', 'aprem', 'exterieur', 'appartement', 0, '', '90.00', 2, '20.00', '119.00', 'COPAIN2020', 0, '2020-09-30 16:03:02', '2020-09-30 16:03:02'),
-(3, '2020-10-06', '2020-10-08', 'aprem', 'exterieur', 'appartement', 0, '', '130.00', 2, '20.00', '153.00', NULL, 0, '2020-09-30 19:55:14', '2020-09-30 19:55:14'),
-(4, '2020-10-06', '2020-10-08', 'aprem', 'exterieur', 'appartement', 0, '', '130.00', 2, '20.00', '159.00', NULL, 0, '2020-09-30 19:59:25', '2020-09-30 19:59:25');
+(1, '2020-09-28', '2020-09-30', 'aprem', 'exterieur', 'appartement', NULL, '', '90.00', 3, '20.00', '90.00', 'F2P9K4', 0, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
+(2, '2020-10-14', '2020-10-15', 'aprem', 'exterieur', 'appartement', NULL, '', '90.00', 2, '20.00', '119.00', 'COPAIN2020', 0, '2020-09-30 16:03:02', '2020-09-30 16:03:02'),
+(3, '2020-10-06', '2020-10-08', 'aprem', 'exterieur', 'appartement', NULL, '', '130.00', 2, '20.00', '153.00', NULL, 0, '2020-09-30 19:55:14', '2020-09-30 19:55:14'),
+(4, '2020-10-06', '2020-10-08', 'aprem', 'exterieur', 'appartement', NULL, '', '130.00', 2, '20.00', '159.00', NULL, 0, '2020-09-30 19:59:25', '2020-09-30 19:59:25');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservations_accessoires`
+-- Structure de la table `reservations_accessoires`
 --
 
 CREATE TABLE `reservations_accessoires` (
@@ -239,7 +239,7 @@ CREATE TABLE `reservations_accessoires` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `reservations_accessoires`
+-- Déchargement des données de la table `reservations_accessoires`
 --
 
 INSERT INTO `reservations_accessoires` (`ra_reservation_id`, `ra_accessoire_id`, `created_at`, `updated_at`) VALUES
@@ -253,7 +253,7 @@ INSERT INTO `reservations_accessoires` (`ra_reservation_id`, `ra_accessoire_id`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `spas`
+-- Structure de la table `spas`
 --
 
 CREATE TABLE `spas` (
@@ -269,7 +269,7 @@ CREATE TABLE `spas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `spas`
+-- Déchargement des données de la table `spas`
 --
 
 INSERT INTO `spas` (`spa_id`, `spa_stock`, `spa_libelle`, `spa_nb_place`, `spa_desc`, `spa_chemin_img`, `spa_prix`, `created_at`, `updated_at`) VALUES
@@ -282,7 +282,7 @@ INSERT INTO `spas` (`spa_id`, `spa_stock`, `spa_libelle`, `spa_nb_place`, `spa_d
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -297,7 +297,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`user_id`, `user_login`, `user_password`, `user_rank_id`, `user_last_connection`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -306,55 +306,55 @@ INSERT INTO `users` (`user_id`, `user_login`, `user_password`, `user_rank_id`, `
 (3, 'Alexandre', 'a64df9f267517d5caddc282637e244bd0688dc3a', 1, NULL, NULL, NULL, NULL);
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `accessoires`
+-- Index pour la table `accessoires`
 --
 ALTER TABLE `accessoires`
   ADD PRIMARY KEY (`accessoire_id`);
 
 --
--- Indexes for table `administrateurs`
+-- Index pour la table `administrateurs`
 --
 ALTER TABLE `administrateurs`
   ADD PRIMARY KEY (`administrateur_id`),
   ADD KEY `administrateur_user_id` (`administrateur_user_id`);
 
 --
--- Indexes for table `clients`
+-- Index pour la table `clients`
 --
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`client_id`),
   ADD KEY `client_user_id` (`client_user_id`);
 
 --
--- Indexes for table `indisponibilites`
+-- Index pour la table `indisponibilites`
 --
 ALTER TABLE `indisponibilites`
   ADD PRIMARY KEY (`indisponibilite_id`);
 
 --
--- Indexes for table `packs`
+-- Index pour la table `packs`
 --
 ALTER TABLE `packs`
   ADD PRIMARY KEY (`pack_id`);
 
 --
--- Indexes for table `promos`
+-- Index pour la table `promos`
 --
 ALTER TABLE `promos`
   ADD PRIMARY KEY (`promo_id`);
 
 --
--- Indexes for table `ranks`
+-- Index pour la table `ranks`
 --
 ALTER TABLE `ranks`
   ADD PRIMARY KEY (`rank_id`);
 
 --
--- Indexes for table `reservations`
+-- Index pour la table `reservations`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`reservation_id`),
@@ -362,120 +362,121 @@ ALTER TABLE `reservations`
   ADD KEY `reservation_spa_id` (`reservation_spa_id`);
 
 --
--- Indexes for table `reservations_accessoires`
+-- Index pour la table `reservations_accessoires`
 --
 ALTER TABLE `reservations_accessoires`
   ADD PRIMARY KEY (`ra_reservation_id`,`ra_accessoire_id`),
   ADD KEY `ra_accessoire_id` (`ra_accessoire_id`);
 
 --
--- Indexes for table `spas`
+-- Index pour la table `spas`
 --
 ALTER TABLE `spas`
   ADD PRIMARY KEY (`spa_id`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `user_rank_id` (`user_rank_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `accessoires`
+-- AUTO_INCREMENT pour la table `accessoires`
 --
 ALTER TABLE `accessoires`
   MODIFY `accessoire_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `administrateurs`
+-- AUTO_INCREMENT pour la table `administrateurs`
 --
 ALTER TABLE `administrateurs`
   MODIFY `administrateur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `clients`
+-- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
   MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `indisponibilites`
+-- AUTO_INCREMENT pour la table `indisponibilites`
 --
 ALTER TABLE `indisponibilites`
   MODIFY `indisponibilite_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `packs`
+-- AUTO_INCREMENT pour la table `packs`
 --
 ALTER TABLE `packs`
   MODIFY `pack_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `promos`
+-- AUTO_INCREMENT pour la table `promos`
 --
 ALTER TABLE `promos`
   MODIFY `promo_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `ranks`
+-- AUTO_INCREMENT pour la table `ranks`
 --
 ALTER TABLE `ranks`
   MODIFY `rank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `reservations`
+-- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
   MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `spas`
+-- AUTO_INCREMENT pour la table `spas`
 --
 ALTER TABLE `spas`
   MODIFY `spa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `administrateurs`
+-- Contraintes pour la table `administrateurs`
 --
 ALTER TABLE `administrateurs`
   ADD CONSTRAINT `administrateurs_ibfk_1` FOREIGN KEY (`administrateur_user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Constraints for table `clients`
+-- Contraintes pour la table `clients`
 --
 ALTER TABLE `clients`
   ADD CONSTRAINT `clients_ibfk_1` FOREIGN KEY (`client_user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Constraints for table `reservations`
+-- Contraintes pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  ADD CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`reservation_pack_id`) REFERENCES `packs` (`pack_id`);
+  ADD CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`reservation_pack_id`) REFERENCES `packs` (`pack_id`),
+  ADD CONSTRAINT `reservations_ibfk_4` FOREIGN KEY (`reservation_spa_id`) REFERENCES `spas` (`spa_id`);
 
 --
--- Constraints for table `reservations_accessoires`
+-- Contraintes pour la table `reservations_accessoires`
 --
 ALTER TABLE `reservations_accessoires`
   ADD CONSTRAINT `reservations_accessoires_ibfk_1` FOREIGN KEY (`ra_reservation_id`) REFERENCES `reservations` (`reservation_id`),
   ADD CONSTRAINT `reservations_accessoires_ibfk_2` FOREIGN KEY (`ra_accessoire_id`) REFERENCES `accessoires` (`accessoire_id`);
 
 --
--- Constraints for table `users`
+-- Contraintes pour la table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_rank_id`) REFERENCES `ranks` (`rank_id`);
