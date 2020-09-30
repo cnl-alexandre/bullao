@@ -1,0 +1,45 @@
+/*       Fonts       */
+@font-face {
+  font-family: "Lato Regular";
+  src: url("../../fonts/Lato-Regular.ttf");
+}
+@font-face {
+  font-family: "Lato Semibold";
+  src: url("../../fonts/Lato-SemiBold.ttf");
+}
+@font-face {
+  font-family: "NS Semibold";
+  src: url("../../fonts/NotoSans-SemiBold.ttf");
+}
+
+body {
+  font-family: "Lato Regular";
+}
+h1, h2, h3 {
+  font-family: "Lato Semibold";
+  margin-bottom: 1.2rem;
+}
+
+.form-control {
+    margin-bottom: 1.25rem;
+}
+
+.form-control::-webkit-input-placeholder { opacity: 0.55; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { opacity: 0.55; }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { opacity: 0.55; }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { opacity: 0.55; }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { opacity: 0.55; }  /* Microsoft Edge */
+
+.file {
+  position: relative;
+  overflow: hidden;
+}
+
+.file-upload {
+  position: absolute;
+  font-size: 50px;
+  opacity: 0;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
