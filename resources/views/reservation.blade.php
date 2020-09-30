@@ -295,11 +295,6 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12 text-left">
-                            Du <span id="recap-date-debut"></span> au <span id="recap-date-fin"></span>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-6 text-left">
                             <span id="recap-jours-libelle"></span>
                         </div>
@@ -307,7 +302,12 @@
                             <span id="recap-jours-prix"></span>
                         </div>
                     </div>
-
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            Du <span id="recap-date-debut"></span> au <span id="recap-date-fin"></span>
+                        </div>
+                    </div>
+                    <hr id="separation-recap"/>
                     <div class="row">
                         <div class="col-6 text-left">
                             <span id="recap-pack-libelle"></span>
@@ -379,36 +379,32 @@
         var nbJours = calculNbJoursReservation(dates[0], dates[1]);
 
         var jours = "";
-        var prix = "";
+        var prix = 0.00;
 
-        for(i=1; i <= nbJours; i++)
+        jours = "+ "+(nbJours-1)+" jour(s) supplémentaire(s)";
+
+        if(nbJours > 1)
         {
-            jours += "Jour "+i+"<br>";
+            if(nbJours == 2)
+            {
+                prix = 40.00;
+            }
+            else if(nbJours == 3)
+            {
+                prix = 80.00;
+            }
+            else if(nbJours == 4)
+            {
+                prix = 110.00;
+            }
+            else if(nbJours > 4)
+            {
+                prix = 110.00 + ((nbJours-4)*20.00);
+            }
 
-            if(i == 1)
-            {
-                prix = prixSpa+"€";
-            }
-            else if(i == 2)
-            {
-                prix += "<br>40.00€";
-            }
-            else if(i == 3)
-            {
-                prix += "<br>40.00€";
-            }
-            else if(i == 4)
-            {
-                prix += "<br>30.00€";
-            }
-            else if(i > 4)
-            {
-                prix += "<br>20.00€";
-            }
+            $('#recap-jours-libelle').html(jours);
+            $('#recap-jours-prix').html(prix+"€");
         }
-
-        $('#recap-jours-libelle').html(jours);
-        $('#recap-jours-prix').html(prix);
     });
 
     $(".pack-recap").click(function() {
@@ -417,13 +413,15 @@
 
         $('#prixPack').val(prix);
 
-        $('#recap-pack-libelle').html(pack);
+        $('#recap-pack-libelle').html("+ "+pack);
         $('#recap-pack-prix').html(prix+"€");
 
         // Montant total
         var p = $('#prix').val();
 
         var pPack = parseFloat(p)+parseFloat(prix);
+
+        $('#separation-recap').css("display", "block");
 
         $('#montant_total').val(pPack);
         $('#recap-montant-total').html(pPack);
@@ -438,7 +436,7 @@
                 var libelle = $(this).attr("rel2");
                 var prix = $(this).attr("rel");
 
-                lib += libelle+"<br>";
+                lib += "+ "+libelle+"<br>";
                 price += prix+"€<br>";
 
                 pAccessoire += parseFloat(prix);
@@ -450,6 +448,15 @@
             // Montant total
             var p = $('#prix').val();
             var pPack = $('#prixPack').val();
+
+            if(lib != "" || pPack != "0.00")
+            {
+                $('#separation-recap').css("display", "block");
+            }
+            else
+            {
+                $('#separation-recap').css("display", "none");
+            }
 
             var prixAccessoire = parseFloat(p)+parseFloat(pAccessoire)+parseFloat(pPack)
 
@@ -477,11 +484,25 @@
 
             $('#prixPack').val("0.00");
 
+            var pAccessoire = 0.00;
+            $('label.accessoire-recap.active').each(function() {
+                var prix = $(this).attr("rel");
+
+                pAccessoire += parseFloat(prix);
+            });
+
+            if(pAccessoire == 0.00)
+            {
+                $('#separation-recap').css("display", "none");
+            }
+
             return false;
         });
     @endif
 
     $(document).ready(function() {
+
+        $('#separation-recap').css("display", "none");
 
         // Gestion du scroll automatique
         var url = $(location).attr('href');

@@ -97,7 +97,7 @@ class ReservationController extends Controller
 
     public function reservationSubmit(Request $request)
     {
-        $this->validate($request,[
+        /*$this->validate($request,[
             'daterange'         => 'required',
             'spa'               => 'required',
             'emplacement'       => 'required',
@@ -109,12 +109,12 @@ class ReservationController extends Controller
             'adresse1'          => 'required',
             'ville'             => 'required',
             'cp'                => 'required'
-        ]);
+        ]);*/
 
         $reservation                            = new Reservation;
         $reservation->create($request);
 
-        Session::put('reservation', $reservation->reservation_id);
+        Session::put('reservation', $reservation);
         return redirect('/reservation/paiement');
     }
 }

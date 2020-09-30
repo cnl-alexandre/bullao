@@ -9,14 +9,13 @@
         <link rel="stylesheet" href="{{ url('/fonts/icomoon/style.css') }}">
 
         <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ url('/css/customer/bootstrap-datepicker.css') }}">
+        <link rel="stylesheet" href="{{ url('/css/customer/bootstrap-daterangepicker.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/bootstrap-reboot.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/magnific-popup.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/jquery-ui.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/jquery.fancybox.min.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/owl.theme.default.min.css') }}">
-        <link rel="stylesheet" href="{{ url('/css/customer/bootstrap-datepicker.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/mediaelementplayer.css') }}">
         <link rel="stylesheet" href="{{ url('/fonts/flaticon/font/flaticon.css') }}">
 
@@ -36,7 +35,7 @@
         </div>
 
         <script src="{{ url('/js/customer/jquery-3.3.1.min.js') }}"></script>
-        <script src="{{ url('/js/customer/jquery-migrate-3.0.1.min.js') }}"></script>
+        <!-- <script src="{{ url('/js/customer/jquery-migrate-3.0.1.min.js') }}"></script> -->
         <script src="{{ url('/js/customer/jquery-ui.js') }}"></script>
         <script src="{{ url('/js/customer/popper.min.js') }}"></script>
         <script src="{{ url('/js/customer/bootstrap.min.js') }}"></script>
