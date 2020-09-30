@@ -196,11 +196,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-5 col-md-6" >
+                <div class="col-lg-5 col-md-6" style="margin-left: auto;margin-right: auto;">
                     <h5 class="mb-4">Gestion du spa :</h5>
                     <div class="form-group mb-4">
                         <label for="type_logement">Type d'habitation</label>
-                        <select class="form-control" name="type_logement">
+                        <select class="form-control" name="type_logement" required>
                             <option value="" disabled selected hidden>Choisir le type d'habitation</option>
                             <option value="maison">Maison</option>
                             <option value="appartement">Appartement</option>
@@ -208,7 +208,7 @@
                     </div>
                     <div class="form-group mb-4">
                         <label for="emplacement">L'emplacement</label>
-                        <select class="form-control" name="emplacement">
+                        <select class="form-control" name="emplacement" required>
                             <option value="" disabled selected hidden>Choisir l'emplacement du spa</option>
                             <option value="interieur">Intérieur</option>
                             <option value="exterieur">Exterieur</option>
@@ -216,7 +216,7 @@
                     </div>
                     <div class="form-group mb-5">
                         <label for="creneau">Créneau d'installation</label>
-                        <select class="form-control" name="creneau" placeholder="">
+                        <select class="form-control" name="creneau"  required>
                             <option value="" disabled selected hidden>Choisir un moment de la journée</option>
                             <option value="matin">Matin (8h à 12h)</option>
                             <option value="aprem">Après-Midi (12h à 17h) Recommandé</option>
@@ -228,26 +228,26 @@
                     <h5 class="mt-5 mb-4">Informations personnelles :</h5>
                     <div class="form-group mb-4">
                         <label for="name">Votre nom et prénom :</label>
-                        <input type="text" id="name" class="form-control" name="name">
+                        <input type="text" id="name" class="form-control" name="name" required>
                     </div>
                     <div class="form-group mb-4">
                         <label for="email">L'adresse mail :</label>
-                        <input type="email" id="email" class="form-control" name="email">
+                        <input type="email" id="email" class="form-control" name="email" required>
                     </div>
                     <div class="form-group mb-5">
                         <label for="phone">Numéro de téléphone :</label>
-                        <input type="tel" id="phone" class="form-control" name="phone">
+                        <input type="tel" id="phone" class="form-control" name="phone" required>
                     </div>
                     <hr>
                     <h5 class="mt-5 mb-4">Informations de livraison :</h5>
                     <div class="form-group mb-4">
                         <label for="adresse1">L'adresse :</label>
-                        <input type="text" id="adresse1" class="form-control" name="adresse1">
+                        <input type="text" id="adresse1" class="form-control" name="adresse1" required>
                     </div>
                     <div class="row">
                       <div class="col-7 form-group">
                           <label for="ville">La ville :</label>
-                          <input type="text" id="ville" class="form-control" name="ville">
+                          <input type="text" id="ville" class="form-control" name="ville" required>
                       </div>
                       <div class="col-5 form-group">
                           <label for="cp">Le département :</label>
@@ -270,33 +270,22 @@
                         <input type="text" id="promo" class="form-control" name="promo">
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <h4>Mon panier</h4>
+                <div class="col-lg-5 col-md-6" style="margin-left: auto;margin-right: auto;">
+                    <h5>Mon panier</h5>
                     <hr>
-                    <div class="row">
-                        <div class="col-6 text-left">
-                            Date début
+                    @if (request()->is('reservation/4places'))
+                        <div class="row">
+                            <div class="col-6 text-left">
+                                Formule 1 soirée
+                            </div>
                         </div>
-                        <div class="col-6 text-right">
-                            <span id="recap-date-debut"></span>
+                    @elseif (request()->is('reservation/6places'))
+                        <div class="row">
+                            <div class="col-6 text-left">
+                                Formule 1 soirée XL
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 text-left">
-                        <span id="recap-jours-libelle"></span>
-                        </div>
-                        <div class="col-6 text-right">
-                            <span id="recap-jours-prix"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 text-left">
-                            Date fin
-                        </div>
-                        <div class="col-6 text-right">
-                            <span id="recap-date-fin"></span>
-                        </div>
-                    </div>
+                    @endif
                     <div class="row">
                         <div class="col-6 text-left">
                             <span id="recap-spa-libelle"></span>
@@ -305,6 +294,20 @@
                             <span id="recap-spa-prix"></span>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            Du <span id="recap-date-debut"></span> au <span id="recap-date-fin"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            <span id="recap-jours-libelle"></span>
+                        </div>
+                        <div class="col-6 text-right">
+                            <span id="recap-jours-prix"></span>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-6 text-left">
                             <span id="recap-pack-libelle"></span>
@@ -324,7 +327,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-6 text-left">
-                            <h4>TOTAL</h4>
+                            <h5>Total :</h5>
                         </div>
                         <div class="col-6 text-right">
                             <span id="recap-montant-total">0.00</span>€

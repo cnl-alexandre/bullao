@@ -14,7 +14,7 @@
         </div>
 
         <div class="" style="text-align: center;">
-            <img src="{{ url('/medias/img/paiement-stripe.jpg')}}" alt="" style="width:250px;">
+            <img src="{{ url('/medias/img/paiement-stripe.jpg')}}" alt="" style="width:380px;">
         </div>
 
         <div style="background-color: #fff;border-radius: .25rem;padding: .2rem .5rem;text-align: center">

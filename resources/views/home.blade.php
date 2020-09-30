@@ -10,7 +10,7 @@
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-12 col-lg-8">
                     <h1 data-aos="fade-up" data-aos-delay="">Prenez le temps de vous détendre</h1>
-                    <p class="mt-3 mb-4" data-aos="fade-up" data-aos-delay="100">Nouveau et seulement à Marne-la-Vallée<br>Bullao : Location de spa - jaccuzi</p>
+                    <p class="mt-3 mb-4" data-aos="fade-up" data-aos-delay="100">Nouveau à Marne-la-Vallée et Paris<br>Bullao : Location de spa - jaccuzi</p>
                     <p data-aos="fade-up" data-aos-delay="200"><a href="{{ url('/reservation') }}" class="btn btn-outline-white border-w-2 btn-md">Réserver</a></p>
                 </div>
             </div>
@@ -37,9 +37,9 @@
                 </div>
                 <!-- <img class="col-12 col-lg-6 block__73422" src="{{ url('medias/img/img_1.jpg') }}" alt="" data-aos="fade-up" data-aos-delay=""> -->
                 <div class="col-lg-5 ml-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade" data-aos-delay="">
-                    <h2 class="mb-3 text-black">Soirée détente à remous et à domicile</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus id dignissimos nemo minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur distinctio, maiores facere officiis. Cum, esse, iusto?</p>
-                    <p>Minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur distinctio, maiores facere officiis. Cum, esse, iusto?</p>
+                    <h2 class="mb-3 text-black">Louez votre spa chez vous</h2>
+                    <p>Profitez de vous retrouver en couple, en famille ou même en famille lors d'une soirée inoubliable à domicile ! Nous intervenons chez vous et en respectant des mesures sanitaires très strictes pour vous garantir un moment sain en tout sécurité.</p>
+                    <p>Vous êtes maître de votre soirée avec nos packs thématisés et nos accessoires qui savent faire la différence :</p>
                     <ul class="ul-check primary list-unstyled mt-5">
                         <li>Lorem ipsum dolor.</li>
                         <li>Quod, amet. Provident.</li>
@@ -56,7 +56,7 @@
                 <div class="col-12 col-lg-6 block__73422 order-lg-2" style="background-image: url({{ url('medias/img/img_2.jpg') }});" data-aos="fade" data-aos-delay="">
                 </div>
                 <div class="col-lg-5 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade" data-aos-delay="">
-                    <h2 class="mb-3 text-black">Réservez-le pour une occasion (ou non)</h2>
+                    <h2 class="mb-3 text-black">S'adapter  </h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus id dignissimos nemo minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur distinctio, maiores facere officiis. Cum, esse, iusto?</p>
                     <p>(Ciblage) Notre service se propose tout aussi bien pour les particuliers comme les professionnels à Marne-la-Vallée pour l'instant.</p>
                     <ul class="ul-check primary list-unstyled mt-5">
@@ -401,13 +401,13 @@
         <div class="row">
             <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-delay="">
                 <div class="block-heading-1">
-                    <span>Get In Touch</span>
-                    <h2>Contact Us</h2>
+                    <span>Ne perdez pas de temps</span>
+                    <h2>Contactez-nous</h2>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="100">
+        <div class="row mt-3">
+            <div class="col-lg-5 mb-5" data-aos="fade-up" data-aos-delay="100">
                 <form action="#" method="post">
                     <div class="form-group row">
                         <div class="col-md-6 mb-4 mb-lg-0">
@@ -436,10 +436,10 @@
                     </div>
                 </form>
             </div>
-            <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
-                <h2 class="text-black">Need to know more on details. Get In Touch</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, distinctio! Harum quibusdam nisi, illum nulla aspernatur aut quidem aperiam, quae non tempora recusandae voluptatibus fugit impedit.</p>
-                <p><a href="#" class="btn btn-primary text-white">Get Started</a></p>
+            <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="text-black">Laissez-nous un message</h2>
+                <p>Afin de fluidifer la communication avec vous, utilisez le module de messagerie en bas à droite de votre écran. Généralement nous sommes connectés et on vous répond dans l'heure, sinon laissez un message et nous reviendrons vers vous au plus vite.</p>
+                <!-- <p><a href="#" class="btn btn-primary text-white">Get Started</a></p> -->
             </div>
         </div>
     </div>
