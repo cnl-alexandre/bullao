@@ -29,7 +29,7 @@ class ReservationController extends Controller
         // {
         //     array_push($spaArray, array($spa['spa_id'], $spa['spa_libelle'], $spa['spa_chemin_img'], $spa['spa_desc'], ));
         // }
-            
+
         /*$stripe = new Stripe("sk_test_6dFJV0K9YSFiZuS75WB1ghOg00mprdTsla");
         $charge = $stripe->charges()->create([
             'amount' => '1000',
@@ -84,7 +84,7 @@ class ReservationController extends Controller
             'success_url' => url('/reservation/paiement-accepte'),
             'cancel_url' => url('/reservation/paiement-refuse'),
         ]);
-        
+
         echo $session;*/
 
         return view('reservation')->with([
@@ -116,5 +116,21 @@ class ReservationController extends Controller
 
         Session::put('reservation', $reservation);
         return redirect('/reservation/paiement');
+    }
+
+
+    public function paiement()
+    {
+        return view('paiement')->with([]);
+    }
+
+    public function success()
+    {
+        return view('paiement-accepte')->with([]);
+    }
+
+    public function cancel()
+    {
+        return view('paiement-refuse')->with([]);
     }
 }

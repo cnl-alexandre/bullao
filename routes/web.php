@@ -24,9 +24,12 @@ Route::get('/cgv-bullao', 'ArticleController@cgv');
 Route::get('/mentions-legales', 'ArticleController@mentions');
 
 // PAIEMENT
-Route::get('/reservation/paiement', 'PaiementController@paiement');
-Route::get('/reservation/paiement-accepte', 'PaiementController@success');
-Route::get('/reservation/paiement-refuse', 'PaiementController@cancel');
+Route::get('/reservation/paiement', 'ReservationController@paiement');
+Route::get('/reservation/paiement-accepte', 'ReservationController@success');
+Route::get('/reservation/paiement-refuse', 'ReservationController@cancel');
+
+// WebServices
+Route::post('/webservices/promo/verify', 'WebservicesController@verifyPromo');
 
 // LOGIN
 Route::get('/account/login', 'AccountController@login');
