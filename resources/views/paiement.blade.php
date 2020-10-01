@@ -25,8 +25,11 @@
             </p>
         </div>
 
-        <form action="{{ url('/reservation/paiementSubmit') }}" method="post" id="payment-form" style="margin-top: 3vh;">
+        <form action="{{ url('/reservation/paiement') }}" method="post" id="payment-form" style="margin-top: 3vh;">
+            {{ csrf_field() }}
             <div class="form-row" >
+                <div id="errors"></div>
+                <input id="cardholder-name" type="text" placeholder="Titulaire de la carte"><br>
                 <label for="card-element" class="font-size-14">
                   Merci de renseigner votre carte
                 </label>
@@ -37,13 +40,76 @@
                 <!-- Used to display form errors. -->
                 <div id="card-errors" role="alert"></div>
             </div>
-            <input type="hidden" name="montant_total" id="{{ $reservation->reservation_id }}" value="{{ $reservation->reservation_montant_total }}">
-            <button style="color: #fff;background-color: #007bff;border-color: #007bff;margin-top: 35px; margin-left: 30%; margin-right: 30%; width: 40%; height: 40px;cursor: pointer;border-radius: .25rem;">Payer la réservation</button>
+            <input type="hidden" name="reservation_id" value="{{ $reservation->reservation_id }}">
+            <button id="card-button" data-secret="<?= $intent['client_secret'] ?>" style="color: #fff;background-color: #007bff;border-color: #007bff;margin-top: 35px; margin-left: 30%; margin-right: 30%; width: 40%; height: 40px;cursor: pointer;border-radius: .25rem;">Payer la réservation</button>
         </form>
     </div>
 </section>
 
+
 <script type="text/javascript">
+
+// On instancie Stripe et on lui passe notre clé publique
+let stripe = Stripe('pk_test_InZ0WdANQap1gA0gU1ajy69900GZ9zaHIl');
+
+// Initialise les éléments du formulaire
+let elements = stripe.elements();
+
+// Définit la redirection en cas de succès du paiement
+let redirect = "{{ url('/reservation/paiement-accepte') }}";
+console.log(redirect);
+
+// Récupère l'élément qui contiendra le nom du titulaire de la carte
+let cardholderName = document.getElementById('cardholder-name');
+
+// Récupère l'élement button
+let cardButton = document.getElementById('card-button');
+
+// Récupère l'attribut data-secret du bouton
+let clientSecret = cardButton.dataset.secret;
+
+// Crée les éléments de carte et les stocke dans la variable card
+let card = elements.create("card");
+
+card.mount("#card-element");
+
+card.addEventListener('change', function(event) {
+    // On récupère l'élément qui permet d'afficher les erreurs de saisie
+    let displayError = document.getElementById('card-errors');
+
+    // Si il y a une erreur
+    if (event.error) {
+        // On l'affiche
+        displayError.textContent = event.error.message;
+    } else {
+        // Sinon on l'efface
+        displayError.textContent = '';
+    }
+});
+
+cardButton.addEventListener('click', () => {
+    // On envoie la promesse contenant le code de l'intention, l'objet "card" contenant les informations de carte et le nom du client
+    stripe.handleCardPayment(
+        clientSecret, card, {
+            payment_method_data: {
+                billing_details: {name: cardholderName.value}
+            }
+        }
+    ).then(function(result) {
+        // Quand on reçoit une réponse
+        if (result.error) {
+            // Si on a une erreur, on l'affiche
+            document.getElementById("errors").innerText = result.error.message;
+        } else {
+            // Sinon on redirige l'utilisateur
+            document.location.href = redirect;
+        }
+    });
+});
+
+</script>
+
+<!-- <script type="text/javascript">
 // Create a Stripe client.
 var stripe = Stripe('pk_test_InZ0WdANQap1gA0gU1ajy69900GZ9zaHIl');
 
@@ -112,7 +178,7 @@ form.appendChild(hiddenInput);
 // Submit the form
 form.submit();
 }
-</script>
+</script> -->
 
 
 

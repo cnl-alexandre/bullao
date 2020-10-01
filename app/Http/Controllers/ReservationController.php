@@ -66,8 +66,19 @@ class ReservationController extends Controller
     {
         $reservation = Session::get('reservation');
 
+
+        // Intention de paiement
+        \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
+
+        $intent = \Stripe\PaymentIntent::create([
+            //'amount' => 13000,
+            'amount' => $reservation->reservation_montant_total*100,
+            'currency' => 'eur',
+        ]);
+
         return view('paiement')->with([
-            'reservation'   => $reservation
+            'reservation'   => $reservation,
+            'intent'        => $intent
         ]);
     }
 
@@ -76,19 +87,19 @@ class ReservationController extends Controller
 
 
 
-      /*$stripe = new Stripe("sk_test_6dFJV0K9YSFiZuS75WB1ghOg00mprdTsla");
-      $charge = $stripe->charges()->create([
-          'amount' => '1000',
-          'currency' => 'EUR',
-          'source' => [
-              'object'    => 'card',
-              'name'      => "Jérémy Lémont",
-              'number'    => "4242424242424242",
-              'cvc'       => "123",
-              'exp_month' => "10",
-              'exp_year'  => "2021"
-          ]
-      ]);*/
+      // $stripe = new Stripe("sk_test_6dFJV0K9YSFiZuS75WB1ghOg00mprdTsla");
+      // $charge = $stripe->charges()->create([
+      //     'amount' => '1000',
+      //     'currency' => 'EUR',
+      //     'source' => [
+      //         'object'    => 'card',
+      //         'name'      => "Jérémy Lémont",
+      //         'number'    => "4242424242424242",
+      //         'cvc'       => "123",
+      //         'exp_month' => "10",
+      //         'exp_year'  => "2021"
+      //     ]
+      // ]);
 
 
       //$stripe = new \Stripe\StripeClient(env('STRIPE_API_SECRET'));
@@ -111,6 +122,7 @@ class ReservationController extends Controller
       echo '<pre>';
       var_dump($payment);
       echo '<pre>';*/
+      $reservation = Reservation::Find($request->reservation_id);
 
       // \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
       //
@@ -120,9 +132,9 @@ class ReservationController extends Controller
       //         'price_data' => [
       //             'currency' => 'eur',
       //             'product_data' => [
-      //                 'name' => 'Spa Navy 6 places',
+      //                 'name' => $reservation->reservation_spa_libelle,
       //             ],
-      //             'unit_amount' => 13000,
+      //             'unit_amount' => $reservation->reservation_montant_total*100,
       //         ],
       //         'quantity' => 1,
       //     ]],

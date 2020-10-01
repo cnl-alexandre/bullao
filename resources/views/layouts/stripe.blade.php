@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{ url('/css/customer/style.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/custom.css') }}">
 
+        <script src="{{ url('/js/customer/jquery-3.3.1.min.js') }}"></script>
         <script src="https://js.stripe.com/v3/"></script>
     </head>
     <body class="body-stripe">
