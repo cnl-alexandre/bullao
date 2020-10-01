@@ -29,7 +29,7 @@ Route::get('/reservation/paiement-accepte', 'ReservationController@success');
 Route::get('/reservation/paiement-refuse', 'ReservationController@cancel');
 
 // WebServices
-Route::post('/webservices/promo/verify', 'WebservicesController@verifyPromo');
+Route::post('/webservices/promo/verify', 'WebserviceController@verifyPromo');
 
 // LOGIN
 Route::get('/account/login', 'AccountController@login');

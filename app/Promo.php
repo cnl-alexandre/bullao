@@ -11,12 +11,6 @@ class Promo extends Model
     protected $table = 'promos';
     protected $primaryKey = 'promo_id';
 
-    public function create($array)
-    {
-        $this->promo_date     = $array->date;
-        $this->save();
-    }
-
     public function getDateCreatedAttribute()
     {
         return Carbon::parse($this->attributes['created_at']);

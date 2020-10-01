@@ -325,6 +325,14 @@
                         </div>
                     </div>
                     <hr>
+                    <div class="row bloc-promo">
+                        <div class="col-6 text-left">
+                            <h5>Code promo :</h5>
+                        </div>
+                        <div class="col-6 text-right">
+                            -<span id="recap-promo">0.00</span>%
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-6 text-left">
                             <h5>Total :</h5>
@@ -338,6 +346,7 @@
             <div class="row justify-content-center mt-4">
                 <input type="hidden" name="montant_total" id="montant_total">
                 <input type="hidden" name="prix" id="prix">
+                <input type="hidden" name="montant_without_promo" id="montant_without_promo">
                 <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
             </div>
         </div>
@@ -354,7 +363,7 @@
         var nbJours = calculNbJoursReservation(dates[0], dates[1]);
 
         $('#recap-date-debut').html(dates[0]);
-        $('#recap-date-fin').html(dates[1]+"<br>");
+        $('#recap-date-fin').html(dates[1]);
     });
 
     $(".spa-recap").click(function() {
@@ -371,9 +380,10 @@
         var dates = d.split(" - ");
         var p = calculPrixReservation(dates[0], dates[1], prixSpa);
 
-        $('#montant_total').val(p);
-        $('#prix').val(p);
-        $('#recap-montant-total').html(p);
+        $('#montant_total').val(p.toFixed(2));
+        $('#montant_without_promo').val(p.toFixed(2));
+        $('#prix').val(p.toFixed(2));
+        $('#recap-montant-total').html(p.toFixed(2));
 
         // Calcul des jours de réservation
         var nbJours = calculNbJoursReservation(dates[0], dates[1]);
@@ -423,8 +433,9 @@
 
         $('#separation-recap').css("display", "block");
 
-        $('#montant_total').val(pPack);
-        $('#recap-montant-total').html(pPack);
+        $('#montant_total').val(pPack.toFixed(2));
+        $('#montant_without_promo').val(pPack.toFixed(2));
+        $('#recap-montant-total').html(pPack.toFixed(2));
     });
 
     $('.accessoire-recap').click(function() {
@@ -460,8 +471,9 @@
 
             var prixAccessoire = parseFloat(p)+parseFloat(pAccessoire)+parseFloat(pPack)
 
-            $('#montant_total').val(prixAccessoire);
-            $('#recap-montant-total').html(prixAccessoire);
+            $('#montant_total').val(prixAccessoire.toFixed(2));
+        $('#montant_without_promo').val(prixAccessoire.toFixed(2));
+            $('#recap-montant-total').html(prixAccessoire.toFixed(2));
         }, 100);
     });
 
@@ -479,8 +491,9 @@
             var prix = $('#recap-montant-total').html();
             var total = parseFloat(prix)-parseFloat(pPack);
 
-            $('#montant_total').val(total);
-            $('#recap-montant-total').html(total);
+            $('#montant_total').val(total.toFixed(2));
+            $('#montant_without_promo').val(total.toFixed(2));
+            $('#recap-montant-total').html(total.toFixed(2));
 
             $('#prixPack').val("0.00");
 
@@ -500,9 +513,87 @@
         });
     @endif
 
+    $("#promo").keyup(function() {
+        var code = $(this).val();
+        var montant = $('#montant_total').val();
+        if(code != "")
+        {
+            $.ajax({
+                url : "{{ url('/webservices/promo/verify') }}",
+                type : 'POST',
+                data : '_token={{ csrf_token() }}&code=' + code,
+                success : function(response, statut){
+                    if(response != "" && typeof response == "object")
+                    {
+                        $("#promo").addClass('is-valid');
+                        $("#promo").removeClass('is-invalid');
+
+                        $('#bloc-promo').css("display", "block");
+                        $('#recap-promo').html(response['promo']['promo_valeur']);
+                        
+                        var promo = parseFloat(montant)*(parseFloat(response['promo']['promo_valeur'])/100);
+
+                        var montant_total = parseFloat(montant)-parseFloat(promo);
+                        var recap_montant_total = parseFloat(montant)-parseFloat(promo);
+
+                        $('#montant_total').val(montant_total.toFixed(2));
+                        $('#recap-montant-total').html(recap_montant_total.toFixed(2));
+                    }
+                    else
+                    {
+                        $('#bloc-promo').css("display", "none");
+                        var oldPromo = $('#recap-promo').html();
+                        //$('#recap-promo').html(null);
+
+                        if(oldPromo != "0.00")
+                        {
+                            var promo = parseFloat(montant)*(parseFloat(oldPromo)/100);
+
+                            var montant_total = parseFloat(montant)+parseFloat(promo);
+                            var recap_montant_total = parseFloat(montant)+parseFloat(promo);
+
+                            var montantWithoutPromo = parseFloat($('#montant_without_promo').val());
+
+                            $('#montant_total').val(montantWithoutPromo.toFixed(2));
+                            $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
+                        }
+
+                        $("#promo").removeClass('is-valid');
+                        $("#promo").addClass('is-invalid');
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log('ERREUR : '+jqXHR.responseText);
+
+                    var oldPromo = parseFloat($('#recap-promo').html());
+                    $('#recap-promo').html(null);
+
+                    var promo = parseFloat(montant)*(parseFloat(oldPromo)/100);
+
+                    var montant_total = parseFloat(montant)+parseFloat(promo);
+                    var recap_montant_total = parseFloat(montant)-parseFloat(promo);
+
+                    var montantWithoutPromo = parseFloat($('#montant_without_promo').val());
+
+                    $('#montant_total').val(montantWithoutPromo.toFixed(2));
+                    $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
+
+                    $("#promo").removeClass('is-valid');
+                    $("#promo").addClass('is-invalid');
+                }
+            });
+        }
+        else
+        {
+            $("#promo").removeClass('is-valid');
+            $("#promo").removeClass('is-invalid');
+        }
+    });
+
     $(document).ready(function() {
 
         $('#separation-recap').css("display", "none");
+        $('.bloc-promo').css("display", "none");
 
         // Gestion du scroll automatique
         var url = $(location).attr('href');
