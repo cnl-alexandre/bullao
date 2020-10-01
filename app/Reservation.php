@@ -7,18 +7,24 @@ use Carbon\Carbon;
 use App\Client;
 use App\ReservationAccessoire;
 use App\Pack;
+use App\Spa;
 
 class Reservation extends Model
 {
     protected $connection = 'mysql';
     protected $table = 'reservations';
     protected $primaryKey = 'reservation_id';
-    
+
     public function accessoires()
     {
         return $this->hasMany('App\ReservationAccessoire', 'ra_accessoire_id');
     }
-    
+
+    public function spa()
+    {
+        return $this->belongsTo('App\Spa', 'reservation_spa_id', 'spa_id');
+    }
+
     public function create($array)
     {
         $daterange = $array->daterange;
@@ -33,8 +39,11 @@ class Reservation extends Model
         $this->reservation_type_logement        = $array->type_logement;
         $this->reservation_creneau              = $array->creneau;
         $this->reservation_prix                 = $array->prix;
+        $this->reservation_spa_id               = $array->spa;
+        $spa = Spa::find($array->spa);
+        $this->reservation_spa_libelle          = $spa->spa_libelle.' '.$spa->spa_nb_place.' places';
 
-        if($array->pack != "")
+        if(isset($array->pack) && $array->pack != "")
         {
             $this->reservation_pack_id          = $array->pack;
             $pack = Pack::find($array->pack);
@@ -45,7 +54,7 @@ class Reservation extends Model
         $this->reservation_promo                = $array->promo;
         $this->save();
 
-        if(count($array->accessoires) > 0)
+        if(isset($array->accessoires) && count($array->accessoires) > 0)
         {
             foreach($array->accessoires as $accessoire)
             {
@@ -57,12 +66,22 @@ class Reservation extends Model
         /*$client = new Client;
         $client->create($array);*/
     }
-    
+
+    public function getDateDebutAttribute()
+    {
+        return Carbon::parse($this->attributes['reservation_date_debut']);
+    }
+
+    public function getDateFinAttribute()
+    {
+        return Carbon::parse($this->attributes['reservation_date_fin']);
+    }
+
     public function getDateCreatedAttribute()
     {
         return Carbon::parse($this->attributes['created_at']);
     }
-    
+
     public function getDateUpdatedAttribute()
     {
         return Carbon::parse($this->attributes['updated_at']);

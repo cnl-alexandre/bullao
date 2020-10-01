@@ -19,13 +19,13 @@
 
         <div style="background-color: #fff;border-radius: .25rem;padding: .2rem .5rem;text-align: center">
             <p class="font-size-14">
-                Spa Sahara 4 places
-                <br>28/10/2020 - 29/10/2020
-                <br>Montant total : 110€
+                {{ $reservation->reservation_spa_libelle }}
+                <br>Du {{ $reservation->DateDebut->format('d/m/Y') }} au {{ $reservation->DateFin->format('d/m/Y') }}
+                <br>Montant total : {{ $reservation->reservation_montant_total }}€
             </p>
         </div>
 
-        <form action="/charge" method="post" id="payment-form" style="margin-top: 3vh;">
+        <form action="{{ url('/reservation/paiementSubmit') }}" method="post" id="payment-form" style="margin-top: 3vh;">
             <div class="form-row" >
                 <label for="card-element" class="font-size-14">
                   Merci de renseigner votre carte
@@ -37,7 +37,7 @@
                 <!-- Used to display form errors. -->
                 <div id="card-errors" role="alert"></div>
             </div>
-
+            <input type="hidden" name="montant_total" id="{{ $reservation->reservation_id }}" value="{{ $reservation->reservation_montant_total }}">
             <button style="color: #fff;background-color: #007bff;border-color: #007bff;margin-top: 35px; margin-left: 30%; margin-right: 30%; width: 40%; height: 40px;cursor: pointer;border-radius: .25rem;">Payer la réservation</button>
         </form>
     </div>
