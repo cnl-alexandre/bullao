@@ -74,6 +74,7 @@ class ReservationController extends Controller
             //'amount' => 13000,
             'amount' => $reservation->reservation_montant_total*100,
             'currency' => 'eur',
+            'receipt_email' => 'cnl.alexandre@gmail.com',
         ]);
 
         return view('paiement')->with([

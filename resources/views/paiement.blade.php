@@ -41,7 +41,7 @@
                 <div id="card-errors" role="alert"></div>
             </div>
             <input type="hidden" name="reservation_id" value="{{ $reservation->reservation_id }}">
-            <button id="card-button" data-secret="<?= $intent['client_secret'] ?>" style="color: #fff;background-color: #007bff;border-color: #007bff;margin-top: 35px; margin-left: 30%; margin-right: 30%; width: 40%; height: 40px;cursor: pointer;border-radius: .25rem;">Payer la réservation</button>
+            <button id="card-button" type="button" data-secret="<?= $intent['client_secret'] ?>" style="color: #fff;background-color: #007bff;border-color: #007bff;margin-top: 35px; margin-left: 30%; margin-right: 30%; width: 40%; height: 40px;cursor: pointer;border-radius: .25rem;">Payer la réservation</button>
         </form>
     </div>
 </section>
@@ -50,14 +50,13 @@
 <script type="text/javascript">
 
 // On instancie Stripe et on lui passe notre clé publique
-let stripe = Stripe('pk_test_InZ0WdANQap1gA0gU1ajy69900GZ9zaHIl');
+let stripe = Stripe('{{ env("STRIPE_API_KEY") }}');
 
 // Initialise les éléments du formulaire
 let elements = stripe.elements();
 
 // Définit la redirection en cas de succès du paiement
 let redirect = "{{ url('/reservation/paiement-accepte') }}";
-console.log(redirect);
 
 // Récupère l'élément qui contiendra le nom du titulaire de la carte
 let cardholderName = document.getElementById('cardholder-name');
