@@ -25,7 +25,7 @@ Route::get('/mentions-legales', 'ArticleController@mentions');
 
 // PAIEMENT
 Route::get('/reservation/paiement', 'ReservationController@paiement');
-Route::get('/reservation/paiement', 'ReservationController@paiementSubmit');
+Route::post('/reservation/paiement', 'ReservationController@paiementSubmit');
 Route::get('/reservation/paiement-accepte', 'ReservationController@success');
 Route::get('/reservation/paiement-refuse', 'ReservationController@cancel');
 
