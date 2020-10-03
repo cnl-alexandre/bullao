@@ -76,7 +76,6 @@
                     <div class="block-heading-1" data-aos="" data-aos-delay="">
                         <h2 class="h2-reservation">2. Vos disponibilités</h2>
                         <br>
-
                         <div class="text-center" id="containerdaterange" style="height:330px;">
                           <div class="form-group">
                               <label for="daterange">Dates de résevation</label>
@@ -86,7 +85,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -100,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
+            <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom array_spas" data-toggle="buttons">
                 @if(count($spas) > 0)
                     @foreach($spas as $spa)
                         <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap" data-aos="fade-up" rel="{{ $spa->spa_prix }}" rel2="{{ $spa->spa_libelle }} {{ $spa->spa_nb_place }} places">
@@ -117,6 +115,7 @@
                 @endif
             </div>
             <input type="hidden" name="prixSpa" id="prixSpa" value="0.00">
+            <input type="hidden" name="nbPlaceSpa" id="nbPlaceSpa" value="{{ $nbPlace }}">
         </div>
     </div>
 
@@ -588,6 +587,34 @@
             $("#promo").removeClass('is-valid');
             $("#promo").removeClass('is-invalid');
         }
+    });
+
+    $(".daterange").change(function() {
+        var d = $('#daterange').val();
+        var dates = d.split(" - ");
+        var date_debut = dates[0].split('/').reverse().join('-');
+        var date_fin = dates[1].split('/').reverse().join('-');
+        var nb_place = $('#nbPlaceSpa').val();
+        $.ajax({
+            url : "{{ url('/webservices/spa/stock/verify') }}",
+            type : 'POST',
+            data : '_token={{ csrf_token() }}&date_debut='+date_debut+'&date_fin='+date_fin+'&nb_place='+nb_place,
+            success : function(response, statut){
+                if(response != "")
+                {
+                    console.log(response);
+                    //$('.array_spas').html(response['spas']);
+                }
+                else
+                {
+                    $('.array_spas').html("Pas de spas disponibles...");
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log('ERREUR : '+jqXHR.responseText);
+
+            }
+        });
     });
 
     $(document).ready(function() {

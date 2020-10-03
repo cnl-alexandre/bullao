@@ -34,7 +34,8 @@ class ReservationController extends Controller
             'indispos'      => $indispos,
             'spas'          => $spas,
             'packs'         => $packs,
-            'accessoires'   => $accessoires
+            'accessoires'   => $accessoires,
+            'nbPlace'       => $nbPlace
         ]);
     }
 

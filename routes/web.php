@@ -31,6 +31,7 @@ Route::get('/reservation/paiement-refuse', 'ReservationController@cancel');
 
 // WebServices
 Route::post('/webservices/promo/verify', 'WebserviceController@verifyPromo');
+Route::post('/webservices/spa/stock/verify', 'WebserviceController@verifySpaStock');
 
 // LOGIN
 Route::get('/account/login', 'AccountController@login');
