@@ -602,8 +602,8 @@
             success : function(response, statut){
                 if(response != "")
                 {
-                    console.log(response);
-                    //$('.array_spas').html(response['spas']);
+                    //console.log(response);
+                    $('.array_spas').html(response['spas']);
                 }
                 else
                 {
