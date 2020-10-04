@@ -104,6 +104,7 @@ class WebserviceController extends Controller
                             $html .= '</figure>';
                             $html .= '<h3 class="font-size-20 text-black">'.$spa->spa_libelle.'</h3>';
                             $html .= '<span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3">'.$spa->spa_desc.'</span>';
+                            $html .= '<span class="text-danger">Victime de son succès</span>';
                         $html .= '</div>';
                     $html .= '</label>';
                 }
@@ -111,9 +112,7 @@ class WebserviceController extends Controller
         }
 
         return response()->json([
-            'spas'          => $html,
-            'reserv'        => $reserv,
-            'reservations'  => $reservations
+            'spas'          => $html
         ]);
     }
 }

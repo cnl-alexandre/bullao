@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5,
     font-size: 2.5rem;
 }
 
-.btn-radio-custom .active, .btn-checkbox-custom .active {
+.btn-radio-custom .active .block-team-member-1, .btn-checkbox-custom .active .block-team-member-1 {
     border: solid 1.5px #f5a623;
 }
 
@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5,
   cursor: default;
 }
 
-.btn-radio-custom:hover, .btn-checkbox-custom:hover {
+.btn-radio-custom .block-team-member-1:hover, .btn-checkbox-custom .block-team-member-1:hover {
     cursor: pointer;
 }
 
