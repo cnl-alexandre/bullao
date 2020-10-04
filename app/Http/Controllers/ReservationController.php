@@ -152,6 +152,13 @@ class ReservationController extends Controller
 
     public function success()
     {
+      
+        Mail::send('emails.confirmation', [], function($mess){
+            $mess->from('akacocoputer@gmail.com'); // Mail de départ Bullao contact@bullao.fr
+            $mess->to('cnl.alexandre@gmail.com'); // Mail du client
+            $mess->subject('Bullao : confirmation de réservation');
+        });
+
         return view('paiement-accepte')->with([]);
     }
 

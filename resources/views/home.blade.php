@@ -223,11 +223,11 @@
                   <p>Vous devez disposer de 2m sur 2m sur une surface béton sous le sol, d'un point d'eau avec robinet extérieur ou de cuisine et une prise électrique à porté (20m maximum).</p>
               </div>
               <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                  <h3 class="text-black h6 mb-2">Le temps d'installer et de désinstaller :</h3>
+                  <h3 class="text-black h6 mb-2">Le temps de pose et de retrait :</h3>
                   <p>En règle général, nous prenons une heure pour installer et vérifier le bon fonctionnement du matériel. Le spa et les accessoires sont désinfectés après la réservation.</p>
               </div>
               <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                  <h3 class="text-black h6 mb-2">Le moment de l'installation :</h3>
+                  <h3 class="text-black h6 mb-2">Le moment de la pose :</h3>
                   <p>Nous recommandons une installation en début de journée afin que l'eau soit chauffée rapidement et de profiter du spa le reste de la journée et de la nuit.</p>
               </div>
               <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
@@ -259,7 +259,7 @@
 
 <div class="site-section" id="contact-section">
     <div class="container">
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-delay="">
                 <div class="block-heading-1">
                     <span>Ne perdez pas de temps</span>
@@ -267,11 +267,11 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-3  d-flex justify-content-around">
             <div class="col-lg-5 mb-5" data-aos="fade-up" data-aos-delay="100">
-                <img src="{{ url('/medias/img/paiement-stripe.jpg') }}" alt="Image" class="img-fluid rounded-circle">
+                <img src="{{ url('/medias/img/messagerie.jpg') }}" alt="Image" class="img-fluid">
             </div>
-            <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
                 <h2 class="text-black">Laissez-nous un message</h2>
                 <p>Afin de faciliter la communication avec vous, utilisez le module de messagerie en bas à droite de votre écran. Généralement nous sommes connectés et on vous répond dans l'heure, sinon laissez un message et nous reviendrons vers vous au plus vite.</p>
             </div>
