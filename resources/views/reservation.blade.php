@@ -361,59 +361,32 @@
         var dates = d.split(" - ");
         var nbJours = calculNbJoursReservation(dates[0], dates[1]);
 
+        var date_debut = dates[0].split('/').reverse().join('-');
+        var date_fin = dates[1].split('/').reverse().join('-');
+        var nb_place = $('#nbPlaceSpa').val();
+        $.ajax({
+            url : "{{ url('/webservices/spa/stock/verify') }}",
+            type : 'POST',
+            data : '_token={{ csrf_token() }}&date_debut='+date_debut+'&date_fin='+date_fin+'&nb_place='+nb_place,
+            success : function(response, statut){
+                if(response != "")
+                {
+                    //console.log(response);
+                    $('.array_spas').html(response['spas']);
+                }
+                else
+                {
+                    $('.array_spas').html("Pas de spas disponibles...");
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log('ERREUR : '+jqXHR.responseText);
+    
+            }
+        });
+
         $('#recap-date-debut').html(dates[0]);
         $('#recap-date-fin').html(dates[1]);
-    });
-
-    $(".spa-recap").click(function() {
-        var prixSpa = $(this).attr("rel");
-        var spa = $(this).attr("rel2");
-
-        $('#recap-spa-libelle').html(spa);
-        $('#recap-spa-prix').html(prixSpa+"€");
-
-        $('#prixSpa').val(prixSpa);
-
-        // Montant total
-        var d = $('#daterange').val();
-        var dates = d.split(" - ");
-        var p = calculPrixReservation(dates[0], dates[1], prixSpa);
-
-        $('#montant_total').val(p.toFixed(2));
-        $('#montant_without_promo').val(p.toFixed(2));
-        $('#prix').val(p.toFixed(2));
-        $('#recap-montant-total').html(p.toFixed(2));
-
-        // Calcul des jours de réservation
-        var nbJours = calculNbJoursReservation(dates[0], dates[1]);
-
-        var jours = "";
-        var prix = 0.00;
-
-        jours = "+ "+(nbJours-1)+" jour(s) supplémentaire(s)";
-
-        if(nbJours > 1)
-        {
-            if(nbJours == 2)
-            {
-                prix = 40.00;
-            }
-            else if(nbJours == 3)
-            {
-                prix = 80.00;
-            }
-            else if(nbJours == 4)
-            {
-                prix = 110.00;
-            }
-            else if(nbJours > 4)
-            {
-                prix = 110.00 + ((nbJours-4)*20.00);
-            }
-
-            $('#recap-jours-libelle').html(jours);
-            $('#recap-jours-prix').html(prix+"€");
-        }
     });
 
     $(".pack-recap").click(function() {
@@ -588,34 +561,6 @@
             $("#promo").removeClass('is-invalid');
         }
     });
-
-    // $(".daterange").change(function() {
-    //     var d = $('#daterange').val();
-    //     var dates = d.split(" - ");
-    //     var date_debut = dates[0].split('/').reverse().join('-');
-    //     var date_fin = dates[1].split('/').reverse().join('-');
-    //     var nb_place = $('#nbPlaceSpa').val();
-    //     $.ajax({
-    //         url : "{{ url('/webservices/spa/stock/verify') }}",
-    //         type : 'POST',
-    //         data : '_token={{ csrf_token() }}&date_debut='+date_debut+'&date_fin='+date_fin+'&nb_place='+nb_place,
-    //         success : function(response, statut){
-    //             if(response != "")
-    //             {
-    //                 //console.log(response);
-    //                 $('.array_spas').html(response['spas']);
-    //             }
-    //             else
-    //             {
-    //                 $('.array_spas').html("Pas de spas disponibles...");
-    //             }
-    //         },
-    //         error: function(jqXHR, textStatus, errorThrown) {
-    //             console.log('ERREUR : '+jqXHR.responseText);
-    //
-    //         }
-    //     });
-    // });
 
     $(document).ready(function() {
 

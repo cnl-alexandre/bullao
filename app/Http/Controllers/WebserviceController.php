@@ -109,6 +109,8 @@ class WebserviceController extends Controller
                     $html .= '</label>';
                 }
             }
+
+            $html .= '<script>bindClickSpas();</script>';
         }
 
         return response()->json([

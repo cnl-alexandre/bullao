@@ -21,8 +21,6 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
         <script src="https://js.stripe.com/v3/"></script>
-
-        <script src="{{ url('/js/customer/functions.js') }}"></script>
     </head>
     <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
         <div class="site-wrap">
@@ -51,6 +49,8 @@
         <script src="{{ url('/js/customer/slick.min.js') }}"></script>
         <script src="{{ url('/js/customer/typed.js') }}"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+        <script src="{{ url('/js/customer/functions.js') }}"></script>
 
         <script src="{{ url('/js/customer/main.js') }}"></script>
     </body>
