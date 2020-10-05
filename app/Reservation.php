@@ -25,6 +25,11 @@ class Reservation extends Model
         return $this->belongsTo('App\Spa', 'reservation_spa_id', 'spa_id');
     }
 
+    public function pack()
+    {
+        return $this->belongsTo('App\Pack', 'reservation_pack_id', 'pack_id');
+    }
+
     public function create($array)
     {
         $daterange = $array->daterange;

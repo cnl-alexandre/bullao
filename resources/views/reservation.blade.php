@@ -529,7 +529,7 @@
 
                         $('#bloc-promo').css("display", "block");
                         $('#recap-promo').html(response['promo']['promo_valeur']);
-                        
+
                         var promo = parseFloat(montant)*(parseFloat(response['promo']['promo_valeur'])/100);
 
                         var montant_total = parseFloat(montant)-parseFloat(promo);
@@ -589,33 +589,33 @@
         }
     });
 
-    $(".daterange").change(function() {
-        var d = $('#daterange').val();
-        var dates = d.split(" - ");
-        var date_debut = dates[0].split('/').reverse().join('-');
-        var date_fin = dates[1].split('/').reverse().join('-');
-        var nb_place = $('#nbPlaceSpa').val();
-        $.ajax({
-            url : "{{ url('/webservices/spa/stock/verify') }}",
-            type : 'POST',
-            data : '_token={{ csrf_token() }}&date_debut='+date_debut+'&date_fin='+date_fin+'&nb_place='+nb_place,
-            success : function(response, statut){
-                if(response != "")
-                {
-                    //console.log(response);
-                    $('.array_spas').html(response['spas']);
-                }
-                else
-                {
-                    $('.array_spas').html("Pas de spas disponibles...");
-                }
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log('ERREUR : '+jqXHR.responseText);
-
-            }
-        });
-    });
+    // $(".daterange").change(function() {
+    //     var d = $('#daterange').val();
+    //     var dates = d.split(" - ");
+    //     var date_debut = dates[0].split('/').reverse().join('-');
+    //     var date_fin = dates[1].split('/').reverse().join('-');
+    //     var nb_place = $('#nbPlaceSpa').val();
+    //     $.ajax({
+    //         url : "{{ url('/webservices/spa/stock/verify') }}",
+    //         type : 'POST',
+    //         data : '_token={{ csrf_token() }}&date_debut='+date_debut+'&date_fin='+date_fin+'&nb_place='+nb_place,
+    //         success : function(response, statut){
+    //             if(response != "")
+    //             {
+    //                 //console.log(response);
+    //                 $('.array_spas').html(response['spas']);
+    //             }
+    //             else
+    //             {
+    //                 $('.array_spas').html("Pas de spas disponibles...");
+    //             }
+    //         },
+    //         error: function(jqXHR, textStatus, errorThrown) {
+    //             console.log('ERREUR : '+jqXHR.responseText);
+    //
+    //         }
+    //     });
+    // });
 
     $(document).ready(function() {
 

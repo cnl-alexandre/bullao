@@ -9,6 +9,7 @@ use App\Accessoire;
 use Illuminate\Http\Request;
 use App\Reservation;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
 
 class ReservationController extends Controller
 {
@@ -87,77 +88,38 @@ class ReservationController extends Controller
     public function paiementSubmit(Request $request)
     {
 
-
-
-      // $stripe = new Stripe("sk_test_6dFJV0K9YSFiZuS75WB1ghOg00mprdTsla");
-      // $charge = $stripe->charges()->create([
-      //     'amount' => '1000',
-      //     'currency' => 'EUR',
-      //     'source' => [
-      //         'object'    => 'card',
-      //         'name'      => "Jérémy Lémont",
-      //         'number'    => "4242424242424242",
-      //         'cvc'       => "123",
-      //         'exp_month' => "10",
-      //         'exp_year'  => "2021"
-      //     ]
-      // ]);
-
-
-      //$stripe = new \Stripe\StripeClient(env('STRIPE_API_SECRET'));
-
-      // Création d'un nouveau client sur Stripe
-      /*$customer = $stripe->customers->create([
-          'description' => 'Jérémy Lémont',
-          'email' => 'jerem-lem@hotmail.fr',
-          'payment_method' => 'pm_card_visa',
-      ]);*/
-
-      /*$payment = $stripe->charges->create([
-          'amount'            => 9000,
-          'currency'          => 'eur',
-          'source'            => 'card_1HVNN8Ae5yGeW8UltnY8y7Tm',
-          'description'       => 'Spa Navy 4 places',
-          'customer'          => 'cus_I5YS3QuQBxM4uy'
-      ]);
-
-      echo '<pre>';
-      var_dump($payment);
-      echo '<pre>';*/
       $reservation = Reservation::Find($request->reservation_id);
-
-      // \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
-      //
-      // $session = \Stripe\Checkout\Session::create([
-      //     'payment_method_types' => ['card'],
-      //     'line_items' => [[
-      //         'price_data' => [
-      //             'currency' => 'eur',
-      //             'product_data' => [
-      //                 'name' => $reservation->reservation_spa_libelle,
-      //             ],
-      //             'unit_amount' => $reservation->reservation_montant_total*100,
-      //         ],
-      //         'quantity' => 1,
-      //     ]],
-      //     'mode' => 'payment',
-      //     'success_url' => url('/reservation/paiement-accepte'),
-      //     'cancel_url' => url('/reservation/paiement-refuse'),
-      // ]);
-
-      // echo $session;
-
 
     }
 
     public function success()
     {
-      
-        Mail::send('emails.confirmation', [], function($mess){
+
+        // $reservation = Session::get('reservation');
+        // $r = Reservation::Find($reservation->reservation_id);
+        // Session::put('reservation', $r);
+
+        // $reservation = Session::get('reservation');
+
+        // var_dump($reservation->accessoires);
+
+        // Mail destiné au client
+        // Mail::send('emails.confirmation', ['reservation' => $reservation], function($mess){
+        //     $mess->from('akacocoputer@gmail.com'); // Mail de départ Bullao contact@bullao.fr
+        //     $mess->to('cnl.alexandre@gmail.com'); // Mail du client
+        //     $mess->cc('jer.lemont@gmail.com');
+        //     $mess->subject('Bullao : confirmation de réservation');
+        // });
+
+        // Mail destiné aux Admins
+        Mail::send('emails.confirmationAdmin', [], function($mess){
             $mess->from('akacocoputer@gmail.com'); // Mail de départ Bullao contact@bullao.fr
             $mess->to('cnl.alexandre@gmail.com'); // Mail du client
-            $mess->subject('Bullao : confirmation de réservation');
+            $mess->cc('jer.lemont@gmail.com');
+            $mess->subject('Bullao : Nouvelle réservation !');
         });
+
+        //Session::forget('reservation');
 
         return view('paiement-accepte')->with([]);
     }
