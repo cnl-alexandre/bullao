@@ -1,14 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:8889
--- Généré le :  mer. 30 sep. 2020 à 21:10
--- Version du serveur :  5.7.26
--- Version de PHP :  7.3.8
+-- Hôte : localhost
+-- Généré le :  lun. 12 oct. 2020 à 18:51
+-- Version du serveur :  10.3.21-MariaDB
+-- Version de PHP :  7.2.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `bullao`
@@ -27,7 +35,7 @@ CREATE TABLE `accessoires` (
   `accessoire_libelle` varchar(100) NOT NULL,
   `accessoire_description` text NOT NULL,
   `accessoire_prix` decimal(10,2) NOT NULL,
-  `accessoire_stock` int(11) NOT NULL DEFAULT '0',
+  `accessoire_stock` int(11) NOT NULL DEFAULT 0,
   `accessoire_chemin_img` varchar(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -74,6 +82,26 @@ INSERT INTO `administrateurs` (`administrateur_id`, `administrateur_name`, `admi
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `adresses`
+--
+
+CREATE TABLE `adresses` (
+  `adresse_id` int(11) NOT NULL,
+  `adresse_name` varchar(100) NOT NULL,
+  `adresse_client_id` int(11) NOT NULL,
+  `adresse_rue` varchar(100) NOT NULL,
+  `adresse_cp` varchar(5) DEFAULT NULL,
+  `adresse_ville` varchar(100) NOT NULL,
+  `adresse_complement` varchar(100) DEFAULT NULL,
+  `adresse_departement` varchar(100) NOT NULL,
+  `adresse_type` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `clients`
 --
 
@@ -81,10 +109,6 @@ CREATE TABLE `clients` (
   `client_id` int(11) NOT NULL,
   `client_name` varchar(100) NOT NULL,
   `client_user_id` int(11) DEFAULT NULL,
-  `client_adresse_1` varchar(100) NOT NULL,
-  `client_adresse_2` varchar(100) DEFAULT NULL,
-  `client_cp` varchar(5) NOT NULL,
-  `client_ville` varchar(100) NOT NULL,
   `client_email` varchar(100) NOT NULL,
   `client_phone` varchar(10) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -95,8 +119,8 @@ CREATE TABLE `clients` (
 -- Déchargement des données de la table `clients`
 --
 
-INSERT INTO `clients` (`client_id`, `client_name`, `client_user_id`, `client_adresse_1`, `client_adresse_2`, `client_cp`, `client_ville`, `client_email`, `client_phone`, `created_at`, `updated_at`) VALUES
-(1, 'Jérémy Lémont', 2, '11 rue Pablo Néruda', 'Interphone au nom de SKYBYK', '77200', 'Torcy', 'jerem-lem@hotmail.fr', '0631727083', '2020-09-20 22:00:00', NULL);
+INSERT INTO `clients` (`client_id`, `client_name`, `client_user_id`, `client_email`, `client_phone`, `created_at`, `updated_at`) VALUES
+(1, 'Jérémy Lémont', 2, 'jerem-lem@hotmail.fr', '0631727083', '2020-09-20 22:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -129,7 +153,7 @@ CREATE TABLE `packs` (
   `pack_id` int(11) NOT NULL,
   `pack_libelle` varchar(100) NOT NULL,
   `pack_description` text NOT NULL,
-  `pack_stock` int(11) NOT NULL DEFAULT '0',
+  `pack_stock` int(11) NOT NULL DEFAULT 0,
   `pack_prix` decimal(10,2) NOT NULL,
   `pack_chemin_img` varchar(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -198,10 +222,16 @@ INSERT INTO `ranks` (`rank_id`, `rank_libelle`, `created_at`, `updated_at`) VALU
 
 CREATE TABLE `reservations` (
   `reservation_id` int(11) NOT NULL,
+  `reservation_client_id` int(11) DEFAULT NULL,
   `reservation_date_debut` date NOT NULL,
   `reservation_date_fin` date NOT NULL,
   `reservation_creneau` varchar(25) NOT NULL,
   `reservation_emplacement` varchar(100) NOT NULL,
+  `reservation_rue` varchar(100) NOT NULL,
+  `reservation_cp` varchar(5) DEFAULT NULL,
+  `reservation_ville` varchar(100) NOT NULL,
+  `reservation_complement` varchar(100) NOT NULL,
+  `reservation_departement` varchar(100) NOT NULL,
   `reservation_type_logement` varchar(100) NOT NULL,
   `reservation_spa_id` int(11) DEFAULT NULL,
   `reservation_spa_libelle` varchar(100) NOT NULL,
@@ -210,7 +240,7 @@ CREATE TABLE `reservations` (
   `reservation_prix_pack` decimal(10,2) DEFAULT NULL,
   `reservation_montant_total` decimal(10,2) NOT NULL,
   `reservation_promo` varchar(20) DEFAULT NULL,
-  `reservation_paye` int(1) NOT NULL DEFAULT '0',
+  `reservation_paye` int(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -219,11 +249,11 @@ CREATE TABLE `reservations` (
 -- Déchargement des données de la table `reservations`
 --
 
-INSERT INTO `reservations` (`reservation_id`, `reservation_date_debut`, `reservation_date_fin`, `reservation_creneau`, `reservation_emplacement`, `reservation_type_logement`, `reservation_spa_id`, `reservation_spa_libelle`, `reservation_prix`, `reservation_pack_id`, `reservation_prix_pack`, `reservation_montant_total`, `reservation_promo`, `reservation_paye`, `created_at`, `updated_at`) VALUES
-(1, '2020-09-28', '2020-09-30', 'aprem', 'exterieur', 'appartement', NULL, '', '90.00', 3, '20.00', '90.00', 'F2P9K4', 0, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
-(2, '2020-10-14', '2020-10-15', 'aprem', 'exterieur', 'appartement', NULL, '', '90.00', 2, '20.00', '119.00', 'COPAIN2020', 0, '2020-09-30 16:03:02', '2020-09-30 16:03:02'),
-(3, '2020-10-06', '2020-10-08', 'aprem', 'exterieur', 'appartement', NULL, '', '130.00', 2, '20.00', '153.00', NULL, 0, '2020-09-30 19:55:14', '2020-09-30 19:55:14'),
-(4, '2020-10-06', '2020-10-08', 'aprem', 'exterieur', 'appartement', NULL, '', '130.00', 2, '20.00', '159.00', NULL, 0, '2020-09-30 19:59:25', '2020-09-30 19:59:25');
+INSERT INTO `reservations` (`reservation_id`, `reservation_client_id`, `reservation_date_debut`, `reservation_date_fin`, `reservation_creneau`, `reservation_emplacement`, `reservation_rue`, `reservation_cp`, `reservation_ville`, `reservation_complement`, `reservation_departement`, `reservation_type_logement`, `reservation_spa_id`, `reservation_spa_libelle`, `reservation_prix`, `reservation_pack_id`, `reservation_prix_pack`, `reservation_montant_total`, `reservation_promo`, `reservation_paye`, `created_at`, `updated_at`) VALUES
+(1, NULL, '2020-09-28', '2020-09-30', 'aprem', 'exterieur', '', NULL, '', '', '', 'appartement', NULL, '', '90.00', 3, '20.00', '90.00', 'F2P9K4', 0, '2020-09-25 23:04:14', '2020-09-25 23:04:14'),
+(2, NULL, '2020-10-14', '2020-10-15', 'aprem', 'exterieur', '', NULL, '', '', '', 'appartement', NULL, '', '90.00', 2, '20.00', '119.00', 'COPAIN2020', 0, '2020-09-30 16:03:02', '2020-09-30 16:03:02'),
+(3, NULL, '2020-10-06', '2020-10-08', 'aprem', 'exterieur', '', NULL, '', '', '', 'appartement', NULL, '', '130.00', 2, '20.00', '153.00', NULL, 0, '2020-09-30 19:55:14', '2020-09-30 19:55:14'),
+(4, NULL, '2020-10-06', '2020-10-08', 'aprem', 'exterieur', '', NULL, '', '', '', 'appartement', NULL, '', '130.00', 2, '20.00', '159.00', NULL, 0, '2020-09-30 19:59:25', '2020-09-30 19:59:25');
 
 -- --------------------------------------------------------
 
@@ -258,12 +288,12 @@ INSERT INTO `reservations_accessoires` (`ra_reservation_id`, `ra_accessoire_id`,
 
 CREATE TABLE `spas` (
   `spa_id` int(11) NOT NULL,
-  `spa_stock` int(11) NOT NULL DEFAULT '0',
+  `spa_stock` int(11) NOT NULL DEFAULT 0,
   `spa_libelle` varchar(100) NOT NULL,
-  `spa_nb_place` int(11) NOT NULL DEFAULT '0',
-  `spa_desc` text,
+  `spa_nb_place` int(11) NOT NULL DEFAULT 0,
+  `spa_desc` text DEFAULT NULL,
   `spa_chemin_img` varchar(100) DEFAULT NULL,
-  `spa_prix` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `spa_prix` decimal(10,2) NOT NULL DEFAULT 0.00,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -323,6 +353,13 @@ ALTER TABLE `administrateurs`
   ADD KEY `administrateur_user_id` (`administrateur_user_id`);
 
 --
+-- Index pour la table `adresses`
+--
+ALTER TABLE `adresses`
+  ADD PRIMARY KEY (`adresse_id`),
+  ADD KEY `adresse_client_id` (`adresse_client_id`);
+
+--
 -- Index pour la table `clients`
 --
 ALTER TABLE `clients`
@@ -359,7 +396,8 @@ ALTER TABLE `ranks`
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`reservation_id`),
   ADD KEY `reservation_pack_id` (`reservation_pack_id`),
-  ADD KEY `reservation_spa_id` (`reservation_spa_id`);
+  ADD KEY `reservation_spa_id` (`reservation_spa_id`),
+  ADD KEY `reservation_client_id` (`reservation_client_id`);
 
 --
 -- Index pour la table `reservations_accessoires`
@@ -396,6 +434,12 @@ ALTER TABLE `accessoires`
 --
 ALTER TABLE `administrateurs`
   MODIFY `administrateur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `adresses`
+--
+ALTER TABLE `adresses`
+  MODIFY `adresse_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `clients`
@@ -456,6 +500,12 @@ ALTER TABLE `administrateurs`
   ADD CONSTRAINT `administrateurs_ibfk_1` FOREIGN KEY (`administrateur_user_id`) REFERENCES `users` (`user_id`);
 
 --
+-- Contraintes pour la table `adresses`
+--
+ALTER TABLE `adresses`
+  ADD CONSTRAINT `adresses_ibfk_1` FOREIGN KEY (`adresse_client_id`) REFERENCES `clients` (`client_id`);
+
+--
 -- Contraintes pour la table `clients`
 --
 ALTER TABLE `clients`
@@ -466,7 +516,8 @@ ALTER TABLE `clients`
 --
 ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`reservation_pack_id`) REFERENCES `packs` (`pack_id`),
-  ADD CONSTRAINT `reservations_ibfk_4` FOREIGN KEY (`reservation_spa_id`) REFERENCES `spas` (`spa_id`);
+  ADD CONSTRAINT `reservations_ibfk_4` FOREIGN KEY (`reservation_spa_id`) REFERENCES `spas` (`spa_id`),
+  ADD CONSTRAINT `reservations_ibfk_5` FOREIGN KEY (`reservation_client_id`) REFERENCES `clients` (`client_id`);
 
 --
 -- Contraintes pour la table `reservations_accessoires`
@@ -480,3 +531,8 @@ ALTER TABLE `reservations_accessoires`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_rank_id`) REFERENCES `ranks` (`rank_id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
