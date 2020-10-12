@@ -11,9 +11,9 @@ class Adresse extends Model
     protected $table = 'adresses';
     protected $primaryKey = 'adresse_id';
 
-    public function user()
+    public function client()
     {
-        return $this->belongsTo('App\Client', 'client_id', 'adresse_id');
+        return $this->belongsTo('App\Client', 'adresse_client_id', 'client_id');
     }
 
     public function getDateCreatedAttribute()

@@ -65,11 +65,18 @@ class ReservationController extends Controller
 
     public function reservationStep2()
     {
-        $reservation = Session::get('reservation');
+        if(Session::get('reservation'))
+        {
+            $reservation = Session::get('reservation');
 
-        return view('reservation.step2')->with([
-            'reservation'   => $reservation
-        ]);
+            return view('reservation.step2')->with([
+                'reservation'   => $reservation
+            ]);
+        }
+        else
+        {
+            return redirect('/');
+        }
     }
     
     public function reservationStep2Submit(Request $request)
@@ -88,10 +95,10 @@ class ReservationController extends Controller
             'cp'                => 'required'
         ]);*/
 
-        /*$reservation                            = new Reservation;
+        $reservation                            = Reservation::find($request->id);
         $reservation->create($request);
 
-        Session::put('reservation', $reservation);*/
+        Session::put('reservation', $reservation);
         return redirect('/reservation/paiement');
     }
 

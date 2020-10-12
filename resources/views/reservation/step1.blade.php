@@ -114,7 +114,6 @@
                     @endforeach
                 @endif
             </div>
-            <input type="hidden" name="prixSpa" id="prixSpa" value="0.00">
             <input type="hidden" name="nbPlaceSpa" id="nbPlaceSpa" value="{{ $nbPlace }}">
         </div>
     </div>
@@ -187,7 +186,6 @@
 
 </form>
 
-
 <script>
 
     $(".daterange").change(function() {
@@ -198,6 +196,7 @@
         var date_debut = dates[0].split('/').reverse().join('-');
         var date_fin = dates[1].split('/').reverse().join('-');
         var nb_place = $('#nbPlaceSpa').val();
+
         $.ajax({
             url : "{{ url('/webservices/spa/stock/verify') }}",
             type : 'POST',
@@ -211,6 +210,48 @@
                 else
                 {
                     $('.array_spas').html("Pas de spas disponibles...");
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log('ERREUR : '+jqXHR.responseText);
+    
+            }
+        });
+
+        // $.ajax({
+        //     url : "{{ url('/webservices/pack/stock/verify') }}",
+        //     type : 'POST',
+        //     data : '_token={{ csrf_token() }}&date_debut='+date_debut+'&date_fin='+date_fin,
+        //     success : function(response, statut){
+        //         if(response != "")
+        //         {
+        //             //console.log(response);
+        //             $('.array_packs').html(response['packs']);
+        //         }
+        //         else
+        //         {
+        //             $('.array_packs').html("Pas de packs disponibles...");
+        //         }
+        //     },
+        //     error: function(jqXHR, textStatus, errorThrown) {
+        //         console.log('ERREUR : '+jqXHR.responseText);
+    
+        //     }
+        // });
+
+        $.ajax({
+            url : "{{ url('/webservices/accessoire/stock/verify') }}",
+            type : 'POST',
+            data : '_token={{ csrf_token() }}&date_debut='+date_debut+'&date_fin='+date_fin,
+            success : function(response, statut){
+                if(response != "")
+                {
+                    //console.log(response);
+                    $('.array_accessoires').html(response['accessoires']);
+                }
+                else
+                {
+                    $('.array_accessoires').html("Pas d'accessoires disponibles...");
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -319,6 +360,5 @@
         daterangepicker.prototype.outsideClick = function(e) {};
     });
 </script>
-
 
 @endsection

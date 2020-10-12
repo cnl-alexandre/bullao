@@ -18,7 +18,7 @@ class Client extends Model
         return $this->belongsTo('App\User', 'client_user_id', 'user_id');
     }
 
-    public function adresse()
+    public function adresses()
     {
         return $this->hasMany('App\Adresse', 'adresse_id');
     }
