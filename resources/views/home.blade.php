@@ -77,7 +77,7 @@
                     <div class="icon mb-3">
                         <span class="flaticon-gold-ingots"></span>
                     </div>
-                    <h3 class="mb-3">Installation</h3>
+                    <h3 class="mb-3">Pose et retrait</h3>
                     On s'occupe de tout ! La procédure prend environ 1h pour que le spa soit mis en place à votre domicile. Nous recommandons une installation en début d'après-midi.
                 </div>
             </div>
@@ -114,7 +114,7 @@
                         <span class="flaticon-crucible"></span>
                     </div>
                     <h3 class="mb-3">bonheur</h3>
-                    Une fois votre soirée réservée, détendez-vous et on s'occupe du reste !
+                    Une fois votre soirée réservée, le plus long sera d'attendre le fameux jour j pour que vous puissiez vous pavaner dans un bain à bulle et à domicile.
                 </div>
             </div>
         </div>

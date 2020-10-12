@@ -29,7 +29,7 @@
 																									</tr>
 																									<tr>
 																											<td width="100%" bgcolor="#fff" style="text-align: center;">
-																													<h1 style="color: #194F9A;font-size: 1.4rem;font-weight: lighter;margin: 25px 0;">Validation de votre commande</h1>
+																													<h1 style="color: #194F9A;font-size: 1.4rem;font-weight: lighter;margin: 25px 0;">Nouvelle réservation<br>d'un spa</h1>
 																											</td>
 																									</tr>
 																									<tr>
@@ -42,14 +42,13 @@
 																																			<td width="80%">
 																																					<p style="line-height: 130%;margin-bottom: 25px;">
 																																							Bonjour,
-																																							<br><br>Nous avons le plaisir de vous confirmer la validation de votre commande sur le site bullao.fr.
-																																							<br><br>Vos informations de livraisons ont bien été enregistrées dans notre base de données sécurisée.
-																																							<br><br>Si des informations sont incorrectes, vous êtes priées de nous contacter rapidement pour corriger votre réservation.
+																																							<br>Une nouvelle commande vient d'être validée et payée sur le site bullao.fr ce jour.
+																																							<br><br>Les informations de la commande enregistrées sont donc les suivantes :
 																																							<br><br>Nom : Alexandre Conil
 																																							<br>Adresse : 19 chemin de la porte verte
 																																							<br>Ville : Montévrain - 77
 																																							<br>Emplacement : Intérieur
-																																							<br>Habitat : Maison
+																																							<br>Type : Maison
 																																							<br>Créneau : Après-midi
 																																							<br>Numéro : 0613377128
 																																							<br>Email : cnl.alexandre@gmail.com
@@ -89,54 +88,34 @@
 																																									</tr>
 																																									<tr>
 																																											<td width="2%"></td>
-																																											<td width="81%" height="25">
-																																													@if($reservation->spa->spa_nb_place == '4')
-																																														Formule 1 soirée
-																																													@elseif($reservation->spa->spa_nb_place == '6')
-																																														Formule 1 soirée XL
-																																													@endif
-																																											</td>
-																																											<td width="15%" height="25" style="text-align: right;">{{ $reservation->reservation_prix }}€</td>
+																																											<td width="81%" height="25">Formule 1 soirée</td>
+																																											<td width="15%" height="25" style="text-align: right;">90€</td>
 																																											<td width="2%"></td>
 																																									</tr>
 																																									<tr>
 																																											<td width="2%"></td>
-																																											<td width="81%" height="25">{{ $reservation->reservation_spa_libelle }}</td>
+																																											<td width="81%" height="25">Spa Baltik 4 places</td>
 																																											<td width="15%"></td>
 																																											<td width="2%"></td>
 																																									</tr>
 																																									<tr>
 																																											<td width="2%"></td>
-																																											<td width="81%" height="25">Du {{ $reservation->DateDebut->format('d/m/Y') }} au {{ $reservation->DateFin->format('d/m/Y') }}</td>
+																																											<td width="81%" height="25">Du 01/10/2020 au 03/10/2020</td>
 																																											<td width="15%"></td>
 																																											<td width="2%"></td>
 																																									</tr>
-																																									@if($reservation->reservation_pack_id != null)
-																																											<tr>
-																																													<td width="2%"></td>
-																																													<td width="81%" height="25">{{ $reservation->pack->pack_libelle }}</td>
-																																													<td width="15%" style="text-align: right;">+{{ $reservation->pack->pack_prix }}€</td>
-																																													<td width="2%"></td>
-																																											</tr>
-																																									@endif
-																																									@if(count($reservation->accessoires) > 0)
-																																											@foreach($reservation->accessoires as $accessoire)
-																																													<tr>
-																																															<td width="2%"></td>
-																																															<td width="81%" height="25">{{ $accessoire->accessoire->accessoire_libelle }}</td>
-																																															<td width="15%" style="text-align: right;">+{{ $accessoire->accessoire->accessoire_prix }}€</td>
-																																															<td width="2%"></td>
-																																													</tr>
-																																											@endforeach
-																																									@endif
-																																									@if($reservation->reservation_promo != null)
-																																											<tr>
-																																													<td width="2%"></td>
-																																													<td width="81%" height="25">{{ $reservation->reservation_promo }}</td>
-																																													<td width="15%" style="text-align: right;"></td>
-																																													<td width="2%"></td>
-																																											</tr>
-																																									@endif
+																																									<tr>
+																																											<td width="2%"></td>
+																																											<td width="81%" height="25">Pack Fun</td>
+																																											<td width="15%" style="text-align: right;">+ 20€</td>
+																																											<td width="2%"></td>
+																																									</tr>
+																																									<tr>
+																																											<td width="2%"></td>
+																																											<td width="81%" height="25">Enceinte portable</td>
+																																											<td width="15%" style="text-align: right;">+ 9€</td>
+																																											<td width="2%"></td>
+																																									</tr>
 																																									<tr>
 																																											<td width="2%" height="1"></td>
 																																											<td width="81%" height="1" style="border-top:1px solid #979797;"></td>
@@ -170,8 +149,7 @@
 																																			<td width="10%"></td>
 																																			<td width="80%">
 																																					<p style="line-height: 130%;margin-bottom: 25px;">
-																																							Merci pour votre achat et de la confiance que vous m’accordez.
-																																							<br><br>Grégoire de Bullao.
+																																							Bon courage pour l'organisation ;)
 																																					</p>
 																																			</td>
 																																			<td width="10%"></td>

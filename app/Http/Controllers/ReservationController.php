@@ -95,27 +95,27 @@ class ReservationController extends Controller
     public function success()
     {
 
-        // $reservation = Session::get('reservation');
-        // $r = Reservation::Find($reservation->reservation_id);
-        // Session::put('reservation', $r);
+        $reservation = Session::get('reservation');
+        $r = Reservation::Find($reservation->reservation_id);
+        Session::put('reservation', $r);
 
-        // $reservation = Session::get('reservation');
+        $reservation = Session::get('reservation');
 
         // var_dump($reservation->accessoires);
 
         // Mail destiné au client
-        // Mail::send('emails.confirmation', ['reservation' => $reservation], function($mess){
-        //     $mess->from('akacocoputer@gmail.com'); // Mail de départ Bullao contact@bullao.fr
-        //     $mess->to('cnl.alexandre@gmail.com'); // Mail du client
-        //     $mess->cc('jer.lemont@gmail.com');
-        //     $mess->subject('Bullao : confirmation de réservation');
-        // });
-
-        // Mail destiné aux Admins
-        Mail::send('emails.confirmationAdmin', [], function($mess){
+        Mail::send('emails.confirmation', ['reservation' => $reservation], function($mess){
             $mess->from('akacocoputer@gmail.com'); // Mail de départ Bullao contact@bullao.fr
             $mess->to('cnl.alexandre@gmail.com'); // Mail du client
-            $mess->cc('jer.lemont@gmail.com');
+            // $mess->cc('jer.lemont@gmail.com');
+            $mess->subject('Bullao : confirmation de réservation');
+        });
+
+        // Mail destiné aux Admins
+        Mail::send('emails.confirmationAdmin', ['reservation' => $reservation], function($mess){
+            $mess->from('akacocoputer@gmail.com'); // Mail de départ Bullao contact@bullao.fr
+            $mess->to('cnl.alexandre@gmail.com'); // Mail du client
+            $mess->cc('contact@bullao.fr');
             $mess->subject('Bullao : Nouvelle réservation !');
         });
 

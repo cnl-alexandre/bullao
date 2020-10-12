@@ -89,54 +89,34 @@
 																																									</tr>
 																																									<tr>
 																																											<td width="2%"></td>
-																																											<td width="81%" height="25">
-																																													@if($reservation->spa->spa_nb_place == '4')
-																																														Formule 1 soirée
-																																													@elseif($reservation->spa->spa_nb_place == '6')
-																																														Formule 1 soirée XL
-																																													@endif
-																																											</td>
-																																											<td width="15%" height="25" style="text-align: right;">{{ $reservation->reservation_prix }}€</td>
+																																											<td width="81%" height="25">Formule 1 soirée</td>
+																																											<td width="15%" height="25" style="text-align: right;">90€</td>
 																																											<td width="2%"></td>
 																																									</tr>
 																																									<tr>
 																																											<td width="2%"></td>
-																																											<td width="81%" height="25">{{ $reservation->reservation_spa_libelle }}</td>
+																																											<td width="81%" height="25">Spa Baltik 4 places</td>
 																																											<td width="15%"></td>
 																																											<td width="2%"></td>
 																																									</tr>
 																																									<tr>
 																																											<td width="2%"></td>
-																																											<td width="81%" height="25">Du {{ $reservation->DateDebut->format('d/m/Y') }} au {{ $reservation->DateFin->format('d/m/Y') }}</td>
+																																											<td width="81%" height="25">Du 01/10/2020 au 03/10/2020</td>
 																																											<td width="15%"></td>
 																																											<td width="2%"></td>
 																																									</tr>
-																																									@if($reservation->reservation_pack_id != null)
-																																											<tr>
-																																													<td width="2%"></td>
-																																													<td width="81%" height="25">{{ $reservation->pack->pack_libelle }}</td>
-																																													<td width="15%" style="text-align: right;">+{{ $reservation->pack->pack_prix }}€</td>
-																																													<td width="2%"></td>
-																																											</tr>
-																																									@endif
-																																									@if(count($reservation->accessoires) > 0)
-																																											@foreach($reservation->accessoires as $accessoire)
-																																													<tr>
-																																															<td width="2%"></td>
-																																															<td width="81%" height="25">{{ $accessoire->accessoire->accessoire_libelle }}</td>
-																																															<td width="15%" style="text-align: right;">+{{ $accessoire->accessoire->accessoire_prix }}€</td>
-																																															<td width="2%"></td>
-																																													</tr>
-																																											@endforeach
-																																									@endif
-																																									@if($reservation->reservation_promo != null)
-																																											<tr>
-																																													<td width="2%"></td>
-																																													<td width="81%" height="25">{{ $reservation->reservation_promo }}</td>
-																																													<td width="15%" style="text-align: right;"></td>
-																																													<td width="2%"></td>
-																																											</tr>
-																																									@endif
+																																									<tr>
+																																											<td width="2%"></td>
+																																											<td width="81%" height="25">Pack Fun</td>
+																																											<td width="15%" style="text-align: right;">+ 20€</td>
+																																											<td width="2%"></td>
+																																									</tr>
+																																									<tr>
+																																											<td width="2%"></td>
+																																											<td width="81%" height="25">Enceinte portable</td>
+																																											<td width="15%" style="text-align: right;">+ 9€</td>
+																																											<td width="2%"></td>
+																																									</tr>
 																																									<tr>
 																																											<td width="2%" height="1"></td>
 																																											<td width="81%" height="1" style="border-top:1px solid #979797;"></td>

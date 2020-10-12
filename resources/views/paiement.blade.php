@@ -29,14 +29,13 @@
             {{ csrf_field() }}
             <div class="form-row" >
                 <div id="errors"></div>
-                <input id="cardholder-name" type="text" placeholder="Titulaire de la carte"><br>
                 <label for="card-element" class="font-size-14">
-                  Merci de renseigner votre carte
+                  Carte de paiement
                 </label>
                 <div id="card-element">
                   <!-- A Stripe Element will be inserted here. -->
                 </div>
-
+                <input id="cardholder-name" type="text" class="cardholder-name" placeholder="Nom du titulaire">
                 <!-- Used to display form errors. -->
                 <div id="card-errors" role="alert"></div>
             </div>

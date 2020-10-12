@@ -22,6 +22,7 @@ Route::post('/reservation', 'ReservationController@reservationSubmit');
 // PRESS & ARTICLES
 Route::get('/cgv-bullao', 'ArticleController@cgv');
 Route::get('/mentions-legales', 'ArticleController@mentions');
+//Route::get('/blog/NOM_ARTICLE', 'ArticleController@NOM_FONCTION');
 
 // PAIEMENT
 Route::get('/reservation/paiement', 'ReservationController@paiement');
