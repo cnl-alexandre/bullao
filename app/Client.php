@@ -18,6 +18,11 @@ class Client extends Model
         return $this->belongsTo('App\User', 'client_user_id', 'user_id');
     }
 
+    public function adresse()
+    {
+        return $this->hasMany('App\Adresse', 'adresse_id');
+    }
+
     public function create($array)
     {
         $this->client_name          = $array->name;
