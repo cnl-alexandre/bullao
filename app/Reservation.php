@@ -45,13 +45,26 @@ class Reservation extends Model
 
         $this->reservation_date_debut           = $dateDebut;
         $this->reservation_date_fin             = $dateFin;
-        $this->reservation_emplacement          = $array->emplacement;
-        $this->reservation_type_logement        = $array->type_logement;
-        $this->reservation_creneau              = $array->creneau;
-        $this->reservation_prix                 = $array->prix;
+
+        if(isset($array->emplacement) && $array->emplacement != "")
+        {
+            $this->reservation_emplacement      = $array->emplacement;
+        }
+
+        if(isset($array->type_logement) && $array->type_logement != "")
+        {
+            $this->reservation_type_logement    = $array->type_logement;
+        }
+
+        if(isset($array->creneau) && $array->creneau != "")
+        {
+            $this->reservation_creneau          = $array->creneau;
+        }
+
         $this->reservation_spa_id               = $array->spa;
         $spa = Spa::find($array->spa);
         $this->reservation_spa_libelle          = $spa->spa_libelle.' '.$spa->spa_nb_place.' places';
+        $this->reservation_prix                 = $spa->spa_prix;
 
         if(isset($array->pack) && $array->pack != "")
         {
@@ -61,7 +74,12 @@ class Reservation extends Model
         }
 
         $this->reservation_montant_total        = $array->montant_total;
-        $this->reservation_promo                = $array->promo;
+        
+        if(isset($array->promo) && $array->promo != "")
+        {
+            $this->reservation_promo                = $array->promo;
+        }
+
         $this->save();
 
         if(isset($array->accessoires) && count($array->accessoires) > 0)
@@ -73,8 +91,11 @@ class Reservation extends Model
             }
         }
 
-        /*$client = new Client;
-        $client->create($array);*/
+        if(isset($array->name) && $array->name != "")
+        {
+            $client = new Client;
+            $client->create($array);
+        }
     }
 
     public function getDateDebutAttribute()

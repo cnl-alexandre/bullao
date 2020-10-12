@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
+use App\Adresse;
 
 class Client extends Model
 {
@@ -20,13 +21,15 @@ class Client extends Model
     public function create($array)
     {
         $this->client_name          = $array->name;
-        $this->client_adresse_1     = $array->adresse1;
-        $this->client_adresse_2     = $array->adresse2;
-        $this->client_cp            = $array->cp;
-        $this->client_ville         = $array->ville;
         $this->client_email         = $array->email;
         $this->client_phone         = $array->phone;
         $this->save();
+
+        if(isset($array->adresse1) && $array->adresse1 != "")
+        {
+            $address = new Adresse;
+            $address->create($array);
+        }
     }
 
     public function createSession()

@@ -18,7 +18,7 @@ class ReservationController extends Controller
         //$this->middleware('auth');
     }
 
-    public function reservation($nbPlace = 4)
+    public function reservationStep1($nbPlace = 4)
     {
         $indispos       = Indisponibilite::where('indisponibilite_date', '>=', date('Y-m-d'))->get();
         $spas           = Spa::where('spa_nb_place', '=', $nbPlace)->orderby('spa_id', 'ASC')->get();
@@ -31,7 +31,7 @@ class ReservationController extends Controller
         //     array_push($spaArray, array($spa['spa_id'], $spa['spa_libelle'], $spa['spa_chemin_img'], $spa['spa_desc'], ));
         // }
 
-        return view('reservation')->with([
+        return view('reservation.step1')->with([
             'indispos'      => $indispos,
             'spas'          => $spas,
             'packs'         => $packs,
@@ -40,7 +40,7 @@ class ReservationController extends Controller
         ]);
     }
 
-    public function reservationSubmit(Request $request)
+    public function reservationStep1Submit(Request $request)
     {
         /*$this->validate($request,[
             'daterange'         => 'required',
@@ -60,9 +60,40 @@ class ReservationController extends Controller
         $reservation->create($request);
 
         Session::put('reservation', $reservation);
-        return redirect('/reservation/paiement');
+        return redirect('/reservation/informations');
     }
 
+    public function reservationStep2()
+    {
+        $reservation = Session::get('reservation');
+
+        return view('reservation.step2')->with([
+            'reservation'   => $reservation
+        ]);
+    }
+    
+    public function reservationStep2Submit(Request $request)
+    {
+        /*$this->validate($request,[
+            'daterange'         => 'required',
+            'spa'               => 'required',
+            'emplacement'       => 'required',
+            'installation'      => 'required',
+            'creneau'           => 'required',
+            'name'              => 'required',
+            'email'             => 'required',
+            'phone'             => 'required',
+            'adresse1'          => 'required',
+            'ville'             => 'required',
+            'cp'                => 'required'
+        ]);*/
+
+        /*$reservation                            = new Reservation;
+        $reservation->create($request);
+
+        Session::put('reservation', $reservation);*/
+        return redirect('/reservation/paiement');
+    }
 
     public function paiement()
     {

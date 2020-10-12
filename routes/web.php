@@ -15,9 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 // HOME
 Route::get('/', 'HomeController@home');
-Route::get('/reservation', 'ReservationController@reservation');
-Route::get('/reservation/{nbPlace}places', 'ReservationController@reservation');
-Route::post('/reservation', 'ReservationController@reservationSubmit');
+
+// Réservation
+Route::get('/reservation', 'ReservationController@reservationStep1');
+Route::get('/reservation/{nbPlace}places', 'ReservationController@reservationStep1');
+Route::post('/reservation', 'ReservationController@reservationStep1Submit');
+Route::get('/reservation/informations', 'ReservationController@reservationStep2');
+Route::post('/reservation/informations', 'ReservationController@reservationStep2Submit');
 
 // PRESS & ARTICLES
 Route::get('/cgv-bullao', 'ArticleController@cgv');
