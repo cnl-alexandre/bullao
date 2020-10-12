@@ -128,7 +128,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
+            <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom array_packs" data-toggle="buttons">
                 @if(count($packs) > 0)
                     @foreach($packs as $pack)
                         <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 pack-recap" id="label-pack-{{ $pack->pack_id }}" data-aos="fade-up">
@@ -161,7 +161,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row d-flex justify-content-around btn-group btn-group-toggle checkbox-custom" data-toggle="buttons">
+            <div class="row d-flex justify-content-around btn-group btn-group-toggle checkbox-custom array_accessoires" data-toggle="buttons">
                 @if(count($accessoires) > 0)
                     @foreach($accessoires as $accessoire)
                         <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-3 col-md-4 mb-3 accessoire-recap" data-aos="fade-up">
@@ -246,7 +246,7 @@
             success : function(response, statut){
                 if(response != "")
                 {
-                    //console.log(response);
+                    console.log(response);
                     $('.array_accessoires').html(response['accessoires']);
                 }
                 else

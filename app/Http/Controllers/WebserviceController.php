@@ -7,6 +7,7 @@ use App\Promo;
 use App\Spa;
 use App\Reservation;
 use App\Pack;
+use App\Accessoire;
 
 class WebserviceController extends Controller
 {
@@ -67,11 +68,14 @@ class WebserviceController extends Controller
 
             foreach($reservations as $reservation)
             {
-                if($nbSpaReserv[$reservation->reservation_spa_id] >= $reservation->spa->spa_stock)
+                if($reservation->reservation_spa_id != NULL)
                 {
-                    if(!in_array($reservation->reservation_spa_id, $reserv))
+                    if($nbSpaReserv[$reservation->reservation_spa_id] >= $reservation->spa->spa_stock)
                     {
-                        array_push($reserv, $reservation->reservation_spa_id);
+                        if(!in_array($reservation->reservation_spa_id, $reserv))
+                        {
+                            array_push($reserv, $reservation->reservation_spa_id);
+                        }
                     }
                 }
             }
@@ -200,6 +204,111 @@ class WebserviceController extends Controller
 
         return response()->json([
             'packs'          => $html
+        ]);
+    }
+
+    public function verifyAccessoireStock(Request $request)
+    {
+        $reservations = Reservation::where([
+                                        ['reservation_date_debut', '<=', $request->date_debut],
+                                        ['reservation_date_fin', '>=', $request->date_debut]
+                                    ])
+                                    ->orWhere([
+                                        ['reservation_date_debut', '<=', $request->date_fin],
+                                        ['reservation_date_fin', '>=', $request->date_fin]
+                                    ])
+                                    ->orWhere([
+                                        ['reservation_date_debut', '>=', $request->date_debut],
+                                        ['reservation_date_fin', '<=', $request->date_fin]
+                                    ])
+                                    ->get();
+        
+        $accessoires = Accessoire::all();
+
+        $reserv = [];
+        $nbAccessoireReserv = [];
+
+        if(count($reservations) > 0)
+        {
+            foreach($accessoires as $accessoire)
+            {
+                $nbAccessoireReserv[$accessoire->accessoire_id] = 0;
+            }
+
+            foreach($accessoires as $accessoire)
+            {
+                $nbAccessoireReserv[$accessoire->accessoire_id] = $nbAccessoireReserv[$accessoire->accessoire_id] + 1;
+            }
+
+            foreach($reservations as $reservation)
+            {
+                if(count($reservation->accessoires) > 0)
+                {
+                    foreach($reservation->accessoires as $rAccessoire)
+                    {
+                        if($nbAccessoireReserv[$rAccessoire->ra_accessoire_id] >= $rAccessoire->accessoire->accessoire_stock)
+                        {
+                            if(!in_array($rAccessoire->ra_accessoire_id, $reserv))
+                            {
+                                array_push($reserv, $rAccessoire->ra_accessoire_id);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // foreach($reservations as $reservation)
+            // {
+            //     if(count($reservation->accessoires) > 0)
+            //     {
+            //         foreach($reservation->accessoires as $rAccessoire)
+            //         {
+            //             if(!in_array($rAccessoire->ra_accessoire_id, $accessoireIds) && $rAccessoire->ra_accessoire_id)
+            //             {
+            //                 array_push($reserv, $rAccessoire->ra_accessoire_id);
+            //             }
+            //         }
+            //     }
+            // }
+        }
+
+        $html = "";
+        if(count($accessoires) > 0)
+        {
+            foreach($accessoires as $accessoire)
+            {
+                if(!in_array($accessoire->accessoire_id, $reserv) && $accessoire->accessoire_stock > 0)
+                {
+                    $html .= '<label for="accessoire-'.$accessoire->accessoire_id.'" class="btn btn-checkbox-custom col-lg-3 col-md-4 mb-3 accessoire-recap" data-aos="fade-up">';
+                        $html .= '<input type="checkbox" name="accessoires[]" id="accessoire-'.$accessoire->accessoire_id.'" autocomplete="off" value="'.$accessoire->accessoire_id.'">';
+                        $html .= '<div class="block-team-member-1 text-center rounded">';
+                            $html .= '<figure>';
+                                $html .= '<img src="'.url($accessoire->accessoire_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
+                            $html .= '</figure>';
+                            $html .= '<h3 class="font-size-18 text-black">'.$accessoire->accessoire_libelle.'</h3>';
+                            $html .= '<span class="d-block font-gray-5 font-size-14 mb-2">'.$accessoire->accessoire_prix.'€</span>';
+                        $html .= '</div>';
+                    $html .= '</label>';
+                }
+                else
+                {
+                    $html .= '<label for="accessoire-'.$accessoire->accessoire_id.'" class="btn btn-checkbox-custom col-lg-3 col-md-4 mb-3 accessoire-recap disabled" data-aos="fade-up">';
+                        $html .= '<input type="checkbox" name="accessoires[]" id="accessoire-'.$accessoire->accessoire_id.'" disabled autocomplete="off" value="'.$accessoire->accessoire_id.'">';
+                        $html .= '<div class="block-team-member-1 text-center rounded">';
+                            $html .= '<figure>';
+                                $html .= '<img src="'.url($accessoire->accessoire_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
+                            $html .= '</figure>';
+                            $html .= '<h3 class="font-size-18 text-black">'.$accessoire->accessoire_libelle.'</h3>';
+                            $html .= '<span class="d-block font-gray-5 font-size-14 mb-2">'.$accessoire->accessoire_prix.'€</span>';
+                            $html .= '<span class="text-danger">Victime de son succès</span>';
+                        $html .= '</div>';
+                    $html .= '</label>';
+                }
+            }
+        }
+
+        return response()->json([
+            'accessoires'          => $html
         ]);
     }
 }
