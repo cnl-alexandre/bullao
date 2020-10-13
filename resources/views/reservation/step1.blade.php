@@ -186,6 +186,10 @@
 
 </form>
 
+<footer style="background-color:#ffffff;">
+    @include('partials.footer-tunnel')
+</footer>
+
 <script>
 
     $(".daterange").change(function() {
@@ -214,7 +218,7 @@
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log('ERREUR : '+jqXHR.responseText);
-    
+
             }
         });
 
@@ -235,7 +239,7 @@
         //     },
         //     error: function(jqXHR, textStatus, errorThrown) {
         //         console.log('ERREUR : '+jqXHR.responseText);
-    
+
         //     }
         // });
 
@@ -256,7 +260,7 @@
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log('ERREUR : '+jqXHR.responseText);
-    
+
             }
         });
     });

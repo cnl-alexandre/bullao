@@ -34,3 +34,16 @@ h1, h2, h3, h4, h5,
   outline: none;
   box-shadow: 0 0 0 0;
 }
+
+
+.nostock {
+	opacity: 0.5;
+	cursor: default;
+}
+
+.nostock:hover {
+	top: 0;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}

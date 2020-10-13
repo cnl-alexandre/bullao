@@ -34,4 +34,8 @@
     </div>
 </section>
 
+<footer style="background-color:#ffffff;">
+    @include('partials.footer-tunnel')
+</footer>
+
 @endsection

@@ -145,7 +145,7 @@
 																																									<tr style="color: #194F9A;">
 																																											<td width="2%"></td>
 																																											<td width="81%" height="40">Montant total</td>
-																																											<td width="15%" style="text-align: right;">119€</td>
+																																											<td width="15%" style="text-align: right;">{{ $reservation->reservation_montant_total }}€</td>
 																																											<td width="2%"></td>
 																																									</tr>
 																																							</tbody>

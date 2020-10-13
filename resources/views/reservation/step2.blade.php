@@ -178,6 +178,9 @@
 
 </form>
 
+<footer style="background-color:#F4F4F4;">
+    @include('partials.footer-tunnel')
+</footer>
 
 <script>
 
