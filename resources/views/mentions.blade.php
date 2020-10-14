@@ -11,7 +11,7 @@
                 <div class="box-shadow-content">
                     <div class="block-heading-1">
                         <span class="d-block mb-3 text-white"  data-aos="fade-up">1er Octobre 2020</span>
-                        <h1 class="mb-4" data-aos="fade-up" data-aos-delay="100" style="font-size: 28px;">Conditions générales de location</h1>
+                        <h1 class="mb-4" data-aos="fade-up" data-aos-delay="100" style="font-size: 28px;">Mentions légales</h1>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto blog-content">
-                <p class="lead">Vous trouverez ici toutes les conditions de location concernant l'activité de Bullao :</p>
+                <p class="lead">Vous trouverez ici toutes les mentions légales concernant l'activité de Bullao</p>
                 <br>
 
                 <p><b>Édition</b></p>

@@ -11,7 +11,7 @@
                 <div class="box-shadow-content">
                     <div class="block-heading-1">
                         <span class="d-block mb-3 text-white"  data-aos="fade-up">1er Octobre 2020</span>
-                        <h1 class="mb-4" data-aos="fade-up" data-aos-delay="100" style="font-size: 28px;">Mentions légales</h1>
+                        <h1 class="mb-4" data-aos="fade-up" data-aos-delay="100" style="font-size: 28px;">Conditions générales de location</h1>
                     </div>
                 </div>
             </div>
@@ -23,19 +23,53 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto blog-content">
-              <p class="lead">Vous trouverez ici toutes les mentions légales concernant l'activité de Bullao</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae expedita cumque necessitatibus ducimus debitis totam, quasi praesentium eveniet tempore possimus illo esse, facilis? Corrupti possimus quae ipsa pariatur cumque, accusantium tenetur voluptatibus incidunt reprehenderit, quidem repellat sapiente, id, earum obcaecati.</p>
+              <p class="lead">Vous trouverez ici toutes les conditions de location concernant l'activité de Bullao</p>
+              <p>Le présent site « bullao.fr » est propriété de :</p>
 
-              <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident vero tempora aliquam excepturi labore, ad soluta voluptate necessitatibus. Nulla error beatae, quam, facilis suscipit quaerat aperiam minima eveniet quis placeat.</p></blockquote>
+              <p>Grégoire CONIL
+              <br>Siège social : 19 chemin de la porte verte, 77144 - Montévrain
+              <br>Email : gregoireconil@bullao.fr
+              <br>Téléphone : 0628826954
+              <br>SIRET : 333 333 333 33333
+              </p>
 
-              <p>Eveniet deleniti accusantium nulla natus nobis nam asperiores ipsa minima laudantium vero cumque cupiditate ipsum ratione dicta, expedita quae, officiis provident harum nisi! Esse eligendi ab molestias, quod nostrum hic saepe repudiandae non. Suscipit reiciendis tempora ut, saepe temporibus nemo.</p>
-              <p>Accusamus, temporibus, ullam. Voluptate consectetur laborum totam sunt culpa repellat, dolore voluptas. Quaerat cum ducimus aut distinctio sit, facilis corporis ab vel alias, voluptas aliquam, expedita molestias quisquam sequi eligendi nobis ea error omnis consequatur iste deleniti illum, dolorum odit.</p>
-              <p>In adipisci corporis at delectus! Cupiditate, voluptas, in architecto odit id error reprehenderit quam quibusdam excepturi distinctio dicta laborum deserunt qui labore dignissimos necessitatibus reiciendis tenetur corporis quas explicabo exercitationem suscipit. Nisi quo nulla, nihil harum obcaecati vel atque quos.</p>
-              <p>Amet sint explicabo maxime accusantium qui dicta enim quia, nostrum id libero voluptates quae suscipit dolor quam tenetur dolores inventore illo laborum, corporis non ex, debitis quidem obcaecati! Praesentium maiores illo atque error! Earum, et, fugit. Sint, delectus molestiae. Totam.</p>
+              <br>
+              <p><b>Article 1 - Réservation de matériel</b></p>
+              <p>1.1 - Toute réservation implique l'adhésion sans réserve à nos conditions générales de location quelles que soient les clauses figurant au sein des bons de commmande des clients.</p>
+              <p>1.2 - Les réservations ne seront validées que si le paiement total de la somme est effectué.</p>
+              <p>1.3 - Les réservations sont acceptables que dans la limite des stocks disponibles.</p>
+              <p>1.4 - Toute réservation doit être accompagné du paiement intégral de la location.</p>
+              <p>1.5 - Les réservations sont annulables gratuitement jusqu’à 72h avant le début de la location, au delà du délai, Bullao remboursera que 50% de la somme total TTC en guise de dédommagement forfaitaire.</p>
+              <p>1.6 - Le client hors zone territoriale de Bullao se verra payer un surplus afin de payer les frais de carburant.</p>
+              <p>1.7 - Bullao se réserve le droit d’annuler une prestation chez un client qui occupe un appartement dans un immeuble de haute grandeur.</p>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa iste, repudiandae facere aperiam sapiente, officia delectus soluta molestiae nihil corporis animi quos ratione qui labore? Sint eaque perspiciatis minus illum.</p>
-              <p>Consectetur porro odio quod iure quaerat cupiditate similique, dolor reprehenderit molestias provident, esse dolorum omnis architecto magni amet corrupti neque ratione sunt beatae perspiciatis? Iste pariatur omnis sed ut itaque.</p>
-              <p>Id similique, rem ipsam accusantium iusto dolores sit velit ex quas ea atque, molestiae. Sint, sed. Quisquam, suscipit! Quisquam quibusdam maiores fugiat eligendi eius consequuntur, molestiae saepe commodi expedita nemo!</p>
+              <br>
+              <p><b>Article 2 - Mise en place du matériel chez le client</b></p>
+              <p>2.1</p>
+              <p>2.2</p>
+              <p>2.3</p>
+              <p>2.4</p>
+
+              <br>
+              <p><b>Article 3 - Durée de Location</b></p>
+
+              <br>
+              <p><b>Article 4 – Reprise du matériel</b></p>
+
+              <br>
+              <p><b>Article 5 – Tarifs</b></p>
+
+              <br>
+              <p><b>Article 6 - Ouverture de compte et règlement</b></p>
+
+              <br>
+              <p><b>Article 7 – Retard de règlement</b></p>
+
+              <br>
+              <p><b>Article 8 – Clause de réserve de propriété</b></p>
+
+              <br>
+              <p><b>Article 9 – Citation et communication</b></p>
 
             </div>
         </div>
