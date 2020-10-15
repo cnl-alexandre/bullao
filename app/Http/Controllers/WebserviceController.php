@@ -95,7 +95,7 @@ class WebserviceController extends Controller
                                 $html .= '<img src="'.url($spa->spa_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
                             $html .= '<h3 class="font-size-20 text-black">'.$spa->spa_libelle.'</h3>';
-                            $html .= '<span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3">'.$spa->spa_desc.'</span>';
+                            $html .= '<span class="d-block font-gray-6 letter-spacing-1 text-uppercase font-size-14 mb-1">'.$spa->spa_desc.'</span>';
                         $html .= '</div>';
                     $html .= '</label>';
                 }
@@ -109,7 +109,7 @@ class WebserviceController extends Controller
                             $html .= '</figure>';
                             $html .= '<h3 class="font-size-20 text-black">'.$spa->spa_libelle.'</h3>';
                             // $html .= '<span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3">'.$spa->spa_desc.'</span>';
-                            $html .= '<span class="text-danger">Victime de son succès</span>';
+                            $html .= '<span class="text-danger letter-spacing-1 text-uppercase font-size-14" style="opacity:0.6;">Victime de son succès<br>sur les dates choisies.</span>';
                         $html .= '</div>';
                     $html .= '</label>';
                 }
@@ -181,7 +181,7 @@ class WebserviceController extends Controller
                                 $html .= '<img src="'.url($spa->spa_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
                             $html .= '<h3 class="font-size-20 text-black">'.$spa->spa_libelle.'</h3>';
-                            $html .= '<span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3">'.$spa->spa_desc.'</span>';
+                            $html .= '<span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-1">'.$spa->spa_desc.'</span>';
                         $html .= '</div>';
                     $html .= '</label>';
                 }
@@ -195,7 +195,7 @@ class WebserviceController extends Controller
                             $html .= '</figure>';
                             $html .= '<h3 class="font-size-20 text-black">'.$spa->spa_libelle.'</h3>';
                             // $html .= '<span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3">'.$spa->spa_desc.'</span>';
-                            $html .= '<span class="text-danger">Victime de son succès</span>';
+                            $html .= '<span class="text-danger letter-spacing-1 text-uppercase font-size-14" style="opacity:0.6;">Victime de son succès</span>';
                         $html .= '</div>';
                     $html .= '</label>';
                 }
@@ -286,7 +286,7 @@ class WebserviceController extends Controller
                                 $html .= '<img src="'.url($accessoire->accessoire_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
                             $html .= '<h3 class="font-size-18 text-black">'.$accessoire->accessoire_libelle.'</h3>';
-                            $html .= '<span class="d-block font-gray-5 font-size-14 mb-2">'.$accessoire->accessoire_prix.'€</span>';
+                            $html .= '<span class="d-block font-gray-5 font-size-14 mb-1">'.$accessoire->accessoire_prix.'€</span>';
                         $html .= '</div>';
                     $html .= '</label>';
                 }

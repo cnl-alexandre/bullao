@@ -30,11 +30,24 @@ h1, h2, h3, h4, h5,
     cursor: pointer;
 }
 
+@media all and (max-width: 563px){
+		.picker-section .container .row {
+			height: 650px;
+		}
+}
+
 .btn:focus {
   outline: none;
   box-shadow: 0 0 0 0;
 }
 
+.height-pack {
+	min-height: 280px;
+}
+
+.height-accessoire {
+	min-height: 280px;
+}
 
 .nostock {
 	opacity: 0.5;

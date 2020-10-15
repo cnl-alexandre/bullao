@@ -69,7 +69,7 @@
 
     {{ csrf_field() }}
 
-    <div class="site-section" id="datepicker-section">
+    <div class="site-section picker-section" id="datepicker-section">
         <div class="container">
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-7 text-center">
@@ -108,7 +108,7 @@
                                     <img src="{{ url($spa->spa_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
                                 <h3 class="font-size-20 text-black">{{ $spa->spa_libelle }}</h3>
-                                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3"><?php echo $spa->spa_desc; ?></span>
+                                <span class="d-block font-gray-6 letter-spacing-1 text-uppercase font-size-14 mb-1"><?php echo $spa->spa_desc; ?></span>
                             </div>
                         </label>
                     @endforeach
@@ -138,8 +138,8 @@
                                     <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
                                 <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
-                                <span class="d-block font-gray-5 font-size-14 mb-2"><?php echo $pack->pack_description; ?></span>
-                                {{ $pack->stock() }}
+                                <span class="d-block font-gray-5 font-size-14 mb-1"><?php echo $pack->pack_description; ?></span>
+                                <!-- {{ $pack->stock() }} -->
                             </div>
                         </label>
                     @endforeach
@@ -172,7 +172,7 @@
                                 </figure>
                                 <h3 class="font-size-18 text-black">{{ $accessoire->accessoire_libelle }}</h3>
                                 <span class="d-block font-gray-5 font-size-14 mb-2">{{ $accessoire->accessoire_prix }}€</span>
-                                {{ $accessoire->stock() }}
+                                <!-- {{ $accessoire->stock() }} -->
                             </div>
                         </label>
                     @endforeach
