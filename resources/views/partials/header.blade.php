@@ -45,12 +45,12 @@
                 <div class="col-12">
                     <nav class="site-navigation text-right ml-auto " role="navigation">
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li><a href="#home-section" class="nav-link">Bonjour</a></li>
-                            <li><a href="#services-section" class="nav-link">Concept</a></li>
-                            <li><a href="#pricing-section" class="nav-link">Prix</a></li>
-                            <li><a href="#faq-section" class="nav-link">FAQ</a></li>
+                            <li><a href="#home-section" class="nav-link">Accueil</a></li>
+                            <li><a href="#services-section" class="nav-link">Notre concept</a></li>
+                            <li><a href="#pricing-section" class="nav-link">Nos tarifs</a></li>
+                            <li><a href="#faq-section" class="nav-link">Des question ?</a></li>
 
-                            <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                            <li><a href="#contact-section" class="nav-link">Nous contacter</a></li>
                         </ul>
                     </nav>
                 </div>

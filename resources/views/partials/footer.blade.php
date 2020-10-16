@@ -4,14 +4,14 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-8">
-                        <h2 class="footer-heading mb-4">A propos</h2>
+                        <h2 class="footer-heading mb-3">A propos</h2>
                         <p>
                             Bullao propose des locations de spa et jacuzzi à domicile sur le secteur de Paris et Marne-la-Vallée.
                             <br>Bullao est un nom commercial utilisé (et déposé à l'INPI) par Grégoire Conil.
                         </p>
                     </div>
                   <div class="col-md-4 ml-auto">
-                      <h2 class="footer-heading mb-4">Rubriques</h2>
+                      <h2 class="footer-heading mb-3">Rubriques</h2>
                       <ul class="list-unstyled">
                           <li><a href="{{ url('/') }}">Accueil</a></li>
                           <li><a href="{{ url('/reservation') }}">Réservation</a></li>
@@ -23,9 +23,16 @@
                 </div>
             </div>
             <div class="col-md-4 ml-auto">
-                <h2 class="footer-heading mb-4">Suivez-nous !</h2>
-                <a href="#about-section" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                <h2 class="footer-heading mb-3">Suivez-nous !</h2>
+                <p>
+                  <a href="#about-section" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span> Facebook</a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span> Instagram</a>
+                </p>
+                <h2 class="footer-heading mb-3">Contactez-nous !</h2>
+                <p>
+                  <a href="#about-section" class="smoothscroll pl-0 pr-3">06060606606</a>
+                  <a href="#" class="pl-3 pr-3">contact@bullao.fr</a>
+                </p>
             </div>
         </div>
         <div class="row pt-3 mt-2 text-center">

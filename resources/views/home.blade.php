@@ -171,33 +171,17 @@
                         <li>Spa intex jusqu'à 4 places</li>
                         <li>120-140 diffuseurs de bulles</li>
                         <li>2 appui-têtes Classique</li>
-                        <li>1 porte-verre double</li>
+                        <li>1 porte-verre</li>
                         <li>1 Spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
                     </ul>
-                    <!-- <ul class="list-unstyled mb-4 text-center">
-                        <li>-10% du lundi au jeudi !</li>
-                    </ul> -->
+                    <ul class="list-unstyled mb-5 text-center">
+                        <li><br><b>30€ par jours supplémentaires !</b></li>
+                    </ul>
                     <p class="text-center">
                         <a href="{{ url('/reservation/4places') }}" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
-                </div>
-                <div class="d-flex pricing text-center">
-                    <div class="row">
-                      <div class="col-6 mb-4">
-                          2 jours :<br> <b>130€</b>
-                      </div>
-                      <div class="col-6 mb-4">
-                          3 jours :<br> <b>170€</b>
-                      </div>
-                      <div class="col-6">
-                          4 jours :<br> <b>200€</b>
-                      </div>
-                      <div class="col-6">
-                          5 jours :<br> <b>220€</b>
-                      </div>
-                    </div>
                 </div>
             </div>
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">
@@ -210,33 +194,17 @@
                         <li>Spa intex jusqu'à 6 places</li>
                         <li>170 diffuseurs de bulles</li>
                         <li>2 appui-têtes Deluxe</li>
-                        <li>2 porte-verre double</li>
+                        <li>2 porte-verre</li>
                         <li>1 Spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
                     </ul>
-                    <!-- <ul class="list-unstyled mb-4 text-center">
-                        <li>-10% du lundi au jeudi !</li>
-                    </ul> -->
-                    <p class="text-center">
+                    <ul class="list-unstyled mb-5 text-center">
+                        <li><br><b>30€ par jours supplémentaires !</b></li>
+                    </ul>
+                    <p class="text-center mt-2">
                         <a href="{{ url('/reservation/6places') }}" class="btn btn-primary btn-md text-white">Réserver</a>
                     </p>
-                </div>
-                <div class="d-flex pricing text-center">
-                    <div class="row">
-                      <div class="col-6 mb-4">
-                          2 jours :<br> <b>160€</b>
-                      </div>
-                      <div class="col-6 mb-4">
-                          3 jours :<br> <b>200€</b>
-                      </div>
-                      <div class="col-6">
-                          4 jours :<br> <b>230€</b>
-                      </div>
-                      <div class="col-6">
-                          5 jours :<br> <b>250€</b>
-                      </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -277,11 +245,11 @@
               <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
                   <h3 class="text-black h6 mb-2">Quelles sont vos mesures face au Covid-19 ?</h3>
                   <p>
-                    L’équipe Bullao est très attentive au respect des gestes barrières et
-                    désinfecte l'ensemble du matériel utilisé et des accessoires avant et après chaque
-                    utilisation. Pour limiter la propagation du virus, nous vous conseillons de limiter le
-                    nombre de personnes dans les spas et de porter un masque tout au long de leur
-                    utilisation.
+                      L’équipe Bullao est très attentive au respect des gestes barrières et
+                      désinfecte l'ensemble du matériel utilisé et des accessoires avant et après chaque
+                      utilisation. Pour limiter la propagation du virus, nous vous conseillons de limiter le
+                      nombre de personnes dans les spas et de porter un masque tout au long de leur
+                      utilisation.
                   </p>
               </div>
             </div>
@@ -289,32 +257,36 @@
                 <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-black h6 mb-2">Quelles sont vos conditions de paiement ?</h3>
                     <p>
-                      Pour des raisons pratiques et de sécurité, nous vous proposons le
-                      paiement de votre réservation par Paypal ou par virement bancaire. Le paiement par
-                      carte bleue arrive bientôt ! Soyez rassurés, Bullao travaille dans le respect de vos données
-                      personnelles.
+                        Pour des raisons pratiques et de sécurité, nous vous proposons le
+                        paiement de votre réservation par Paypal ou par virement bancaire. Le paiement par
+                        carte bleue arrive bientôt ! Soyez rassurés, Bullao travaille dans le respect de vos données
+                        personnelles.
                     </p>
                 </div>
                 <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-black h6 mb-2">Pourquoi Bullao et pas un autre ?</h3>
-                    <p>Fini les locations douteuses sur les réseaux sociaux, avec Bullao, vous avez
-la garantie d'avoir un service de confiance sur-mesure, une hygiène irréprochable et une
-sécurité technique et sanitaire reconnue !</p>
+                    <p>
+                        Fini les locations douteuses sur les réseaux sociaux, avec Bullao, vous avez
+                        la garantie d'avoir un service de confiance sur-mesure, une hygiène irréprochable et une
+                        sécurité technique et sanitaire reconnue !
+                    </p>
                 </div>
                 <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-black h6 mb-2">Comment faire si je dois annuler ma réservation ?</h3>
-                    <p>Les imprévus ça arrivent à tout le monde ! En cas d’annulation, contactez
-notre service client soit via notre messagerie instantanée, par téléphone au ... ou par mail
-à support@bullao.com. Vous aurez la possibilité d’annuler ou de déplacer votre location
-à une date ultérieure (sous réserve de disponibilités).</p>
+                    <p>
+                        Les imprévus ça arrivent à tout le monde ! En cas d’annulation, contactez
+                        notre service client soit via notre messagerie instantanée, par téléphone au ... ou par mail
+                        à support@bullao.com. Vous aurez la possibilité d’annuler ou de déplacer votre location
+                        à une date ultérieure (sous réserve de disponibilités).
+                    </p>
                 </div>
                 <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-black h6 mb-2">Quelles sont vos conditions de remboursements ?</h3>
                     <p>
-                      En cas d’annulation, nous remboursons l’intégralité du montant de la
-                      réservation jusqu’à 72h (3 jours) avant la date prévue. Si vous souhaitez annuler après ce
-                      délai, nous ne remboursons qu’à hauteur de 50% du montant de la réservation. Le
-                      remboursement sera effectué dans un délai de 10 jours par virement bancaire.
+                        En cas d’annulation, nous remboursons l’intégralité du montant de la
+                        réservation jusqu’à 72h (3 jours) avant la date prévue. Si vous souhaitez annuler après ce
+                        délai, nous ne remboursons qu’à hauteur de 50% du montant de la réservation. Le
+                        remboursement sera effectué dans un délai de 10 jours par virement bancaire.
                     </p>
                 </div>
             </div>
