@@ -16,6 +16,11 @@ h1, h2, h3, h4, h5,
 .block-heading-1 .h2-reservation {
     font-size: 2.5rem;
 }
+@media all and (max-width: 425px){
+		.block-heading-1 .h2-reservation {
+				font-size: 1.9rem;
+		}
+}
 
 .radio-custom .active .block-team-member-1, .checkbox-custom .active .block-team-member-1 {
     border: solid 1.5px #f5a623;
