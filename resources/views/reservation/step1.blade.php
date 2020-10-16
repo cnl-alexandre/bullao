@@ -109,6 +109,7 @@
                                 </figure>
                                 <h3 class="font-size-20 text-black">{{ $spa->spa_libelle }}</h3>
                                 <span class="d-block font-gray-6 letter-spacing-1 text-uppercase font-size-14 mb-1"><?php echo $spa->spa_desc; ?></span>
+                                <span class="d-block font-size-14 mb-1">{{ $spa->spa_nb_place }} places - {{ $spa->spa_prix }}€</span>
                             </div>
                         </label>
                     @endforeach
@@ -179,6 +180,7 @@
                 @endif
             </div>
             <div class="row justify-content-center mt-4">
+                <input type="hidden" name="step" value="1">
                 <input type="submit" name="" value="Continuer" class="btn btn-primary btn-md text-white">
             </div>
         </div>
@@ -289,17 +291,17 @@
             }, 1000);
         }
 
-        if(nbPlace == 4)
-        {
-            $("#btn-reserver-4").html('Offre sélectionnée');
-            $("#btn-reserver-4").css('background-color', '#FF8B00');
-            $("#btn-reserver-4").css('border-color', '#FF8B00');
-        }
-        else if(nbPlace == 6)
+        if(nbPlace == 6)
         {
             $("#btn-reserver-6").html('Offre sélectionnée');
             $("#btn-reserver-6").css('background-color', '#FF8B00');
             $("#btn-reserver-6").css('border-color', '#FF8B00');
+        }
+        else
+        {
+            $("#btn-reserver-4").html('Offre sélectionnée');
+            $("#btn-reserver-4").css('background-color', '#FF8B00');
+            $("#btn-reserver-4").css('border-color', '#FF8B00');
         }
 
         setTimeout(function(){
@@ -315,6 +317,8 @@
         ];
 
         $('#daterange').daterangepicker({
+            startDate: "{{ date('d/m/Y', strtotime(date('Y-m-d'). ' + 1 days')) }}",
+            endDate: "{{ date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days')) }}",
             minDate: "{{ date('d/m/Y') }}",
             maxDate: "31/12/{{ (date('Y')+1) }}",
             showDropdowns: true,

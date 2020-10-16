@@ -33,7 +33,7 @@ class Client extends Model
         if(isset($array->adresse1) && $array->adresse1 != "")
         {
             $address = new Adresse;
-            $address->create($array);
+            $address->create($this->client_id, $array);
         }
     }
 

@@ -106,7 +106,6 @@ class ReservationController extends Controller
     {
         $reservation = Session::get('reservation');
 
-
         // Intention de paiement
         \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
 

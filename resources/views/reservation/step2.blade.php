@@ -74,7 +74,7 @@
                       </div>
                       <div class="col-5 form-group">
                           <label for="cp">Le département :</label>
-                          <select class="form-control" name="cp">
+                          <select class="form-control" name="departement">
                               <option value="" disabled selected hidden>Dept</option>
                               <option value="75">75</option>
                               <option value="77">77</option>
@@ -167,9 +167,7 @@
                 </div>
             </div>
             <div class="row justify-content-center mt-4">
-                <input type="hidden" name="montant_total" id="montant_total">
-                <input type="hidden" name="prix" id="prix">
-                <input type="hidden" name="montant_without_promo" id="montant_without_promo">
+                <input type="hidden" name="step" value="2">
                 <input type="hidden" name="id" value="{{ $reservation->reservation_id }}">
                 <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
             </div>
