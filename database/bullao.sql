@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  ven. 16 oct. 2020 à 14:02
+-- Généré le :  ven. 16 oct. 2020 à 14:29
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.3.8
 
@@ -220,20 +220,20 @@ CREATE TABLE `reservations` (
   `reservation_id` int(11) NOT NULL,
   `reservation_date_debut` date NOT NULL,
   `reservation_date_fin` date NOT NULL,
-  `reservation_creneau` varchar(25) NOT NULL,
-  `reservation_emplacement` varchar(100) NOT NULL,
-  `reservation_rue` varchar(100) NOT NULL,
-  `reservation_cp` varchar(5) NOT NULL,
-  `reservation_ville` varchar(100) NOT NULL,
-  `reservation_complement` varchar(100) NOT NULL,
-  `reservation_departement` varchar(100) NOT NULL,
-  `reservation_type_logement` varchar(100) NOT NULL,
+  `reservation_creneau` varchar(25) DEFAULT NULL,
+  `reservation_emplacement` varchar(100) DEFAULT NULL,
+  `reservation_rue` varchar(100) DEFAULT NULL,
+  `reservation_cp` varchar(5) DEFAULT NULL,
+  `reservation_ville` varchar(100) DEFAULT NULL,
+  `reservation_complement` varchar(100) DEFAULT NULL,
+  `reservation_departement` varchar(100) DEFAULT NULL,
+  `reservation_type_logement` varchar(100) DEFAULT NULL,
   `reservation_spa_id` int(11) DEFAULT NULL,
-  `reservation_spa_libelle` varchar(100) NOT NULL,
-  `reservation_prix` decimal(10,2) NOT NULL,
+  `reservation_spa_libelle` varchar(100) DEFAULT NULL,
+  `reservation_prix` decimal(10,2) DEFAULT NULL,
   `reservation_pack_id` int(11) DEFAULT NULL,
   `reservation_prix_pack` decimal(10,2) DEFAULT NULL,
-  `reservation_montant_total` decimal(10,2) NOT NULL,
+  `reservation_montant_total` decimal(10,2) DEFAULT NULL,
   `reservation_promo` varchar(20) DEFAULT NULL,
   `reservation_paye` int(1) NOT NULL DEFAULT '0',
   `reservation_client_id` int(11) DEFAULT NULL,
@@ -278,7 +278,8 @@ INSERT INTO `reservations` (`reservation_id`, `reservation_date_debut`, `reserva
 (30, '2020-10-09', '2020-10-11', 'aprem', 'exterieur', '', '', '', '', '', 'appartement', 4, 'Spa Navy 6 places', '160.00', 2, '20.00', '183.00', NULL, 0, NULL, '2020-10-09 14:17:49', '2020-10-09 14:17:49'),
 (31, '2020-10-15', '2020-10-17', 'aprem', 'exterieur', '', '', '', '', '', 'appartement', 3, 'Spa Baltik 4 places', '130.00', 3, '20.00', '139.40', 'LGM2020', 0, NULL, '2020-10-12 14:03:45', '2020-10-12 14:03:45'),
 (32, '2020-10-15', '2020-10-17', 'aprem', 'interieur', '', '', '', '', '', 'maison', 2, 'Spa Navy 4 places', '130.00', 2, '20.00', '150.00', NULL, 0, NULL, '2020-10-12 14:08:59', '2020-10-12 14:08:59'),
-(33, '2020-10-13', '2020-10-14', 'aprem', 'exterieur', '', '', '', '', '', 'appartement', 2, 'Spa Navy 4 places', '90.00', NULL, NULL, '90.00', NULL, 0, NULL, '2020-10-12 14:40:22', '2020-10-12 14:40:22');
+(33, '2020-10-13', '2020-10-14', 'aprem', 'exterieur', '', '', '', '', '', 'appartement', 2, 'Spa Navy 4 places', '90.00', NULL, NULL, '90.00', NULL, 0, NULL, '2020-10-12 14:40:22', '2020-10-12 14:40:22'),
+(34, '2020-10-16', '2020-10-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 'Spa Carbone 6 places', '120.00', 2, '20.00', NULL, NULL, 0, NULL, '2020-10-16 14:28:42', '2020-10-16 14:28:42');
 
 -- --------------------------------------------------------
 
@@ -334,7 +335,8 @@ INSERT INTO `reservations_accessoires` (`ra_reservation_id`, `ra_accessoire_id`,
 (30, 3, '2020-10-09 14:17:49', '2020-10-09 14:17:49'),
 (31, 1, '2020-10-12 14:03:45', '2020-10-12 14:03:45'),
 (31, 5, '2020-10-12 14:03:45', '2020-10-12 14:03:45'),
-(31, 7, '2020-10-12 14:03:45', '2020-10-12 14:03:45');
+(31, 7, '2020-10-12 14:03:45', '2020-10-12 14:03:45'),
+(34, 3, '2020-10-16 14:28:42', '2020-10-16 14:28:42');
 
 -- --------------------------------------------------------
 
@@ -363,7 +365,7 @@ INSERT INTO `spas` (`spa_id`, `spa_stock`, `spa_libelle`, `spa_nb_place`, `spa_d
 (2, 1, 'Spa Navy', 4, 'Couleur bleu nuit<br>idéal pour une soirée', 'medias/img/spas/spa-navy.png', '90.00', NULL, NULL),
 (3, 1, 'Spa Baltik', 4, 'Couleur gris boisé<br>idéal pour l\'extérieur', 'medias/img/spas/spa-baltik.png', '90.00', NULL, NULL),
 (4, 0, 'Spa Baltik', 6, 'Octogonal et gris boisé<br>idéal pour l\'extérieur', 'medias/img/spas/spa-baltik.png', '120.00', NULL, NULL),
-(5, 0, 'Spa Carbone', 6, 'Octogonal soir et blanc<br>idéal pour une soirée', 'medias/img/spas/spa-carbone.png', '120.00', NULL, NULL);
+(5, 0, 'Spa Carbone', 6, 'Octogonal soir et blanc<br>idéal pour une soirée', 'medias/img/spas/spa-carbone.png', '160.00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -531,7 +533,7 @@ ALTER TABLE `ranks`
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT pour la table `spas`
