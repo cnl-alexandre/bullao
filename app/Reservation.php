@@ -31,6 +31,11 @@ class Reservation extends Model
         return $this->belongsTo('App\Pack', 'reservation_pack_id', 'pack_id');
     }
 
+    public function client()
+    {
+        return $this->belongsTo('App\Client', 'reservation_client_id', 'client_id');
+    }
+
     // public function pack()
     // {
     //     return $this->belongsTo('App\Client', 'reservation_client_id', '...');
