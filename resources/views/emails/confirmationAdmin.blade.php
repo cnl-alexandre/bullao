@@ -44,14 +44,14 @@
 																																							Bonjour,
 																																							<br>Une nouvelle commande vient d'être validée et payée sur le site bullao.fr ce jour.
 																																							<br><br>Les informations de la commande enregistrées sont donc les suivantes :
-																																							<br><br>Nom : Nom
-																																							<br>Adresse : 19 chemin de la porte verte
-																																							<br>Ville : Montévrain - 77
+																																							<br><br>Nom : {{ $reservation->client->client_name }}
+																																							<br>Adresse : {{ $reservation->reservation_rue }}
+																																							<br>Ville : {{ $reservation->reservation_ville }} - {{ $reservation->reservation_departement }}
 																																							<br>Emplacement : {{ $reservation->reservation_emplacement }}
 																																							<br>Type : {{ $reservation->reservation_type_logement }}
 																																							<br>Créneau : {{ $reservation->reservation_creneau }}
-																																							<br>Numéro : 0613377128
-																																							<br>Email : cnl.alexandre@gmail.com
+																																							<br>Numéro : {{ $reservation->client->client_phone }}
+																																							<br>Email : {{ $reservation->client->client_email }}
 																																							<br>
 																																					</p>
 																																			</td>

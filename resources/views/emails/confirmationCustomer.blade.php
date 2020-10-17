@@ -45,14 +45,14 @@
 																																							<br><br>Nous avons le plaisir de vous confirmer la validation de votre commande sur le site bullao.fr.
 																																							<br><br>Vos informations de livraisons ont bien été enregistrées dans notre base de données sécurisée.
 																																							<br><br>Si des informations sont incorrectes, vous êtes priées de nous contacter rapidement pour corriger votre réservation.
-																																							<br><br>Nom : Alexandre Conil
-																																							<br>Adresse : 19 chemin de la porte verte
-																																							<br>Ville : Montévrain - 77
-																																							<br>Emplacement : Intérieur
-																																							<br>Habitat : Maison
-																																							<br>Créneau : Après-midi
-																																							<br>Numéro : 0613377128
-																																							<br>Email : cnl.alexandre@gmail.com
+																																							<br><br>Nom : {{ $reservation->client->client_name }}
+																																							<br>Adresse : {{ $reservation->reservation_rue }}
+																																							<br>Ville : {{ $reservation->reservation_ville }} - {{ $reservation->reservation_departement }}
+																																							<br>Emplacement : {{ $reservation->reservation_emplacement }}
+																																							<br>Habitat : {{ $reservation->reservation_type_logement }}
+																																							<br>Créneau : {{ $reservation->reservation_creneau }}
+																																							<br>Numéro : {{ $reservation->client->client_phone }}
+																																							<br>Email : {{ $reservation->client->client_email }}
 																																							<br>
 																																					</p>
 																																			</td>
