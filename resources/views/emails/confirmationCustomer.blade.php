@@ -42,14 +42,14 @@
 																																			<td width="80%">
 																																					<p style="line-height: 130%;margin-bottom: 25px;">
 																																							Bonjour,
-																																							<br><br>Nous avons le plaisir de vous confirmer la validation de votre commande sur le site bullao.fr.
+																																							<br>Nous avons le plaisir de vous confirmer la validation de votre commande sur le site bullao.fr.
 																																							<br><br>Vos informations de livraisons ont bien été enregistrées dans notre base de données sécurisée.
 																																							<br><br>Si des informations sont incorrectes, vous êtes priées de nous contacter rapidement pour corriger votre réservation.
 																																							<br><br>Nom : {{ $reservation->client->client_name }}
 																																							<br>Adresse : {{ $reservation->reservation_rue }}
 																																							<br>Ville : {{ $reservation->reservation_ville }} - {{ $reservation->reservation_departement }}
 																																							<br>Emplacement : {{ $reservation->reservation_emplacement }}
-																																							<br>Habitat : {{ $reservation->reservation_type_logement }}
+																																							<br>Type : {{ $reservation->reservation_type_logement }}
 																																							<br>Créneau : {{ $reservation->reservation_creneau }}
 																																							<br>Numéro : {{ $reservation->client->client_phone }}
 																																							<br>Email : {{ $reservation->client->client_email }}
@@ -170,8 +170,8 @@
 																																			<td width="10%"></td>
 																																			<td width="80%">
 																																					<p style="line-height: 130%;margin-bottom: 25px;">
-																																							Merci pour votre achat et de la confiance que vous m’accordez.
-																																							<br><br>Grégoire de Bullao.
+																																						Merci pour votre achat et de la confiance que vous m’accordez.
+																																						<br><br>Grégoire de Bullao.
 																																					</p>
 																																			</td>
 																																			<td width="10%"></td>
