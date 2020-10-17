@@ -108,17 +108,19 @@
                             {{ $reservation->reservation_spa_libelle }}
                         </div>
                         <div class="col-6 text-right">
-                            {{ number_format($reservation->reservation_prix, 2, ',', ' ') }}€
+                            {{ number_format($reservation->reservation_prix, 2, '.', ' ') }}€
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-6 text-left">
-                            + {{ $joursSupp }} jour(s) supplémentaire(s)
+                    @if($joursSupp != "0")
+                        <div class="row">
+                            <div class="col-6 text-left">
+                                + {{ $joursSupp }} jour(s) supplémentaire(s)
+                            </div>
+                            <div class="col-6 text-right">
+                                {{ number_format($reservation->spa->calculPrixJoursSupp($joursSupp, $reservation->spa), 2, '.', ' ') }}€
+                            </div>
                         </div>
-                        <div class="col-6 text-right">
-                            {{ number_format($reservation->spa->calculPrixJoursSupp($joursSupp, $reservation->spa), 2, ',', ' ') }}€
-                        </div>
-                    </div>
+                    @endif
                     <div class="row">
                         <div class="col-12 text-left">
                             Du {{ $reservation->dateDebut->format('d/m/Y') }} au {{ $reservation->dateFin->format('d/m/Y') }}
@@ -131,7 +133,7 @@
                                 + {{ $reservation->pack->pack_libelle }}
                             </div>
                             <div class="col-6 text-right">
-                                {{ number_format($reservation->pack->pack_prix, 2, ',', ' ') }}€
+                                {{ number_format($reservation->pack->pack_prix, 2, '.', ' ') }}€
                             </div>
                         </div>
                     @endif
@@ -143,31 +145,37 @@
                                     + {{ $accessoire->accessoire->accessoire_libelle }}
                                 </div>
                                 <div class="col-6 text-right">
-                                    {{ number_format($accessoire->accessoire->accessoire_prix, 2, ',', ' ') }}€
+                                    {{ number_format($accessoire->accessoire->accessoire_prix, 2, '.', ' ') }}€
                                 </div>
                             </div>
                         @endforeach
                     @endif
-                    @if($reservation->reservation_promo != NULL)
-                        <div id="bloc-promo">
-                            <hr>
-                            <div class="row">
-                                <div class="col-6 text-left">
-                                    <h5>Code promo :</h5>
-                                </div>
-                                <div class="col-6 text-right">
-                                    -<span id="recap-promo">0.00</span>%
-                                </div>
+                    <div id="bloc-promo">
+                        <hr>
+                        <div class="row">
+                            <div class="col-6 text-left">
+                                Sous-total :
+                            </div>
+                            <div class="col-6 text-right">
+                                <span id="recap-sous-total"></span>€
                             </div>
                         </div>
-                    @endif
+                        <div class="row">
+                            <div class="col-6 text-left">
+                                Promo :
+                            </div>
+                            <div class="col-6 text-right">
+                                -<span id="recap-promo"></span>€
+                            </div>
+                        </div>
+                    </div>
                     <hr>
                     <div class="row">
                         <div class="col-6 text-left">
                             <h5>Total :</h5>
                         </div>
                         <div class="col-6 text-right">
-                            {{ number_format($reservation->reservation_montant_total, 2, ',', ' ') }}€
+                            <span id="recap-montant-total">{{ number_format($reservation->reservation_montant_total, 2, '.', ' ') }}</span>€
                         </div>
                     </div>
                 </div>
@@ -175,7 +183,8 @@
             <div class="row justify-content-center mt-4">
                 <input type="hidden" name="step" value="2">
                 <input type="hidden" name="id" value="{{ $reservation->reservation_id }}">
-                <input type="hidden" name="montant_total" value="{{ $reservation->reservation_montant_total }}">
+                <input type="hidden" name="montant_without_promo" id="montant_without_promo" value="{{ $reservation->reservation_montant_total }}">
+                <input type="hidden" name="montant_total" id="montant_total" value="{{ $reservation->reservation_montant_total }}">
                 <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
             </div>
         </div>
@@ -192,6 +201,7 @@
     $("#promo").keyup(function() {
         var code = $(this).val();
         var montant = $('#montant_total').val();
+        var montantWithoutPromo = $('#montant_without_promo').val();
         if(code != "")
         {
             $.ajax({
@@ -204,35 +214,27 @@
                         $("#promo").addClass('is-valid');
                         $("#promo").removeClass('is-invalid');
 
-                        $('#bloc-promo').css("display", "block");
-                        $('#recap-promo').html(response['promo']['promo_valeur']);
-
                         var promo = parseFloat(montant)*(parseFloat(response['promo']['promo_valeur'])/100);
 
-                        var montant_total = parseFloat(montant)-parseFloat(promo);
+                        $('#bloc-promo').css("display", "block");
+                        $('#recap-promo').html(promo.toFixed(2));
 
+                        var montant_total = parseFloat(montant)-parseFloat(promo);
+                        montant = parseFloat(montant);
+
+                        $('#recap-sous-total').html(montant.toFixed(2));
                         $('#montant_total').val(montant_total.toFixed(2));
-                        $('#recap-montant-total').html(recap_montant_total.toFixed(2));
+                        $('#recap-montant-total').html(montant_total.toFixed(2));
                     }
                     else
                     {
                         $('#bloc-promo').css("display", "none");
-                        var oldPromo = $('#recap-promo').html();
-                        //$('#recap-promo').html(null);
 
-                        if(oldPromo != "0.00")
-                        {
-                            var promo = parseFloat(montant)*(parseFloat(oldPromo)/100);
+                        montantWithoutPromo = parseFloat(montantWithoutPromo);
 
-                            var montant_total = parseFloat(montant)+parseFloat(promo);
-                            var recap_montant_total = parseFloat(montant)+parseFloat(promo);
-
-                            var montantWithoutPromo = parseFloat($('#montant_without_promo').val());
-
-                            $('#montant_total').val(montantWithoutPromo.toFixed(2));
-                            $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
-                        }
-
+                        $('#montant_total').val(montantWithoutPromo.toFixed(2));
+                        $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
+                        
                         $("#promo").removeClass('is-valid');
                         $("#promo").addClass('is-invalid');
                     }
@@ -240,19 +242,13 @@
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log('ERREUR : '+jqXHR.responseText);
 
-                    var oldPromo = parseFloat($('#recap-promo').html());
-                    $('#recap-promo').html(null);
+                    $('#bloc-promo').css("display", "none");
 
-                    var promo = parseFloat(montant)*(parseFloat(oldPromo)/100);
-
-                    var montant_total = parseFloat(montant)+parseFloat(promo);
-                    var recap_montant_total = parseFloat(montant)-parseFloat(promo);
-
-                    var montantWithoutPromo = parseFloat($('#montant_without_promo').val());
+                    montantWithoutPromo = parseFloat(montantWithoutPromo);
 
                     $('#montant_total').val(montantWithoutPromo.toFixed(2));
                     $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
-
+                    
                     $("#promo").removeClass('is-valid');
                     $("#promo").addClass('is-invalid');
                 }
@@ -260,8 +256,15 @@
         }
         else
         {
+            $('#bloc-promo').css("display", "none");
+
+            montantWithoutPromo = parseFloat(montantWithoutPromo);
+
+            $('#montant_total').val(montantWithoutPromo.toFixed(2));
+            $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
+            
             $("#promo").removeClass('is-valid');
-            $("#promo").removeClass('is-invalid');
+            $("#promo").addClass('is-invalid');
         }
     });
 
