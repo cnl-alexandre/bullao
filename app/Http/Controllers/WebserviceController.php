@@ -239,9 +239,15 @@ class WebserviceController extends Controller
                 $nbAccessoireReserv[$accessoire->accessoire_id] = 0;
             }
 
-            foreach($accessoires as $accessoire)
+            foreach($reservations as $reservation)
             {
-                $nbAccessoireReserv[$accessoire->accessoire_id] = $nbAccessoireReserv[$accessoire->accessoire_id] + 1;
+                if(count($reservation->accessoires) > 0)
+                {
+                    foreach($reservation->accessoires as $rAccessoire)
+                    {
+                        $nbAccessoireReserv[$rAccessoire->ra_accessoire_id]++;
+                    }
+                }
             }
 
             foreach($reservations as $reservation)
@@ -260,20 +266,6 @@ class WebserviceController extends Controller
                     }
                 }
             }
-
-            // foreach($reservations as $reservation)
-            // {
-            //     if(count($reservation->accessoires) > 0)
-            //     {
-            //         foreach($reservation->accessoires as $rAccessoire)
-            //         {
-            //             if(!in_array($rAccessoire->ra_accessoire_id, $accessoireIds) && $rAccessoire->ra_accessoire_id)
-            //             {
-            //                 array_push($reserv, $rAccessoire->ra_accessoire_id);
-            //             }
-            //         }
-            //     }
-            // }
         }
 
         $html = "";
@@ -312,7 +304,8 @@ class WebserviceController extends Controller
         }
 
         return response()->json([
-            'accessoires'          => $html
+            'accessoires'           => $html,
+            'reserv'                => $reserv
         ]);
     }
 }
