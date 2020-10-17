@@ -144,7 +144,7 @@ class ReservationController extends Controller
         $reservation = Session::get('reservation');
 
         // Mail destiné au client
-        Mail::send('emails.confirmation', ['reservation' => $reservation], function($mess) use ($reservation){
+        Mail::send('emails.confirmationCustomer', ['reservation' => $reservation], function($mess) use ($reservation){
             $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
             $mess->to($reservation->client->client_email);          // Mail du client
             // $mess->cc('jer.lemont@gmail.com');

@@ -25,25 +25,25 @@
                         <label for="type_logement">Type d'habitation</label>
                         <select class="form-control" name="type_logement" required>
                             <option value="" disabled selected hidden>Choisir le type d'habitation</option>
-                            <option value="maison">Maison</option>
-                            <option value="appartement">Appartement</option>
+                            <option value="Maison">Maison</option>
+                            <option value="Appartement">Appartement</option>
                         </select>
                     </div>
                     <div class="form-group mb-4">
                         <label for="emplacement">L'emplacement</label>
                         <select class="form-control" name="emplacement" required>
                             <option value="" disabled selected hidden>Choisir l'emplacement du spa</option>
-                            <option value="interieur">Intérieur</option>
-                            <option value="exterieur">Exterieur</option>
+                            <option value="Interieur">Intérieur</option>
+                            <option value="Extérieur">Extérieur</option>
                         </select>
                     </div>
                     <div class="form-group mb-5">
                         <label for="creneau">Créneau d'installation</label>
                         <select class="form-control" name="creneau"  required>
                             <option value="" disabled selected hidden>Choisir un moment de la journée</option>
-                            <option value="matin">Matin (8h à 12h)</option>
-                            <option value="aprem">Après-Midi (12h à 17h) Recommandé</option>
-                            <option value="soir">Soirée (17h à 21h)</option>
+                            <option value="Entre 8h et 12h">Entre 8h et 12h</option>
+                            <option value="Entre 12h et 15h">Entre 12h et 15h</option>
+                            <option value="Entre 15h et 20h">Entre 15h et 20h</option>
                         </select>
                         <small>Idéal en début de journée pour une eau à température</small>
                     </div>
