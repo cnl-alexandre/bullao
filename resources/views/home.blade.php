@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="owl-carousel slide-one-item">
-    <div class="site-section-cover overlay img-bg-section" style="background-image: url({{ url('medias/img/hero_3.jpg') }}); " >
+    <div class="site-section-cover overlay img-bg-section" style="background-image: url({{ url('medias/img/home/hero_3.webp') }}); " >
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-12 col-lg-8">
@@ -22,7 +22,7 @@
     <div class="block__73694 mb-2" id="services-section">
         <div class="container">
             <div class="row d-flex no-gutters align-items-stretch">
-                <div class="col-12 col-lg-6 block__73422" style="background-image: url({{ url('medias/img/img_1.jpg') }});" data-aos="fade" data-aos-delay="">
+                <div class="col-12 col-lg-6 block__73422" style="background-image: url({{ url('medias/img/home/preview_baltik_6p_ext_1.webp') }});" data-aos="fade" data-aos-delay="">
                 </div>
                 <!-- <img class="col-12 col-lg-6 block__73422" src="{{ url('medias/img/img_1.jpg') }}" alt="" data-aos="fade-up" data-aos-delay=""> -->
                 <div class="col-lg-5 ml-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade" data-aos-delay="">
@@ -50,7 +50,7 @@
     <div class="block__73694">
         <div class="container">
             <div class="row d-flex no-gutters align-items-stretch">
-                <div class="col-12 col-lg-6 block__73422 order-lg-2" style="background-image: url({{ url('medias/img/img_2.jpg') }});" data-aos="fade" data-aos-delay="">
+                <div class="col-12 col-lg-6 block__73422 order-lg-2" style="background-image: url({{ url('medias/img/home/preview_navy_4p_int_1.webp') }});" data-aos="fade" data-aos-delay="">
                 </div>
                 <div class="col-lg-5 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 text-black">Votre soirée sur-mesure</h2>
@@ -310,7 +310,7 @@
         </div>
         <div class="row mt-3  d-flex justify-content-around">
             <div class="col-lg-5 mb-5" data-aos="fade-up" data-aos-delay="100">
-                <img src="{{ url('/medias/img/messagerie.jpg') }}" alt="Image" class="img-fluid">
+                <img src="{{ url('/medias/img/home/messagerie.webp') }}" alt="Image" class="img-fluid">
             </div>
             <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
                 <h2 class="text-black">Des réponses à vos questions</h2>

@@ -16,7 +16,7 @@
         <div class="row mb-5 d-flex align-items-center">
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="" style="margin-left: auto;margin-right: 0;">
                 <div class="text-center">
-                    <img src="{{ url('/medias/img/refuse.svg') }}" alt="Paiement accepté" class="img-fluid rounded-circle" width="180px;" >
+                    <img src="{{ url('/medias/img/paiement/refuse.svg') }}" alt="Paiement accepté" class="img-fluid rounded-circle" width="180px;" >
                 </div>
             </div>
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-5" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">

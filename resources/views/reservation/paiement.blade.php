@@ -7,11 +7,11 @@
 <section>
     <div class="container" style="max-width: 380px; margin: 22vh auto auto auto;">
         <div class="" style="text-align: center;">
-            <img src="{{ url('/medias/img/logo-bleu.svg')}}" alt="" style="width:250px;">
+            <img src="{{ url('/medias/img/logos/logo-bleu.svg')}}" alt="" style="width:250px;">
         </div>
 
         <div class="" style="text-align: center;">
-            <img src="{{ url('/medias/img/paiement-stripe.jpg')}}" alt="" style="width:380px;">
+            <img src="{{ url('/medias/img/paiement/stripe-features.jpg')}}" alt="" style="width:380px;">
         </div>
 
         <div style="background-color: #fff;border-radius: .25rem;padding: .2rem .5rem;text-align: center">
