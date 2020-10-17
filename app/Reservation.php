@@ -18,7 +18,7 @@ class Reservation extends Model
 
     public function accessoires()
     {
-        return $this->hasMany('App\ReservationAccessoire', 'ra_accessoire_id');
+        return $this->hasMany('App\ReservationAccessoire', 'ra_reservation_id');
     }
 
     public function spa()
@@ -42,17 +42,11 @@ class Reservation extends Model
 
         if($array->step == 1)
         {
-            $diffJours = 0;
-
             $daterange = $array->daterange;
             $dates = explode(' - ', $daterange);
 
             $dateDebut = $this->dateFr2Us($dates[0]);
             $dateFin = $this->dateFr2Us($dates[1]);
-
-            $debut = strtotime($dateDebut);
-            $fin = strtotime($dateFin);
-            $diffJours = ceil(abs($fin - $debut) / 86400);
 
             $this->reservation_date_debut           = $dateDebut;
             $this->reservation_date_fin             = $dateFin;
@@ -62,7 +56,10 @@ class Reservation extends Model
             $this->reservation_spa_libelle          = $spa->spa_libelle.' '.$spa->spa_nb_place.' places';
             $this->reservation_prix                 = $spa->spa_prix;
 
-            $montant_total += ($spa->spa_prix + (($diffJours-1)*$spa->spa_prix_jour_supp));
+            $joursSupp = $this->joursSupp($daterange);
+
+            $montant_total += $spa->spa_prix;
+            $montant_total += $spa->calculPrixJoursSupp($joursSupp);
 
             if(isset($array->pack) && $array->pack != "")
             {
@@ -108,7 +105,7 @@ class Reservation extends Model
 
                 $promo = Promo::where('promo_libelle', 'LIKE', $array->promo)->first();
 
-                $this->reservation_montant_total        = $this->reservation_montant_total-(($this->reservation_montant_total*$array->promo)/100);
+                $this->reservation_montant_total        = $this->reservation_montant_total-(($this->reservation_montant_total*$promo->promo_valeur)/100);
             }
 
             // Création du client
@@ -160,5 +157,17 @@ class Reservation extends Model
         $jour = $split[0];
 
         return "$annee"."-"."$mois"."-"."$jour";
+    }
+
+    public function joursSupp()
+    {
+        $dateDebut = $this->reservation_date_debut;
+        $dateFin = $this->reservation_date_fin;
+
+        $debut = strtotime($dateDebut);
+        $fin = strtotime($dateFin);
+        $joursSupp = ceil(abs($fin - $debut) / 86400)-1;
+
+        return $joursSupp;
     }
 }

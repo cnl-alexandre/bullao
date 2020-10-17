@@ -96,72 +96,78 @@
                 <div class="col-lg-5 col-md-6" style="margin-left: auto;margin-right: auto;">
                     <h5>Mon panier</h5>
                     <hr>
-                    @if (request()->is('reservation/4places'))
-                        <div class="row">
-                            <div class="col-6 text-left">
-                                Formule 1 soirée
-                            </div>
-                        </div>
-                    @elseif (request()->is('reservation/6places'))
-                        <div class="row">
-                            <div class="col-6 text-left">
-                                Formule 1 soirée XL
-                            </div>
-                        </div>
+                    @if($reservation->spa->spa_nb_place == 4)
+                        Formule 1 soirée
+                    @elseif($reservation->spa->spa_nb_place == 6)
+                        Formule 1 soirée XL
                     @endif
+                    <br>
+                    <br>
                     <div class="row">
                         <div class="col-6 text-left">
-                            <span id="recap-spa-libelle"></span>
+                            {{ $reservation->reservation_spa_libelle }}
                         </div>
                         <div class="col-6 text-right">
-                            <span id="recap-spa-prix"></span>
+                            {{ number_format($reservation->reservation_prix, 2, ',', ' ') }}€
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6 text-left">
-                            <span id="recap-jours-libelle"></span>
+                            + {{ $joursSupp }} jour(s) supplémentaire(s)
                         </div>
                         <div class="col-6 text-right">
-                            <span id="recap-jours-prix"></span>
+                            {{ number_format($reservation->spa->calculPrixJoursSupp($joursSupp, $reservation->spa), 2, ',', ' ') }}€
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 text-left">
-                            Du <span id="recap-date-debut"></span> au <span id="recap-date-fin"></span>
+                            Du {{ $reservation->dateDebut->format('d/m/Y') }} au {{ $reservation->dateFin->format('d/m/Y') }}
                         </div>
                     </div>
-                    <hr id="separation-recap"/>
-                    <div class="row">
-                        <div class="col-6 text-left">
-                            <span id="recap-pack-libelle"></span>
+                    @if($reservation->reservation_pack_id != NULL)
+                        <hr>
+                        <div class="row">
+                            <div class="col-6 text-left">
+                                + {{ $reservation->pack->pack_libelle }}
+                            </div>
+                            <div class="col-6 text-right">
+                                {{ number_format($reservation->pack->pack_prix, 2, ',', ' ') }}€
+                            </div>
                         </div>
-                        <div class="col-6 text-right">
-                            <span id="recap-pack-prix"></span>
+                    @endif
+                    @if(count($reservation->accessoires) > 0)
+                        <hr>
+                        @foreach($reservation->accessoires as $accessoire)
+                            <div class="row">
+                                <div class="col-6 text-left">
+                                    + {{ $accessoire->accessoire->accessoire_libelle }}
+                                </div>
+                                <div class="col-6 text-right">
+                                    {{ number_format($accessoire->accessoire->accessoire_prix, 2, ',', ' ') }}€
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                    @if($reservation->reservation_promo != NULL)
+                        <div id="bloc-promo">
+                            <hr>
+                            <div class="row">
+                                <div class="col-6 text-left">
+                                    <h5>Code promo :</h5>
+                                </div>
+                                <div class="col-6 text-right">
+                                    -<span id="recap-promo">0.00</span>%
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 text-left">
-                            <span id="recap-accessoires-libelle"></span>
-                        </div>
-                        <div class="col-6 text-right">
-                            <span id="recap-accessoires-prix"></span>
-                        </div>
-                    </div>
+                    @endif
                     <hr>
-                    <div class="row bloc-promo">
-                        <div class="col-6 text-left">
-                            <h5>Code promo :</h5>
-                        </div>
-                        <div class="col-6 text-right">
-                            -<span id="recap-promo">0.00</span>%
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-6 text-left">
                             <h5>Total :</h5>
                         </div>
                         <div class="col-6 text-right">
-                            <span id="recap-montant-total">0.00</span>€
+                            {{ number_format($reservation->reservation_montant_total, 2, ',', ' ') }}€
                         </div>
                     </div>
                 </div>
@@ -169,6 +175,7 @@
             <div class="row justify-content-center mt-4">
                 <input type="hidden" name="step" value="2">
                 <input type="hidden" name="id" value="{{ $reservation->reservation_id }}">
+                <input type="hidden" name="montant_total" value="{{ $reservation->reservation_montant_total }}">
                 <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
             </div>
         </div>
@@ -203,7 +210,6 @@
                         var promo = parseFloat(montant)*(parseFloat(response['promo']['promo_valeur'])/100);
 
                         var montant_total = parseFloat(montant)-parseFloat(promo);
-                        var recap_montant_total = parseFloat(montant)-parseFloat(promo);
 
                         $('#montant_total').val(montant_total.toFixed(2));
                         $('#recap-montant-total').html(recap_montant_total.toFixed(2));
@@ -261,7 +267,7 @@
 
     $(document).ready(function() {
 
-        $('.bloc-promo').css("display", "none");
+        $('#bloc-promo').css("display", "none");
     });
 </script>
 

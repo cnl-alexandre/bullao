@@ -59,7 +59,10 @@ class ReservationController extends Controller
         $reservation                            = new Reservation;
         $reservation->create($request);
 
+        $joursSupp = $reservation->joursSupp($request->daterange);
+
         Session::put('reservation', $reservation);
+        Session::put('joursSupp', $joursSupp);
         return redirect('/reservation/informations');
     }
 
@@ -68,9 +71,11 @@ class ReservationController extends Controller
         if(Session::get('reservation'))
         {
             $reservation = Session::get('reservation');
+            $joursSupp = Session::get('joursSupp');
 
             return view('reservation.step2')->with([
-                'reservation'   => $reservation
+                'reservation'   => $reservation,
+                'joursSupp'     => $joursSupp
             ]);
         }
         else
@@ -164,5 +169,27 @@ class ReservationController extends Controller
     public function cancel()
     {
         return view('paiement-refuse')->with([]);
+    }
+
+    public function dateUs2Fr($date)
+    {
+        $split = explode("-",$date);
+
+        $annee = $split[0];
+        $mois = $split[1];
+        $jour = $split[2];
+
+        return "$jour"."/"."$mois"."/"."$annee";
+    }
+
+    public function dateFr2Us($date)
+    {
+        $split = explode("/",$date);
+
+        $annee = $split[2];
+        $mois = $split[1];
+        $jour = $split[0];
+
+        return "$annee"."-"."$mois"."-"."$jour";
     }
 }

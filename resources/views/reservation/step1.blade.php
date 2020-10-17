@@ -271,6 +271,7 @@
         $("#btn-pack-clear").click(function() {
             @foreach($packs as $pack)
                 $("#label-pack-{{ $pack->pack_id }}").removeClass("active");
+                $("#pack-{{ $pack->pack_id }}").prop('checked', false);
             @endforeach
 
             return false;

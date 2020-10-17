@@ -33,4 +33,13 @@ class Spa extends Model
     {
         return Carbon::parse($this->attributes['updated_at']);
     }
+
+    public function calculPrixJoursSupp($nbJours)
+    {
+        $prix = 0.00;
+
+        $prix = $nbJours*$this->spa_prix_jour_supp;
+        
+        return $prix;
+    }
 }
