@@ -92,6 +92,12 @@
                         <label for="promo">Code promo :</label>
                         <input type="text" id="promo" class="form-control" name="promo" maxlength="10">
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="acceptCGV" value="yes" id="acceptCGV">
+                        <label class="form-check-label" for="acceptCGV">
+                            J'ai lu et j'accepte les <a href="{{ url('/cgv-bullao') }}" target="_blank">CGV - Bullao</a>
+                        </label>
+                    </div>
                 </div>
                 <div class="col-lg-5 col-md-6" style="margin-left: auto;margin-right: auto;">
                     <h5>Mon panier</h5>
@@ -189,7 +195,7 @@
                     <a href="{{ url('/') }}" class="btn btn-secondary btn-md text-white">Annuler</a>
                 </div>
                 <div class="col-6 text-right">
-                    <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
+                    <input type="submit" name="" id="btn-confirm" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
                 </div>
             </div>
         </div>
@@ -273,9 +279,23 @@
         }
     });
 
-    $(document).ready(function() {
+    $("#acceptCGV").click(function() {
+        if($(this).is(':checked'))
+        {
+            $('#btn-confirm').attr("disabled", false);
+            $('#btn-confirm').attr("title", null);
+        }
+        else
+        {
+            $('#btn-confirm').attr("disabled", true);
+            $('#btn-confirm').attr("title", "Vous devez accepter les CGV.");
+        }
+    });
 
+    $(document).ready(function() {
         $('#bloc-promo').css("display", "none");
+        $('#btn-confirm').attr("disabled", true);
+        $('#btn-confirm').attr("title", "Vous devez accepter les CGV.");
     });
 </script>
 
