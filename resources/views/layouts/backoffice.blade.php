@@ -5,6 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- DESACTIVATION INDEXATION -->
+        <meta name="robots" content="noindex">
+        <meta name="googlebot" content="noindex">
+        <!-- FIN -->
+
 
         <link rel="stylesheet" href="{{ url('/fonts/icomoon/style.css') }}">
 

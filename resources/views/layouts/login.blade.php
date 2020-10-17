@@ -18,6 +18,11 @@
         <meta property="og:site_name" content="M&#38;F Immobilier">
         <meta name="robots" content="index,follow">
 
+        <!-- DESACTIVATION INDEXATION -->
+        <meta name="robots" content="noindex">
+        <meta name="googlebot" content="noindex">
+        <!-- FIN -->
+
         <!-- Styles -->
         <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ url('/css/system/style.css?version='.env('APP_VERSION')) }}">
