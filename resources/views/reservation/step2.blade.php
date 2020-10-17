@@ -51,26 +51,26 @@
                     <h5 class="mt-5 mb-4">Informations personnelles :</h5>
                     <div class="form-group mb-4">
                         <label for="name">Votre nom et prénom :</label>
-                        <input type="text" id="name" class="form-control" name="name" required>
+                        <input type="text" id="name" class="form-control" name="name" maxlength="100" required>
                     </div>
                     <div class="form-group mb-4">
                         <label for="email">L'adresse mail :</label>
-                        <input type="email" id="email" class="form-control" name="email" required>
+                        <input type="email" id="email" class="form-control" name="email" maxlength="100" required>
                     </div>
                     <div class="form-group mb-5">
                         <label for="phone">Numéro de téléphone :</label>
-                        <input type="tel" id="phone" class="form-control" name="phone" required>
+                        <input type="tel" id="phone" class="form-control" name="phone" maxlength="10" required>
                     </div>
                     <hr>
                     <h5 class="mt-5 mb-4">Informations de livraison :</h5>
                     <div class="form-group mb-4">
                         <label for="adresse1">L'adresse :</label>
-                        <input type="text" id="adresse1" class="form-control" name="adresse1" required>
+                        <input type="text" id="adresse1" class="form-control" name="adresse1" maxlength="100" required>
                     </div>
                     <div class="row">
                       <div class="col-7 form-group">
                           <label for="ville">La ville :</label>
-                          <input type="text" id="ville" class="form-control" name="ville" required>
+                          <input type="text" id="ville" class="form-control" name="ville" maxlength="100" required>
                       </div>
                       <div class="col-5 form-group">
                           <label for="cp">Le département :</label>
@@ -84,13 +84,13 @@
                     </div>
                     <div class="form-group mb-5">
                         <label for="adresse2">Complément d'adresse :</label>
-                        <input type="text" id="adresse2" class="form-control" name="adresse2">
+                        <input type="text" id="adresse2" class="form-control" name="adresse2" maxlength="100">
                     </div>
                     <hr>
                     <h5 class="mt-5 mb-4">Vous avez une réduction ?</h5>
                     <div class="form-group mb-4">
                         <label for="promo">Code promo :</label>
-                        <input type="text" id="promo" class="form-control" name="promo">
+                        <input type="text" id="promo" class="form-control" name="promo" maxlength="10">
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6" style="margin-left: auto;margin-right: auto;">

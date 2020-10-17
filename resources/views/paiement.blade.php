@@ -32,7 +32,7 @@
                 <div id="card-element">
                   <!-- A Stripe Element will be inserted here. -->
                 </div>
-                <input id="cardholder-name" type="text" class="cardholder-name" placeholder="Nom du titulaire">
+                <input id="cardholder-name" type="text" class="cardholder-name" placeholder="Nom du titulaire" maxlength="100">
                 <!-- Used to display form errors. -->
                 <div id="card-errors" role="alert"></div>
             </div>
