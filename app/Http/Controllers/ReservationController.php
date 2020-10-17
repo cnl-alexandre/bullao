@@ -121,7 +121,7 @@ class ReservationController extends Controller
             'receipt_email' => 'cnl.alexandre@gmail.com',
         ]);
 
-        return view('paiement')->with([
+        return view('reservation.paiement')->with([
             'reservation'   => $reservation,
             'intent'        => $intent
         ]);
@@ -143,32 +143,34 @@ class ReservationController extends Controller
 
         $reservation = Session::get('reservation');
 
-        // var_dump($reservation->accessoires);
-
         // Mail destiné au client
-        Mail::send('emails.confirmation', ['reservation' => $reservation], function($mess){
-            $mess->from('akacocoputer@gmail.com'); // Mail de départ Bullao contact@bullao.fr
-            $mess->to('cnl.alexandre@gmail.com'); // Mail du client
+        Mail::send('emails.confirmation', ['reservation' => $reservation], function($mess) use ($reservation){
+            $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
+            $mess->to($reservation->client->client_email);          // Mail du client
             // $mess->cc('jer.lemont@gmail.com');
             $mess->subject('Bullao : confirmation de réservation');
         });
 
         // Mail destiné aux Admins
         Mail::send('emails.confirmationAdmin', ['reservation' => $reservation], function($mess){
-            $mess->from('akacocoputer@gmail.com'); // Mail de départ Bullao contact@bullao.fr
-            $mess->to('cnl.alexandre@gmail.com'); // Mail du client
+            $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
+            $mess->to(env('MAIL_ADMIN'));                           // Mail de l'admin
             $mess->cc('contact@bullao.fr');
             $mess->subject('Bullao : Nouvelle réservation !');
         });
 
-        //Session::forget('reservation');
+        Session::forget('reservation');
+        Session::forget('joursSupp');
 
-        return view('paiement-accepte')->with([]);
+        return view('reservation.paiement-accepte')->with([]);
     }
 
     public function cancel()
     {
-        return view('paiement-refuse')->with([]);
+        Session::forget('reservation');
+        Session::forget('joursSupp');
+
+        return view('reservation.paiement-refuse')->with([]);
     }
 
     public function dateUs2Fr($date)

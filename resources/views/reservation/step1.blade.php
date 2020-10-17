@@ -181,7 +181,12 @@
             </div>
             <div class="row justify-content-center mt-4">
                 <input type="hidden" name="step" value="1">
-                <input type="submit" name="" value="Continuer" class="btn btn-primary btn-md text-white">
+                <div class="col-6 text-left">
+                    <a href="{{ url('/') }}" class="btn btn-secondary btn-md text-white">Retour</a>
+                </div>
+                <div class="col-6 text-right">
+                    <input type="submit" name="" value="Continuer" class="btn btn-primary btn-md text-white">
+                </div>
             </div>
         </div>
     </div>

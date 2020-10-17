@@ -185,7 +185,12 @@
                 <input type="hidden" name="id" value="{{ $reservation->reservation_id }}">
                 <input type="hidden" name="montant_without_promo" id="montant_without_promo" value="{{ $reservation->reservation_montant_total }}">
                 <input type="hidden" name="montant_total" id="montant_total" value="{{ $reservation->reservation_montant_total }}">
-                <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
+                <div class="col-6 text-left">
+                    <a href="{{ url('/') }}" class="btn btn-secondary btn-md text-white">Annuler</a>
+                </div>
+                <div class="col-6 text-right">
+                    <input type="submit" name="" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
+                </div>
             </div>
         </div>
     </div>
