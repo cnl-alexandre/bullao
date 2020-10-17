@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Reservation;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\SchedulerController;
 
 class ReservationController extends Controller
 {
@@ -24,12 +25,6 @@ class ReservationController extends Controller
         $spas           = Spa::where('spa_nb_place', '=', $nbPlace)->orderby('spa_id', 'ASC')->get();
         $packs          = Pack::orderby('pack_id', 'ASC')->get();
         $accessoires    = Accessoire::orderby('accessoire_id', 'ASC')->get();
-
-        // $spaArray = [];
-        // foreach($spas as $spa)
-        // {
-        //     array_push($spaArray, array($spa['spa_id'], $spa['spa_libelle'], $spa['spa_chemin_img'], $spa['spa_desc'], ));
-        // }
 
         return view('reservation.step1')->with([
             'indispos'      => $indispos,
@@ -109,7 +104,7 @@ class ReservationController extends Controller
 
     public function paiement()
     {
-        $reservation = Session::get('reservation');
+        $reservation = Reservation::Find(Session::get('reservation')->reservation_id);
 
         // Intention de paiement
         \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
@@ -120,6 +115,9 @@ class ReservationController extends Controller
             'currency' => 'eur',
             'receipt_email' => 'cnl.alexandre@gmail.com',
         ]);
+
+        $reservation->reservation_payment_id = $intent->id;
+        $reservation->save();
 
         return view('reservation.paiement')->with([
             'reservation'   => $reservation,
@@ -136,9 +134,11 @@ class ReservationController extends Controller
 
     public function success()
     {
-
         $reservation = Session::get('reservation');
+
         $r = Reservation::Find($reservation->reservation_id);
+        $r->reservation_paye = 1;
+        $r->save();
         Session::put('reservation', $r);
 
         $reservation = Session::get('reservation');
@@ -161,6 +161,9 @@ class ReservationController extends Controller
 
         Session::forget('reservation');
         Session::forget('joursSupp');
+
+        $scheduler = new SchedulerController;
+        $scheduler->purgeReservationsNonPayees();
 
         return view('reservation.paiement-accepte')->with([]);
     }
