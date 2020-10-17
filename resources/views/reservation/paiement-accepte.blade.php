@@ -21,11 +21,12 @@
             </div>
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-5" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">
                 <div class="pricing">
-                    <h4 class="text-center text-black mb-5">Réservation validée !</h4>
-                    <p class="text-center text-black mb-4">Un mail de confirmation vous a été envoyé suite à votre réservation sur notre site Bullao.</p>
-                    <p class="text-center text-black mb-5">Nous vous remerçions pour votre confiance !</p>
+                    <h4 class="text-center text-black mb-5">Réservation confirmée !</h4>
+                    <p class="text-center text-black mb-4">Vous n’êtes plus qu’à quelques jours du bonheur !</p>
+                    <p class="text-center text-black mb-4">Suite à la réservation de votre spa-jacuzzi sur le site Bullao, un mail de confirmation vous a été envoyé à l’adresse mail fournie.</p>
+                    <p class="text-center text-black mb-5">Nous vous remercions de votre confiance.</p>
                     <p class="text-center">
-                        <a href="{{ url('/') }}" class="btn btn-primary btn-md text-white">Terminer</a>
+                        <a href="{{ url('/') }}" class="btn btn-primary btn-md text-white">Retour à l’accueil</a>
                     </p>
                 </div>
             </div>

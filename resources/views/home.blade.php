@@ -27,12 +27,13 @@
                 <!-- <img class="col-12 col-lg-6 block__73422" src="{{ url('medias/img/img_1.jpg') }}" alt="" data-aos="fade-up" data-aos-delay=""> -->
                 <div class="col-lg-5 ml-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 text-black">Votre spa à domicile</h2>
-                    <p>En couple, en famille ou entre amis, profitez d’un moment de détente
-                          inoubliable sans bouger de chez vous. Dans le respect de mesures sanitaires très strictes,
-                          notre équipe vous garantie une installation saine et sécurisée pour une tranquillité
-                          d’esprit inégalée. Vous n’avez rien à penser, nous nous occupons de tout.
+                    <p class="text-justify">
+                        En couple, en famille ou entre amis, profitez d’un moment de détente
+                        inoubliable sans bouger de chez vous. Dans le respect de mesures sanitaires très strictes,
+                        notre équipe vous garantie une installation saine et sécurisée pour une tranquillité
+                        d’esprit inégalée. Vous n’avez rien à penser, nous nous occupons de tout.
                     </p>
-                    <p>
+                    <p class="text-justify">
                         Pour le moment, tous les spas-jacuzzi Bullao sont disponibles à la
                         location privée ou professionnelle à Marne-la-Vallée et à Paris.
                     </p>
@@ -53,14 +54,17 @@
                 </div>
                 <div class="col-lg-5 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 text-black">Votre soirée sur-mesure</h2>
-                    <p>
-                      Bullao accompagne tous vos événements, aussi bien entre particuliers
-                      que professionnels. Un anniversaire, une occasion spéciale ou tout simplement un
-                      instant à deux, nous vous apportons la touche de relaxation qui fait toute la différence.
-                      Pour une expérience encore plus unique, notre équipe vous conseille à chaque étape de
-                      votre location.
+                    <p class="text-justify">
+                        Bullao accompagne tous vos événements, aussi bien entre particuliers
+                        que professionnels. Un anniversaire, une occasion spéciale ou tout simplement un
+                        instant à deux, nous vous apportons la touche de relaxation qui fait toute la différence.
+                        Pour une expérience encore plus unique, notre équipe vous conseille à chaque étape de
+                        votre location.
                     </p>
-                    <p>Grâce à nos packs à thèmes et nos accessoires dédiés, concevez vous-même votre soirée. Imaginez, associez et offrez-vous le luxe d’un spa à domicile :</p>
+                    <p class="text-justify">
+                        Grâce à nos packs à thèmes et nos accessoires dédiés, concevez vous-même votre soirée.
+                        Imaginez, associez et offrez-vous le luxe d’un spa à domicile :
+                    </p>
                     <ul class="ul-check primary list-unstyled mt-5">
                         <li>4 couleurs de spa</li>
                         <li>2 thématiques</li>

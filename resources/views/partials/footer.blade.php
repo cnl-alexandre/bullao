@@ -1,13 +1,13 @@
 <footer class="site-footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-8">
                         <h2 class="footer-heading mb-3">A propos</h2>
                         <p>
                             Bullao propose des locations de spa et jacuzzi à domicile sur le secteur de Paris et Marne-la-Vallée.
-                            <br>Bullao est un nom commercial utilisé (et déposé à l'INPI) par Grégoire Conil.
+                            <br><br>Bullao est un nom commercial utilisé (et déposé à l'INPI) par Grégoire Conil.
                         </p>
                     </div>
                   <div class="col-md-4 ml-auto">
@@ -28,9 +28,9 @@
                   <a href="#about-section" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span> Facebook</a>
                   <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span> Instagram</a>
                 </p>
-                <h2 class="footer-heading mb-3">Contactez-nous !</h2>
+                <h2 class="footer-heading mt-5 mb-3">Contactez-nous !</h2>
                 <p>
-                  <a href="#about-section" class="smoothscroll pl-0 pr-3">06060606606</a>
+                  <a href="#about-section" class="smoothscroll pl-0 pr-3">0628826954</a>
                   <a href="#" class="pl-3 pr-3">contact@bullao.fr</a>
                 </p>
             </div>

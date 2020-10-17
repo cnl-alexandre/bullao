@@ -34,11 +34,11 @@
                     <br>
                     Siège social : 19 chemin de la porte verte, Montévrain 77144
                     <br>
-                    Contact : contact@bullao.fr
+                    Contact : gregoireconil@bullao.fr
                     <br>
-                    Téléphone : 06.06.06.06.06
+                    Téléphone : 0628826954
                     <br>
-                    Siret : 10101010101011
+                    Siret : 889 969 010
                 </p></blockquote>
                 <p>
                     "Bullao" est une marque déposée à l'INPI sous le numéro national n°101010101011.
