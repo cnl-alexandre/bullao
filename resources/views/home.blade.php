@@ -147,7 +147,7 @@
                     réservation effectuée, il ne vous reste plus qu’à attendre encore un peu avant de profiter
                     pleinement de votre spa-jacuzzi.
                     <!-- Le jour J,  -->
-                    N’hésitez pas à nous partager votre expérience
+                    Venez nous partager votre expérience
                     sur Facebook et Instagram !
                 </div>
             </div>

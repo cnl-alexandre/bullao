@@ -76,3 +76,11 @@ Route::get('/account/profil', 'customer\AccountController@profil');
 
 // ADMINISTRATION
 Route::get('/administration/dashboard', 'system\BackOfficeController@dashboard')                                            ->middleware('cache.headers');
+
+// RESERVATION
+Route::get('/administration/reservations/list', 'system\ReservationController@list');
+
+//
+Route::get('administration/produits/spas/list', 'system\ProduitController@listSpas');
+Route::get('administration/produits/packs/list', 'system\ProduitController@listPacks');
+Route::get('administration/produits/accessoires/list', 'system\ProduitController@listAccessoires');

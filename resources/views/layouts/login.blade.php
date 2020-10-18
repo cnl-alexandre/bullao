@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="{{ url('/css/system/style.css?version='.env('APP_VERSION')) }}">
 
         <!-- Scripts -->
-        <script src="{{ url('/js/jquery-3.4.1.min.js') }}"></script>
+        <script src="{{ url('/js/jquery-3.3.1.min.js') }}"></script>
         <script src="{{ url('/js/bootstrap.min.js') }}"></script>
         <script src="{{ url('/js/system/sb-admin-2.min.js') }}"></script>
         <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>

@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="{{ url('/css/customer/style.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/custom.css?version='.env('APP_VERSION')) }}">
 
-        <script src="{{ url('/js/customer/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ url('/js/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
         <script src="https://js.stripe.com/v3/"></script>
@@ -54,7 +54,7 @@
         <!-- <script src="{{ url('/js/customer/jquery-migrate-3.0.1.min.js') }}"></script> -->
         <script src="{{ url('/js/customer/jquery-ui.js') }}"></script>
         <script src="{{ url('/js/customer/popper.min.js') }}"></script>
-        <script src="{{ url('/js/customer/bootstrap.min.js') }}"></script>
+        <script src="{{ url('/js/bootstrap.min.js') }}"></script>
         <script src="{{ url('/js/customer/owl.carousel.min.js') }}"></script>
         <script src="{{ url('/js/customer/mediaelement-and-player.min.js') }}"></script>
         <script src="{{ url('/js/customer/jquery.stellar.min.js') }}"></script>

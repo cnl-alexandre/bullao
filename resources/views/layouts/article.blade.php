@@ -33,9 +33,9 @@
             @include('partials.footer')
         </div>
 
-        <script src="{{ url('/js/customer/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ url('/js/jquery-3.3.1.min.js') }}"></script>
         <script src="{{ url('/js/customer/popper.min.js') }}"></script>
-        <script src="{{ url('/js/customer/bootstrap.min.js') }}"></script>
+        <script src="{{ url('/js/bootstrap.min.js') }}"></script>
         <script src="{{ url('/js/customer/owl.carousel.min.js') }}"></script>
         <script src="{{ url('/js/customer/jquery.animateNumber.min.js') }}"></script>
         <script src="{{ url('/js/customer/jquery.easing.1.3.js') }}"></script>

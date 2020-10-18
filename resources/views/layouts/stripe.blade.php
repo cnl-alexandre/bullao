@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="{{ url('/css/customer/custom.css?version='.env('APP_VERSION')) }}">
         <link rel="stylesheet" href="{{ url('/css/customer/paiement-stripe.css?version='.env('APP_VERSION')) }}">
 
-        <script src="{{ url('/js/customer/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ url('/js/jquery-3.3.1.min.js') }}"></script>
         <script src="https://js.stripe.com/v3/"></script>
     </head>
     <body class="body-stripe">

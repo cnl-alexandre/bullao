@@ -41,11 +41,11 @@
             @include('partials.footer')
         </div>
 
-        <script src="{{ url('/js/customer/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ url('/js/jquery-3.3.1.min.js') }}"></script>
         <!-- <script src="{{ url('/js/customer/jquery-migrate-3.0.1.min.js') }}"></script> -->
         <script src="{{ url('/js/customer/jquery-ui.js') }}"></script>
         <script src="{{ url('/js/customer/popper.min.js') }}"></script>
-        <script src="{{ url('/js/customer/bootstrap.min.js') }}"></script>
+        <script src="{{ url('/js/bootstrap.min.js') }}"></script>
         <script src="{{ url('/js/customer/owl.carousel.min.js') }}"></script>
         <script src="{{ url('/js/customer/mediaelement-and-player.min.js') }}"></script>
         <script src="{{ url('/js/customer/jquery.stellar.min.js') }}"></script>
