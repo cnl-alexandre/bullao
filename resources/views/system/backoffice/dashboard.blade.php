@@ -59,23 +59,26 @@
 </div>
 
 <div class="row">
-    <div class="col-xl-8">
-        <div class="card shadow mb-4">
-            <div class="card-header">
-                <h4>Ventes</h4>
-            </div>
-            <div class="card-body">
-                <canvas id="chartVente" style="width: 100%; height: 400px;"></canvas>
-            </div>
-        </div>
-    </div>
     <div class="col-xl-4">
         <div class="card shadow mb-4">
             <div class="card-header">
-                <h4>Code promo</h4>
+                <h4>Prochaines réservations</h4>
             </div>
             <div class="card-body">
-                <p></p>
+                <ul>
+                    <li>Le 20/10/2020 à Montévrain (77)</li>
+                    <li>Le 28/10/2020 à Paris (77)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-8">
+        <div class="card shadow mb-4">
+            <div class="card-header">
+                <h4>Courbe des résultats</h4>
+            </div>
+            <div class="card-body">
+                <canvas id="chartVente" style="width: 100%; height: 400px;"></canvas>
             </div>
         </div>
     </div>
