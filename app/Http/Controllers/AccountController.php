@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\User;
 use App\Administrateur;
-use App\Client;
+use App\Reservation;
+use Illuminate\Support\Facades\Mail;
 
 class AccountController extends Controller
 {
@@ -188,5 +189,23 @@ class AccountController extends Controller
 
         Session::put('success', 'Vous venez d\'être déconnecté.<br/>Merci et à bientot !');
         return redirect('/account/login');
+    }
+
+    public function sendReservationSubmit(Request $request)
+    {
+        $reservations = Reservation::where('reservation_email', 'LIKE', $request->email)->get();
+
+        if(count($reservations) > 0)
+        {
+            // Mail destiné au client
+            Mail::send('emails.historyReservations', ['reservations' => $reservations], function($mess) use ($request){
+                $mess->from(env('MAIL_EMAIL'));
+                $mess->to($request->email);
+                $mess->subject('Bullao : Hitorique de vos réservations');
+            });
+        }
+
+        Session::put('success', 'Si vous avez des réservations, vous recevrez un mail détaillé.');
+        return redirect('/');
     }
 }

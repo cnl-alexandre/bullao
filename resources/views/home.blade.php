@@ -325,4 +325,34 @@ de vos rêves.</p>
     </div>
 </div>
 
+<div class="site-section bg-light" id="contact-section">
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-4 mx-auto">
+                <form class="" action="{{ url('/account/send-reservations') }}" method="post">
+                    <div class="input-group mb-3">
+                        {{ csrf_field() }}
+                        <input type="email" name="email" class="form-control" placeholder="Adresse mail">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit">Envoyer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-6 mx-auto">
+                <h4 class="mb-3">Vos précédentes réservations</h4>
+                  Vous souhaitez recevoir un résumé ? Renseignez votre email et vous recevrez le détail des précédentes réservations.
+            </div>
+        </div>
+    </div>
+</div>
+@if(Session::has('success'))
+    <script>alert("{!! Session::get('success') !!}");</script>
+    {{ Session::forget('success') }}
+@endif
+@if(Session::has('error'))
+    <script>alert("{!! Session::get('error') !!}");</script>
+    {{ Session::forget('error') }}
+@endif
+
 @endsection

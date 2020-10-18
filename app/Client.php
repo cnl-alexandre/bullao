@@ -20,7 +20,12 @@ class Client extends Model
 
     public function adresses()
     {
-        return $this->hasMany('App\Adresse', 'adresse_id');
+        return $this->hasMany('App\Adresse', 'adresse_client_id');
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany('App\Reservation', 'reservation_client_id');
     }
 
     public function create($array)

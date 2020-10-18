@@ -40,12 +40,13 @@ Route::post('/webservices/spa/stock/verify', 'WebserviceController@verifySpaStoc
 Route::post('/webservices/pack/stock/verify', 'WebserviceController@verifyPackStock');
 Route::post('/webservices/accessoire/stock/verify', 'WebserviceController@verifyAccessoireStock');
 
-// LOGIN
+// ACCOUNT
 Route::get('/account/login', 'AccountController@login');
 Route::post('/account/login', 'AccountController@loginSubmit');
 Route::get('/account/forgot-password', 'AccountController@forgotPassword');
 Route::post('/account/forgot-password', 'AccountController@forgotPasswordSubmit');
 Route::get('/account/logout', 'AccountController@logout');
+Route::post('/account/send-reservations', 'AccountController@sendReservationSubmit');
 
 /**
  *  ######  ##     ##  ######  ########  #######  ##     ## ######## ########
