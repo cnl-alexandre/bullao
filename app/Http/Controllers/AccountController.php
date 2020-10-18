@@ -196,9 +196,14 @@ class AccountController extends Controller
 
     public function sendReservationSubmit(Request $request)
     {
-        $reservations = DB::table('clients')
-                        ->join('reservations', 'clients.client_id', '=', 'reservations.reservation_client_id')
-                        ->select('clients.*', 'reservations.*')
+        $reservations = DB::table('reservations')
+                        ->join('clients', 'clients.client_id', '=', 'reservations.reservation_client_id')
+                        ->join('spas', 'spas.spa_id', '=', 'reservations.reservation_spa_id')
+                        ->join('packs', 'packs.pack_id', '=', 'reservations.reservation_pack_id')
+                        ->join('reservations_accessoires', 'reservations_accessoires.ra_reservation_id', '=', 'reservations.reservation_id')
+                        ->join('accessoires', 'accessoires.accessoire_id', '=', 'reservations_accessoires.ra_accessoire_id')
+                        ->join('adresses', 'clients.client_id', '=', 'adresses.adresse_client_id')
+                        ->select('clients.*', 'reservations.*', 'adresses.*', 'packs.*', 'accessoires.*', 'spas.*')
                         ->where('clients.client_email', 'LIKE', $request->email)
                         ->get();
 
