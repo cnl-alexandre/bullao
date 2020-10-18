@@ -44,14 +44,14 @@
 																<td width="10%"></td>
 																<td width="80%">
 																	<p style="line-height: 130%;margin-bottom: 25px;">
-																		Nom : {{ $reservation->client_name }}
+																		Nom : {{ $reservation->client->client_name }}
 																		<br>Adresse : {{ $reservation->reservation_rue }}
 																		<br>Ville : {{ $reservation->reservation_ville }} - {{ $reservation->reservation_departement }}
 																		<br>Emplacement : {{ $reservation->reservation_emplacement }}
 																		<br>Type : {{ $reservation->reservation_type_logement }}
 																		<br>Créneau : {{ $reservation->reservation_creneau }}
-																		<br>Numéro : {{ $reservation->client_phone }}
-																		<br>Email : {{ $reservation->client_email }}
+																		<br>Numéro : {{ $reservation->client->client_phone }}
+																		<br>Email : {{ $reservation->client->client_email }}
 																		<br>
 																	</p>
 																</td>
@@ -86,10 +86,10 @@
 																			<tr>
 																				<td width="2%"></td>
 																				<td width="81%" height="25">
-																					@if($reservation->spa_nb_place == '4')
-																					Formule 1 soirée
-																					@elseif($reservation->spa_nb_place == '6')
-																					Formule 1 soirée XL
+																					@if($reservation->spa->spa_nb_place == '4')
+																						Formule 1 soirée
+																					@elseif($reservation->spa->spa_nb_place == '6')
+																						Formule 1 soirée XL
 																					@endif
 																				</td>
 																				<td width="15%" height="25" style="text-align: right;">{{ $reservation->reservation_prix }}€</td>
@@ -108,30 +108,30 @@
 																				<td width="2%"></td>
 																			</tr>
 																			@if($reservation->reservation_pack_id != null)
-																			<tr>
-																				<td width="2%"></td>
-																				<td width="81%" height="25">{{ $reservation->pack_libelle }}</td>
-																				<td width="15%" style="text-align: right;">+{{ $reservation->pack_prix }}€</td>
-																				<td width="2%"></td>
-																			</tr>
+																				<tr>
+																					<td width="2%"></td>
+																					<td width="81%" height="25">{{ $reservation->pack->pack_libelle }}</td>
+																					<td width="15%" style="text-align: right;">+{{ $reservation->pack->pack_prix }}€</td>
+																					<td width="2%"></td>
+																				</tr>
 																			@endif
 																			@if(count($reservation->accessoires) > 0)
-																			@foreach($reservation->accessoires as $accessoire)
-																			<tr>
-																				<td width="2%"></td>
-																				<td width="81%" height="25">{{ $accessoire->accessoire->accessoire_libelle }}</td>
-																				<td width="15%" style="text-align: right;">+{{ $accessoire->accessoire->accessoire_prix }}€</td>
-																				<td width="2%"></td>
-																			</tr>
-																			@endforeach
+																				@foreach($reservation->accessoires as $accessoire)
+																					<tr>
+																						<td width="2%"></td>
+																						<td width="81%" height="25">{{ $accessoire->accessoire->accessoire_libelle }}</td>
+																						<td width="15%" style="text-align: right;">+{{ $accessoire->accessoire->accessoire_prix }}€</td>
+																						<td width="2%"></td>
+																					</tr>
+																				@endforeach
 																			@endif
 																			@if($reservation->reservation_promo != null)
-																			<tr>
-																				<td width="2%"></td>
-																				<td width="81%" height="25">{{ $reservation->reservation_promo }}</td>
-																				<td width="15%" style="text-align: right;"></td>
-																				<td width="2%"></td>
-																			</tr>
+																				<tr>
+																					<td width="2%"></td>
+																					<td width="81%" height="25">{{ $reservation->reservation_promo }}</td>
+																					<td width="15%" style="text-align: right;"></td>
+																					<td width="2%"></td>
+																				</tr>
 																			@endif
 																			<tr>
 																				<td width="2%" height="1"></td>
@@ -147,7 +147,6 @@
 																			</tr>
 																		</tbody>
 																	</table>
-
 																</td>
 																<td width="10%"></td>
 															</tr>
@@ -188,8 +187,8 @@
 																<td width="10%"></td>
 																<td width="80%">
 																	<p style="line-height: 130%;margin-bottom: 25px;">
-																		Vous avez fait le tour des réservations précédentes liées à votre adresse mail.
-																		<br>À bientot 
+																		Merci pour votre achat et de la confiance que vous m’accordez.
+																		<br><br>Grégoire de Bullao.
 																	</p>
 																</td>
 																<td width="10%"></td>
