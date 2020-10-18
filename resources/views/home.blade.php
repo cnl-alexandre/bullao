@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-12 col-lg-8">
-                    <h1 data-aos="fade-up" data-aos-delay="">Prenez le temps de vous détendre</h1>
+                    <h1 data-aos="fade-up" data-aos-delay="">Prenez le temps <br>de vous détendre</h1>
                     <p class="mt-3 mb-4" data-aos="fade-up" data-aos-delay="100">La location personnalisée de spas-jacuzzi<br>à Marne-la-Vallée.</p>
                     <p data-aos="fade-up" data-aos-delay="200"><a href="{{ url('/reservation') }}" class="btn btn-outline-white border-w-2 btn-md">Réserver</a></p>
                 </div>
@@ -37,7 +37,7 @@
                         Pour le moment, tous les spas-jacuzzi Bullao sont disponibles à la
                         location privée ou professionnelle à Marne-la-Vallée et à Paris.
                     </p>
-                    <ul class="ul-check primary list-unstyled mt-5">
+                    <ul class="ul-check primary list-unstyled mt-4">
                         <li>Installation à domicile en 1h</li>
                         <li>Spas Intex© jusqu'à 6 places</li>
                         <li>Respect des mesures sanitaires</li>
@@ -65,7 +65,7 @@
                         Grâce à nos packs à thèmes et nos accessoires dédiés, concevez vous-même votre soirée.
                         Imaginez, associez et offrez-vous le luxe d’un spa à domicile :
                     </p>
-                    <ul class="ul-check primary list-unstyled mt-5">
+                    <ul class="ul-check primary list-unstyled mt-4">
                         <li>4 couleurs de spa</li>
                         <li>2 thématiques</li>
                         <li>Large choix d’accessoires</li>
@@ -99,8 +99,7 @@
                     <h3 class="mb-3">Pose et retrait</h3>
                     Afin de vous garantir la meilleure des expériences, notre équipe se charge
                     de la livraison, de l’installation et du retrait à domicile. Pour que votre spa-jacuzzi soit
-                    opérationnel dans les temps, nous recommandons une installation en fin de matinée ou
-                    en début d’après-midi.
+                    opérationnel dans les temps, nous recommandons une installation début de journée.
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
@@ -143,9 +142,12 @@
                         <span class="flaticon-crucible"></span>
                     </div>
                     <h3 class="mb-3">Partage</h3>
-                    Impatients de plonger dans l’expérience Bullao ? Une fois votre
+                    <!-- Impatients de plonger dans l’expérience Bullao ?  -->
+                    Une fois votre
                     réservation effectuée, il ne vous reste plus qu’à attendre encore un peu avant de profiter
-                    pleinement de votre spa-jacuzzi. Le jour J, n’hésitez pas à nous partager votre expérience
+                    pleinement de votre spa-jacuzzi.
+                    <!-- Le jour J,  -->
+                    N’hésitez pas à nous partager votre expérience
                     sur Facebook et Instagram !
                 </div>
             </div>
@@ -153,7 +155,7 @@
     </div>
 </div>
 
-<section class="site-section bg-light" id="pricing-section">
+<section class="site-section bg-light" id="pricing-section" style="padding-top: 0rem;">
     <div class="container">
         <div class="row mb-5 justify-content-center text-center">
             <div class="col-md-7">
