@@ -46,7 +46,7 @@ Route::post('/account/login', 'AccountController@loginSubmit');
 Route::get('/account/forgot-password', 'AccountController@forgotPassword');
 Route::post('/account/forgot-password', 'AccountController@forgotPasswordSubmit');
 Route::get('/account/logout', 'AccountController@logout');
-Route::get('/account/send-reservations', 'AccountController@sendReservationSubmit');
+Route::post('/account/send-reservations', 'AccountController@sendReservationSubmit');
 
 /**
  *  ######  ##     ##  ######  ########  #######  ##     ## ######## ########

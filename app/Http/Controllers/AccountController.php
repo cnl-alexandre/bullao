@@ -194,20 +194,20 @@ class AccountController extends Controller
         return redirect('/account/login');
     }
 
-    public function sendReservationSubmit()
+    public function sendReservationSubmit(Request $request)
     {
         $reservations = DB::table('clients')
                         ->join('reservations', 'clients.client_id', '=', 'reservations.reservation_client_id')
                         ->select('clients.*', 'reservations.*')
-                        ->where('clients.client_email', 'LIKE', "jerem-lem@hotmail.fr")
+                        ->where('clients.client_email', 'LIKE', $request->email)
                         ->get();
 
         if(count($reservations) > 0)
         {
             // Mail destiné au client
-            Mail::send('emails.historyReservations', ['reservation' => $reservation], function($mess) use ($reservation){
-                $mess->from(env('MAIL_EMAIL'));                 // Mail de départ Bullao contact@bullao.fr
-                $mess->to($reservation->client_email);          // Mail du client
+            Mail::send('emails.historyReservations', ['reservations' => $reservations], function($mess) use ($request){
+                $mess->from(env('MAIL_EMAIL'));
+                $mess->to($request->email);
                 $mess->subject('Bullao : Hitorique de vos réservations');
             });
         }
