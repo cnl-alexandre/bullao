@@ -59,10 +59,9 @@ Route::get('/account/logout', 'AccountController@logout');
 
 // My account
 Route::get('/account/dashboard', 'customer\AccountController@dashboard');
-Route::get('/account/orders', 'customer\AccountController@orders');
+Route::get('/account/reservations', 'customer\AccountController@reservations');
 Route::get('/account/addresses', 'customer\AccountController@addresses');
 Route::get('/account/profil', 'customer\AccountController@profil');
-Route::get('/account/preferences', 'customer\AccountController@preferences');
 
 /**
  *  ######  ##    ##  ######  ######## ######## ##     ##

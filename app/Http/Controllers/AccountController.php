@@ -96,9 +96,6 @@ class AccountController extends Controller
                     break;
             }
 
-            // $scheduler = new SchedulerController;
-            // $scheduler->actualisationArchivage();
-
             return redirect($link);
         }
         else

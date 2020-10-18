@@ -14,31 +14,26 @@
     <div class="mb-2">
         <div class="container">
             <div class="row d-flex no-gutters align-items-stretch text-center">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
                             <h4>Mon profil</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h4>Mes commandes</h4>
+                            <h4>
+                                <a href="{{ url('/account/reservations') }}">Mes réservations</a>
+                            </h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
                             <h4>Mes adresses</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4>Mes préférences</h4>
                         </div>
                     </div>
                 </div>
