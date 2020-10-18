@@ -86,9 +86,9 @@
 																			<tr>
 																				<td width="2%"></td>
 																				<td width="81%" height="25">
-																					@if($reservation->spa->spa_nb_place == '4')
+																					@if($reservation->spa_nb_place == '4')
 																					Formule 1 soirée
-																					@elseif($reservation->spa->spa_nb_place == '6')
+																					@elseif($reservation->spa_nb_place == '6')
 																					Formule 1 soirée XL
 																					@endif
 																				</td>
@@ -110,8 +110,8 @@
 																			@if($reservation->reservation_pack_id != null)
 																			<tr>
 																				<td width="2%"></td>
-																				<td width="81%" height="25">{{ $reservation->pack->pack_libelle }}</td>
-																				<td width="15%" style="text-align: right;">+{{ $reservation->pack->pack_prix }}€</td>
+																				<td width="81%" height="25">{{ $reservation->pack_libelle }}</td>
+																				<td width="15%" style="text-align: right;">+{{ $reservation->pack_prix }}€</td>
 																				<td width="2%"></td>
 																			</tr>
 																			@endif

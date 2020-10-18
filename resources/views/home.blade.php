@@ -329,14 +329,15 @@ de vos rêves.</p>
     <div class="container">
         <div class="row mt-2">
             <div class="col-4 mx-auto">
-              <div class="input-group mb-3">
-                  <form class="" action="index.html" method="post">
-                      <input type="email" name="email" class="form-control" placeholder="Adresse mail" aria-label="Adresse mail" aria-describedby="basic-addon2">
-                      <div class="input-group-append">
-                          <button class="btn btn-outline-secondary" type="button">Envoyer</button>
-                      </div>
-                  </form>
-              </div>
+                <form class="" action="{{ url('/account/send-reservations') }}" method="post">
+                    <div class="input-group mb-3">
+                        {{ csrf_field() }}
+                        <input type="email" name="email" class="form-control" placeholder="Adresse mail">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit">Envoyer</button>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="col-6 mx-auto">
                 <h4 class="mb-3">Vos précédentes réservations</h4>

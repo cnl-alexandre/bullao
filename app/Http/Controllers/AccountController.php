@@ -8,6 +8,7 @@ use App\User;
 use App\Administrateur;
 use App\Client;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AccountController extends Controller
 {
@@ -196,7 +197,9 @@ class AccountController extends Controller
 
     public function sendReservationSubmit(Request $request)
     {
-        $reservations = DB::table('reservations')
+        $client = Client::where('client_email', 'LIKE', $request->email)->get();
+        
+                    /*DB::table('reservations')
                         ->join('clients', 'clients.client_id', '=', 'reservations.reservation_client_id')
                         ->join('spas', 'spas.spa_id', '=', 'reservations.reservation_spa_id')
                         ->join('packs', 'packs.pack_id', '=', 'reservations.reservation_pack_id')
@@ -205,9 +208,11 @@ class AccountController extends Controller
                         ->join('adresses', 'clients.client_id', '=', 'adresses.adresse_client_id')
                         ->select('clients.*', 'reservations.*', 'adresses.*', 'packs.*', 'accessoires.*', 'spas.*')
                         ->where('clients.client_email', 'LIKE', $request->email)
-                        ->get();
+                        ->get();*/
+        
+        var_dump($client);
 
-        if(count($reservations) > 0)
+        /*if(count($reservations->reservations) > 0)
         {
             // Mail destiné au client
             Mail::send('emails.historyReservations', ['reservations' => $reservations], function($mess) use ($request){
@@ -218,6 +223,6 @@ class AccountController extends Controller
         }
 
         Session::put('success', 'Si vous avez des réservations, vous recevrez un mail détaillé.');
-        return redirect('/');
+        return redirect('/');*/
     }
 }
