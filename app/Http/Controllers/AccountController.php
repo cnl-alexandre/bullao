@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use App\User;
 use App\Administrateur;
 use App\Client;
+use Illuminate\Support\Facades\DB;
 
 class AccountController extends Controller
 {
@@ -191,5 +192,27 @@ class AccountController extends Controller
 
         Session::put('success', 'Vous venez d\'être déconnecté.<br/>Merci et à bientot !');
         return redirect('/account/login');
+    }
+
+    public function sendReservationSubmit()
+    {
+        $reservations = DB::table('clients')
+                        ->join('reservations', 'clients.client_id', '=', 'reservations.reservation_client_id')
+                        ->select('clients.*', 'reservations.*')
+                        ->where('clients.client_email', 'LIKE', "jerem-lem@hotmail.fr")
+                        ->get();
+
+        if(count($reservations) > 0)
+        {
+            // Mail destiné au client
+            Mail::send('emails.historyReservations', ['reservation' => $reservation], function($mess) use ($reservation){
+                $mess->from(env('MAIL_EMAIL'));                 // Mail de départ Bullao contact@bullao.fr
+                $mess->to($reservation->client_email);          // Mail du client
+                $mess->subject('Bullao : Hitorique de vos réservations');
+            });
+        }
+
+        Session::put('success', 'Si vous avez des réservations, vous recevrez un mail détaillé.');
+        return redirect('/');
     }
 }
