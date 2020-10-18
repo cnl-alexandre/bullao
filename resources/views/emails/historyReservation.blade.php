@@ -44,14 +44,14 @@
 																<td width="10%"></td>
 																<td width="80%">
 																	<p style="line-height: 130%;margin-bottom: 25px;">
-																		Nom : {{ $reservations->client->client_name }}
-																		<br>Adresse : {{ $reservations->reservation_rue }}
-																		<br>Ville : {{ $reservations->reservation_ville }} - {{ $reservation->reservation_departement }}
-																		<br>Emplacement : {{ $reservations->reservation_emplacement }}
-																		<br>Type : {{ $reservations->reservation_type_logement }}
-																		<br>Créneau : {{ $reservations->reservation_creneau }}
-																		<br>Numéro : {{ $reservations->client->client_phone }}
-																		<br>Email : {{ $reservations->client->client_email }}
+																		Nom : {{ $reservation->client_name }}
+																		<br>Adresse : {{ $reservation->reservation_rue }}
+																		<br>Ville : {{ $reservation->reservation_ville }} - {{ $reservation->reservation_departement }}
+																		<br>Emplacement : {{ $reservation->reservation_emplacement }}
+																		<br>Type : {{ $reservation->reservation_type_logement }}
+																		<br>Créneau : {{ $reservation->reservation_creneau }}
+																		<br>Numéro : {{ $reservation->client_phone }}
+																		<br>Email : {{ $reservation->client_email }}
 																		<br>
 																	</p>
 																</td>
@@ -86,37 +86,37 @@
 																			<tr>
 																				<td width="2%"></td>
 																				<td width="81%" height="25">
-																					@if($reservations->spa->spa_nb_place == '4')
+																					@if($reservation->spa->spa_nb_place == '4')
 																					Formule 1 soirée
-																					@elseif($reservations->spa->spa_nb_place == '6')
+																					@elseif($reservation->spa->spa_nb_place == '6')
 																					Formule 1 soirée XL
 																					@endif
 																				</td>
-																				<td width="15%" height="25" style="text-align: right;">{{ $reservations->reservation_prix }}€</td>
+																				<td width="15%" height="25" style="text-align: right;">{{ $reservation->reservation_prix }}€</td>
 																				<td width="2%"></td>
 																			</tr>
 																			<tr>
 																				<td width="2%"></td>
-																				<td width="81%" height="25">{{ $reservations->reservation_spa_libelle }}</td>
+																				<td width="81%" height="25">{{ $reservation->reservation_spa_libelle }}</td>
 																				<td width="15%"></td>
 																				<td width="2%"></td>
 																			</tr>
 																			<tr>
 																				<td width="2%"></td>
-																				<td width="81%" height="25">Du {{ $reservations->DateDebut->format('d/m/Y') }} au {{ $reservations->DateFin->format('d/m/Y') }}</td>
+																				<td width="81%" height="25">Du {{ $reservation->DateDebut->format('d/m/Y') }} au {{ $reservation->DateFin->format('d/m/Y') }}</td>
 																				<td width="15%"></td>
 																				<td width="2%"></td>
 																			</tr>
-																			@if($reservations->reservation_pack_id != null)
+																			@if($reservation->reservation_pack_id != null)
 																			<tr>
 																				<td width="2%"></td>
-																				<td width="81%" height="25">{{ $reservations->pack->pack_libelle }}</td>
-																				<td width="15%" style="text-align: right;">+{{ $reservations->pack->pack_prix }}€</td>
+																				<td width="81%" height="25">{{ $reservation->pack->pack_libelle }}</td>
+																				<td width="15%" style="text-align: right;">+{{ $reservation->pack->pack_prix }}€</td>
 																				<td width="2%"></td>
 																			</tr>
 																			@endif
-																			@if(count($reservations->accessoires) > 0)
-																			@foreach($reservations->accessoires as $accessoire)
+																			@if(count($reservation->accessoires) > 0)
+																			@foreach($reservation->accessoires as $accessoire)
 																			<tr>
 																				<td width="2%"></td>
 																				<td width="81%" height="25">{{ $accessoire->accessoire->accessoire_libelle }}</td>
@@ -125,10 +125,10 @@
 																			</tr>
 																			@endforeach
 																			@endif
-																			@if($reservations->reservation_promo != null)
+																			@if($reservation->reservation_promo != null)
 																			<tr>
 																				<td width="2%"></td>
-																				<td width="81%" height="25">{{ $reservations->reservation_promo }}</td>
+																				<td width="81%" height="25">{{ $reservation->reservation_promo }}</td>
 																				<td width="15%" style="text-align: right;"></td>
 																				<td width="2%"></td>
 																			</tr>
@@ -142,7 +142,7 @@
 																			<tr style="color: #194F9A;">
 																				<td width="2%"></td>
 																				<td width="81%" height="40">Montant total</td>
-																				<td width="15%" style="text-align: right;">{{ $reservations->reservation_montant_total }}€</td>
+																				<td width="15%" style="text-align: right;">{{ $reservation->reservation_montant_total }}€</td>
 																				<td width="2%"></td>
 																			</tr>
 																		</tbody>
