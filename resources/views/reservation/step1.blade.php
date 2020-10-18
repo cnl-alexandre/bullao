@@ -102,7 +102,7 @@
                 @if(count($spas) > 0)
                     @foreach($spas as $spa)
                         <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap" data-aos="fade-up">
-                            <input type="radio" name="spa" id="spa-{{ $spa->spa_id }}" autocomplete="off" value="{{ $spa->spa_id }}">
+                            <input type="radio" name="spa" id="spa-{{ $spa->spa_id }}" class="spa-input" autocomplete="off" value="{{ $spa->spa_id }}">
                             <div class="block-team-member-1 text-center rounded">
                                 <figure>
                                     <img src="{{ url($spa->spa_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
@@ -185,7 +185,7 @@
                     <a href="{{ url('/') }}" class="btn btn-secondary btn-md text-white">Retour</a>
                 </div>
                 <div class="col-6 text-right">
-                    <input type="submit" name="" value="Continuer" class="btn btn-primary btn-md text-white">
+                    <input type="submit" name="" value="Continuer" id="btn-confirm" class="btn btn-primary btn-md text-white">
                 </div>
             </div>
         </div>
@@ -207,6 +207,9 @@
         var date_debut = dates[0].split('/').reverse().join('-');
         var date_fin = dates[1].split('/').reverse().join('-');
         var nb_place = $('#nbPlaceSpa').val();
+
+        $('#btn-confirm').attr("disabled", true);
+        $('#btn-confirm').attr("title", "Vous devez choisir un spa.");
 
         $.ajax({
             url : "{{ url('/webservices/spa/stock/verify') }}",
@@ -257,7 +260,7 @@
             success : function(response, statut){
                 if(response != "")
                 {
-                    console.log(response);
+                    //console.log(response);
                     $('.array_accessoires').html(response['accessoires']);
                 }
                 else
@@ -284,6 +287,9 @@
     @endif
 
     $(document).ready(function() {
+
+        $('#btn-confirm').attr("disabled", true);
+        $('#btn-confirm').attr("title", "Vous devez choisir un spa.");
 
         // Gestion du scroll automatique
         var url = $(location).attr('href');

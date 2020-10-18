@@ -88,7 +88,7 @@ class WebserviceController extends Controller
             {
                 if(!in_array($spa->spa_id, $reserv))
                 {
-                    $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap" data-aos="fade-up" rel="'.$spa->spa_prix.'" rel2="'.$spa->spa_libelle.' '.$spa->spa_nb_place.' places">';
+                    $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap spa-no-disabled" data-aos="fade-up">';
                         $html .= '<input type="radio" name="spa" id="spa-'.$spa->spa_id.'" autocomplete="off" value="'.$spa->spa_id.'">';
                         $html .= '<div class="block-team-member-1 text-center rounded">';
                             $html .= '<figure>';
@@ -102,7 +102,7 @@ class WebserviceController extends Controller
                 }
                 else
                 {
-                    $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap disabled" data-aos="fade-up" rel="'.$spa->spa_prix.'" rel2="'.$spa->spa_libelle.' '.$spa->spa_nb_place.' places">';
+                    $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap disabled" data-aos="fade-up">';
                         $html .= '<input type="radio" name="spa" id="spa-'.$spa->spa_id.'" disabled autocomplete="off" value="'.$spa->spa_id.'">';
                         $html .= '<div class="block-team-member-1 text-center rounded nostock">';
                             $html .= '<figure>';
@@ -116,6 +116,13 @@ class WebserviceController extends Controller
                     $html .= '</label>';
                 }
             }
+
+            $html .= '<script>';
+                $html .= '$(".spa-no-disabled").click(function() {';
+                    $html .= '$("#btn-confirm").attr("disabled", false);';
+                    $html .= '$("#btn-confirm").attr("title", null);';
+                $html .= '})';
+            $html .= '</script>';
         }
 
         return response()->json([
