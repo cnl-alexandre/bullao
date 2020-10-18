@@ -188,8 +188,8 @@
 																<td width="10%"></td>
 																<td width="80%">
 																	<p style="line-height: 130%;margin-bottom: 25px;">
-																		Merci pour votre achat et de la confiance que vous m’accordez.
-																		<br><br>Grégoire de Bullao.
+																		Vous avez fait le tour des réservations précédentes liées à votre adresse mail.
+																		<br>À bientot 
 																	</p>
 																</td>
 																<td width="10%"></td>
