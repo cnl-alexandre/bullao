@@ -117,7 +117,8 @@ class Reservation extends Model
             $client = new Client;
             $client->create($array);
 
-            $this->reservation_client_id               = $client->client_id;
+            $this->reservation_client_id        = $client->client_id;
+            $this->reservation_email            = $array->email;
             $this->save();
         }
     }
