@@ -25,7 +25,7 @@
                 <div class="col-12 col-lg-6 block__73422" style="background-image: url({{ url('medias/img/home/preview_baltik_6p_ext_1.webp') }});" data-aos="fade" data-aos-delay="">
                 </div>
                 <!-- <img class="col-12 col-lg-6 block__73422" src="{{ url('medias/img/img_1.jpg') }}" alt="" data-aos="fade-up" data-aos-delay=""> -->
-                <div class="col-lg-5 ml-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade" data-aos-delay="">
+                <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 text-black">Votre spa à domicile</h2>
                     <p class="text-justify">
                         En couple, en famille ou entre amis, profitez d’un moment de détente
@@ -52,7 +52,7 @@
             <div class="row d-flex no-gutters align-items-stretch">
                 <div class="col-12 col-lg-6 block__73422 order-lg-2" style="background-image: url({{ url('medias/img/home/preview_navy_4p_int_1.webp') }});" data-aos="fade" data-aos-delay="">
                 </div>
-                <div class="col-lg-5 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade" data-aos-delay="">
+                <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 text-black">Votre soirée sur-mesure</h2>
                     <p class="text-justify">
                         Bullao accompagne tous vos événements, aussi bien entre particuliers
