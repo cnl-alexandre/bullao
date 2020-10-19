@@ -35,7 +35,7 @@ class BackOfficeController extends Controller
         $nbResaCarbone6p = Reservation::where('reservation_spa_libelle', '=', 'Spa Carbone 6 places')
                         ->count('reservation_paye', '=', '1');
 
-        return view('system.backoffice.dashboard')->with([
+        return view('system.dashboard')->with([
             'nbResaEnCours'                => $nbResaEnCours,
             'nbResaOuvertes'                => $nbResaOuvertes,
             'nbResaFermees'                 => $nbResaFermees,

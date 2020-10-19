@@ -29,7 +29,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-sm font-weight-bold text-success text-uppercase mb-1">Réservations à venirs</div>
+                        <div class="text-sm font-weight-bold text-success text-uppercase mb-1">Réservations à venir</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $nbResaOuvertes }}</div>
                     </div>
                     <div class="col-auto">
@@ -71,20 +71,6 @@
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="col-xl-8">
-        <div class="card shadow mb-4">
-            <div class="card-header">
-                <h4>Courbe des résultats</h4>
-            </div>
-            <div class="card-body">
-                <canvas id="chartVente" style="width: 100%; height: 400px;"></canvas>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xl-4">
         <div class="card shadow mb-4">
             <div class="card-header">
                 <h4>Répartition de toutes les réservations</h4>
@@ -100,11 +86,12 @@
                 <h4>Courbe des résultats</h4>
             </div>
             <div class="card-body">
-
+                <canvas id="chartVente" style="width: 100%; height: 400px;"></canvas>
             </div>
         </div>
     </div>
 </div>
+
 
 <script>
     var ChartReservationSpas = new Chart(document.getElementById('chartReservationSpas').getContext('2d'), {
