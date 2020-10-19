@@ -18,9 +18,15 @@ class ProduitController extends Controller
 
         $listeSpas = Spa::orderby('spa_id', 'ASC')->get();
 
-        return view('system.produits.spas.list-spas')->with([
+        return view('system.produits.spas.list')->with([
             'listeSpas'              =>  $listeSpas
         ]);
+    }
+
+    public function newSpa()
+    {
+
+        return view('system.produits.spas.edit')->with([]);
     }
 
     public function listPacks()

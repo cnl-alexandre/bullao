@@ -10,6 +10,9 @@
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
+    <div class="text-right">
+        <a href="{{ url('/system/produits/spas/new') }}" class="btn btn-link">Ajouter</a>
+    </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered dataTable" width="100%" cellspacing="0">
@@ -57,9 +60,6 @@
                     </thead>
                 </tfoot>
             </table>
-        </div>
-        <div class="text-right">
-            <a href="{{ url('/administration/annonces/archives') }}" class="btn btn-link">Voir les annonces archivées</a>
         </div>
     </div>
 </div>

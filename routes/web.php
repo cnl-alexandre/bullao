@@ -82,5 +82,6 @@ Route::get('/system/reservations/list', 'system\ReservationController@list');
 
 //
 Route::get('system/produits/spas/list', 'system\ProduitController@listSpas');
+Route::get('system/produits/spas/new', 'system\ProduitController@newSpa');
 Route::get('system/produits/packs/list', 'system\ProduitController@listPacks');
 Route::get('system/produits/accessoires/list', 'system\ProduitController@listAccessoires');
