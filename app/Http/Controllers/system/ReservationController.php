@@ -13,10 +13,18 @@ class ReservationController extends Controller
 
     public function list()
     {
-        $listeResas = Reservation::orderby('reservation_id', 'ASC')->get();
+        $dateToday = date("Y-m-d");
+
+        $listeResas = Reservation::where('reservation_date_fin', '>=', $dateToday)
+                                        ->orderby('reservation_date_fin', 'ASC')
+                                        ->get();
+        $listeResaPassees = Reservation::where('reservation_date_fin', '<', $dateToday)
+                                        ->orderby('reservation_date_fin', 'ASC')
+                                        ->get();
 
         return view('system.reservation.list')->with([
-            'listeResas'              =>  $listeResas
+            'listeResas'              => $listeResas,
+            'listeResaPassees'        => $listeResaPassees
         ]);
     }
 }
