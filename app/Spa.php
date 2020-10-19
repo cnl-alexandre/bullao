@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use App\Reservation;
 
 class Spa extends Model
 {
@@ -22,6 +23,15 @@ class Spa extends Model
     public function reservations()
     {
         return $this->hasMany('App\Reservation', 'reservation_spa_id');
+    }
+
+    public function nbResaPassees()
+    {
+        $nb = Reservation::where('reservation_spa_id', '=', $this->spa_id)
+                        ->where('reservation_date_fin', '<', date('Y-m-d'))
+                        ->count('reservation_id');
+
+        return $nb;
     }
 
     public function getDateCreatedAttribute()

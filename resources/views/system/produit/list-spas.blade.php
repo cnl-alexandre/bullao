@@ -21,7 +21,7 @@
                         <th>Prix</th>
                         <th>Supp</th>
                         <th>Stock</th>
-                        <th>Description</th>
+                        <th>Nb résa passées</th>
                     </tr>
                 </thead>
 
@@ -35,7 +35,7 @@
                                 <td>{{ $detailSpa->spa_prix }}</td>
                                 <td>{{ $detailSpa->spa_prix_jour_supp }}</td>
                                 <td>{{ $detailSpa->spa_stock }}</td>
-                                <td>{{ $detailSpa->spa_desc }}</td>
+                                <td>{{ $detailSpa->nbResaPassees() }}</td>
                             </tr>
                         @endforeach
                     @endif
