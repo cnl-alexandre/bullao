@@ -80,8 +80,15 @@ Route::get('/system/dashboard', 'system\BackOfficeController@dashboard')        
 // RESERVATION
 Route::get('/system/reservations/list', 'system\ReservationController@list');
 
-//
+// PRODUITS (SPAS-PACKS-ACCESSOIRES)
 Route::get('system/produits/spas/list', 'system\ProduitController@listSpas');
 Route::get('system/produits/spas/new', 'system\ProduitController@newSpa');
+Route::post('system/produits/spas/new', 'system\ProduitController@newSpaSubmit');
+Route::get('system/produits/spas/edit/{id}', 'system\ProduitController@editSpa');
+Route::post('system/produits/spas/edit/{id}', 'system\ProduitController@editSpaSubmit');
+
 Route::get('system/produits/packs/list', 'system\ProduitController@listPacks');
+Route::get('system/produits/packs/edit/{id}', 'system\ProduitController@listPacks');
+
+Route::post('system/produits/packs/list/{id}', 'system\ProduitController@listPacksSubmit');
 Route::get('system/produits/accessoires/list', 'system\ProduitController@listAccessoires');

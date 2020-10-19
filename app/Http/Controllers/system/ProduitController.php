@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Spa;
 use App\Pack;
 use App\Accessoire;
+// use Illuminate\Http\Request;
 
 class ProduitController extends Controller
 {
@@ -25,8 +26,55 @@ class ProduitController extends Controller
 
     public function newSpa()
     {
+        return view('system.produits.spas.edit')->with([
+            'action'        => url('/system/produits/spas/new')
+        ]);
+    }
+    public function newSpaSubmit(Request $request)
+    {
+        $this->validate($request,[
+            // Propriétés de l'annonce
+            'spaLibelle'              => 'required',
+            'spaPlace'                => 'required',
+            'spaPrix'                 => 'required',
+            'spaPrixSupp'             => 'required',
+            'spaStock'                => 'required',
+            'spaDescription'          => 'required'
+        ]);
 
-        return view('system.produits.spas.edit')->with([]);
+        $newSpa             = new Spa;
+        $newSpa->edit($request);
+
+        Session::put('success', 'Le spa a bien été ajouté.');
+        return redirect('/system/produits/spas/list');
+    }
+
+    public function editSpa($id)
+    {
+        $spa = Spa::find($id);
+
+        return view('system.produits.spas.edit')->with([
+            'spa'           => $spa,
+            'action'        => url('/system/produits/spas/new')
+        ]);
+    }
+    public function editSpaSubmit(Request $request, $id)
+    {
+        $this->validate($request,[
+            // Propriétés de l'annonce
+            'spaLibelle'              => 'required',
+            'spaPlace'                => 'required',
+            'spaPrix'                 => 'required',
+            'spaPrixSupp'             => 'required',
+            'spaStock'                => 'required',
+            'spaDescription'          => 'required'
+        ]);
+
+        $newSpa = Spa::find($id);;
+        $newSpa->edit($request);
+
+        Session::put('success', 'Le spa a bien été modifié.');
+        return redirect('/system/produits/spas/list');
     }
 
     public function listPacks()

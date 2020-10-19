@@ -10,6 +10,10 @@
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
+    <div class="text-right">
+        <a href="{{ url('/system/produits/packs/edit') }}" class="btn btn-primary text-white mt-3 mr-3">Ajouter</a>
+    </div>
+    <hr>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered dataTable" width="100%" cellspacing="0">

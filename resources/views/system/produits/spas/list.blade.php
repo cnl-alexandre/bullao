@@ -11,21 +11,23 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="text-right">
-        <a href="{{ url('/system/produits/spas/new') }}" class="btn btn-link">Ajouter</a>
+        <a href="{{ url('/system/produits/spas/edit') }}" class="btn btn-primary text-white mt-3 mr-3">Ajouter</a>
     </div>
-    <div class="card-body">
+    <hr>
+    <div class="card-body mt-0 pt-0">
         <div class="table-responsive">
             <table class="table table-bordered dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th style="width:15px;">#</th>
                         <th>Libellé</th>
-                        <th>Pers</th>
+                        <th>Places</th>
                         <th>Prix</th>
                         <th>Supp</th>
                         <th>Stock</th>
-                        <th>Terminé</th>
-                        <th>À venir</th>
+                        <th style="width:25px;">OK</th>
+                        <th style="width:25px;">DO</th>
+                        <th style="width:50px;"></th>
                     </tr>
                 </thead>
 
@@ -35,12 +37,13 @@
                             <tr>
                                 <td>{{ $detailSpa->spa_id }}</td>
                                 <td>{{ $detailSpa->spa_libelle }}</td>
-                                <td>{{ $detailSpa->spa_nb_place }}</td>
+                                <td>{{ $detailSpa->spa_nb_place }} pers.</td>
                                 <td>{{ $detailSpa->spa_prix }}</td>
                                 <td>{{ $detailSpa->spa_prix_jour_supp }}</td>
                                 <td>{{ $detailSpa->spa_stock }}</td>
-                                <td>{{ $detailSpa->nbResaPassees() }}</td>
-                                <td>{{ $detailSpa->nbResaFutures() }}</td>
+                                <td class="text-right text-success">{{ $detailSpa->nbResaPassees() }}</td>
+                                <td class="text-right text-warning">{{ $detailSpa->nbResaFutures() }}</td>
+                                <td><a href="{{ url('/system/produits/spas/edit/'.$detailSpa->spa_id) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a></td>
                             </tr>
                         @endforeach
                     @endif
@@ -50,12 +53,13 @@
                         <tr>
                             <th>#</th>
                             <th>Libellé</th>
-                            <th>Pers</th>
+                            <th>Places</th>
                             <th>Prix</th>
                             <th>Supp</th>
                             <th>Stock</th>
-                            <th>Terminé</th>
-                            <th>À venir</th>
+                            <th>OK</th>
+                            <th>DO</th>
+                            <th></th>
                         </tr>
                     </thead>
                 </tfoot>
