@@ -32,7 +32,7 @@ class AccountController extends Controller
                 $admin->createSession();
 
                 Session::put('info', 'Bonjour <strong>'.$admin->administrateur_prenom.'</strong>, bienvenue sur le tableau de bord !');
-                return redirect('/administration/dashboard');
+                return redirect('/system/dashboard');
             }
         }
         
@@ -75,7 +75,7 @@ class AccountController extends Controller
                     $admin = Administrateur::where('administrateur_user_id','=',$user->user_id)->first();
                     $admin->createSession();
 
-                    $link = '/administration/dashboard';
+                    $link = '/system/dashboard';
 
                     Session::put('success', 'Bonjour <strong>'.$admin->administrateur_prenom.'</strong>, bienvenue sur le tableau de bord !');
                     break;
