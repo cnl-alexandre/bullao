@@ -83,6 +83,62 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-xl-4">
+        <div class="card shadow mb-4">
+            <div class="card-header">
+                <h4>Répartition de toutes les réservations</h4>
+            </div>
+            <div class="card-body">
+                <canvas id="chartReservationSpas" style="width: 100%; height: 400px;"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-8">
+        <div class="card shadow mb-4">
+            <div class="card-header">
+                <h4>Courbe des résultats</h4>
+            </div>
+            <div class="card-body">
 
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var ChartReservationSpas = new Chart(document.getElementById('chartReservationSpas').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Spa Sahara 4p', 'Spa Navy 4p', 'Spa Baltik 4p', 'Spa Baltik 6p', 'Spa Carbone 6p'],
+            datasets: [{
+                data: [
+                    {{ $nbResaSahara4p }},
+                    {{ $nbResaNavy4p }},
+                    {{ $nbResaBaltik4p }},
+                    {{ $nbResaBaltik6p }},
+                    {{ $nbResaCarbone6p }},
+                ],
+                backgroundColor: [
+                    '#4aa3df',
+                    '#2e8ece',
+                    '#f39c12',
+                    '#e67e22'
+                ],
+                borderColor: [
+                    '#4aa3df',
+                    '#2e8ece',
+                    '#f39c12',
+                    '#e67e22'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true
+        }
+    });
+</script>
 
 @endsection

@@ -18,8 +18,10 @@
                         <th style="min-width:30px;">#</th>
                         <th style="min-width:150px;">Libellé</th>
                         <th style="min-width:70px;">Stock</th>
+                        <th>Stock réel</th>
                         <th style="min-width:70px;">Prix</th>
-                        <th>Description</th>
+                        <th style="min-width:40px;">Terminé</th>
+                        <th style="min-width:40px;">À venir</th>
                     </tr>
                 </thead>
 
@@ -30,8 +32,10 @@
                                 <td>{{ $detailPack->pack_id }}</td>
                                 <td>{{ $detailPack->pack_libelle }}</td>
                                 <td>{{ $detailPack->pack_stock }}</td>
+                                <th></th>
                                 <td>{{ $detailPack->pack_prix }}</td>
-                                <td>{{ $detailPack->pack_description }}</td>
+                                <td>{{ $detailPack->nbResaPassees() }}</td>
+                                <td>{{ $detailPack->nbResaFutures() }}</td>
                             </tr>
                         @endforeach
                     @endif
@@ -42,6 +46,7 @@
                             <th>#</th>
                             <th>Libellé</th>
                             <th>Stock</th>
+                            <th></th>
                             <th>Prix</th>
                             <th>Description</th>
                         </tr>

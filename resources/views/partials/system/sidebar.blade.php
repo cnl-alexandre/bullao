@@ -59,9 +59,9 @@
     </li>
 
     <!-- Divider -->
-    <hr class="sidebar-divider">
+    <!-- <hr class="sidebar-divider"> -->
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <!-- <div class="sidebar-heading">
         Utilisateurs
     </div>
     <li class="nav-item">
@@ -69,7 +69,7 @@
             <i class="fas fa-fw fa-users"></i>
             <span>Administrateurs</span>
         </a>
-    </li>
+    </li> -->
 
     <!--<hr class="sidebar-divider d-none d-md-block">
 

@@ -15,7 +15,7 @@ class Accessoire extends Model
     {
         return $this->hasMany('App\Reservation', 'ra_reservation_id');
     }
-    
+
     public function create($array)
     {
         $this->accessoire_libelle         = $array->libelle;
@@ -38,12 +38,29 @@ class Accessoire extends Model
             echo "<span><br></span>";
         }
     }
-    
+
+    // public function nbResaFutures()
+    // {
+    //     $nbResaFutures = Reservation::where('ra_reservation_id', '=', $this->ra_accessoire_id)
+    //                     ->where('reservation_date_debut', '>', date('Y-m-d'))
+    //                     ->count('reservation_id');
+    //
+    //     return $nbResaFutures;
+    // }
+    // public function nbResaPassees()
+    // {
+    //     $nbResaPassees = Reservation::where('ra_reservation_id', '=', $this->ra_accessoire_id)
+    //                     ->where('reservation_date_fin', '<', date('Y-m-d'))
+    //                     ->count('reservation_id');
+    //
+    //     return $nbResaPassees;
+    // }
+
     public function getDateCreatedAttribute()
     {
         return Carbon::parse($this->attributes['created_at']);
     }
-    
+
     public function getDateUpdatedAttribute()
     {
         return Carbon::parse($this->attributes['updated_at']);

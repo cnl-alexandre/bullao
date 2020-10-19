@@ -1,12 +1,12 @@
 @extends('layouts.backoffice')
 
-@section('pageTitle', 'Spas Bullao | '.env('APP_NAME'))
+@section('pageTitle', 'Accessoires Bullao | '.env('APP_NAME'))
 
 @section('content')
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Gestions des spas</h1>
-<p class="mb-4">Liste de tous les spas référencés en base de données</p>
+<h1 class="h3 mb-2 text-gray-800">Gestions des accessoires</h1>
+<p class="mb-4">Liste de tous les accessoires référencés en base de données</p>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -15,27 +15,27 @@
             <table class="table table-bordered dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Libellé</th>
-                        <th>Pers</th>
-                        <th>Prix</th>
-                        <th>Supp</th>
-                        <th>Stock</th>
-                        <th>Nb résa passées</th>
+                        <th style="min-width:30px;">#</th>
+                        <th style="min-width:150px;">Libellé</th>
+                        <th style="min-width:70px;">Stock</th>
+                        <th>Stock réel</th>
+                        <th style="min-width:70px;">Prix</th>
+                        <th style="min-width:40px;">Terminé</th>
+                        <th style="min-width:40px;">À venir</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @if(count($listeSpas) > 0)
-                        @foreach($listeSpas as $detailSpa)
+                    @if(count($listeAccessoires) > 0)
+                        @foreach($listeAccessoires as $detailAccessoire)
                             <tr>
-                                <td>{{ $detailSpa->spa_id }}</td>
-                                <td>{{ $detailSpa->spa_libelle }}</td>
-                                <td>{{ $detailSpa->spa_nb_place }}</td>
-                                <td>{{ $detailSpa->spa_prix }}</td>
-                                <td>{{ $detailSpa->spa_prix_jour_supp }}</td>
-                                <td>{{ $detailSpa->spa_stock }}</td>
-                                <td>{{ $detailSpa->nbResaPassees() }}</td>
+                                <td>{{ $detailAccessoire->accessoire_id }}</td>
+                                <td>{{ $detailAccessoire->accessoire_libelle }}</td>
+                                <td>{{ $detailAccessoire->accessoire_stock }}</td>
+                                <th></th>
+                                <td>{{ $detailAccessoire->accessoire_prix }}</td>
+                                <td>{{ $detailAccessoire->nbResaPassees() }}</td>
+                                <td>{{ $detailAccessoire->nbResaFutures() }}</td>
                             </tr>
                         @endforeach
                     @endif
@@ -45,11 +45,11 @@
                         <tr>
                             <th>#</th>
                             <th>Libellé</th>
-                            <th>Pers</th>
-                            <th>Prix</th>
-                            <th>Supp</th>
                             <th>Stock</th>
-                            <th>Description</th>
+                            <th></th>
+                            <th>Prix</th>
+                            <th style="min-width:40px;">Terminé</th>
+                            <th style="min-width:40px;">À venir</th>
                         </tr>
                     </thead>
                 </tfoot>

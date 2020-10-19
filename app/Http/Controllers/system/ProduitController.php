@@ -18,7 +18,7 @@ class ProduitController extends Controller
 
         $listeSpas = Spa::orderby('spa_id', 'ASC')->get();
 
-        return view('system.produit.list-spas')->with([
+        return view('system.produits.spas.list-spas')->with([
             'listeSpas'              =>  $listeSpas
         ]);
     }
@@ -28,7 +28,7 @@ class ProduitController extends Controller
 
         $listePacks = Pack::orderby('pack_id', 'ASC')->get();
 
-        return view('system.produit.list-packs')->with([
+        return view('system.produits.packs.list-packs')->with([
             'listePacks'              =>  $listePacks
         ]);
     }
@@ -38,7 +38,7 @@ class ProduitController extends Controller
 
         $listeAccessoires = Accessoire::orderby('accessoire_id', 'ASC')->get();
 
-        return view('system.produit.list-accessoires')->with([
+        return view('system.produits.accessoires.list-accessoires')->with([
             'listeAccessoires'              =>  $listeAccessoires
         ]);
     }

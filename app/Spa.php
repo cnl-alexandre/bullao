@@ -25,14 +25,40 @@ class Spa extends Model
         return $this->hasMany('App\Reservation', 'reservation_spa_id');
     }
 
+    public function nbStockReel()
+    {
+        $nbStockReel = Reservation::where('reservation_spa_id', '=', $this->spa_id)
+                        ->where('reservation_date_fin', '>=', date('Y-m-d'))
+                        ->where('reservation_date_fin', '<=', date('Y-m-d'))
+                        ->count('reservation_id');
+
+        return $nbStockReel;
+    }
+
+    public function nbResaFutures()
+    {
+        $nbResaFutures = Reservation::where('reservation_spa_id', '=', $this->spa_id)
+                        ->where('reservation_date_debut', '>', date('Y-m-d'))
+                        ->count('reservation_id');
+
+        return $nbResaFutures;
+    }
     public function nbResaPassees()
     {
-        $nb = Reservation::where('reservation_spa_id', '=', $this->spa_id)
+        $nbResaPassees = Reservation::where('reservation_spa_id', '=', $this->spa_id)
                         ->where('reservation_date_fin', '<', date('Y-m-d'))
                         ->count('reservation_id');
 
-        return $nb;
+        return $nbResaPassees;
     }
+
+    // public function nbResaSahara4p()
+    // {
+    //     $nbResaSahara4p = Reservation::where('reservation_spa_libelle', '=', 'Spa Sahara 4 places')
+    //                         ->count('reservation_paye', '=', '1');
+    //
+    //     return $nbResaSahara4p;
+    // }
 
     public function getDateCreatedAttribute()
     {
@@ -49,7 +75,7 @@ class Spa extends Model
         $prix = 0.00;
 
         $prix = $nbJours*$this->spa_prix_jour_supp;
-        
+
         return $prix;
     }
 }
