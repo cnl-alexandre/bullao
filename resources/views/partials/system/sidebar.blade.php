@@ -12,7 +12,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/administration/dashboard') }}">
+        <a class="nav-link" href="{{ url('/system/dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Tableau de bord</span>
         </a>
@@ -26,7 +26,7 @@
         Réservations
     </div>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/administration/reservations/list') }}">
+        <a class="nav-link" href="{{ url('/system/reservations/list') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Récapitulatif</span>
         </a>
@@ -40,19 +40,19 @@
         Produits
     </div>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/administration/produits/spas/list') }}">
+        <a class="nav-link" href="{{ url('/system/produits/spas/list') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Spas</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/administration/produits/packs/list') }}">
+        <a class="nav-link" href="{{ url('/system/produits/packs/list') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Packs</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('administration/produits/accessoires/list') }}">
+        <a class="nav-link" href="{{ url('system/produits/accessoires/list') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Accessoires</span>
         </a>
@@ -65,7 +65,7 @@
         Utilisateurs
     </div>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/administration/administrateurs/list') }}">
+        <a class="nav-link" href="{{ url('/system/administrateurs/list') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Administrateurs</span>
         </a>

@@ -29,7 +29,7 @@ class Spa extends Model
     {
         $nbStockReel = Reservation::where('reservation_spa_id', '=', $this->spa_id)
                         ->where('reservation_date_fin', '>=', date('Y-m-d'))
-                        ->where('reservation_date_fin', '<=', date('Y-m-d'))
+                        ->where('reservation_date_debut', '<=', date('Y-m-d'))
                         ->count('reservation_id');
 
         return $nbStockReel;
@@ -43,6 +43,7 @@ class Spa extends Model
 
         return $nbResaFutures;
     }
+    
     public function nbResaPassees()
     {
         $nbResaPassees = Reservation::where('reservation_spa_id', '=', $this->spa_id)
