@@ -79,6 +79,7 @@ Route::get('/system/dashboard', 'system\BackOfficeController@dashboard')        
 
 // RESERVATION
 Route::get('/system/reservations/list', 'system\ReservationController@list');
+Route::get('/system/reservations/edit/{id}', 'system\ReservationController@edit');
 
 // PRODUITS (SPAS-PACKS-ACCESSOIRES)
 Route::get('system/produits/spas/list', 'system\ProduitController@listSpas');
@@ -88,7 +89,13 @@ Route::get('system/produits/spas/edit/{id}', 'system\ProduitController@editSpa')
 Route::post('system/produits/spas/edit/{id}', 'system\ProduitController@editSpaSubmit');
 
 Route::get('system/produits/packs/list', 'system\ProduitController@listPacks');
-Route::get('system/produits/packs/edit/{id}', 'system\ProduitController@listPacks');
+Route::get('system/produits/packs/new', 'system\ProduitController@newPack');
+Route::post('system/produits/packs/new', 'system\ProduitController@newPackSubmit');
+Route::get('system/produits/packs/edit/{id}', 'system\ProduitController@editPack');
+Route::post('system/produits/packs/edit/{id}', 'system\ProduitController@editPackSubmit');
 
-Route::post('system/produits/packs/list/{id}', 'system\ProduitController@listPacksSubmit');
 Route::get('system/produits/accessoires/list', 'system\ProduitController@listAccessoires');
+Route::get('system/produits/accessoires/new', 'system\ProduitController@newAccessoire');
+Route::post('system/produits/accessoires/new', 'system\ProduitController@newAccessoireSubmit');
+Route::get('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoire');
+Route::post('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoireSubmit');

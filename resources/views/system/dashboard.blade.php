@@ -64,8 +64,12 @@
             </div>
             <div class="card-body">
                 <ul>
-                    <li>Le 20/10/2020 à Montévrain (77)</li>
-                    <li>Le 28/10/2020 à Paris (77)</li>
+                    @if(count($detailsResaFutures) > 0)
+                        @foreach($detailsResaFutures as $detailResa)
+                        <li>Le {{ $detailResa->reservation_date_debut }} à {{ $detailResa->reservation_ville }}</li>
+
+                        @endforeach
+                    @endif
                 </ul>
             </div>
         </div>

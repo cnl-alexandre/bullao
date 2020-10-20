@@ -2,9 +2,9 @@
 
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/system/dashboard') }}">
         <div class="sidebar-brand-icon">
-        <i class="fas fa-home"></i>
+        <img src="{{ url('medias/img/logos/compact-blanc.svg') }}" width="40px" alt="">
         </div>
-        <div class="sidebar-brand-text mx-3">{{ env('APP_NAME') }}</div>
+        <div class="sidebar-brand-text mx-1" style="font-size: 1.5rem;">{{ env('APP_NAME') }}</div>
     </a>
 
     <!-- Divider -->

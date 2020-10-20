@@ -61,6 +61,16 @@ class Pack extends Model
         return $nbResaPassees;
     }
 
+    public function edit($array)
+    {
+        $this->pack_libelle                  = $array->packLibelle;
+        $this->pack_stock                    = $array->packStock;
+        $this->pack_description              = $array->packDescription;
+        $this->pack_prix                     = $array->packPrix;
+
+        $this->save();
+    }
+
     public function getDateCreatedAttribute()
     {
         return Carbon::parse($this->attributes['created_at']);

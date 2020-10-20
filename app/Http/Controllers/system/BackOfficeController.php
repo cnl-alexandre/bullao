@@ -16,10 +16,10 @@ class BackOfficeController extends Controller
     {
         $dateToday = date("Y-m-d");
         // echo $dateToday;
-        $nbResaEnCours = Reservation::where('reservation_date_fin', '>=', $dateToday)
-                        ->where('reservation_date_fin', '<=', $dateToday)
+        $nbResaEnCours = Reservation::where('reservation_date_debut', '<=', $dateToday)
+                        ->where('reservation_date_fin', '>=', $dateToday)
                         ->count();
-        $nbResaOuvertes = Reservation::where('reservation_date_fin', '>=', $dateToday)
+        $nbResaOuvertes = Reservation::where('reservation_date_debut', '>=', $dateToday)
                         ->count();
         $nbResaFermees = Reservation::where('reservation_date_fin', '<=', $dateToday)
                         ->count();
@@ -35,6 +35,9 @@ class BackOfficeController extends Controller
         $nbResaCarbone6p = Reservation::where('reservation_spa_libelle', '=', 'Spa Carbone 6 places')
                         ->count('reservation_paye', '=', '1');
 
+        $detailsResaFutures = Reservation::where('reservation_date_debut', '>=', $dateToday)
+                                ->get();
+
         return view('system.dashboard')->with([
             'nbResaEnCours'                => $nbResaEnCours,
             'nbResaOuvertes'                => $nbResaOuvertes,
@@ -44,6 +47,7 @@ class BackOfficeController extends Controller
             'nbResaBaltik4p'                =>$nbResaBaltik4p,
             'nbResaBaltik6p'                =>$nbResaBaltik6p,
             'nbResaCarbone6p'               =>$nbResaCarbone6p,
+            'detailsResaFutures'            =>$detailsResaFutures
         ]);
     }
 }

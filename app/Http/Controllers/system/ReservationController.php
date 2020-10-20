@@ -27,4 +27,14 @@ class ReservationController extends Controller
             'listeResaPassees'        => $listeResaPassees
         ]);
     }
+
+    public function edit($id)
+    {
+        $reservation = Reservation::find($id);
+
+        return view('system.reservation.edit')->with([
+            'reservation'           => $reservation,
+            'action'        => url('/system/reservations/edit')
+        ]);
+    }
 }

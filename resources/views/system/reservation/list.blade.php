@@ -34,6 +34,7 @@
                                 <th>Emplacement</th>
                                 <th>Spa libelle</th>
                                 <th>Montant total</th>
+                                <th style="width:50px;"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,6 +50,7 @@
                                         <td>{{ $detailResa->reservation_emplacement }}</td>
                                         <td>{{ $detailResa->reservation_spa_libelle }}</td>
                                         <td>{{ $detailResa->reservation_montant_total }} €</td>
+                                        <td><a href="{{ url('/system/reservations/edit/'.$detailResa->reservation_id) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a></td>
                                     </tr>
                                 @endforeach
                             @endif

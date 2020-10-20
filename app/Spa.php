@@ -43,7 +43,7 @@ class Spa extends Model
 
         return $nbResaFutures;
     }
-    
+
     public function nbResaPassees()
     {
         $nbResaPassees = Reservation::where('reservation_spa_id', '=', $this->spa_id)
@@ -60,6 +60,19 @@ class Spa extends Model
     //
     //     return $nbResaSahara4p;
     // }
+
+
+    public function edit($array)
+    {
+        $this->spa_libelle                  = $array->spaLibelle;
+        $this->spa_stock                    = $array->spaStock;
+        $this->spa_nb_place                 = $array->spaPlace;
+        $this->spa_desc                     = $array->spaDescription;
+        $this->spa_prix                     = $array->spaPrix;
+        $this->spa_prix_jour_supp           = $array->spaPrixSupp;
+
+        $this->save();
+    }
 
     public function getDateCreatedAttribute()
     {

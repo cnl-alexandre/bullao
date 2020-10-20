@@ -11,7 +11,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="text-right">
-        <a href="{{ url('/system/produits/spas/edit') }}" class="btn btn-primary text-white mt-3 mr-3">Ajouter</a>
+        <a href="{{ url('/system/produits/spas/new') }}" class="btn btn-primary text-white mt-3 mr-3">Ajouter</a>
     </div>
     <hr>
     <div class="card-body mt-0 pt-0">
@@ -48,60 +48,9 @@
                         @endforeach
                     @endif
                 </tbody>
-                <tfoot>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Libellé</th>
-                            <th>Places</th>
-                            <th>Prix</th>
-                            <th>Supp</th>
-                            <th>Stock</th>
-                            <th>OK</th>
-                            <th>DO</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                </tfoot>
             </table>
         </div>
     </div>
 </div>
-<script>
-    $('.btnEditState').on('change', function() {
-        var id = $(this).attr('rel');
-
-        $.ajax({
-            url : "{{ url('/administration/annonce/edit/state') }}/"+id,
-            type : 'POST',
-            data : '_token={{ csrf_token() }}&id=' + id,
-            success : function(response, statut){
-                if(response == 0)
-                {
-                    $("#btn-delete-"+id).removeClass("disabled");
-                }
-                else
-                {
-                    $("#btn-delete-"+id).addClass("disabled");
-                }
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-
-            }
-        });
-    });
-
-    // $(document).ready(function() {
-    //     setTimeout(function(){
-    //         console.log('La');
-    //         $('#DataTables_Table_0_filter input[type=search]').val('Compromis');
-
-    //         // Create a new jQuery.Event object with specified event properties.
-    //         var e = jQuery.Event( "keydown", { keyCode: 64 } );
-    //         // trigger an artificial keydown event with keyCode 64
-    //         $("#DataTables_Table_0_filter input[type=search]").trigger( e );
-    //     }, 1000);
-    // });
-</script>
 
 @endsection
