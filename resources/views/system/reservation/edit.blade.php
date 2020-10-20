@@ -15,21 +15,23 @@
             @else
                 <h1 class="h3 mb-2 text-gray-800">Ajouter une reservation</h1>
                 <p class="mb-4">Renseigner les informations suivantes pour ajouter une reservation à la liste</p>
+
             @endif
+            <a href="{{url()->previous()}}">Retour</a>
         </div>
         <div class="col-md-5 text-right">
-            <button type="submit" class="btn btn-primary btn-lg">
+            <!-- <button type="submit" class="btn btn-primary btn-lg">
                 @if(isset($reservation))
                     Enregistrer
                 @else
                     Ajouter
                 @endif
-            </button>
+            </button> -->
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-6 mx-auto my-3">
+        <div class="col-md-6 ml-auto my-3">
             <div class="card">
                 <div class="card-body">
                     <h5 class="mt-2">Propriétés de la reservation </h5>
@@ -102,6 +104,36 @@
                         <div class="col-md-12 form-group">
                             <label for="reservationLibellePack">Libellé du pack</label>
                             <input type="text" class="form-control" name="reservationLibellePack" id="reservationLibellePack" value="{{ $reservation->pack->pack_libelle }}">
+                        </div>
+                        @if(count($reservation->accessoires) > 0)
+                            @foreach($reservation->accessoires as $accessoire)
+                                <div class="col-md-12 form-group">
+                                    <label for="reservationLibelleAccessoire">Accessoire</label>
+                                    <input type="text" class="form-control" name="reservationLibelleAccessoire" id="reservationLibelleAccessoire" value="{{ $accessoire->accessoire->accessoire_libelle }}">
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mr-auto my-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="mt-2">Fiche client </h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="reservationClientName">Nom</label>
+                            <input type="text" class="form-control" name="reservationClientName" id="reservationClientName" value="{{ $reservation->client->client_name }}">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="reservationClientPhone">Téléphone</label>
+                            <input type="text" class="form-control" name="reservationClientPhone" id="reservationClientPhone" value="{{ $reservation->client->client_phone }}">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="reservationClientEmail">Email</label>
+                            <input type="text" class="form-control" name="reservationClientEmail" id="reservationClientEmail" value="{{ $reservation->client->client_email }}">
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,7 @@
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Gestions des accessoires</h1>
-<p class="mb-4">Liste de tous les accessoires référencés en base de données</p>
+<p class="mb-4">Liste de tous les accessoires référencés sur le site</p>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">

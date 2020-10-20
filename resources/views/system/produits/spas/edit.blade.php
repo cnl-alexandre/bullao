@@ -16,6 +16,7 @@
                 <h1 class="h3 mb-2 text-gray-800">Ajouter un spa</h1>
                 <p class="mb-4">Renseigner les informations suivantes pour ajouter un spa à la liste</p>
             @endif
+            <a href="{{url()->previous()}}">Retour</a>
         </div>
         <div class="col-md-5 text-right">
             <button type="submit" class="btn btn-primary btn-lg">
