@@ -35,6 +35,10 @@ class BackOfficeController extends Controller
         $nbResaCarbone6p = Reservation::where('reservation_spa_libelle', '=', 'Spa Carbone 6 places')
                         ->count('reservation_paye', '=', '1');
 
+        $detailsResaEnCours = Reservation::where('reservation_date_debut', '<=', $dateToday)
+                                ->where('reservation_date_fin', '>=', $dateToday)
+                                ->get();
+
         $detailsResaFutures = Reservation::where('reservation_date_debut', '>=', $dateToday)
                                 ->get();
 
@@ -47,7 +51,8 @@ class BackOfficeController extends Controller
             'nbResaBaltik4p'                =>$nbResaBaltik4p,
             'nbResaBaltik6p'                =>$nbResaBaltik6p,
             'nbResaCarbone6p'               =>$nbResaCarbone6p,
-            'detailsResaFutures'            =>$detailsResaFutures
+            'detailsResaFutures'            =>$detailsResaFutures,
+            'detailsResaEnCours'            =>$detailsResaEnCours
         ]);
     }
 }
