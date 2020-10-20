@@ -132,23 +132,31 @@
             <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom array_packs" data-toggle="buttons">
                 @if(count($packs) > 0)
                     @foreach($packs as $pack)
-                        <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 pack-recap" id="label-pack-{{ $pack->pack_id }}" data-aos="fade-up">
+                        <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-6 col-md-12 mb-3 pack-recap" id="label-pack-{{ $pack->pack_id }}" data-aos="fade-up">
                             <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}">
-                            <div class="block-team-member-1 text-center rounded">
-                                <figure>
+                            <div class="block-team-member-1 text-left rounded d-flex">
+                                <figure class="col-4">
                                     <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
-                                <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
-                                <span class="d-block font-gray-5 font-size-14 mb-1"><?php echo $pack->pack_description; ?></span>
-                                <!-- {{ $pack->stock() }} -->
+                                <div>
+                                    <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
+                                    <span class="d-block font-gray-6 font-size-14 mb-1"><?php echo $pack->pack_description; ?></span>
+                                    <!-- {{ $pack->stock() }} -->
+                                </div>
+
                             </div>
                         </label>
                     @endforeach
                 @endif
+                <label for="0" class="btn btn-radio-custom col-md-3 pack-recap" id="0" data-aos="fade-up">
+                    <input type="radio" name="pack" id="0" autocomplete="off" value="0">
+                    <div class="block-team-member-1 text-center rounded d-flex" style="padding:15px;">
+                        <span class="d-block font-gray-6 font-size-14 mx-auto">Je ne prends pas de pack</span>
+                    </div>
+                </label>
             </div>
-            <div class="text-center">
-                <button  class="btn btn-link" id="btn-pack-clear">Supprimer le pack</button>
-            </div>
+
+
         </div>
     </div>
 
