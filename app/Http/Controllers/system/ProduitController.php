@@ -31,6 +31,7 @@ class ProduitController extends Controller
             'action'        => url('/system/produits/spas/new')
         ]);
     }
+
     public function newSpaSubmit(Request $request)
     {
         $this->validate($request,[
@@ -55,7 +56,7 @@ class ProduitController extends Controller
 
         return view('system.produits.spas.edit')->with([
             'spa'           => $spa,
-            'action'        => url('/system/produits/spas/new')
+            'action'        => url('/system/produits/spas/edit/'.$id)
         ]);
     }
 
@@ -101,7 +102,8 @@ class ProduitController extends Controller
             // Propriétés de l'annonce
             'packLibelle'              => 'required',
             'packPrix'                 => 'required',
-            'packStock'                => 'required'
+            'packStock'                => 'required',
+            'packDescription'          => 'required'
         ]);
 
         $newPack             = new Pack;
@@ -117,7 +119,7 @@ class ProduitController extends Controller
 
         return view('system.produits.packs.edit')->with([
             'pack'           => $pack,
-            'action'        => url('/system/produits/packs/new')
+            'action'        => url('/system/produits/packs/edit/'.$id)
         ]);
     }
 
@@ -127,13 +129,14 @@ class ProduitController extends Controller
             // Propriétés de l'annonce
             'packLibelle'              => 'required',
             'packPrix'                 => 'required',
-            'packStock'                => 'required'
+            'packStock'                => 'required',
+            'packDescription'          => 'required'
         ]);
 
         $newPack = Pack::find($id);;
         $newPack->edit($request);
 
-        Session::put('success', 'Le pack a bien été modifié.');
+        Session::put('success', 'Le <b>'.$newPack->pack_libelle.'</b> a bien été modifié.');
         return redirect('/system/produits/packs/list');
 
     }
@@ -167,7 +170,7 @@ class ProduitController extends Controller
         $newAccessoire             = new Accessoire;
         $newAccessoire->edit($request);
 
-        Session::put('success', 'Le accessoire a bien été ajouté.');
+        Session::put('success', 'L\'ccessoire a bien été ajouté.');
         return redirect('/system/produits/accessoires/list');
     }
 
@@ -177,7 +180,7 @@ class ProduitController extends Controller
 
         return view('system.produits.accessoires.edit')->with([
             'accessoire'           => $accessoire,
-            'action'        => url('/system/produits/accessoires/new')
+            'action'        => url('/system/produits/accessoires/edit/'.$id)
         ]);
     }
 
@@ -193,7 +196,7 @@ class ProduitController extends Controller
         $newAccessoire = Accessoire::find($id);;
         $newAccessoire->edit($request);
 
-        Session::put('success', 'L\'accessoire a bien été modifié.');
+        Session::put('success', 'L\'accessoire '.$id.' a bien été modifié.');
         return redirect('/system/produits/accessoires/list');
 
     }

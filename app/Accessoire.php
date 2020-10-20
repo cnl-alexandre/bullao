@@ -61,6 +61,7 @@ class Accessoire extends Model
         $this->accessoire_libelle                  = $array->accessoireLibelle;
         $this->accessoire_stock                    = $array->accessoireStock;
         $this->accessoire_prix                     = $array->accessoirePrix;
+        $this->accessoire_description              = $array->accessoireDescription;
 
         $this->save();
     }

@@ -46,11 +46,11 @@
                     <div class="form-group">
                         <label for="packDescription">Description</label>
                         @if(isset($pack))
-                            <textarea name="name" rows="4" class="form-control  {{ $errors->has('packDescription') ? 'is-invalid' : '' }}" name="packDescription" id="packDescription" required>
+                            <textarea rows="4" class="form-control  {{ $errors->has('packDescription') ? 'is-invalid' : '' }}" name="packDescription" id="packDescription" required>
                                 {{ $pack->pack_description }}
                             </textarea>
                         @else
-                            <textarea name="name" rows="4" class="form-control" name="packDescription" id="packDescription" required></textarea>
+                            <textarea rows="4" class="form-control" name="packDescription" id="packDescription" required></textarea>
                         @endif
                         {!! $errors->first('description', '<div class="invalid-feedback">:message</div>') !!}
                     </div>

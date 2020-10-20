@@ -79,14 +79,13 @@
                     <div class="form-group">
                         <label for="spaDescription">Description</label>
                         @if(isset($spa))
-                            <textarea name="name" rows="4" class="form-control" name="spaDescription" id="spaDescription">
+                            <textarea rows="4" class="form-control" name="spaDescription" id="spaDescription">
                                 {{ $spa->spa_desc }}
                             </textarea>
                         @else
-                            <textarea name="name" rows="4" class="form-control" name="spaDescription" id="spaDescription"></textarea>
+                            <textarea rows="4" class="form-control" name="spaDescription" id="spaDescription"></textarea>
                         @endif
                     </div>
-
                 </div>
             </div>
 

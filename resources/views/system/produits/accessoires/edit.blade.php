@@ -60,7 +60,16 @@
                             <input type="number" class="form-control" name="accessoireStock" id="accessoireStock" placeholder="Nb de accessoire dispo">
                         @endif
                     </div>
-
+                    <div class="form-group">
+                        <label for="accessoireDescription">Description <small>(🛠 inactif)</small></label>
+                        @if(isset($accessoire))
+                            <textarea rows="4" class="form-control" name="accessoireDescription" id="accessoireDescription">
+                                {{ $accessoire->accessoire_desc }}
+                            </textarea>
+                        @else
+                            <textarea rows="4" class="form-control" name="accessoireDescription" id="accessoireDescription"></textarea>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
