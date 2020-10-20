@@ -101,10 +101,12 @@
                             <label for="reservationLibelleSpa">Libellé du spa</label>
                             <input type="text" class="form-control" name="reservationLibelleSpa" id="reservationLibelleSpa" value="{{ $reservation->reservation_spa_libelle }}">
                         </div>
+                        @if($reservation->reservation_pack_id)
                         <div class="col-md-12 form-group">
                             <label for="reservationLibellePack">Libellé du pack</label>
                             <input type="text" class="form-control" name="reservationLibellePack" id="reservationLibellePack" value="{{ $reservation->pack->pack_libelle }}">
                         </div>
+                        @endif
                         @if(count($reservation->accessoires) > 0)
                             @foreach($reservation->accessoires as $accessoire)
                                 <div class="col-md-12 form-group">

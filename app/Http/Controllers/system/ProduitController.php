@@ -193,7 +193,7 @@ class ProduitController extends Controller
         $newAccessoire = Accessoire::find($id);;
         $newAccessoire->edit($request);
 
-        Session::put('success', 'Le accessoire a bien été modifié.');
+        Session::put('success', 'L\'accessoire a bien été modifié.');
         return redirect('/system/produits/accessoires/list');
 
     }

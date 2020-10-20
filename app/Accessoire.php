@@ -56,6 +56,15 @@ class Accessoire extends Model
     //     return $nbResaPassees;
     // }
 
+    public function edit($array)
+    {
+        $this->accessoire_libelle                  = $array->accessoireLibelle;
+        $this->accessoire_stock                    = $array->accessoireStock;
+        $this->accessoire_prix                     = $array->accessoirePrix;
+
+        $this->save();
+    }
+
     public function getDateCreatedAttribute()
     {
         return Carbon::parse($this->attributes['created_at']);

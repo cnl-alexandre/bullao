@@ -30,7 +30,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6 mx-auto my-3">
+        <div class="col-md-6 ml-auto my-3">
             <div class="card">
                 <div class="card-body">
                     <h4>Propriétés du accessoire </h4>
@@ -61,6 +61,28 @@
                         @endif
                     </div>
 
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mr-auto my-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="mt-2">Image produit</h5>
+                    <hr>
+                    <div class="row">
+                        <div class="file-field">
+                            <div class="z-depth-1-half mb-4">
+                                <img src="{{ url('medias/img/no-image.png') }}" width="200" height="200" class="img-fluid" alt="example placeholder">
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <div class="btn btn-mdb-color btn-rounded float-left">
+                                    <span>Choisir un fichier</span>
+                                    <input type="file">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
