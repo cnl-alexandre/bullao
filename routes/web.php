@@ -75,27 +75,27 @@ Route::get('/account/profil', 'customer\AccountController@profil');
  */
 
 // ADMINISTRATION
-Route::get('/system/dashboard', 'system\BackOfficeController@dashboard')                                            ->middleware('cache.headers');
+Route::get('/system/dashboard', 'system\BackOfficeController@dashboard')                                            ->middleware('cache.headers', 'global.system');
 
 // RESERVATION
-Route::get('/system/reservations/list', 'system\ReservationController@list');
-Route::get('/system/reservations/edit/{id}', 'system\ReservationController@edit');
+Route::get('/system/reservations/list', 'system\ReservationController@list')                                        ->middleware('global.system');
+Route::get('/system/reservations/edit/{id}', 'system\ReservationController@edit')                                   ->middleware('global.system');
 
 // PRODUITS (SPAS-PACKS-ACCESSOIRES)
-Route::get('system/produits/spas/list', 'system\ProduitController@listSpas');
-Route::get('system/produits/spas/new', 'system\ProduitController@newSpa');
+Route::get('system/produits/spas/list', 'system\ProduitController@listSpas')                                        ->middleware('global.system');
+Route::get('system/produits/spas/new', 'system\ProduitController@newSpa')                                           ->middleware('global.system');
 Route::post('system/produits/spas/new', 'system\ProduitController@newSpaSubmit');
-Route::get('system/produits/spas/edit/{id}', 'system\ProduitController@editSpa');
+Route::get('system/produits/spas/edit/{id}', 'system\ProduitController@editSpa')                                    ->middleware('global.system');
 Route::post('system/produits/spas/edit/{id}', 'system\ProduitController@editSpaSubmit');
 
-Route::get('system/produits/packs/list', 'system\ProduitController@listPacks');
-Route::get('system/produits/packs/new', 'system\ProduitController@newPack');
+Route::get('system/produits/packs/list', 'system\ProduitController@listPacks')                                      ->middleware('global.system');
+Route::get('system/produits/packs/new', 'system\ProduitController@newPack')                                         ->middleware('global.system');
 Route::post('system/produits/packs/new', 'system\ProduitController@newPackSubmit');
-Route::get('system/produits/packs/edit/{id}', 'system\ProduitController@editPack');
+Route::get('system/produits/packs/edit/{id}', 'system\ProduitController@editPack')                                  ->middleware('global.system');
 Route::post('system/produits/packs/edit/{id}', 'system\ProduitController@editPackSubmit');
 
-Route::get('system/produits/accessoires/list', 'system\ProduitController@listAccessoires');
-Route::get('system/produits/accessoires/new', 'system\ProduitController@newAccessoire');
+Route::get('system/produits/accessoires/list', 'system\ProduitController@listAccessoires')                          ->middleware('global.system');
+Route::get('system/produits/accessoires/new', 'system\ProduitController@newAccessoire')                             ->middleware('global.system');
 Route::post('system/produits/accessoires/new', 'system\ProduitController@newAccessoireSubmit');
-Route::get('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoire');
+Route::get('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoire')                      ->middleware('global.system');
 Route::post('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoireSubmit');

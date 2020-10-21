@@ -45,12 +45,16 @@
                     </div>
                     <div class="form-group">
                         <label for="accessoirePrix">Prix du accessoire</label>
-                        @if(isset($accessoire))
-                            <input type="number" class="form-control" name="accessoirePrix" id="accessoirePrix" value="{{ $accessoire->accessoire_prix }}" placeholder="Prix du accessoire">
-                        @else
-                            <input type="number" class="form-control" name="accessoirePrix" id="accessoirePrix" placeholder="Prix du accessoire">
-                        @endif
-
+                        <div class="input-group mb-3">
+                            @if(isset($accessoire))
+                                <input type="number" class="form-control" name="accessoirePrix" id="accessoirePrix" value="{{ $accessoire->accessoire_prix }}" placeholder="Prix du accessoire">
+                            @else
+                                <input type="number" class="form-control" name="accessoirePrix" id="accessoirePrix" placeholder="Prix du accessoire">
+                            @endif
+                            <div class="input-group-append">
+                                <span class="input-group-text">€</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="accessoireStock">Stock physique</label>
@@ -63,9 +67,7 @@
                     <div class="form-group">
                         <label for="accessoireDescription">Description <small>(🛠 inactif)</small></label>
                         @if(isset($accessoire))
-                            <textarea rows="4" class="form-control" name="accessoireDescription" id="accessoireDescription">
-                                {{ $accessoire->accessoire_desc }}
-                            </textarea>
+                            <textarea rows="4" class="form-control" name="accessoireDescription" id="accessoireDescription">{{ $accessoire->accessoire_description }}</textarea>
                         @else
                             <textarea rows="4" class="form-control" name="accessoireDescription" id="accessoireDescription"></textarea>
                         @endif
@@ -79,18 +81,19 @@
                     <h5 class="mt-2">Image produit</h5>
                     <hr>
                     <div class="row">
-                        <div class="file-field">
+                        <div class="file-field text-center">
                             <div class="z-depth-1-half mb-4">
-                                <img src="{{ url('medias/img/no-image.png') }}" width="200" height="200" class="img-fluid" alt="example placeholder">
+                                <img id="previewImg" src="{{ url('medias/img/no-image.png') }}" style="width: 200px;" class="img-fluid">
                             </div>
                             <div class="d-flex justify-content-center">
-                                <div class="btn btn-mdb-color btn-rounded float-left">
-                                    <span>Choisir un fichier</span>
-                                    <input type="file">
+                                <div style="width: 100%; margin: 0;" class="file btn btn-primary btn-block select">
+                                    <div id="div-choose">
+                                        Choisir un fichier
+                                    </div>
+                                    <input type="file" name="photo" id="photo" class="file-upload">
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

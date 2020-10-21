@@ -31,9 +31,12 @@
 
         <script src="{{ url('/js/system/datatables/jquery.dataTables.min.js') }}"></script>
         <script src="{{ url('/js/system/datatables/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ url('/js/system/fileinput.min.js') }}"></script>
+
         <script src="{{ url('/js/system/bootstrap4-toggle.min.js') }}"></script>
 
         <script src="{{ url('/js/system/Chart.min.js') }}"></script>
+        <script src="{{ url('/js/system/fonctions.js') }}"></script>
 
     </head>
     <body id="page-top">

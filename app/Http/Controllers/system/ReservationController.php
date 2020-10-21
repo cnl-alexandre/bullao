@@ -3,6 +3,7 @@ namespace App\Http\Controllers\system;
 
 use App\Http\Controllers\Controller;
 use App\Reservation;
+use App\Accessoire;
 
 class ReservationController extends Controller
 {
@@ -31,9 +32,11 @@ class ReservationController extends Controller
     public function edit($id)
     {
         $reservation = Reservation::find($id);
+        $accessoires = Accessoire::All();
 
         return view('system.reservation.edit')->with([
             'reservation'           => $reservation,
+            'accessoires'           => $accessoires,
             'action'        => url('/system/reservations/edit')
         ]);
     }

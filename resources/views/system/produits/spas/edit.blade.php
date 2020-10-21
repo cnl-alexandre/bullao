@@ -45,28 +45,42 @@
                     </div>
                     <div class="form-group">
                         <label for="spaPlace">Nombre de personnes max</label>
-                        @if(isset($spa))
-                            <input type="text" class="form-control" name="spaPlace" id="spaPlace" value="{{ $spa->spa_nb_place }}" placeholder="Nombre de place">
-                        @else
-                            <input type="text" class="form-control" name="spaPlace" id="spaPlace" placeholder="Nombre de place">
-                        @endif
+                        <div class="input-group mb-3">
+                            @if(isset($spa))
+                                <input type="text" class="form-control" name="spaPlace" id="spaPlace" value="{{ $spa->spa_nb_place }}" placeholder="Nombre de place">
+                            @else
+                                <input type="text" class="form-control" name="spaPlace" id="spaPlace" placeholder="Nombre de place">
+                            @endif
+                            <div class="input-group-append">
+                                <span class="input-group-text">place(s)</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="spaPrix">Prix du spa</label>
-                        @if(isset($spa))
-                            <input type="number" class="form-control" name="spaPrix" id="spaPrix" value="{{ $spa->spa_prix }}" placeholder="Prix de la première journée">
-                        @else
-                            <input type="number" class="form-control" name="spaPrix" id="spaPrix" placeholder="Prix de la première journée">
-                        @endif
-
+                        <div class="input-group mb-3">
+                            @if(isset($spa))
+                                <input type="number" class="form-control" name="spaPrix" id="spaPrix" value="{{ $spa->spa_prix }}" placeholder="Prix de la première journée">
+                            @else
+                                <input type="number" class="form-control" name="spaPrix" id="spaPrix" placeholder="Prix de la première journée">
+                            @endif
+                            <div class="input-group-append">
+                                <span class="input-group-text">€</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="spaPrixSupp">Prix jour supplémentaire</label>
-                        @if(isset($spa))
-                            <input type="number" class="form-control" name="spaPrixSupp" id="spaPrixSupp" value="{{ $spa->spa_prix_jour_supp }}" placeholder="Prix jours supplémentaires">
-                        @else
-                            <input type="number" class="form-control" name="spaPrixSupp" id="spaPrixSupp" placeholder="Prix jours supplémentaires">
-                        @endif
+                        <div class="input-group mb-3">
+                            @if(isset($spa))
+                                <input type="number" class="form-control" name="spaPrixSupp" id="spaPrixSupp" value="{{ $spa->spa_prix_jour_supp }}" placeholder="Prix jours supplémentaires">
+                            @else
+                                <input type="number" class="form-control" name="spaPrixSupp" id="spaPrixSupp" placeholder="Prix jours supplémentaires">
+                            @endif
+                            <div class="input-group-append">
+                                <span class="input-group-text">€</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="spaStock">Stock physique</label>
@@ -79,35 +93,31 @@
                     <div class="form-group">
                         <label for="spaDescription">Description</label>
                         @if(isset($spa))
-                            <textarea rows="4" class="form-control" name="spaDescription" id="spaDescription">
-                                {{ $spa->spa_desc }}
-                            </textarea>
+                            <textarea rows="4" class="form-control" name="spaDescription" id="spaDescription">{{ $spa->spa_desc }}</textarea>
                         @else
                             <textarea rows="4" class="form-control" name="spaDescription" id="spaDescription"></textarea>
                         @endif
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="col-md-3 mr-auto my-3">
             <div class="card">
                 <div class="card-body">
                     <h5 class="mt-2">Image produit</h5>
                     <hr>
-                    <div class="row">
-                        <div class="file-field">
-                            <div class="z-depth-1-half mb-4">
-                                <img src="{{ url('medias/img/no-image.png') }}" width="200" height="200" class="img-fluid" alt="example placeholder">
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <div class="btn btn-mdb-color btn-rounded float-left">
-                                    <span>Choisir un fichier</span>
-                                    <input type="file">
+                    <div class="file-field text-center">
+                        <div class="z-depth-1-half mb-4">
+                            <img id="previewImg" src="{{ url('medias/img/no-image.png') }}" style="width: 200px;" class="img-fluid">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div style="width: 100%; margin: 0;" class="file btn btn-primary btn-block select">
+                                <div id="div-choose">
+                                    Choisir un fichier
                                 </div>
+                                <input type="file" name="photo" id="photo" class="file-upload">
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

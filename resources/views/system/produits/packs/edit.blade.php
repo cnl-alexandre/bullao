@@ -46,9 +46,7 @@
                     <div class="form-group">
                         <label for="packDescription">Description</label>
                         @if(isset($pack))
-                            <textarea rows="4" class="form-control  {{ $errors->has('packDescription') ? 'is-invalid' : '' }}" name="packDescription" id="packDescription" required>
-                                {{ $pack->pack_description }}
-                            </textarea>
+                            <textarea rows="4" class="form-control  {{ $errors->has('packDescription') ? 'is-invalid' : '' }}" name="packDescription" id="packDescription" required>{{ $pack->pack_description }}</textarea>
                         @else
                             <textarea rows="4" class="form-control" name="packDescription" id="packDescription" required></textarea>
                         @endif
@@ -56,12 +54,16 @@
                     </div>
                     <div class="form-group">
                         <label for="packPrix">Prix du pack</label>
-                        @if(isset($pack))
-                            <input type="number" class="form-control" name="packPrix" id="packPrix" value="{{ $pack->pack_prix }}" placeholder="Prix du pack">
-                        @else
-                            <input type="number" class="form-control" name="packPrix" id="packPrix" placeholder="Prix du pack">
-                        @endif
-
+                        <div class="input-group mb-3">
+                            @if(isset($pack))
+                                <input type="number" class="form-control" name="packPrix" id="packPrix" value="{{ $pack->pack_prix }}" placeholder="Prix du pack">
+                            @else
+                                <input type="number" class="form-control" name="packPrix" id="packPrix" placeholder="Prix du pack">
+                            @endif
+                            <div class="input-group-append">
+                                <span class="input-group-text">€</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="packStock">Stock physique</label>
@@ -81,18 +83,19 @@
                     <h5 class="mt-2">Image produit</h5>
                     <hr>
                     <div class="row">
-                        <div class="file-field">
+                        <div class="file-field text-center">
                             <div class="z-depth-1-half mb-4">
-                                <img src="{{ url('medias/img/no-image.png') }}" width="200" height="200" class="img-fluid" alt="example placeholder">
+                                <img id="previewImg" src="{{ url('medias/img/no-image.png') }}" style="width: 200px;" class="img-fluid">
                             </div>
                             <div class="d-flex justify-content-center">
-                                <div class="btn btn-mdb-color btn-rounded float-left">
-                                    <span>Choisir un fichier</span>
-                                    <input type="file">
+                                <div style="width: 100%; margin: 0;" class="file btn btn-primary btn-block select">
+                                    <div id="div-choose">
+                                        Choisir un fichier
+                                    </div>
+                                    <input type="file" name="photo" id="photo" class="file-upload">
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
