@@ -140,7 +140,7 @@
                                 </figure>
                                 <div>
                                     <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
-                                    <span class="d-block font-gray-6 font-size-14 mb-1"><?php echo $pack->pack_description; ?></span>
+                                    <span class="d-block font-gray-6 font-size-15 mb-1"><?php echo $pack->pack_description; ?></span>
                                     <!-- {{ $pack->stock() }} -->
                                 </div>
 
@@ -149,7 +149,7 @@
                     @endforeach
                 @endif
                 <label for="0" class="btn btn-radio-custom col-md-3 pack-recap" id="0" data-aos="fade-up">
-                    <input type="radio" name="pack" id="0" autocomplete="off" value="0">
+                    <input type="radio" name="pack" id="0" autocomplete="off" value="">
                     <div class="block-team-member-1 text-center rounded d-flex" style="padding:15px;">
                         <span class="d-block font-gray-6 font-size-14 mx-auto">Je ne prends pas de pack</span>
                     </div>
