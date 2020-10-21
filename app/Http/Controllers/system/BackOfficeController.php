@@ -24,16 +24,20 @@ class BackOfficeController extends Controller
         $nbResaFermees = Reservation::where('reservation_date_fin', '<=', $dateToday)
                         ->count();
 
-        $nbResaSahara4p = Reservation::where('reservation_spa_libelle', '=', 'Spa Sahara 4 places')
-                        ->count('reservation_paye', '=', '1');
-        $nbResaNavy4p = Reservation::where('reservation_spa_libelle', '=', 'Spa Navy 4 places')
-                        ->count('reservation_paye', '=', '1');
-        $nbResaBaltik4p = Reservation::where('reservation_spa_libelle', '=', 'Spa Baltik 4 places')
-                        ->count('reservation_paye', '=', '1');
-        $nbResaBaltik6p = Reservation::where('reservation_spa_libelle', '=', 'Spa Baltik 6 places')
-                        ->count('reservation_paye', '=', '1');
-        $nbResaCarbone6p = Reservation::where('reservation_spa_libelle', '=', 'Spa Carbone 6 places')
-                        ->count('reservation_paye', '=', '1');
+        $resasSpa = [];
+
+        $spas = Spa::all();
+
+        foreach($spas as $spa)
+        {
+            $nb = Reservation::where('reservation_spa_libelle', 'LIKE', $spa->spa_libelle.' '.$spa->spa_nb_place.' places')
+                            ->where('reservation_paye', '=', '1')
+                            ->count();
+
+            $resasSpa[$spa->spa_libelle.' '.$spa->spa_nb_place.' places'] = $nb;
+        }
+
+        $colors = array('FFC107', '039BE5', 'BDBDBD', '0277BD', '37474F', '009688', '3F51B5');
 
         $detailsResaEnCours = Reservation::where('reservation_date_debut', '<=', $dateToday)
                                 ->where('reservation_date_fin', '>=', $dateToday)
@@ -43,16 +47,13 @@ class BackOfficeController extends Controller
                                 ->get();
 
         return view('system.dashboard')->with([
-            'nbResaEnCours'                => $nbResaEnCours,
+            'nbResaEnCours'                 => $nbResaEnCours,
             'nbResaOuvertes'                => $nbResaOuvertes,
             'nbResaFermees'                 => $nbResaFermees,
-            'nbResaSahara4p'                =>$nbResaSahara4p,
-            'nbResaNavy4p'                  =>$nbResaNavy4p,
-            'nbResaBaltik4p'                =>$nbResaBaltik4p,
-            'nbResaBaltik6p'                =>$nbResaBaltik6p,
-            'nbResaCarbone6p'               =>$nbResaCarbone6p,
-            'detailsResaFutures'            =>$detailsResaFutures,
-            'detailsResaEnCours'            =>$detailsResaEnCours
+            'detailsResaFutures'            => $detailsResaFutures,
+            'detailsResaEnCours'            => $detailsResaEnCours,
+            'resasSpa'                      => $resasSpa,
+            'colors'                        => $colors,
         ]);
     }
 }

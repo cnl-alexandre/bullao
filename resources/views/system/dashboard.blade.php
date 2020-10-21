@@ -112,33 +112,36 @@
     var ChartReservationSpas = new Chart(document.getElementById('chartReservationSpas').getContext('2d'), {
         type: 'doughnut',
         data: {
-            labels: ['Spa Sahara 4p', 'Spa Navy 4p', 'Spa Baltik 4p', 'Spa Baltik 6p', 'Spa Carbone 6p'],
+            labels: [
+                @foreach($resasSpa as $spa => $nb)
+                    '{{ $spa }}',
+                @endforeach
+            ],
             datasets: [{
                 data: [
-                    {{ $nbResaSahara4p }},
-                    {{ $nbResaNavy4p }},
-                    {{ $nbResaBaltik4p }},
-                    {{ $nbResaBaltik6p }},
-                    {{ $nbResaCarbone6p }},
+                    @foreach($resasSpa as $spa => $nb)
+                        '{{ $nb }}',
+                    @endforeach
                 ],
                 backgroundColor: [
-                    '#4aa3df',
-                    '#2e8ece',
-                    '#f39c12',
-                    '#e67e22'
+                    @foreach($colors as $color)
+                        '#{{ $color }}',
+                    @endforeach
                 ],
                 borderColor: [
-                    '#4aa3df',
-                    '#2e8ece',
-                    '#f39c12',
-                    '#e67e22'
+                    @foreach($colors as $color)
+                        '#{{ $color }}',
+                    @endforeach
                 ],
                 borderWidth: 1
             }]
         },
         options: {
             responsive: true,
-            maintainAspectRatio: true
+            maintainAspectRatio: true,
+            legend: {
+                position: 'right'
+            }
         }
     });
 </script>
