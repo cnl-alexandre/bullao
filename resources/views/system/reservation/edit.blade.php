@@ -11,7 +11,7 @@
         <div class="col-md-7 text-left">
             @if(isset($reservation))
                 <h1 class="h3 mb-2 text-gray-800">Visualiser la reservation</h1>
-                <p class="mb-4">Dernière mise à jour le : {{ $reservation->dateUpdated->format('d-m-Y') }}</p>
+                <p class="mb-4">Réservation faite le : {{ $reservation->dateUpdated->format('d M Y') }}</p>
             @else
                 <h1 class="h3 mb-2 text-gray-800">Ajouter une reservation</h1>
                 <p class="mb-4">Renseigner les informations suivantes pour ajouter une reservation à la liste</p>

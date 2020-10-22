@@ -42,8 +42,8 @@
                                 @foreach($listeResas as $detailResa)
                                     <tr>
                                         <td>{{ $detailResa->reservation_id }}</td>
-                                        <td>{{ $detailResa->reservation_date_debut }}</td>
-                                        <td>{{ $detailResa->reservation_date_fin }}</td>
+                                        <td>@if($detailResa->reservation_date_debut != NULL){{  $detailResa->DateDebut->format('d/m/Y')  }} @endif</td>
+                                        <td>@if($detailResa->reservation_date_fin != NULL){{  $detailResa->DateFin->format('d/m/Y')  }} @endif</td>
                                         <td>{{ $detailResa->reservation_ville }}</td>
                                         <td>{{ $detailResa->reservation_departement }}</td>
                                         <td>{{ $detailResa->reservation_creneau }}</td>
@@ -82,8 +82,8 @@
                                 @foreach($listeResaPassees as $listeResaPassee)
                                     <tr>
                                         <td>{{ $listeResaPassee->reservation_id }}</td>
-                                        <td>{{ $listeResaPassee->reservation_date_debut }}</td>
-                                        <td>{{ $listeResaPassee->reservation_date_fin }}</td>
+                                        <td>@if($listeResaPassee->reservation_date_debut != NULL){{  $listeResaPassee->DateDebut->format('d/m/Y')  }} @endif</td>
+                                        <td>@if($listeResaPassee->reservation_date_fin != NULL){{  $listeResaPassee->DateFin->format('d/m/Y')  }} @endif</td>
                                         <td>{{ $listeResaPassee->reservation_ville }}</td>
                                         <td>{{ $listeResaPassee->reservation_departement }}</td>
                                         <td>{{ $listeResaPassee->reservation_creneau }}</td>

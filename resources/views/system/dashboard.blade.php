@@ -10,6 +10,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-md-6 mb-4">
+        <a href="{{ url('/system/reservations/list/#ResaFutures') }}">
         <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -25,19 +26,21 @@
         </div>
     </div>
     <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Réservations à venir</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $nbResaOuvertes }}</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+        <a href="{{ url('/system/reservations/list/#ResaPassees') }}">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Réservations à venir</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $nbResaOuvertes }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-xl-4 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
@@ -67,7 +70,7 @@
                 <ul>
                     @if(count($detailsResaEnCours) > 0)
                         @foreach($detailsResaEnCours as $detailResa)
-                        <li>Le {{ $detailResa->reservation_date_debut }} à {{ $detailResa->reservation_ville }}</li>
+                        <li>Le <b>{{ $detailResa->DateDebut->format('d M')  }}.</b> à <b>{{ $detailResa->reservation_ville }}</b></li>
                         @endforeach
                     @else
                         <li>Pas de réservation</li>
@@ -78,7 +81,7 @@
                 <ul>
                     @if(count($detailsResaFutures) > 0)
                         @foreach($detailsResaFutures as $detailResa)
-                        <li>Le {{ $detailResa->reservation_date_debut }} à {{ $detailResa->reservation_ville }}</li>
+                        <li>Le <b>{{ $detailResa->DateDebut->format('d M')  }}.</b> à <b>{{ $detailResa->reservation_ville }}</b></li>
                         @endforeach
                     @else
                         <li>Pas de réservation</li>
@@ -154,7 +157,7 @@
               @endforeach
             ],
             datasets: [{
-                label: 'Actives',
+                label: 'Réservations par mois',
                 backgroundColor: "#000000",
                 data: [
                   @foreach($ventesActives as $date => $nb)

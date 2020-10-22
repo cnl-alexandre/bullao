@@ -21,6 +21,16 @@ class Promo extends Model
         $this->save();
     }
 
+    public function getDateDebutAttribute()
+    {
+        return Carbon::parse($this->attributes['promo_date_debut']);
+    }
+
+    public function getDateFinAttribute()
+    {
+        return Carbon::parse($this->attributes['promo_date_fin']);
+    }
+
     public function getDateCreatedAttribute()
     {
         return Carbon::parse($this->attributes['created_at']);
