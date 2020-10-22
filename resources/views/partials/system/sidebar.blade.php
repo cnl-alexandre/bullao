@@ -59,6 +59,19 @@
     </li>
 
     <!-- Divider -->
+    <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Paramètres
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('/system/parametres/codespromo/list') }}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Codes Promo</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
     <!-- <hr class="sidebar-divider"> -->
     <!-- Heading -->
     <!-- <div class="sidebar-heading">

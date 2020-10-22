@@ -99,3 +99,10 @@ Route::get('system/produits/accessoires/new', 'system\ProduitController@newAcces
 Route::post('system/produits/accessoires/new', 'system\ProduitController@newAccessoireSubmit');
 Route::get('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoire')                      ->middleware('global.system');
 Route::post('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoireSubmit');
+
+// PARAMETRES
+Route::get('system/parametres/codespromo/list', 'system\ParametresController@listCodesPromo');
+Route::get('system/parametres/codespromo/new', 'system\ParametresController@newCodePromo');
+Route::post('system/parametres/codespromo/new', 'system\ParametresController@newCodePromoSubmit');
+Route::get('system/parametres/codespromo/edit/{id}', 'system\ParametresController@editCodePromo');
+Route::post('system/parametres/codespromo/edit/{id}', 'system\ParametresController@editCodePromoSubmit');
