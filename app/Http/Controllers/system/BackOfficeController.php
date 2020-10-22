@@ -41,10 +41,24 @@ class BackOfficeController extends Controller
 
         $detailsResaEnCours = Reservation::where('reservation_date_debut', '<=', $dateToday)
                                 ->where('reservation_date_fin', '>=', $dateToday)
+                                ->where('reservation_paye', '=', '1')
                                 ->get();
 
         $detailsResaFutures = Reservation::where('reservation_date_debut', '>=', $dateToday)
+                                ->where('reservation_paye', '=', '1')
                                 ->get();
+
+        for($i=12;$i>=0;$i--)
+        {
+            $today = date("Y-m-d");
+            $date = date('Y-m-d', strtotime($today. ' - '.$i.' months'));
+            $dateAffichage = date('m/Y', strtotime($today. ' - '.$i.' months'));
+
+            $nbVentesActives = Reservation::where('reservation_paye', '=', '1')
+                                            ->where('reservation_date_debut', '<=', $date)->count();
+
+            $ventesActives[$dateAffichage] = $nbVentesActives;
+        }
 
         return view('system.dashboard')->with([
             'nbResaEnCours'                 => $nbResaEnCours,
@@ -54,6 +68,7 @@ class BackOfficeController extends Controller
             'detailsResaEnCours'            => $detailsResaEnCours,
             'resasSpa'                      => $resasSpa,
             'colors'                        => $colors,
+            'ventesActives'                 => $ventesActives
         ]);
     }
 }

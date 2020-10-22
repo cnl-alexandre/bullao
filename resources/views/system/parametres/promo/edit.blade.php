@@ -39,34 +39,38 @@
                         <div class="col-md-6 form-group">
                             <label for="promoLibelle">Code promo</label>
                             @if(isset($promo))
-                                <input type="text" class="form-control" name="promoLibelle" id="promoLibelle" value="{{ $promo->promo_libelle }}" placeholder="ex : COPAIN2020">
+                                <input type="text" class="form-control {{ $errors->has('promoLibelle') ? 'is-invalid' : '' }}" name="promoLibelle" id="promoLibelle" value="{{ $promo->promo_libelle }}" placeholder="ex : COPAIN2020">
                             @else
-                                <input type="text" class="form-control" name="promoLibelle" id="promoLibelle" placeholder="ex : COPAIN2020">
+                                <input type="text" class="form-control {{ $errors->has('promoLibelle') ? 'is-invalid' : '' }}" name="promoLibelle" id="promoLibelle" placeholder="ex : COPAIN2020">
                             @endif
+                            {!! $errors->first('promoLibelle', '<div class="invalid-feedback">:message</div>') !!}
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="promoValeur">Valeur (en %)</label>
                             @if(isset($promo))
-                                <input type="number" class="form-control" name="promoValeur" id="promoValeur" value="{{ $promo->promo_valeur }}" placeholder="Libellé du pack (ex: Pack Chill)">
+                                <input type="number" class="form-control {{ $errors->has('promoValeur') ? 'is-invalid' : '' }}" name="promoValeur" id="promoValeur" value="{{ $promo->promo_valeur }}" placeholder="Libellé du pack (ex: Pack Chill)">
                             @else
-                                <input type="number" class="form-control" name="promoValeur" id="promoValeur" placeholder="Libellé du pack (ex: Pack Chill)">
+                                <input type="number" class="form-control {{ $errors->has('promoValeur') ? 'is-invalid' : '' }}" name="promoValeur" id="promoValeur" placeholder="Libellé du pack (ex: Pack Chill)">
                             @endif
+                            {!! $errors->first('promoValeur', '<div class="invalid-feedback">:message</div>') !!}
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="promoDateDebut">Date de début</label>
                             @if(isset($promo))
-                                <input type="date" class="form-control" name="promoDateDebut" id="promoDateDebut" value="{{ $promo->promo_date_debut }}">
+                                <input type="date" class="form-control {{ $errors->has('promoDateDebut') ? 'is-invalid' : '' }}" name="promoDateDebut" id="promoDateDebut" value="{{ $promo->promo_date_debut }}">
                             @else
-                                <input type="date" class="form-control" name="promoDateDebut" id="promoDateDebut">
+                                <input type="date" class="form-control {{ $errors->has('promoDateDebut') ? 'is-invalid' : '' }}" name="promoDateDebut" id="promoDateDebut">
                             @endif
+                            {!! $errors->first('promoDateDebut', '<div class="invalid-feedback">:message</div>') !!}
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="promoDateFin">Date de fin</label>
                             @if(isset($promo))
-                                <input type="date" class="form-control" name="promoDateFin" id="promoDateFin" value="{{ $promo->promo_date_fin }}">
+                                <input type="date" class="form-control {{ $errors->has('promoDateFin') ? 'is-invalid' : '' }}" name="promoDateFin" id="promoDateFin" value="{{ $promo->promo_date_fin }}">
                             @else
-                                <input type="date" class="form-control" name="promoDateFin" id="promoDateFin">
+                                <input type="date" class="form-control {{ $errors->has('promoDateFin') ? 'is-invalid' : '' }}" name="promoDateFin" id="promoDateFin">
                             @endif
+                            {!! $errors->first('promoDateFin', '<div class="invalid-feedback">:message</div>') !!}
                         </div>
 
                     </div>

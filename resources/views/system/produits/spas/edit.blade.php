@@ -38,19 +38,21 @@
                     <div class="form-group">
                         <label for="spaLibelle">Nom du spa</label>
                         @if(isset($spa))
-                            <input type="text" class="form-control" name="spaLibelle" id="spaLibelle" value="{{ $spa->spa_libelle }}" placeholder="Libellé du spa (ex: Spa Baltik)">
+                            <input type="text" class="form-control {{ $errors->has('spaLibelle') ? 'is-invalid' : '' }}" name="spaLibelle" id="spaLibelle" value="{{ $spa->spa_libelle }}" placeholder="Libellé du spa (ex: Spa Baltik)">
                         @else
-                            <input type="text" class="form-control" name="spaLibelle" id="spaLibelle" placeholder="Libellé du spa (ex: Spa Baltik)">
+                            <input type="text" class="form-control {{ $errors->has('spaLibelle') ? 'is-invalid' : '' }}" name="spaLibelle" id="spaLibelle" placeholder="Libellé du spa (ex: Spa Baltik)">
                         @endif
+                        {!! $errors->first('spaLibelle', '<div class="invalid-feedback">:message</div>') !!}
                     </div>
                     <div class="form-group">
                         <label for="spaPlace">Nombre de personnes max</label>
                         <div class="input-group mb-3">
                             @if(isset($spa))
-                                <input type="text" class="form-control" name="spaPlace" id="spaPlace" value="{{ $spa->spa_nb_place }}" placeholder="Nombre de place">
+                                <input type="text" class="form-control {{ $errors->has('spaPlace') ? 'is-invalid' : '' }}" name="spaPlace" id="spaPlace" value="{{ $spa->spa_nb_place }}" placeholder="Nombre de place">
                             @else
-                                <input type="text" class="form-control" name="spaPlace" id="spaPlace" placeholder="Nombre de place">
+                                <input type="text" class="form-control {{ $errors->has('spaPlace') ? 'is-invalid' : '' }}" name="spaPlace" id="spaPlace" placeholder="Nombre de place">
                             @endif
+                            {!! $errors->first('spaPlace', '<div class="invalid-feedback">:message</div>') !!}
                             <div class="input-group-append">
                                 <span class="input-group-text">place(s)</span>
                             </div>
@@ -60,10 +62,11 @@
                         <label for="spaPrix">Prix du spa</label>
                         <div class="input-group mb-3">
                             @if(isset($spa))
-                                <input type="number" class="form-control" name="spaPrix" id="spaPrix" value="{{ $spa->spa_prix }}" placeholder="Prix de la première journée">
+                                <input type="number" class="form-control {{ $errors->has('spaPrix') ? 'is-invalid' : '' }}" name="spaPrix" id="spaPrix" value="{{ $spa->spa_prix }}" placeholder="Prix de la première journée">
                             @else
-                                <input type="number" class="form-control" name="spaPrix" id="spaPrix" placeholder="Prix de la première journée">
+                                <input type="number" class="form-control {{ $errors->has('spaPrix') ? 'is-invalid' : '' }}" name="spaPrix" id="spaPrix" placeholder="Prix de la première journée">
                             @endif
+                            {!! $errors->first('spaPrix', '<div class="invalid-feedback">:message</div>') !!}
                             <div class="input-group-append">
                                 <span class="input-group-text">€</span>
                             </div>
@@ -73,10 +76,11 @@
                         <label for="spaPrixSupp">Prix jour supplémentaire</label>
                         <div class="input-group mb-3">
                             @if(isset($spa))
-                                <input type="number" class="form-control" name="spaPrixSupp" id="spaPrixSupp" value="{{ $spa->spa_prix_jour_supp }}" placeholder="Prix jours supplémentaires">
+                                <input type="number" class="form-control {{ $errors->has('spaPrixSupp') ? 'is-invalid' : '' }}" name="spaPrixSupp" id="spaPrixSupp" value="{{ $spa->spa_prix_jour_supp }}" placeholder="Prix jours supplémentaires">
                             @else
-                                <input type="number" class="form-control" name="spaPrixSupp" id="spaPrixSupp" placeholder="Prix jours supplémentaires">
+                                <input type="number" class="form-control {{ $errors->has('spaPrixSupp') ? 'is-invalid' : '' }}" name="spaPrixSupp" id="spaPrixSupp" placeholder="Prix jours supplémentaires">
                             @endif
+                            {!! $errors->first('spaPrixSupp', '<div class="invalid-feedback">:message</div>') !!}
                             <div class="input-group-append">
                                 <span class="input-group-text">€</span>
                             </div>
@@ -85,18 +89,20 @@
                     <div class="form-group">
                         <label for="spaStock">Stock physique</label>
                         @if(isset($spa))
-                            <input type="number" class="form-control" name="spaStock" id="spaStock" value="{{ $spa->spa_stock }}" placeholder="Nb de spa dispo">
+                            <input type="number" class="form-control {{ $errors->has('spaStock') ? 'is-invalid' : '' }}" name="spaStock" id="spaStock" value="{{ $spa->spa_stock }}" placeholder="Nb de spa dispo">
                         @else
-                            <input type="number" class="form-control" name="spaStock" id="spaStock" placeholder="Nb de spa dispo">
+                            <input type="number" class="form-control {{ $errors->has('spaStock') ? 'is-invalid' : '' }}" name="spaStock" id="spaStock" placeholder="Nb de spa dispo">
                         @endif
+                        {!! $errors->first('spaStock', '<div class="invalid-feedback">:message</div>') !!}
                     </div>
                     <div class="form-group">
                         <label for="spaDescription">Description</label>
                         @if(isset($spa))
-                            <textarea rows="4" class="form-control" name="spaDescription" id="spaDescription">{{ $spa->spa_desc }}</textarea>
+                            <textarea rows="4" class="form-control {{ $errors->has('spaDescription') ? 'is-invalid' : '' }}" name="spaDescription" id="spaDescription">{{ $spa->spa_desc }}</textarea>
                         @else
-                            <textarea rows="4" class="form-control" name="spaDescription" id="spaDescription"></textarea>
+                            <textarea rows="4" class="form-control {{ $errors->has('spaDescription') ? 'is-invalid' : '' }}" name="spaDescription" id="spaDescription"></textarea>
                         @endif
+                        {!! $errors->first('spaDescription', '<div class="invalid-feedback">:message</div>') !!}
                     </div>
                 </div>
             </div>
@@ -108,7 +114,11 @@
                     <hr>
                     <div class="file-field text-center">
                         <div class="z-depth-1-half mb-4">
-                            <img id="previewImg" src="{{ url('medias/img/no-image.png') }}" style="width: 200px;" class="img-fluid">
+                            @if(isset($spa))
+                                <img id="previewImg" src="{{ url($spa->spa_chemin_img)  }}" style="width: 200px;" class="img-fluid">
+                            @else
+                                <img id="previewImg" src="{{ url('medias/img/no-image.png') }}" style="width: 200px;" class="img-fluid">
+                            @endif
                         </div>
                         <div class="d-flex justify-content-center">
                             <div style="width: 100%; margin: 0;" class="file btn btn-primary btn-block select">

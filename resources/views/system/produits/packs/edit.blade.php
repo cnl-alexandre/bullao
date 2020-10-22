@@ -38,28 +38,30 @@
                     <div class="form-group">
                         <label for="packLibelle">Nom du pack</label>
                         @if(isset($pack))
-                            <input type="text" class="form-control" name="packLibelle" id="packLibelle" value="{{ $pack->pack_libelle }}" placeholder="Libellé du pack (ex: Pack Chill)">
+                            <input type="text" class="form-control {{ $errors->has('packLibelle') ? 'is-invalid' : '' }}" name="packLibelle" id="packLibelle" value="{{ $pack->pack_libelle }}" placeholder="Libellé du pack (ex: Pack Chill)">
                         @else
-                            <input type="text" class="form-control" name="packLibelle" id="packLibelle" placeholder="Libellé du pack (ex: Pack Chill)">
+                            <input type="text" class="form-control {{ $errors->has('packLibelle') ? 'is-invalid' : '' }}" name="packLibelle" id="packLibelle" placeholder="Libellé du pack (ex: Pack Chill)">
                         @endif
+                        {!! $errors->first('packLibelle', '<div class="invalid-feedback">:message</div>') !!}
                     </div>
                     <div class="form-group">
                         <label for="packDescription">Description</label>
                         @if(isset($pack))
-                            <textarea rows="4" class="form-control  {{ $errors->has('packDescription') ? 'is-invalid' : '' }}" name="packDescription" id="packDescription" required>{{ $pack->pack_description }}</textarea>
+                            <textarea rows="4" class="form-control {{ $errors->has('packDescription') ? 'is-invalid' : '' }}" name="packDescription" id="packDescription" required>{{ $pack->pack_description }}</textarea>
                         @else
-                            <textarea rows="4" class="form-control" name="packDescription" id="packDescription" required></textarea>
+                            <textarea rows="4" class="form-control {{ $errors->has('packDescription') ? 'is-invalid' : '' }}" name="packDescription" id="packDescription" required></textarea>
                         @endif
-                        {!! $errors->first('description', '<div class="invalid-feedback">:message</div>') !!}
+                        {!! $errors->first('packDescription', '<div class="invalid-feedback">:message</div>') !!}
                     </div>
                     <div class="form-group">
                         <label for="packPrix">Prix du pack</label>
                         <div class="input-group mb-3">
                             @if(isset($pack))
-                                <input type="number" class="form-control" name="packPrix" id="packPrix" value="{{ $pack->pack_prix }}" placeholder="Prix du pack">
+                                <input type="number" class="form-control" name="packPrix {{ $errors->has('packPrix') ? 'is-invalid' : '' }}" id="packPrix" value="{{ $pack->pack_prix }}" placeholder="Prix du pack">
                             @else
-                                <input type="number" class="form-control" name="packPrix" id="packPrix" placeholder="Prix du pack">
+                                <input type="number" class="form-control" name="packPrix {{ $errors->has('packPrix') ? 'is-invalid' : '' }}" id="packPrix" placeholder="Prix du pack">
                             @endif
+                            {!! $errors->first('packPrix', '<div class="invalid-feedback">:message</div>') !!}
                             <div class="input-group-append">
                                 <span class="input-group-text">€</span>
                             </div>
@@ -68,10 +70,11 @@
                     <div class="form-group">
                         <label for="packStock">Stock physique</label>
                         @if(isset($pack))
-                            <input type="number" class="form-control" name="packStock" id="packStock" value="{{ $pack->pack_stock }}" placeholder="Nb de pack dispo">
+                            <input type="number" class="form-control {{ $errors->has('packStock') ? 'is-invalid' : '' }}" name="packStock" id="packStock" value="{{ $pack->pack_stock }}" placeholder="Nb de pack dispo">
                         @else
-                            <input type="number" class="form-control" name="packStock" id="packStock" placeholder="Nb de pack dispo">
+                            <input type="number" class="form-control {{ $errors->has('packStock') ? 'is-invalid' : '' }}" name="packStock" id="packStock" placeholder="Nb de pack dispo">
                         @endif
+                        {!! $errors->first('packStock', '<div class="invalid-feedback">:message</div>') !!}
                     </div>
 
                 </div>
@@ -85,7 +88,11 @@
                     <div class="row">
                         <div class="file-field text-center">
                             <div class="z-depth-1-half mb-4">
-                                <img id="previewImg" src="{{ url('medias/img/no-image.png') }}" style="width: 200px;" class="img-fluid">
+                                @if(isset($pack))
+                                    <img id="previewImg" src="{{ url($pack->pack_chemin_img)  }}" style="width: 200px;" class="img-fluid">
+                                @else
+                                    <img id="previewImg" src="{{ url('medias/img/no-image.png') }}" style="width: 200px;" class="img-fluid">
+                                @endif
                             </div>
                             <div class="d-flex justify-content-center">
                                 <div style="width: 100%; margin: 0;" class="file btn btn-primary btn-block select">
