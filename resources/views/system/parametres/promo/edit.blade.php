@@ -46,13 +46,18 @@
                             {!! $errors->first('promoLibelle', '<div class="invalid-feedback">:message</div>') !!}
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="promoValeur">Valeur (en %)</label>
-                            @if(isset($promo))
-                                <input type="number" class="form-control {{ $errors->has('promoValeur') ? 'is-invalid' : '' }}" name="promoValeur" id="promoValeur" value="{{ $promo->promo_valeur }}" placeholder="Libellé du pack (ex: Pack Chill)">
-                            @else
-                                <input type="number" class="form-control {{ $errors->has('promoValeur') ? 'is-invalid' : '' }}" name="promoValeur" id="promoValeur" placeholder="Libellé du pack (ex: Pack Chill)">
-                            @endif
-                            {!! $errors->first('promoValeur', '<div class="invalid-feedback">:message</div>') !!}
+                            <label for="promoValeur">Valeur</label>
+                            <div class="input-group mb-3">
+                                @if(isset($promo))
+                                    <input type="number" class="form-control {{ $errors->has('promoValeur') ? 'is-invalid' : '' }}" name="promoValeur" id="promoValeur" value="{{ $promo->promo_valeur }}" placeholder="Libellé du pack (ex: Pack Chill)">
+                                @else
+                                    <input type="number" class="form-control {{ $errors->has('promoValeur') ? 'is-invalid' : '' }}" name="promoValeur" id="promoValeur" placeholder="Libellé du pack (ex: Pack Chill)">
+                                @endif
+                                {!! $errors->first('promoValeur', '<div class="invalid-feedback">:message</div>') !!}
+                                <div class="input-group-append">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="promoDateDebut">Date de début</label>
