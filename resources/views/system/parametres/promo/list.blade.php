@@ -35,10 +35,10 @@
                             <tr>
                                 <td>{{ $detailPromo->promo_id }}</td>
                                 <td>{{ $detailPromo->promo_libelle }}</td>
-                                <td>{{ $detailPromo->promo_valeur }}</td>
+                                <td>{{ $detailPromo->promo_valeur }}%</td>
                                 <td>@if($detailPromo->promo_date_debut != NULL){{  $detailPromo->DateDebut->format('d/m/Y')  }} @endif</td>
                                 <td>@if($detailPromo->promo_date_fin != NULL){{  $detailPromo->DateFin->format('d/m/Y')  }} @endif</td>
-                                <td class="text-right text-success"></td>
+                                <td class="text-right text-success">{{ $detailPromo->nbReservation() }}</td>
                                 <td><a href="{{ url('/system/parametres/codespromo/edit/'.$detailPromo->promo_id) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a></td>
                             </tr>
                         @endforeach

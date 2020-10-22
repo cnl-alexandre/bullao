@@ -10,13 +10,14 @@
 
 <div class="row">
     <div class="col-xl-4 col-md-6 mb-4">
-        <a href="{{ url('/system/reservations/list/#ResaFutures') }}">
         <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-sm font-weight-bold text-warning text-uppercase mb-1">Réservations en cours</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $nbResaEnCours }}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <a href="{{ url('/system/reservations/list') }}">{{ $nbResaEnCours }}</a>
+                        </div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -26,21 +27,21 @@
         </div>
     </div>
     <div class="col-xl-4 col-md-6 mb-4">
-        <a href="{{ url('/system/reservations/list/#ResaPassees') }}">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Réservations à venir</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $nbResaOuvertes }}</div>
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Réservations à venir</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <a href="{{ url('/system/reservations/list') }}">{{ $nbResaOuvertes }}</a>
                         </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
-        </a>
+        </div>
     </div>
     <div class="col-xl-4 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
@@ -70,7 +71,9 @@
                 <ul>
                     @if(count($detailsResaEnCours) > 0)
                         @foreach($detailsResaEnCours as $detailResa)
-                        <li>Le <b>{{ $detailResa->DateDebut->format('d M')  }}.</b> à <b>{{ $detailResa->reservation_ville }}</b></li>
+                        <li>
+                            <a href="{{ url('/system/reservations/edit/'.$detailResa->reservation_id) }}">Le <b>{{ $detailResa->DateDebut->format('d M')  }}.</b> à <b>{{ $detailResa->reservation_ville }} ({{ $detailResa->reservation_departement }})</b></a>
+                        </li>
                         @endforeach
                     @else
                         <li>Pas de réservation</li>
@@ -81,7 +84,9 @@
                 <ul>
                     @if(count($detailsResaFutures) > 0)
                         @foreach($detailsResaFutures as $detailResa)
-                        <li>Le <b>{{ $detailResa->DateDebut->format('d M')  }}.</b> à <b>{{ $detailResa->reservation_ville }}</b></li>
+                        <li>
+                            <a href="{{ url('/system/reservations/edit/'.$detailResa->reservation_id) }}">Le <b>{{ $detailResa->DateDebut->format('d M')  }}.</b> à <b>{{ $detailResa->reservation_ville }} ({{ $detailResa->reservation_departement }})</b></a>
+                        </li>
                         @endforeach
                     @else
                         <li>Pas de réservation</li>
@@ -127,13 +132,13 @@
                     @endforeach
                 ],
                 backgroundColor: [
-                    @foreach($colors as $color)
-                        '#{{ $color }}',
+                    @foreach($spas as $spa)
+                        '#{{ $spa->spa_color }}',
                     @endforeach
                 ],
                 borderColor: [
-                    @foreach($colors as $color)
-                        '#{{ $color }}',
+                    @foreach($spas as $spa)
+                        '#{{ $spa->spa_color }}',
                     @endforeach
                 ],
                 borderWidth: 1

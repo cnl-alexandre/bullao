@@ -38,8 +38,8 @@
                                 <td>{{ $detailSpa->spa_id }}</td>
                                 <td>{{ $detailSpa->spa_libelle }}</td>
                                 <td>{{ $detailSpa->spa_nb_place }} pers.</td>
-                                <td>{{ $detailSpa->spa_prix }}</td>
-                                <td>{{ $detailSpa->spa_prix_jour_supp }}</td>
+                                <td>{{ $detailSpa->spa_prix }}€</td>
+                                <td>{{ $detailSpa->spa_prix_jour_supp }}€</td>
                                 <td>{{ $detailSpa->spa_stock }}</td>
                                 <td class="text-right text-success">{{ $detailSpa->nbResaPassees() }}</td>
                                 <td class="text-right text-warning">{{ $detailSpa->nbResaFutures() }}</td>

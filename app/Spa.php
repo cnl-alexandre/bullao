@@ -16,6 +16,7 @@ class Spa extends Model
     {
         $this->spa_stock        = $array->stock;
         $this->spa_libelle      = $array->libelle;
+        $this->spa_color        = $array->color;
         $this->spa_nb_place     = $array->nb_place;
         $this->save();
     }
@@ -67,6 +68,7 @@ class Spa extends Model
         $this->spa_libelle                  = $array->spaLibelle;
         $this->spa_stock                    = $array->spaStock;
         $this->spa_nb_place                 = $array->spaPlace;
+        $this->spa_color                    = $array->spaColor;
         $this->spa_desc                     = $array->spaDescription;
         $this->spa_prix                     = $array->spaPrix;
         $this->spa_prix_jour_supp           = $array->spaPrixSupp;

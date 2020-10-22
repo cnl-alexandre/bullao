@@ -67,6 +67,7 @@ class BackOfficeController extends Controller
             'detailsResaFutures'            => $detailsResaFutures,
             'detailsResaEnCours'            => $detailsResaEnCours,
             'resasSpa'                      => $resasSpa,
+            'spas'                          => $spas,
             'colors'                        => $colors,
             'ventesActives'                 => $ventesActives
         ]);

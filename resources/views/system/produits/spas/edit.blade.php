@@ -96,6 +96,20 @@
                         {!! $errors->first('spaStock', '<div class="invalid-feedback">:message</div>') !!}
                     </div>
                     <div class="form-group">
+                        <label for="spaColor">Couleur</label>
+                        <select class="form-control selectcolor" name="spaColor" id="spaColor">
+                            <option value="000000" data-color="#000000">Noir</option>
+                            <option value="2cc36b" data-color="#2cc36b">Vert</option>
+                            <option value="2e8ece" data-color="#2e8ece">Bleu</option>
+                            <option value="f0ad4e" data-color="#f0ad4e">Orange</option>
+                            <option value="ea6153" data-color="#ea6153">Rouge</option>
+                            <option value="a66bbe" data-color="#a66bbe">Violet</option>
+                            <option value="95a5a6" data-color="#95a5a6">Gris</option>
+                            <option value="663300" data-color="#663300">Marron</option>
+                        </select>
+                        {!! $errors->first('spaColor', '<div class="invalid-feedback">:message</div>') !!}
+                    </div>
+                    <div class="form-group">
                         <label for="spaDescription">Description</label>
                         @if(isset($spa))
                             <textarea rows="4" class="form-control {{ $errors->has('spaDescription') ? 'is-invalid' : '' }}" name="spaDescription" id="spaDescription">{{ $spa->spa_desc }}</textarea>

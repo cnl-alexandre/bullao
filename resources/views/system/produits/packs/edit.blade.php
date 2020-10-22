@@ -85,22 +85,20 @@
                 <div class="card-body">
                     <h5 class="mt-2">Image produit</h5>
                     <hr>
-                    <div class="row">
-                        <div class="file-field text-center">
-                            <div class="z-depth-1-half mb-4">
-                                @if(isset($pack))
-                                    <img id="previewImg" src="{{ url($pack->pack_chemin_img)  }}" style="width: 200px;" class="img-fluid">
-                                @else
-                                    <img id="previewImg" src="{{ url('medias/img/no-image.png') }}" style="width: 200px;" class="img-fluid">
-                                @endif
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <div style="width: 100%; margin: 0;" class="file btn btn-primary btn-block select">
-                                    <div id="div-choose">
-                                        Choisir un fichier
-                                    </div>
-                                    <input type="file" name="photo" id="photo" class="file-upload">
+                    <div class="file-field text-center">
+                        <div class="z-depth-1-half mb-4">
+                            @if(isset($pack))
+                                <img id="previewImg" src="{{ url($pack->pack_chemin_img)  }}" style="width: 200px;" class="img-fluid">
+                            @else
+                                <img id="previewImg" src="{{ url('medias/img/no-image.png') }}" style="width: 200px;" class="img-fluid">
+                            @endif
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div style="width: 100%; margin: 0;" class="file btn btn-primary btn-block select">
+                                <div id="div-choose">
+                                    Choisir un fichier
                                 </div>
+                                <input type="file" name="photo" id="photo" class="file-upload">
                             </div>
                         </div>
                     </div>

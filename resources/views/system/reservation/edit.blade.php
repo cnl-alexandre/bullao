@@ -155,7 +155,7 @@
         <div class="col-md-3 mr-auto my-3">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="mt-2">Fiche client </h5>
+                    <h5 class="mt-2">Fiche client</h5>
                     <hr>
                     <div class="row">
                         <div class="col-md-12 form-group">
@@ -169,6 +169,21 @@
                         <div class="col-md-12 form-group">
                             <label for="reservationClientEmail">Email</label>
                             <input type="text" class="form-control" name="reservationClientEmail" id="reservationClientEmail" value="{{ $reservation->client->client_email }}" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="mt-2">Carte</h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <?php 
+                                $address = str_replace(" ", "+",$reservation->reservation_rue.", ".$reservation->reservation_ville);
+                            ?>
+                            <iframe style="width: 100%; height: 600px;;" frameborder="0" src="https://maps.google.it/maps?q={{ $address }}&output=embed"></iframe>
                         </div>
                     </div>
                 </div>

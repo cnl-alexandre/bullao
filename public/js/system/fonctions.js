@@ -3,6 +3,8 @@ $(document).ready(function()
     $(".file-upload").change(function () {
         previewFile();
     });
+
+    $('.selectcolor').colorselector();
 });
 
 function previewFile()

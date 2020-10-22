@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use App\Reservation;
 
 class Promo extends Model
 {
@@ -19,6 +20,13 @@ class Promo extends Model
         $this->promo_date_fin                 = $array->promoDateFin;
 
         $this->save();
+    }
+
+    public function nbReservation()
+    {
+        $nb = Reservation::where('reservation_promo', 'LIKE', $this->promo_libelle)->count();
+        
+        return $nb;
     }
 
     public function getDateDebutAttribute()

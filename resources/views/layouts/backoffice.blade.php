@@ -21,19 +21,21 @@
         <link rel="stylesheet" href="{{ url('/css/system/bootstrap4-toggle.min.css') }}">
 
         <link rel="stylesheet" href="{{ url('/css/system/Chart.min.css') }}">
+        <link rel="stylesheet" href="{{ url('/css/system/bootstrap-colorselector.min.css') }}">
 
         <link rel="stylesheet" href="{{ url('/css/system/style.css?version='.env('APP_VERSION')) }}">
 
         <!-- Scripts -->
         <script src="{{ url('/js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ url('js/popper.min.js') }}"></script>
         <script src="{{ url('/js/bootstrap.min.js') }}"></script>
         <script src="{{ url('/js/system/sb-admin-2.min.js') }}"></script>
 
         <script src="{{ url('/js/system/datatables/jquery.dataTables.min.js') }}"></script>
         <script src="{{ url('/js/system/datatables/dataTables.bootstrap4.min.js') }}"></script>
-        <script src="{{ url('/js/system/fileinput.min.js') }}"></script>
 
         <script src="{{ url('/js/system/bootstrap4-toggle.min.js') }}"></script>
+        <script src="{{ url('/js/system/bootstrap-colorselector.min.js') }}"></script>
 
         <script src="{{ url('/js/system/Chart.min.js') }}"></script>
         <script src="{{ url('/js/system/fonctions.js') }}"></script>

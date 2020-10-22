@@ -36,6 +36,20 @@ class Reservation extends Model
         return $this->belongsTo('App\Client', 'reservation_client_id', 'client_id');
     }
 
+    public function paye()
+    {
+        if($this->reservation_paye == 0)
+        {
+            $html = '<span class="badge badge-danger">Non payé</span>';
+        }
+        elseif($this->reservation_paye == 1)
+        {
+            $html = '<span class="badge badge-success">Payé</span>';
+        }
+        
+        return $html;
+    }
+
     // public function pack()
     // {
     //     return $this->belongsTo('App\Client', 'reservation_client_id', '...');

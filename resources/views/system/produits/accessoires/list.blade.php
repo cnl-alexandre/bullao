@@ -29,7 +29,6 @@
                         <th style="width:50px;"></th>
                     </tr>
                 </thead>
-
                 <tbody>
                     @if(count($listeAccessoires) > 0)
                         @foreach($listeAccessoires as $detailAccessoire)
@@ -38,7 +37,7 @@
                                 <td>{{ $detailAccessoire->accessoire_libelle }}</td>
                                 <td>{{ $detailAccessoire->accessoire_stock }}</td>
                                 <th></th>
-                                <td>{{ $detailAccessoire->accessoire_prix }}</td>
+                                <td>{{ $detailAccessoire->accessoire_prix }}€</td>
                                 <td class="text-right text-success"></td>
                                 <td class="text-right text-warning"></td>
                                 <td><a href="{{ url('/system/produits/accessoires/edit/'.$detailAccessoire->accessoire_id) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a></td>
