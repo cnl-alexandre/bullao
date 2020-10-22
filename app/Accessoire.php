@@ -39,6 +39,17 @@ class Accessoire extends Model
         }
     }
 
+    public function nbStockReel($idReservation)
+    {
+        $reservations = Reservation::where('reservation_date_fin', '>=', date('Y-m-d'))
+                        ->where('reservation_date_fin', '<=', date('Y-m-d'))
+                        ->get();
+        
+        
+
+        return $nbStockReel;
+    }
+
     // public function nbResaFutures()
     // {
     //     $nbResaFutures = Reservation::where('ra_reservation_id', '=', $this->ra_accessoire_id)

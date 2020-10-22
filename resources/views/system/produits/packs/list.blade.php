@@ -37,7 +37,7 @@
                                 <td>{{ $detailPack->pack_id }}</td>
                                 <td>{{ $detailPack->pack_libelle }}</td>
                                 <td>{{ $detailPack->pack_stock }}</td>
-                                <th></th>
+                                <td>{{ $detailPack->nbStockReel() }}</td>
                                 <td>{{ $detailPack->pack_prix }}€</td>
                                 <td class="text-right text-success">{{ $detailPack->nbResaPassees() }}</td>
                                 <td class="text-right text-warning">{{ $detailPack->nbResaFutures() }}</td>

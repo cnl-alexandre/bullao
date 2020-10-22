@@ -25,6 +25,7 @@
                         <th>Prix</th>
                         <th>Supp</th>
                         <th>Stock</th>
+                        <th>Stock réel</th>
                         <th style="width:25px;">OK</th>
                         <th style="width:25px;">DO</th>
                         <th style="width:50px;"></th>
@@ -41,6 +42,7 @@
                                 <td>{{ $detailSpa->spa_prix }}€</td>
                                 <td>{{ $detailSpa->spa_prix_jour_supp }}€</td>
                                 <td>{{ $detailSpa->spa_stock }}</td>
+                                <td>{{ $detailSpa->nbStockReel() }}</td>
                                 <td class="text-right text-success">{{ $detailSpa->nbResaPassees() }}</td>
                                 <td class="text-right text-warning">{{ $detailSpa->nbResaFutures() }}</td>
                                 <td><a href="{{ url('/system/produits/spas/edit/'.$detailSpa->spa_id) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a></td>

@@ -24,7 +24,7 @@ class Promo extends Model
 
     public function nbReservation()
     {
-        $nb = Reservation::where('reservation_promo', 'LIKE', $this->promo_libelle)->count();
+        $nb = Reservation::where('reservation_promo', 'LIKE', $this->promo_libelle)->where('reservation_paye', '=', '1')->count();
         
         return $nb;
     }
