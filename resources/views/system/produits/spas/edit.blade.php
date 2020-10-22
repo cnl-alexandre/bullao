@@ -98,14 +98,46 @@
                     <div class="form-group">
                         <label for="spaColor">Couleur</label>
                         <select class="form-control selectcolor" name="spaColor" id="spaColor">
-                            <option value="000000" data-color="#000000">Noir</option>
-                            <option value="2cc36b" data-color="#2cc36b">Vert</option>
-                            <option value="2e8ece" data-color="#2e8ece">Bleu</option>
-                            <option value="f0ad4e" data-color="#f0ad4e">Orange</option>
-                            <option value="ea6153" data-color="#ea6153">Rouge</option>
-                            <option value="a66bbe" data-color="#a66bbe">Violet</option>
-                            <option value="95a5a6" data-color="#95a5a6">Gris</option>
-                            <option value="663300" data-color="#663300">Marron</option>
+                            @if(isset($spa)) && $spa->spa_color == "000000")
+                                <option value="000000" data-color="#000000" selected="selected">Noir</option>
+                            @else
+                                <option value="000000" data-color="#000000">Noir</option>
+                            @endif
+                            @if(isset($spa)) && $spa->spa_color == "2cc36b")
+                                <option value="2cc36b" data-color="#2cc36b" selected="selected">Vert</option>
+                            @else
+                                <option value="2cc36b" data-color="#2cc36b">Vert</option>
+                            @endif
+                            @if(isset($spa)) && $spa->spa_color == "2e8ece")
+                                <option value="2e8ece" data-color="#2e8ece" selected="selected">Bleu</option>
+                            @else
+                                <option value="2e8ece" data-color="#2e8ece">Bleu</option>
+                            @endif
+                            @if(isset($spa)) && $spa->spa_color == "f0ad4e")
+                                <option value="f0ad4e" data-color="#f0ad4e" selected="selected">Orange</option>
+                            @else
+                                <option value="f0ad4e" data-color="#f0ad4e">Orange</option>
+                            @endif
+                            @if(isset($spa)) && $spa->spa_color == "ea6153")
+                                <option value="ea6153" data-color="#ea6153" selected="selected">Rouge</option>
+                            @else
+                                <option value="ea6153" data-color="#ea6153">Rouge</option>
+                            @endif
+                            @if(isset($spa)) && $spa->spa_color == "a66bbe")
+                                <option value="a66bbe" data-color="#a66bbe" selected="selected">Violet</option>
+                            @else
+                                <option value="a66bbe" data-color="#a66bbe">Violet</option>
+                            @endif
+                            @if(isset($spa)) && $spa->spa_color == "95a5a6")
+                                <option value="95a5a6" data-color="#95a5a6" selected="selected">Gris</option>
+                            @else
+                                <option value="95a5a6" data-color="#95a5a6">Gris</option>
+                            @endif
+                            @if(isset($spa)) && $spa->spa_color == "663300")
+                                <option value="663300" data-color="#663300" selected="selected">Marron</option>
+                            @else
+                                <option value="663300" data-color="#663300">Marron</option>
+                            @endif
                         </select>
                         {!! $errors->first('spaColor', '<div class="invalid-feedback">:message</div>') !!}
                     </div>
