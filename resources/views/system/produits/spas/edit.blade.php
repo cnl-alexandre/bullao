@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="spaPrixSupp">Prix jour supplémentaire</label>
+                        <label for="spaPrixSupp">Prix par jour supplémentaire</label>
                         <div class="input-group mb-3">
                             @if(isset($spa))
                                 <input type="number" class="form-control {{ $errors->has('spaPrixSupp') ? 'is-invalid' : '' }}" name="spaPrixSupp" id="spaPrixSupp" value="{{ $spa->spa_prix_jour_supp }}" placeholder="Prix jours supplémentaires">
@@ -82,7 +82,7 @@
                             @endif
                             {!! $errors->first('spaPrixSupp', '<div class="invalid-feedback">:message</div>') !!}
                             <div class="input-group-append">
-                                <span class="input-group-text">€</span>
+                                <span class="input-group-text">€/jour</span>
                             </div>
                         </div>
                     </div>

@@ -24,6 +24,7 @@
                         <th style="min-width:70px;">Stock total</th>
                         <th>Stock réel</th>
                         <th style="min-width:70px;">Prix</th>
+                        <th>Consommable ?</th>
                         <th style="min-width:40px;">Terminé</th>
                         <th style="min-width:40px;">À venir</th>
                         <th style="width:50px;"></th>
@@ -38,6 +39,7 @@
                                 <td>{{ $detailAccessoire->accessoire_stock }}</td>
                                 <td>{{ $detailAccessoire->nbStockReel() }}</td>
                                 <td>{{ $detailAccessoire->accessoire_prix }}€</td>
+                                <td>{{ $detailAccessoire->conso() }}</td>
                                 <td class="text-right text-success"></td>
                                 <td class="text-right text-warning"></td>
                                 <td><a href="{{ url('/system/produits/accessoires/edit/'.$detailAccessoire->accessoire_id) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a></td>

@@ -49,9 +49,9 @@
                             <label for="promoValeur">Valeur</label>
                             <div class="input-group mb-3">
                                 @if(isset($promo))
-                                    <input type="number" class="form-control {{ $errors->has('promoValeur') ? 'is-invalid' : '' }}" name="promoValeur" id="promoValeur" value="{{ $promo->promo_valeur }}" placeholder="Libellé du pack (ex: Pack Chill)">
+                                    <input type="number" class="form-control {{ $errors->has('promoValeur') ? 'is-invalid' : '' }}" name="promoValeur" id="promoValeur" value="{{ $promo->promo_valeur }}" placeholder="0.00">
                                 @else
-                                    <input type="number" class="form-control {{ $errors->has('promoValeur') ? 'is-invalid' : '' }}" name="promoValeur" id="promoValeur" placeholder="Libellé du pack (ex: Pack Chill)">
+                                    <input type="number" class="form-control {{ $errors->has('promoValeur') ? 'is-invalid' : '' }}" name="promoValeur" id="promoValeur" placeholder="0.00">
                                 @endif
                                 {!! $errors->first('promoValeur', '<div class="invalid-feedback">:message</div>') !!}
                                 <div class="input-group-append">

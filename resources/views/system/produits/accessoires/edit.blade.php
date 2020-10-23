@@ -68,6 +68,22 @@
                         {!! $errors->first('accessoireStock', '<div class="invalid-feedback">:message</div>') !!}
                     </div>
                     <div class="form-group">
+                        <label for="accessoireConso">Consommable ?</label>
+                        <select class="form-control" name="accessoireConso" id="accessoireConso">
+                            @if(isset($accessoire) && $accessoire->accessoire_conso == "0")
+                                <option value="0" selected="selected">Non</option>
+                            @else
+                                <option value="0">Non</option>
+                            @endif
+                            @if(isset($accessoire) && $accessoire->accessoire_conso == "1")
+                                <option value="1" selected="selected">Oui</option>
+                            @else
+                                <option value="1">Oui</option>
+                            @endif
+                        </select>
+                        {!! $errors->first('accessoireConso', '<div class="invalid-feedback">:message</div>') !!}
+                    </div>
+                    <div class="form-group">
                         <label for="accessoireDescription">Description <small>(🛠 inactif)</small></label>
                         @if(isset($accessoire))
                             <textarea rows="4" class="form-control {{ $errors->has('accessoireDescription') ? 'is-invalid' : '' }}" name="accessoireDescription" id="accessoireDescription">{{ $accessoire->accessoire_description }}</textarea>

@@ -139,6 +139,20 @@ class ReservationController extends Controller
         $r = Reservation::Find($reservation->reservation_id);
         $r->reservation_paye = 1;
         $r->save();
+
+        if(count($reservation->accessoires) > 0)
+        {
+            foreach($reservation->accessoires as $rAccessoire)
+            {
+                $accessoire = Accessoire::find($rAccessoire->ra_accessoire_id);
+                if($accessoire->accessoire_conso == 1)
+                {
+                    $accessoire->accessoire_stock = $accessoire->accessoire_stock-1;
+                    $accessoire->save();
+                }
+            }
+        }
+
         Session::put('reservation', $r);
 
         $reservation = Session::get('reservation');

@@ -39,15 +39,47 @@ class Accessoire extends Model
         }
     }
 
-    public function nbStockReel($idReservation)
+    public function nbStockReel()
     {
-        $reservations = Reservation::where('reservation_date_fin', '>=', date('Y-m-d'))
-                        ->where('reservation_date_fin', '<=', date('Y-m-d'))
-                        ->get();
-        
-        
+        $nbStockReel = 0;
 
-        return $nbStockReel;
+        $reservations = Reservation::where('reservation_date_debut', '<=', date('Y-m-d'))
+                        ->where('reservation_date_fin', '>=', date('Y-m-d'))
+                        ->where('reservation_paye', '=', '1')
+                        ->get();
+
+        if(count($reservations) > 0)
+        {
+            foreach($reservations as $reservation)
+            {
+                if(count($reservation->accessoires) > 0)
+                {
+                    foreach($reservation->accessoires as $rAccessoire)
+                    {
+                        if($rAccessoire->ra_reservation_id == $reservation->reservation_id)
+                        {
+                            $nbStockReel++;
+                        }
+                    }
+                }
+            }
+        }
+        
+        return $this->accessoire_stock-$nbStockReel;
+    }
+
+    public function conso()
+    {
+        if($this->accessoire_conso == 0)
+        {
+            $result = "Non";
+        }
+        else
+        {
+            $result = "Oui";
+        }
+
+        return $result;
     }
 
     // public function nbResaFutures()
@@ -62,7 +94,7 @@ class Accessoire extends Model
     // {
     //     $nbResaPassees = Reservation::where('ra_reservation_id', '=', $this->ra_accessoire_id)
     //                     ->where('reservation_date_fin', '<', date('Y-m-d'))
-    //                     ->count('reservation_id');
+    //                     ->get();
     //
     //     return $nbResaPassees;
     // }
@@ -71,6 +103,7 @@ class Accessoire extends Model
     {
         $this->accessoire_libelle                  = $array->accessoireLibelle;
         $this->accessoire_stock                    = $array->accessoireStock;
+        $this->accessoire_conso                    = $array->accessoireConso;
         $this->accessoire_prix                     = $array->accessoirePrix;
         $this->accessoire_description              = $array->accessoireDescription;
 
