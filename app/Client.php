@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use App\Adresse;
+use App\User;
 
 class Client extends Model
 {
@@ -33,13 +34,21 @@ class Client extends Model
         $this->client_name          = $array->name;
         $this->client_email         = $array->email;
         $this->client_phone         = $array->phone;
-        $this->save();
 
-        if(isset($array->adresse1) && $array->adresse1 != "")
+        $u = User::where('user_login', 'LIKE', $array->email)->get();
+        if(count($u) == 0)
         {
-            $address = new Adresse;
-            $address->create($this->client_id, $array);
+            $user = new User;
+            $user->create($array);
+            $idUser = $user->user_id;
         }
+        else
+        {
+            $idUser = $u[0]->user_id;
+        }
+        
+        $this->client_user_id       = $idUser;
+        $this->save();
     }
 
     public function createSession()

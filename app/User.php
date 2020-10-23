@@ -31,6 +31,14 @@ class User extends Model
     {
         return $this->hasMany('App\Client', 'client_user_id');
     }
+
+    public function create($array)
+    {
+        $this->user_login           = $array->email;
+        $this->user_password        = sha1($this->randomPassword(10));
+        $this->user_rank_id         = 2;
+        $this->save();
+    }
     
     public function getStatus()
     {

@@ -326,7 +326,7 @@
             $("#btn-reserver-6").css('background-color', '#FF8B00');
             $("#btn-reserver-6").css('border-color', '#FF8B00');
         }
-        else
+        else if(nbPlace == 4)
         {
             $("#btn-reserver-4").html('Offre sélectionnée');
             $("#btn-reserver-4").css('background-color', '#FF8B00');

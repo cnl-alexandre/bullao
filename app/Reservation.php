@@ -9,6 +9,7 @@ use App\ReservationAccessoire;
 use App\Pack;
 use App\Spa;
 use App\Promo;
+use App\Adresse;
 
 class Reservation extends Model
 {
@@ -127,13 +128,35 @@ class Reservation extends Model
                 $this->reservation_montant_total        = $this->reservation_montant_total-(($this->reservation_montant_total*$promo->promo_valeur)/100);
             }
 
-            // Création du client
-            $client = new Client;
-            $client->create($array);
+            $c = Client::where('client_email', 'LIKE', $array->email)->get();
+            
+            if(count($c) == 0)
+            {
+                $client = new Client;
+                $client->create($array);
+                $idClient = $client->client_id;
+            }
+            else
+            {
+                $idClient = $c[0]->client_id;
+            }
 
-            $this->reservation_client_id        = $client->client_id;
+            $this->reservation_client_id        = $idClient;
             $this->reservation_email            = $array->email;
             $this->save();
+
+            if(isset($array->adresse1) && $array->adresse1 != "")
+            {
+                $a = Adresse::where('adresse_rue', 'LIKE', $array->adresse1)
+                            ->where('adresse_client_id', '=', $idClient)
+                            ->get();
+
+                if(count($a) == 0)
+                {
+                    $address = new Adresse;
+                    $address->create($idClient, $array);
+                }
+            }
         }
     }
 
