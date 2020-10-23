@@ -101,14 +101,14 @@ Route::get('system/produits/accessoires/edit/{id}', 'system\ProduitController@ed
 Route::post('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoireSubmit');
 
 // PARAMETRES - Code Promo
-Route::get('system/parametres/codespromo/list', 'system\ParametresController@listCodesPromo');
-Route::get('system/parametres/codespromo/new', 'system\ParametresController@newCodePromo');
+Route::get('system/parametres/codespromo/list', 'system\ParametresController@listCodesPromo');                      ->middleware('global.system');
+Route::get('system/parametres/codespromo/new', 'system\ParametresController@newCodePromo');                         ->middleware('global.system');
 Route::post('system/parametres/codespromo/new', 'system\ParametresController@newCodePromoSubmit');
-Route::get('system/parametres/codespromo/edit/{id}', 'system\ParametresController@editCodePromo');
+Route::get('system/parametres/codespromo/edit/{id}', 'system\ParametresController@editCodePromo');                  ->middleware('global.system');
 Route::post('system/parametres/codespromo/edit/{id}', 'system\ParametresController@editCodePromoSubmit');
 // PARAMETRES - Indispo
-Route::get('system/parametres/indisponibilite/list', 'system\ParametresController@listIndispo');
-Route::get('system/parametres/indisponibilite/new', 'system\ParametresController@newIndispo');
+Route::get('system/parametres/indisponibilite/list', 'system\ParametresController@listIndispo');                    ->middleware('global.system');
+Route::get('system/parametres/indisponibilite/new', 'system\ParametresController@newIndispo');                      ->middleware('global.system');
 Route::post('system/parametres/indisponibilite/new', 'system\ParametresController@newIndispoSubmit');
-Route::get('system/parametres/indisponibilite/edit/{id}', 'system\ParametresController@editIndispo');
+Route::get('system/parametres/indisponibilite/edit/{id}', 'system\ParametresController@editIndispo');               ->middleware('global.system');
 Route::post('system/parametres/indisponibilite/edit/{id}', 'system\ParametresController@editIndispoSubmit');
