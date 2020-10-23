@@ -94,8 +94,7 @@ class ParametresController extends Controller
     public function newIndispoSubmit(Request $request)
     {
         $this->validate($request,[
-            'indispoDate'               => 'required',
-            'indispoDesc'               => 'required'
+            'indispoDate'               => 'required'
         ]);
 
         $newIndispo             = new Indisponibilite;
@@ -118,8 +117,7 @@ class ParametresController extends Controller
     public function editIndispoSubmit(Request $request, $id)
     {
         $this->validate($request,[
-            'indispoDate'               => 'required',
-            'indispoDesc'               => 'required'
+            'indispoDate'               => 'required'
         ]);
 
         $newIndispo = Indisponibilite::find($id);;

@@ -37,8 +37,6 @@ class BackOfficeController extends Controller
             $resasSpa[$spa->spa_libelle.' '.$spa->spa_nb_place.' places'] = $nb;
         }
 
-        $colors = array('FFC107', '039BE5', 'BDBDBD', '0277BD', '37474F', '009688', '3F51B5');
-
         $detailsResaEnCours = Reservation::where('reservation_date_debut', '<=', $dateToday)
                                 ->where('reservation_date_fin', '>=', $dateToday)
                                 ->where('reservation_paye', '=', '1')
@@ -68,7 +66,6 @@ class BackOfficeController extends Controller
             'detailsResaEnCours'            => $detailsResaEnCours,
             'resasSpa'                      => $resasSpa,
             'spas'                          => $spas,
-            'colors'                        => $colors,
             'ventesActives'                 => $ventesActives
         ]);
     }
