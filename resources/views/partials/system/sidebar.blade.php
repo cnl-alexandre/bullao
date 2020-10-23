@@ -70,6 +70,12 @@
             <span>Codes Promo</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('/system/parametres/indisponibilite/list') }}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Indisponibilité</span>
+        </a>
+    </li>
 
     <!-- Divider -->
     <!-- <hr class="sidebar-divider"> -->

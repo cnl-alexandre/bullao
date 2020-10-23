@@ -100,9 +100,15 @@ Route::post('system/produits/accessoires/new', 'system\ProduitController@newAcce
 Route::get('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoire')                      ->middleware('global.system');
 Route::post('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoireSubmit');
 
-// PARAMETRES
+// PARAMETRES - Code Promo
 Route::get('system/parametres/codespromo/list', 'system\ParametresController@listCodesPromo');
 Route::get('system/parametres/codespromo/new', 'system\ParametresController@newCodePromo');
 Route::post('system/parametres/codespromo/new', 'system\ParametresController@newCodePromoSubmit');
 Route::get('system/parametres/codespromo/edit/{id}', 'system\ParametresController@editCodePromo');
 Route::post('system/parametres/codespromo/edit/{id}', 'system\ParametresController@editCodePromoSubmit');
+// PARAMETRES - Indispo
+Route::get('system/parametres/indisponibilite/list', 'system\ParametresController@listIndispo');
+Route::get('system/parametres/indisponibilite/new', 'system\ParametresController@newIndispo');
+Route::post('system/parametres/indisponibilite/new', 'system\ParametresController@newIndispoSubmit');
+Route::get('system/parametres/indisponibilite/edit/{id}', 'system\ParametresController@editIndispo');
+Route::post('system/parametres/indisponibilite/edit/{id}', 'system\ParametresController@editIndispoSubmit');

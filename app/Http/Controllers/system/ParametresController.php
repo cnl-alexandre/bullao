@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Promo;
 use App\Reservation;
+use App\Indisponibilite;
 use Illuminate\Http\Request;
 
 class ParametresController extends Controller
@@ -72,5 +73,59 @@ class ParametresController extends Controller
 
         Session::put('success', 'Le code promo a bien été modifié.');
         return redirect('/system/parametres/codespromo/list');
+    }
+
+    public function listIndispo()
+    {
+        $listeIndispo = Indisponibilite::orderby('indisponibilite_id', 'ASC')->get();
+
+        return view('system.parametres.indisponibilite.list')->with([
+            'listeIndispo'              =>  $listeIndispo
+        ]);
+    }
+
+    public function newIndispo()
+    {
+        return view('system.parametres.indisponibilite.edit')->with([
+            'action'              =>  url('/system/parametres/indisponibilite/new')
+        ]);
+    }
+
+    public function newIndispoSubmit(Request $request)
+    {
+        $this->validate($request,[
+            'indispoDate'               => 'required',
+            'indispoDesc'               => 'required'
+        ]);
+
+        $newIndispo             = new Indisponibilite;
+        $newIndispo->edit($request);
+
+        Session::put('success', 'La date a bien été ajouté.');
+        return redirect('/system/parametres/indisponibilite/list');
+    }
+
+    public function editIndispo($id)
+    {
+        $indispo = Indisponibilite::find($id);
+
+        return view('system.parametres.indisponibilite.edit')->with([
+            'indispo'           => $indispo,
+            'action'        => url('/system/parametres/indisponibilite/edit/'.$id)
+        ]);
+    }
+
+    public function editIndispoSubmit(Request $request, $id)
+    {
+        $this->validate($request,[
+            'indispoDate'               => 'required',
+            'indispoDesc'               => 'required'
+        ]);
+
+        $newIndispo = Indisponibilite::find($id);;
+        $newIndispo->edit($request);
+
+        Session::put('success', 'La date a bien été modifié.');
+        return redirect('/system/parametres/indisponibilite/list');
     }
 }
