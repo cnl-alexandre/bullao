@@ -41,7 +41,7 @@ class Pack extends Model
                         ->where('reservation_date_fin', '<=', date('Y-m-d'))
                         ->count();
 
-        return $nbStockReel;
+        return $this->pack_stock-$nbStockReel;
     }
 
     public function nbResaFutures()

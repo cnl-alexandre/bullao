@@ -21,7 +21,7 @@
                     <tr>
                         <th style="min-width:30px;">#</th>
                         <th style="min-width:150px;">Libellé</th>
-                        <th style="min-width:70px;">Stock</th>
+                        <th style="min-width:70px;">Stock total</th>
                         <th>Stock réel</th>
                         <th style="min-width:70px;">Prix</th>
                         <th style="min-width:40px;">Terminé</th>
@@ -36,7 +36,7 @@
                                 <td>{{ $detailAccessoire->accessoire_id }}</td>
                                 <td>{{ $detailAccessoire->accessoire_libelle }}</td>
                                 <td>{{ $detailAccessoire->accessoire_stock }}</td>
-                                <th></th>
+                                <td>{{ $detailAccessoire->nbStockReel() }}</td>
                                 <td>{{ $detailAccessoire->accessoire_prix }}€</td>
                                 <td class="text-right text-success"></td>
                                 <td class="text-right text-warning"></td>

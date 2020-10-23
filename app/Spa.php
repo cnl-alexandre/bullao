@@ -33,7 +33,7 @@ class Spa extends Model
                         ->where('reservation_date_debut', '<=', date('Y-m-d'))
                         ->count();
 
-        return $nbStockReel;
+        return $this->spa_stock-$nbStockReel;
     }
 
     public function nbResaFutures()

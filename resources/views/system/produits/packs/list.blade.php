@@ -21,7 +21,7 @@
                     <tr>
                         <th style="min-width:30px;">#</th>
                         <th style="min-width:150px;">Libellé</th>
-                        <th style="min-width:70px;">Stock</th>
+                        <th style="min-width:70px;">Stock total</th>
                         <th>Stock réel</th>
                         <th style="min-width:70px;">Prix</th>
                         <th style="width:25px;">OK</th>

@@ -24,7 +24,7 @@
                         <th>Places</th>
                         <th>Prix</th>
                         <th>Supp</th>
-                        <th>Stock</th>
+                        <th>Stock total</th>
                         <th>Stock réel</th>
                         <th style="width:25px;">OK</th>
                         <th style="width:25px;">DO</th>
