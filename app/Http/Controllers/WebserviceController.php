@@ -86,7 +86,7 @@ class WebserviceController extends Controller
         {
             foreach($spas as $spa)
             {
-                if(!in_array($spa->spa_id, $reserv))
+                if(!in_array($spa->spa_id, $reserv) && $spa->spa_stock > 0)
                 {
                     $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap spa-no-disabled" data-aos="fade-up">';
                         $html .= '<input type="radio" name="spa" id="spa-'.$spa->spa_id.'" autocomplete="off" value="'.$spa->spa_id.'">';
