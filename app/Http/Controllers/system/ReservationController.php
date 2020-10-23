@@ -36,10 +36,21 @@ class ReservationController extends Controller
         $reservation = Reservation::find($id);
         $accessoires = Accessoire::All();
 
+        $idAccessoiresReservation = [];
+
+        if(count($reservation->accessoires) > 0)
+        {
+            foreach($reservation->accessoires as $accessoire)
+            {
+                array_push($idAccessoiresReservation, $accessoire->ra_accessoire_id);
+            }
+        }
+
         return view('system.reservation.edit')->with([
-            'reservation'           => $reservation,
-            'accessoires'           => $accessoires,
-            'action'        => url('/system/reservations/edit')
+            'reservation'               => $reservation,
+            'accessoires'               => $accessoires,
+            'action'                    => url('/system/reservations/edit'),
+            'idAccessoiresReservation'  => $idAccessoiresReservation
         ]);
     }
 }

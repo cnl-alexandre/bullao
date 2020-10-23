@@ -119,22 +119,23 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <label for="reservationLibelleSpa">Libellé du spa</label>
+                            <label for="reservationLibelleSpa">Spa</label>
                             <input type="text" class="form-control" name="reservationLibelleSpa" id="reservationLibelleSpa" value="{{ $reservation->reservation_spa_libelle }}" disabled>
                         </div>
                         @if($reservation->reservation_pack_id)
                         <div class="col-md-12 form-group">
-                            <label for="reservationLibellePack">Libellé du pack</label>
+                            <label for="reservationLibellePack">Pack</label>
                             <input type="text" class="form-control" name="reservationLibellePack" id="reservationLibellePack" value="{{ $reservation->pack->pack_libelle }}" disabled>
                         </div>
                         @endif
                         @if(count($accessoires) > 0)
                             <div class="col-md-12 form-group">
+                                <label for="reservationLibelleAccessoires">Accessoires</label>
                                 <div class="row">
                                     @foreach($accessoires as $accessoire)
                                         <div class="col-md-3">
                                             <div class="form-check">
-                                                @if($accessoire->accessoire_id == 2)
+                                                @if(in_array($accessoire->accessoire_id, $idAccessoiresReservation))
                                                     <input class="form-check-input" type="checkbox" disabled checked value="{{ $accessoire->accessoire_id }}" id="reservationLibelleAccessoire{{ $accessoire->accessoire_id }}">
                                                 @else
                                                     <input class="form-check-input" type="checkbox" disabled value="{{ $accessoire->accessoire_id }}" id="reservationLibelleAccessoire{{ $accessoire->accessoire_id }}">
