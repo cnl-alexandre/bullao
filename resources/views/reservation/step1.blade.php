@@ -283,6 +283,15 @@
         });
     });
 
+    $(".pack-recap").click(function() {
+        $("html, body").animate({
+            scrollTop: $("#accessoires-section").offset().top
+        }, 1000);
+
+        $("#btn-confirm").attr("disabled", false);
+        $("#btn-confirm").attr("title", null);
+    })
+
     @if(count($packs) > 0)
         $("#btn-pack-clear").click(function() {
             @foreach($packs as $pack)
@@ -297,7 +306,7 @@
     $(document).ready(function() {
 
         $('#btn-confirm').attr("disabled", true);
-        $('#btn-confirm').attr("title", "Vous devez choisir un spa.");
+        $('#btn-confirm').attr("title", "Vous devez choisir un spa et faire un choix au niveau des packs.");
 
         // Gestion du scroll automatique
         var url = $(location).attr('href');
@@ -337,9 +346,9 @@
         ];
 
         $('#daterange').daterangepicker({
-            startDate: "{{ date('d/m/Y', strtotime(date('Y-m-d'). ' + 1 days')) }}",
-            endDate: "{{ date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days')) }}",
-            minDate: "{{ date('d/m/Y') }}",
+            startDate: "{{ date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days')) }}",
+            endDate: "{{ date('d/m/Y', strtotime(date('Y-m-d'). ' + 3 days')) }}",
+            minDate: "{{ date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days')) }}",
             maxDate: "31/12/{{ (date('Y')+1) }}",
             showDropdowns: true,
             opens: "center",
@@ -383,6 +392,16 @@
                     }
                 }
             }
+        });
+
+        $('#daterange').on('hide.daterangepicker', function(ev, picker) {
+            $('html, body').animate({
+                scrollTop: $("#spas-section").offset().top
+            }, 1000);
+
+            setTimeout(function(){
+                $('#daterange').trigger('click');
+            }, 1);
         });
 
         daterangepicker.prototype.outsideClick = function(e) {};

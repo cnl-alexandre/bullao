@@ -143,7 +143,6 @@ class ProduitController extends Controller
 
     public function listAccessoires()
     {
-
         $listeAccessoires = Accessoire::orderby('accessoire_id', 'ASC')->get();
 
         return view('system.produits.accessoires.list')->with([

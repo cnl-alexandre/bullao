@@ -119,8 +119,9 @@ class WebserviceController extends Controller
 
             $html .= '<script>';
                 $html .= '$(".spa-no-disabled").click(function() {';
-                    $html .= '$("#btn-confirm").attr("disabled", false);';
-                    $html .= '$("#btn-confirm").attr("title", null);';
+                    $html .= '$("html, body").animate({';
+                        $html .= 'scrollTop: $("#packs-section").offset().top';
+                    $html .= '}, 1000);';
                 $html .= '})';
             $html .= '</script>';
         }
