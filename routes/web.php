@@ -112,3 +112,6 @@ Route::get('system/parametres/indisponibilite/new', 'system\ParametresController
 Route::post('system/parametres/indisponibilite/new', 'system\ParametresController@newIndispoSubmit');
 Route::get('system/parametres/indisponibilite/edit/{id}', 'system\ParametresController@editIndispo')                ->middleware('global.system');
 Route::post('system/parametres/indisponibilite/edit/{id}', 'system\ParametresController@editIndispoSubmit');
+
+// SCHEDULERS
+Route::get('schedulers/launch', 'SchedulersController@launch');

@@ -27,6 +27,8 @@ class GlobalSystem
         }
         else
         {
+            Session::flush('error');
+
             if(!isset($_COOKIE[env('NAME_COOKIE').'-token']))
             {
                 Session::put('error', 'Veuillez vous connecter pour accéder à cette page.');

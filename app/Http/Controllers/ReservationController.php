@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use App\Reservation;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Controllers\SchedulerController;
 
 class ReservationController extends Controller
 {
@@ -24,7 +23,7 @@ class ReservationController extends Controller
         $indispos       = Indisponibilite::where('indisponibilite_date', '>=', date('Y-m-d'))->get();
         $spas           = Spa::where('spa_nb_place', '=', $nbPlace)->orderby('spa_id', 'ASC')->get();
         $packs          = Pack::orderby('pack_id', 'ASC')->get();
-        $accessoires    = Accessoire::orderby('accessoire_id', 'ASC')->get();
+        $accessoires    = Accessoire::orderby('accessoire_stock', 'DESC')->orderby('accessoire_prix', 'DESC')->get();
 
         return view('reservation.step1')->with([
             'indispos'      => $indispos,
@@ -158,7 +157,7 @@ class ReservationController extends Controller
         $reservation = Session::get('reservation');
 
         // Mail destiné au client
-        Mail::send('emails.confirmationCustomer', ['reservation' => $reservation], function($mess) use ($reservation){
+        Mail::send('emails.customer.confirmationCustomer', ['reservation' => $reservation], function($mess) use ($reservation){
             $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
             $mess->to($reservation->client->client_email);          // Mail du client
             // $mess->cc('jer.lemont@gmail.com');
@@ -166,7 +165,7 @@ class ReservationController extends Controller
         });
 
         // Mail destiné aux Admins
-        Mail::send('emails.confirmationAdmin', ['reservation' => $reservation], function($mess){
+        Mail::send('emails.system.confirmationAdmin', ['reservation' => $reservation], function($mess){
             $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
             $mess->to(env('MAIL_ADMIN'));                           // Mail de l'admin
             $mess->cc('contact@bullao.fr');
@@ -175,9 +174,6 @@ class ReservationController extends Controller
 
         Session::forget('reservation');
         Session::forget('joursSupp');
-
-        //$scheduler = new SchedulerController;
-        //$scheduler->purgeReservationsNonPayees();
 
         return view('reservation.paiement-accepte')->with([]);
     }

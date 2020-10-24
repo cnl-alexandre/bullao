@@ -235,7 +235,7 @@ class WebserviceController extends Controller
                                     ])
                                     ->get();
 
-        $accessoires = Accessoire::all();
+        $accessoires = Accessoire::orderby('accessoire_stock', 'DESC')->orderby('accessoire_prix', 'DESC')->get();;
 
         $reserv = [];
         $nbAccessoireReserv = [];

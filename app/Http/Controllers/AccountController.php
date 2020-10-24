@@ -198,7 +198,7 @@ class AccountController extends Controller
         if(count($reservations) > 0)
         {
             // Mail destiné au client
-            Mail::send('emails.historyReservations', ['reservations' => $reservations], function($mess) use ($request){
+            Mail::send('emails.customer.historyReservations', ['reservations' => $reservations], function($mess) use ($request){
                 $mess->from(env('MAIL_EMAIL'));
                 $mess->to($request->email);
                 $mess->subject('Bullao : Hitorique de vos réservations');
