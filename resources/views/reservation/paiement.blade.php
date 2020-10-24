@@ -38,8 +38,8 @@
             </div>
             <input type="hidden" name="reservation_id" value="{{ $reservation->reservation_id }}">
             <div style="text-align: center;">
-                <button id="card-button" type="button" data-secret="<?= $intent['client_secret'] ?>" style="color: #fff;background-color: #007bff;border-color: #007bff;margin-top: 35px; margin-left: 30%; margin-right: 30%; width: 40%; height: 40px;cursor: pointer;border-radius: .25rem;">Payer la réservation</button>
-                <a href="{{ url('/') }}">Annuler</a>
+                <button id="card-button" type="button" data-secret="<?= $intent['client_secret'] ?>" style="color: #fff;background-color: #007bff;border-color: #007bff;margin: 35px 25% 20px 25%;font-size: 1rem;width: 50%; height: 40px;cursor: pointer;border-radius: .25rem;">Payer la réservation</button>
+                <a href="{{ url('/') }}" style="margin-top: 30px;">Annuler</a>
             </div>
         </form>
     </div>
