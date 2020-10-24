@@ -18,7 +18,8 @@ class ReservationController extends Controller
 
         $listeResas = Reservation::where('reservation_date_fin', '>=', $dateToday)
                                         ->where('reservation_paye', '=', '1')
-                                        ->orderby('reservation_date_fin', 'ASC')
+                                        ->orderby('reservation_date_debut', 'ASC')
+                                        ->orderby('reservation_id', 'ASC')
                                         ->get();
         $listeResaPassees = Reservation::where('reservation_date_fin', '<', $dateToday)
                                         ->where('reservation_paye', '=', '1')

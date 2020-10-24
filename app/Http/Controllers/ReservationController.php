@@ -176,8 +176,8 @@ class ReservationController extends Controller
         Session::forget('reservation');
         Session::forget('joursSupp');
 
-        $scheduler = new SchedulerController;
-        $scheduler->purgeReservationsNonPayees();
+        //$scheduler = new SchedulerController;
+        //$scheduler->purgeReservationsNonPayees();
 
         return view('reservation.paiement-accepte')->with([]);
     }

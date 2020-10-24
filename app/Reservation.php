@@ -115,7 +115,7 @@ class Reservation extends Model
             $this->reservation_creneau          = $array->creneau;
             $this->reservation_rue              = $array->adresse1;
             $this->reservation_cp               = $array->cp;
-            $this->reservation_ville            = $array->ville;
+            $this->reservation_ville            = ucfirst($array->ville);
             $this->reservation_complement       = $array->adresse2;
             $this->reservation_departement      = $array->departement;
             

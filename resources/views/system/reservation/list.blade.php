@@ -12,7 +12,7 @@
 <div class="card shadow">
     <ul class="nav nav-tabs nav-justified" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="login-tab" data-toggle="tab" href="#ResaFutures" role="tab">Réservations à venir</a>
+            <a class="nav-link active" id="login-tab" data-toggle="tab" href="#ResaFutures" role="tab">Réservations à venir ({{ count($listeResas) }})</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="register-tab" data-toggle="tab" href="#ResaPassees" role="tab">Précédentes réservations</a>

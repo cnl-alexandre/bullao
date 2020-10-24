@@ -17,7 +17,7 @@ class SchedulerController extends Controller
 
     public function purgeReservationsNonPayees()
     {
-        $reservations = Reservation::where('reservation_paye', '=', '0')->get();
+        $reservations = Reservation::where('reservation_paye', '=', '0')->where('reservation_payment_id', '<>', '')->get();
         $count = 0;
 
         if(count($reservations) > 0)
