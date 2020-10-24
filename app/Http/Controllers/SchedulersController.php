@@ -82,10 +82,12 @@ class SchedulersController extends Controller
 
     public function notationPrestationAfter()
     {
-        $reservations = Reservation::where('reservation_paye', '=', '1')
-                                    ->where('reservation_payment_id', '<>', '')
-                                    ->where('reservation_date_fin', 'LIKE', '%-%-'.date('Y-m-d', strtotime(date('Y-m-d'). ' - 3 days')))
-                                    ->get();
+        // $reservations = Reservation::where('reservation_paye', '=', '1')
+        //                             ->where('reservation_payment_id', '<>', '')
+        //                             ->where('reservation_date_fin', 'LIKE', '%-%-'.date('Y-m-d', strtotime(date('Y-m-d'). ' - 3 days')))
+        //                             ->get();
+
+        $reservations = Reservation::where('reservation_paye', '=', '1')->get();
 
         if(count($reservations) > 0)
         {
