@@ -23,9 +23,14 @@ class SchedulersController extends Controller
          * 
          * Lancement toutes les heures
         */
-        if(date('i') == '00') {
-            $this->purgeReservationsNonPayees();
-        }
+        $this->purgeReservationsNonPayees();
+
+        /**
+         * Scheduler permettant d'envoyer un mail aux clients qui ont eu une réservation il y a 3 jours
+         * 
+         * Lancement toutes les heures
+        */
+        $this->notationPrestationAfter();
     }
 
     public function purgeReservationsNonPayees()
