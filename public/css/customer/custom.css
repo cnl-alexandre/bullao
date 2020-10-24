@@ -18,7 +18,19 @@ h1, h2, h3, h4, h5,
 }
 @media all and (max-width: 425px){
 		.block-heading-1 .h2-reservation {
-				font-size: 1.9rem;
+				font-size: 1.6rem;
+		}
+}
+
+@media all and (max-width: 425px){
+		.btn-radio-custom .input-col-step1-responsive {
+			flex-direction: column;
+			padding: 22px;
+			text-align: center!important;
+		}
+		.btn-radio-custom .col-4 {
+			max-width: none;
+			padding: 0;
 		}
 }
 

@@ -8,7 +8,7 @@
 
     {{ csrf_field() }}
 
-    <div class="site-section" id="formdata-section">
+    <div class="site-section bg-light" id="formdata-section">
         <div class="container">
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-7 text-center">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-5 col-md-6" style="margin-left: auto;margin-right: auto;">
+                <div class="col-lg-6 col-md-6 mb-5" style="margin-left: auto;margin-right: auto;">
                     <!--<ul class="nav nav-tabs nav-justified" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab">J'ai déjà réservé</a>
@@ -114,14 +114,22 @@
                         <label for="promo">Code promo :</label>
                         <input type="text" id="promo" class="form-control" name="promo" maxlength="10">
                     </div>
-                    <div class="form-check">
+                    <div class="form-check mb-5">
                         <input class="form-check-input" type="checkbox" name="acceptCGV" value="yes" id="acceptCGV">
                         <label class="form-check-label" for="acceptCGV">
                             J'ai lu et j'accepte les <a href="{{ url('/cgv-bullao') }}" target="_blank">CGV - Bullao</a>
                         </label>
                     </div>
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            <a href="{{ url('/') }}" class="btn btn-secondary btn-md text-white">Annuler</a>
+                        </div>
+                        <div class="col-6 text-right">
+                            <input type="submit" name="" id="btn-confirm" value="Confirmer" class="btn btn-primary btn-md text-white">
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-5 col-md-6" style="margin-left: auto;margin-right: auto;">
+                <div class="col-lg-5 col-md-6" style="margin-left: auto;margin-right: auto;height: min-content;background-color: white;padding: 16px 15px;">
                     <h5>Mon panier</h5>
                     <hr>
                     @if($reservation->spa->spa_nb_place == 4)
@@ -213,19 +221,14 @@
                 <input type="hidden" name="id" value="{{ $reservation->reservation_id }}">
                 <input type="hidden" name="montant_without_promo" id="montant_without_promo" value="{{ $reservation->reservation_montant_total }}">
                 <input type="hidden" name="montant_total" id="montant_total" value="{{ $reservation->reservation_montant_total }}">
-                <div class="col-6 text-left">
-                    <a href="{{ url('/') }}" class="btn btn-secondary btn-md text-white">Annuler</a>
-                </div>
-                <div class="col-6 text-right">
-                    <input type="submit" name="" id="btn-confirm" value="Confirmer ma réservation" class="btn btn-primary btn-md text-white">
-                </div>
+
             </div>
         </div>
     </div>
 
 </form>
 
-<footer style="background-color:#F4F4F4;">
+<footer>
     @include('partials.footer-tunnel')
 </footer>
 
@@ -267,7 +270,7 @@
 
                         $('#montant_total').val(montantWithoutPromo.toFixed(2));
                         $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
-                        
+
                         $("#promo").removeClass('is-valid');
                         $("#promo").addClass('is-invalid');
                     }
@@ -281,7 +284,7 @@
 
                     $('#montant_total').val(montantWithoutPromo.toFixed(2));
                     $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
-                    
+
                     $("#promo").removeClass('is-valid');
                     $("#promo").addClass('is-invalid');
                 }
@@ -295,7 +298,7 @@
 
             $('#montant_total').val(montantWithoutPromo.toFixed(2));
             $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
-            
+
             $("#promo").removeClass('is-valid');
             $("#promo").addClass('is-invalid');
         }
