@@ -83,52 +83,52 @@
             <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="">
                 <div class="block__35630">
                     <div class="icon mb-3">
-                        <span class="flaticon-mining"></span>
+                        <span><img src="{{ url('medias/img/pictos/003-checked.svg') }}" alt="" height="45px"></span>
                     </div>
                     <h3 class="mb-3">Réservation</h3>
-                    Vous avez trouvé le spa-jacuzzi de vos rêves ? Les réservations s’effectuent
-                    par téléphone, par mail ou via la messagerie instantanée de Bullao. À votre écoute, notre
-                    équipe répond rapidement à toutes vos questions.
+                    Vous rêvez de vous détendre avec vos proches chez vous ?
+                    Choisissez la date qui vous convient ainsi que le spa-jacuzzi désiré pour réserver depuis notre site.
+                    À votre écoute, on répond rapidement à toutes vos questions.
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
                 <div class="block__35630">
                     <div class="icon mb-3">
-                        <span class="flaticon-gold-ingots"></span>
+                        <span><img src="{{ url('medias/img/pictos/004-settings.svg') }}" alt="" height="45px"></span>
                     </div>
                     <h3 class="mb-3">Pose et retrait</h3>
-                    Afin de vous garantir la meilleure des expériences, notre équipe se charge
-                    de la livraison, de l’installation et du retrait à domicile. Pour que votre spa-jacuzzi soit
-                    opérationnel dans les temps, nous recommandons une installation début de journée.
+                    Afin de vous garantir la meilleure expérience, on se charge
+                    de la livraison, de la pose et du retrait chez vous. Pour que votre spa-jacuzzi soit
+                    opérationnel dans les temps, nous recommandons la pose en début de journée.
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
                 <div class="block__35630">
                     <div class="icon mb-3">
-                        <span class="flaticon-wagon"></span>
+                        <span><img src="{{ url('medias/img/pictos/002-covid.svg') }}" alt="" height="45px"></span>
                     </div>
                     <h3 class="mb-3">Hygiène</h3>
-                    Bullao vous assure une qualité, une hygiène et une sécurité optimale.
-                    Tous les spas-jacuzzi, ainsi que les accessoires sont vérifiés, nettoyés et désinfectés avant
-                    et après chaque utilisation. Notre équipe travaille dans le respect des règles sanitaires et
+                    Bullao vous assure une hygiène et une sécurité optimale.
+                    Tout le matériel est soigneusement nettoyé et désinfecté avant
+                    et après chaque utilisation. Nous travaillons dans le respect des règles sanitaires et
                     des gestes barrières.
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="">
                 <div class="block__35630">
                     <div class="icon mb-3">
-                        <span class="flaticon-refinery"></span>
+                        <span><img src="{{ url('medias/img/pictos/006-compass.svg') }}" alt="" height="45px"></span>
                     </div>
                     <h3 class="mb-3">Localisation</h3>
-                    Pour le moment, les équipes Bullao interviennent sur l’ensemble du
-                    secteur de Marne-la-Vallée. Nous espérons desservir prochainement Paris et l’Est de la
+                    Pour le moment, Bullao intervient sur l’ensemble du
+                    secteur de Marne-la-Vallée et Paris. Nous espérons desservir prochainement toute la
                     région Île-de-France.
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
                 <div class="block__35630">
                     <div class="icon mb-3">
-                        <span class="flaticon-blacksmith"></span>
+                        <span><img src="{{ url('medias/img/pictos/005-paint-brush.svg') }}" alt="" height="45px"></span>
                     </div>
                     <h3 class="mb-3">Personnalisation</h3>
                     Une demande particulière ? Façonnez votre instant spa-jacuzzi à votre
@@ -139,16 +139,12 @@
             <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
                 <div class="block__35630">
                     <div class="icon mb-3">
-                        <span class="flaticon-crucible"></span>
+                        <span><img src="{{ url('medias/img/pictos/001-photo-camera.svg') }}" alt="" height="45px"></span>
                     </div>
                     <h3 class="mb-3">Partage</h3>
-                    <!-- Impatients de plonger dans l’expérience Bullao ?  -->
-                    Une fois votre
-                    réservation effectuée, il ne vous reste plus qu’à attendre encore un peu avant de profiter
-                    pleinement de votre spa-jacuzzi.
-                    <!-- Le jour J,  -->
-                    Venez nous partager votre expérience
-                    sur Facebook et Instagram !
+                    Une fois réservé, il ne vous reste plus qu’à attendre encore un peu avant de profiter
+                    de votre spa-jacuzzi.
+                    Venez nous partager votre expérience sur Facebook et Instagram !
                 </div>
             </div>
         </div>
