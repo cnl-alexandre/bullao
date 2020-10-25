@@ -115,3 +115,5 @@ Route::post('system/parametres/indisponibilite/edit/{id}', 'system\ParametresCon
 
 // SCHEDULERS
 Route::get('schedulers/launch', 'SchedulersController@launch');
+Route::get('scheduler/launch/notationPrestationAfter', 'SchedulersController@notationPrestationAfter');
+Route::get('scheduler/launch/purgeReservationsNonPayees', 'SchedulersController@purgeReservationsNonPayees');

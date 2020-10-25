@@ -9,6 +9,7 @@ class ReservationAccessoire extends Model
 {
     protected $connection = 'mysql';
     protected $table = 'reservations_accessoires';
+    protected $primaryKey = 'ra_id';
     
     public function create($accessoire_id, $reservation_id)
     {
