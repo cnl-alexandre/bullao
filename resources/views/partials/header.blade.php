@@ -27,9 +27,9 @@
                         <span class="mr-2 text-white icon-phone"></span> <span class="d-none d-md-inline-block">{{ env('SUPPORT_PHONE') }}</span>
                     </a>
                     <div class="float-right">
-                        <a href="#" class="text-white"><span class="mr-2 text-white icon-facebook"></span> <span class="d-none d-md-inline-block">Facebook</span></a>
+                        <a href="{{ env('URL_FB') }}" target="_blank" class="text-white"><span class="mr-2 text-white icon-facebook"></span> <span class="d-none d-md-inline-block">Facebook</span></a>
                         <span class="mx-md-2 d-inline-block"></span>
-                        <a href="#" class="text-white"><span class="mr-2 text-white icon-instagram"></span> <span class="d-none d-md-inline-block">Instagram</span></a>
+                        <a href="{{ env('URL_INSTA') }}" target="_blank" class="text-white"><span class="mr-2 text-white icon-instagram"></span> <span class="d-none d-md-inline-block">Instagram</span></a>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
         <div class="container">
             <div class="row align-items-center position-relative">
                 <div class="site-logo">
-                  <a href="{{ url('/') }}" class="text-black"><span class="text-primary">Bullao</a>
+                  <a href="{{ url('/') }}" class="text-black"><img src="{{ url('medias/img/logos/compact-bleu.svg') }}" alt="" width="35px"><span class="text-primary">Bullao</a>
                 </div>
                 <div class="col-12">
                     <nav class="site-navigation text-right ml-auto " role="navigation">

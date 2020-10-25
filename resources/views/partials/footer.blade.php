@@ -25,8 +25,8 @@
             <div class="col-md-4 ml-auto">
                 <h2 class="footer-heading mb-3">Suivez-nous !</h2>
                 <p>
-                  <a href="#about-section" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span> Facebook</a>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span> Instagram</a>
+                  <a href="{{ env('URL_FB') }}" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span> Facebook</a>
+                  <a href="{{ env('URL_INSTA') }}" class="pl-3 pr-3"><span class="icon-instagram"></span> Instagram</a>
                 </p>
                 <h2 class="footer-heading mt-5 mb-3">Contactez-nous !</h2>
                 <p>

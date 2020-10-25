@@ -283,7 +283,7 @@ class WebserviceController extends Controller
             {
                 if(!in_array($accessoire->accessoire_id, $reserv) && $accessoire->accessoire_stock > 0)
                 {
-                    $html .= '<label for="accessoire-'.$accessoire->accessoire_id.'" class="btn btn-checkbox-custom col-lg-3 col-md-4 mb-3 accessoire-recap" data-aos="fade-up">';
+                    $html .= '<label for="accessoire-'.$accessoire->accessoire_id.'" class="btn btn-checkbox-custom col-lg-3 col-md-4 col-6 mb-3 accessoire-recap" data-aos="fade-up">';
                         $html .= '<input type="checkbox" name="accessoires[]" id="accessoire-'.$accessoire->accessoire_id.'" autocomplete="off" value="'.$accessoire->accessoire_id.'">';
                         $html .= '<div class="block-team-member-1 text-center rounded">';
                             $html .= '<figure>';
@@ -296,7 +296,7 @@ class WebserviceController extends Controller
                 }
                 else
                 {
-                    $html .= '<label for="accessoire-'.$accessoire->accessoire_id.'" class="btn btn-checkbox-custom col-lg-3 col-md-4 mb-3 accessoire-recap disabled" data-aos="fade-up">';
+                    $html .= '<label for="accessoire-'.$accessoire->accessoire_id.'" class="btn btn-checkbox-custom col-lg-3 col-md-4 col-6 mb-3 accessoire-recap disabled" data-aos="fade-up">';
                         $html .= '<input type="checkbox" name="accessoires[]" id="accessoire-'.$accessoire->accessoire_id.'" disabled autocomplete="off" value="'.$accessoire->accessoire_id.'">';
                         $html .= '<div class="block-team-member-1 text-center rounded nostock">';
                             $html .= '<figure>';

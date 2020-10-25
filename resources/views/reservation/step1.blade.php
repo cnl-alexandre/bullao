@@ -100,21 +100,7 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom array_spas" data-toggle="buttons">
-                @if(count($spas) > 0)
-                    @foreach($spas as $spa)
-                        <label for="spa-{{ $spa->spa_id }}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap" data-aos="fade-up">
-                            <input type="radio" name="spa" id="spa-{{ $spa->spa_id }}" class="spa-input" autocomplete="off" value="{{ $spa->spa_id }}">
-                            <div class="block-team-member-1 text-center rounded">
-                                <figure>
-                                    <img src="{{ url($spa->spa_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
-                                </figure>
-                                <h3 class="font-size-20 text-black">{{ $spa->spa_libelle }}</h3>
-                                <span class="d-block font-gray-6 letter-spacing-1 text-uppercase font-size-14 mb-1"><?php echo $spa->spa_desc; ?></span>
-                                <span class="d-block font-size-14 mb-1">{{ $spa->spa_nb_place }} places - {{ $spa->spa_prix }}€</span>
-                            </div>
-                        </label>
-                    @endforeach
-                @endif
+                Chargement des spas
             </div>
             <input type="hidden" name="nbPlaceSpa" id="nbPlaceSpa" value="{{ $nbPlace }}">
         </div>
@@ -126,7 +112,7 @@
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                         <h2 class="h2-reservation">4. Votre thème</h2>
-                        <p>Vous souhaitez thématiser simplement votre soirée ? Vous avons ce qu'il vous faut !</p>
+                        <p>Vous souhaitez thématiser simplement votre soirée ? Nous avons ce qu'il vous faut !</p>
                     </div>
                 </div>
             </div>
@@ -167,26 +153,12 @@
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                         <h2 class="h2-reservation">5. Vos accessoires</h2>
-                        <p>Ajoutez le petit détail qui fera la différence à votre soirée spa !</p>
+                        <p>Ajoutez les petits détails qui feront la différence à votre soirée spa !</p>
                     </div>
                 </div>
             </div>
             <div class="row d-flex justify-content-around btn-group btn-group-toggle checkbox-custom array_accessoires" data-toggle="buttons">
-                @if(count($accessoires) > 0)
-                    @foreach($accessoires as $accessoire)
-                        <label for="accessoire-{{ $accessoire->accessoire_id }}" class="btn btn-checkbox-custom col-lg-3 col-md-4 mb-3 accessoire-recap" data-aos="fade-up">
-                            <input type="checkbox" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}" autocomplete="off" value="{{ $accessoire->accessoire_id }}">
-                            <div class="block-team-member-1 text-center rounded">
-                                <figure>
-                                    <img src="{{ url($accessoire->accessoire_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
-                                </figure>
-                                <h3 class="font-size-18 text-black">{{ $accessoire->accessoire_libelle }}</h3>
-                                <span class="d-block font-gray-5 font-size-14 mb-2">{{ $accessoire->accessoire_prix }}€</span>
-                                <!-- {{ $accessoire->stock() }} -->
-                            </div>
-                        </label>
-                    @endforeach
-                @endif
+                Chargement des accessoires
             </div>
             <div class="row justify-content-center mt-4">
                 <input type="hidden" name="step" value="1">

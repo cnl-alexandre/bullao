@@ -10,8 +10,8 @@
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-12 col-lg-8">
                     <h1 data-aos="fade-up" data-aos-delay="">Prenez le temps <br>de vous détendre</h1>
-                    <p class="mt-3 mb-4" data-aos="fade-up" data-aos-delay="100">La location personnalisée de spas-jacuzzi<br>à Marne-la-Vallée.</p>
-                    <p data-aos="fade-up" data-aos-delay="200"><a href="{{ url('/reservation') }}" class="btn btn-outline-white border-w-2 btn-md">Réserver</a></p>
+                    <p class="mt-3 mb-4" data-aos="fade-up" data-aos-delay="100">La location personnalisée de spas-jacuzzi<br>à Marne-la-Vallée et Paris.</p>
+                    <p data-aos="fade-up" data-aos-delay="200"><a href="{{ url('/reservation') }}" class="btn btn-outline-white border-w-2 btn-md">Réserver un spa-jacuzzi</a></p>
                 </div>
             </div>
         </div>
@@ -166,7 +166,8 @@
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="" style="margin-left: auto;margin-right: 0;">
                 <div class="pricing mb-2">
                     <h3 class="text-center text-black">1 soirée (24h)</h3>
-                    <div class="price text-center mb-4 ">
+                    <div class="price text-center mb-4  d-flex flex-column">
+                        <p style="margin-bottom: 0;line-height: 0;margin-top: 30px;">Prix unique</p>
                         <span><span>90€</span></span>
                     </div>
                     <ul class="list-unstyled ul-check success mb-4">
@@ -326,9 +327,13 @@ de vos rêves.</p>
 <div class="site-section bg-light" id="contact-section">
     <div class="container">
         <div class="row mt-2">
-            <div class="col-4 mx-auto">
+            <div class="col-12 col-md-6 mx-auto">
+                <h4 class="mb-3">Vos précédentes réservations</h4>
+                  Vous souhaitez recevoir un résumé ? Renseignez votre email et vous recevrez le détail des précédentes réservations.
+            </div>
+            <div class="col-12 col-md-5 mx-auto">
                 <form class="" action="{{ url('/account/send-reservations') }}" method="post">
-                    <div class="input-group mb-3">
+                    <div class="input-group mt-4 mb-3">
                         {{ csrf_field() }}
                         <input type="email" name="email" class="form-control" placeholder="Adresse mail">
                         <div class="input-group-append">
@@ -336,10 +341,6 @@ de vos rêves.</p>
                         </div>
                     </div>
                 </form>
-            </div>
-            <div class="col-6 mx-auto">
-                <h4 class="mb-3">Vos précédentes réservations</h4>
-                  Vous souhaitez recevoir un résumé ? Renseignez votre email et vous recevrez le détail des précédentes réservations.
             </div>
         </div>
     </div>
