@@ -17,6 +17,7 @@ header{
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
     font-family: "Oxygen";
+	text-transform: none;
 }
 
 .block-heading-1 .h2-reservation {

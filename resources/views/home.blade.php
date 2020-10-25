@@ -26,7 +26,7 @@
                 </div>
                 <!-- <img class="col-12 col-lg-6 block__73422" src="{{ url('medias/img/img_1.jpg') }}" alt="" data-aos="fade-up" data-aos-delay=""> -->
                 <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade" data-aos-delay="">
-                    <h2 class="mb-3 text-black">Votre spa à domicile</h2>
+                    <h2 class="mb-3 font-size-28 text-black">Votre spa à domicile</h2>
                     <p class="text-justify">
                         En couple, en famille ou entre amis, profitez d’un moment de détente
                         inoubliable sans bouger de chez vous. Dans le respect de mesures sanitaires très strictes,
@@ -53,7 +53,7 @@
                 <div class="col-12 col-lg-6 block__73422 order-lg-2" style="background-image: url({{ url('medias/img/home/preview_navy_4p_int_1.webp') }});" data-aos="fade" data-aos-delay="">
                 </div>
                 <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade" data-aos-delay="">
-                    <h2 class="mb-3 text-black">Votre soirée sur-mesure</h2>
+                    <h2 class="mb-3 font-size-28 text-black">Votre soirée sur-mesure</h2>
                     <p class="text-justify">
                         Bullao accompagne tous vos événements, aussi bien entre particuliers
                         que professionnels. Un anniversaire, une occasion spéciale ou tout simplement un
@@ -189,17 +189,19 @@
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">
                 <div class="pricing mb-2">
                     <h3 class="text-center text-black">1 soirée XL (24h)</h3>
-                    <div class="price text-center mb-4 ">
+                    <div class="price text-center mb-4 d-flex flex-column">
+                        <p style="margin-bottom: 0;line-height: 0;margin-top: 30px;">À partir de</p>
                         <span><span>120€</span></span>
                     </div>
                     <ul class="list-unstyled ul-check success mb-4">
                         <li>Spa intex jusqu'à 6 places</li>
-                        <li>170 diffuseurs de bulles</li>
+                        <li>140-170 diffuseurs de bulles</li>
                         <li>2 appui-têtes Deluxe</li>
                         <li>2 porte-verre</li>
                         <li>1 Spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
+                        <li>En option : 6 jets massants</li>
                     </ul>
                     <ul class="list-unstyled mb-5 text-center">
                         <li><br><b>30€ par jours supplémentaires !</b></li>

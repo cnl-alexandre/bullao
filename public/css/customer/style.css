@@ -251,11 +251,6 @@ a {
   a:hover {
     text-decoration: none; }
 
-h1, h2, h3, h4, h5,
-.h1, .h2, .h3, .h4, .h5 {
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase; }
-
 .border-2 {
   border-width: 2px; }
 
@@ -1159,6 +1154,11 @@ h1, h2, h3, h4, h5,
   background-position: center center;
   background-repeat: no-repeat; }
   @media (max-width: 991.98px) {
+    .block__73694 .block__73422 {
+      height: 400px;
+      background-position: center -360px; } }
+
+  @media (max-width: 767.98px) {
     .block__73694 .block__73422 {
       height: 400px;
       background-position: center -120px; } }

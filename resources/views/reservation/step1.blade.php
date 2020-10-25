@@ -30,9 +30,9 @@
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
                     </ul>
-                    <!-- <ul class="list-unstyled mb-4 text-center">
-                        <li>-10% du lundi au jeudi !</li>
-                    </ul> -->
+                    <ul class="list-unstyled mb-5 text-center">
+                        <li><br><b>30€ par jours supplémentaires !</b></li>
+                    </ul>
                     <p class="text-center">
                         <a href="{{ url('/reservation/4places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-4">Réserver</a>
                     </p>
@@ -46,16 +46,17 @@
                     </div>
                     <ul class="list-unstyled ul-check success mb-4">
                         <li>Spa intex jusqu'à 6 places</li>
-                        <li>170 diffuseurs de bulles</li>
+                        <li>140-170 diffuseurs de bulles</li>
                         <li>2 appui-têtes Deluxe</li>
-                        <li>2 porte-verre double</li>
+                        <li>2 porte-verre</li>
                         <li>1 Spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
+                        <li>En option : 6 jets massants</li>
                     </ul>
-                    <!-- <ul class="list-unstyled mb-4 text-center">
-                        <li>-10% du lundi au jeudi !</li>
-                    </ul> -->
+                    <ul class="list-unstyled mb-5 text-center">
+                        <li><br><b>30€ par jours supplémentaires !</b></li>
+                    </ul>
                     <p class="text-center">
                         <a href="{{ url('/reservation/6places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-6">Réserver</a>
                     </p>
