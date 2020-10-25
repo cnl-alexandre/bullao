@@ -19,6 +19,11 @@ class SchedulersController extends Controller
     public function launch()
     {
         /**
+         * CECI EST LANCÉ TOUTES LES HEURES PAR UNE TÂCHE CRON SUR OVH
+         * -----------------------------------------------------------
+         */
+
+        /**
          * Scheduler permettant de purger les réservations qui n'ont pas été payés depuis plus de 12h après sa création
          * 
          * Lancement toutes les heures
@@ -88,14 +93,10 @@ class SchedulersController extends Controller
 
     public function notationPrestationAfter()
     {
-        // $reservations = Reservation::where('reservation_paye', '=', '1')
-        //                             ->where('reservation_payment_id', '<>', '')
-        //                             ->where('reservation_date_fin', 'LIKE', '%-%-'.date('Y-m-d', strtotime(date('Y-m-d'). ' - 3 days')))
-        //                             ->get();
-
         $reservations = Reservation::where('reservation_paye', '=', '1')
                                     ->whereNotNull('reservation_payment_id')
                                     ->where('reservation_notation_prestation', '=', '0')
+                                    ->where('reservation_date_fin', '<=', date('Y-m-d', strtotime(date('Y-m-d'). ' - 3 days')))
                                     ->get();
 
         if(count($reservations) > 0)
