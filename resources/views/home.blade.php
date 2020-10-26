@@ -170,16 +170,16 @@
                         <p style="margin-bottom: 0;line-height: 0;margin-top: 30px;">Prix unique</p>
                         <span><span>90€</span></span>
                     </div>
-                    <ul class="list-unstyled ul-check success mb-4">
+                    <ul class="list-unstyled ul-check success" style="margin-bottom: 0px;">
                         <li>Spa intex jusqu'à 4 places</li>
                         <li>120-140 diffuseurs de bulles</li>
                         <li>2 appui-têtes Classique</li>
                         <li>1 porte-verre</li>
                         <li>1 Spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
-                        <li>Livraison et installation à domicile</li>
+                        <li class="mb-0">Livraison et installation à domicile</li>
                     </ul>
-                    <ul class="list-unstyled mb-5 text-center">
+                    <ul class="list-unstyled mb-0 text-center">
                         <li><br><b>30€ par jours supplémentaires !</b></li>
                     </ul>
                     <p class="text-center">
@@ -194,7 +194,7 @@
                         <p style="margin-bottom: 0;line-height: 0;margin-top: 30px;">À partir de</p>
                         <span><span>120€</span></span>
                     </div>
-                    <ul class="list-unstyled ul-check success mb-4">
+                    <ul class="list-unstyled ul-check success" style="margin-bottom: 0px;">
                         <li>Spa intex jusqu'à 6 places</li>
                         <li>140-170 diffuseurs de bulles</li>
                         <li>2 appui-têtes Deluxe</li>
@@ -202,9 +202,9 @@
                         <li>1 Spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
-                        <li>En option : 6 jets massants</li>
+                        <li class="mb-0">En option : 6 jets massants</li>
                     </ul>
-                    <ul class="list-unstyled mb-5 text-center">
+                    <ul class="list-unstyled mb-0 text-center">
                         <li><br><b>30€ par jours supplémentaires !</b></li>
                     </ul>
                     <p class="text-center mt-2">

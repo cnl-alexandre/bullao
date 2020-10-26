@@ -1236,6 +1236,10 @@ a {
       color: #ff8b00; }
   .pricing ul li {
     margin-bottom: 20px; }
+    @media all and (max-width: 550px){
+        .pricing ul li {
+          margin-bottom: 10px; }
+    }
 
 /*PRELOADING------------ */
 #overlayer {
