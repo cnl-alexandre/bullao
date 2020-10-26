@@ -5,7 +5,7 @@
 @section('content')
 
 <section>
-    <div class="container" style="max-width: 380px; margin: 22vh auto auto auto;">
+    <div class="container" style="max-width: 380px!important; margin: 22vh auto auto auto;">
         <div class="" style="text-align: center;">
             <img src="{{ url('/medias/img/logos/logo-bleu.svg')}}" alt="" style="width:250px;">
         </div>
