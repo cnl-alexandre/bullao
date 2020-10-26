@@ -43,11 +43,12 @@ h1, h2, h3, h4, h5,
 	display: flex;
 } */
 
-@media all and (max-width: 425px){
+@media all and (max-width: 767px){
 	.input-row-step1-responsive {
 		display: flex;
 		flex-direction: row;
-		padding: 10px;
+		justify-content: space-evenly;
+		padding: 15px 10px 8px 10px;
 		text-align: left!important;
 	}
 	.input-row-step1-responsive img, .accessoire-recap img {
@@ -106,7 +107,7 @@ h1, h2, h3, h4, h5,
 }
 
 .nostock {
-	opacity: 0.7;
+	opacity: 0.5;
 	cursor: default;
 }
 
