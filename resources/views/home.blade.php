@@ -154,12 +154,12 @@
 <section class="site-section">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mb-3">
                 <img src="{{ url('medias/img/home/explication.png') }}" alt="" style="width: inherit;max-width: 500px;">
             </div>
             <div class="col-12 col-md-6">
                 <h3 class="text-black mb-3">Comment ça se passe ?</h3>
-                <p>Vous devez vous surement quelles sont les étapes à vérifier pour être sûr de son coup !
+                <p>Vous devez surement vous demander quelles sont les étapes à vérifier pour être sûr de son coup !
                 Pour une soirée réussie, voici les derniers détails obligatoires avant de vous lancer </p>
                 <ul class="list-unstyled ul-check success">
                     <li>La pose du spa dure environ 1h à 1h30 suivant votre réservation et le retrait du spa dure environ 1h</li>
