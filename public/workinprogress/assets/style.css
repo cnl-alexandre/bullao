@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "Regular";
+  src: url("NotoSans-Regular.ttf");
+}
+@font-face {
+  font-family: "Bold";
+  src: url("NotoSans-Bold.ttf");
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	color:#282828;
+	letter-spacing: 0px;
+	vertical-align: baseline;
+  background-color: #f0f1fa;
+}
+
+.englobe {
+	width: 100vw;
+	height: 100vh;
+  font-family: "Regular";
+}
+
+.page {
+	display: flex;
+  flex-direction: column;
+  height: inherit;
+}
+
+
+.notification {
+  max-width: 450px;
+  width: 95%;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.11);
+  border-radius: 6px;
+  background-color: #ffffff;
+  margin: auto;
+  text-align: center;
+}
+
+.notification .logo {
+  max-width: 280px;
+  width: 70%;
+  margin-top: 45px;
+}
+
+.notification h1 {
+  font-family: "Bold";
+}
+
+.notification p {
+  width: 85%;
+  margin: 10px auto;
+}
+
+.notification img{
+  margin: 20px;
+}
+
+.notification .illustration {
+  width: 200px;
+  margin-bottom: 25px;
+}
