@@ -2,16 +2,16 @@
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:8889
--- Généré le :  ven. 23 oct. 2020 à 23:09
--- Version du serveur :  5.7.26
--- Version de PHP :  7.3.8
+-- Host: localhost:8889
+-- Generation Time: Oct 25, 2020 at 03:10 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Base de données :  `bullao`
+-- Database: `bullao`
 --
 CREATE DATABASE IF NOT EXISTS `bullao` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `bullao`;
@@ -19,7 +19,7 @@ USE `bullao`;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `accessoires`
+-- Table structure for table `accessoires`
 --
 
 CREATE TABLE `accessoires` (
@@ -35,7 +35,7 @@ CREATE TABLE `accessoires` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `accessoires`
+-- Dumping data for table `accessoires`
 --
 
 INSERT INTO `accessoires` (`accessoire_id`, `accessoire_libelle`, `accessoire_description`, `accessoire_prix`, `accessoire_stock`, `accessoire_conso`, `accessoire_chemin_img`, `created_at`, `updated_at`) VALUES
@@ -51,7 +51,7 @@ INSERT INTO `accessoires` (`accessoire_id`, `accessoire_libelle`, `accessoire_de
 -- --------------------------------------------------------
 
 --
--- Structure de la table `administrateurs`
+-- Table structure for table `administrateurs`
 --
 
 CREATE TABLE `administrateurs` (
@@ -65,7 +65,7 @@ CREATE TABLE `administrateurs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `administrateurs`
+-- Dumping data for table `administrateurs`
 --
 
 INSERT INTO `administrateurs` (`administrateur_id`, `administrateur_name`, `administrateur_phone`, `administrateur_email`, `administrateur_user_id`, `created_at`, `updated_at`) VALUES
@@ -75,7 +75,7 @@ INSERT INTO `administrateurs` (`administrateur_id`, `administrateur_name`, `admi
 -- --------------------------------------------------------
 
 --
--- Structure de la table `adresses`
+-- Table structure for table `adresses`
 --
 
 CREATE TABLE `adresses` (
@@ -92,7 +92,7 @@ CREATE TABLE `adresses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `adresses`
+-- Dumping data for table `adresses`
 --
 
 INSERT INTO `adresses` (`adresse_id`, `adresse_name`, `adresse_client_id`, `adresse_rue`, `adresse_cp`, `adresse_ville`, `adresse_complement`, `adresse_departement`, `created_at`, `updated_at`) VALUES
@@ -105,7 +105,7 @@ INSERT INTO `adresses` (`adresse_id`, `adresse_name`, `adresse_client_id`, `adre
 -- --------------------------------------------------------
 
 --
--- Structure de la table `clients`
+-- Table structure for table `clients`
 --
 
 CREATE TABLE `clients` (
@@ -119,7 +119,7 @@ CREATE TABLE `clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `clients`
+-- Dumping data for table `clients`
 --
 
 INSERT INTO `clients` (`client_id`, `client_name`, `client_user_id`, `client_email`, `client_phone`, `created_at`, `updated_at`) VALUES
@@ -132,7 +132,7 @@ INSERT INTO `clients` (`client_id`, `client_name`, `client_user_id`, `client_ema
 -- --------------------------------------------------------
 
 --
--- Structure de la table `indisponibilites`
+-- Table structure for table `indisponibilites`
 --
 
 CREATE TABLE `indisponibilites` (
@@ -144,7 +144,7 @@ CREATE TABLE `indisponibilites` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `indisponibilites`
+-- Dumping data for table `indisponibilites`
 --
 
 INSERT INTO `indisponibilites` (`indisponibilite_id`, `indisponibilite_date`, `indisponibilite_desc`, `created_at`, `updated_at`) VALUES
@@ -155,7 +155,7 @@ INSERT INTO `indisponibilites` (`indisponibilite_id`, `indisponibilite_date`, `i
 -- --------------------------------------------------------
 
 --
--- Structure de la table `packs`
+-- Table structure for table `packs`
 --
 
 CREATE TABLE `packs` (
@@ -170,7 +170,7 @@ CREATE TABLE `packs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `packs`
+-- Dumping data for table `packs`
 --
 
 INSERT INTO `packs` (`pack_id`, `pack_libelle`, `pack_description`, `pack_stock`, `pack_prix`, `pack_chemin_img`, `created_at`, `updated_at`) VALUES
@@ -180,7 +180,7 @@ INSERT INTO `packs` (`pack_id`, `pack_libelle`, `pack_description`, `pack_stock`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `promos`
+-- Table structure for table `promos`
 --
 
 CREATE TABLE `promos` (
@@ -194,7 +194,7 @@ CREATE TABLE `promos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `promos`
+-- Dumping data for table `promos`
 --
 
 INSERT INTO `promos` (`promo_id`, `promo_libelle`, `promo_valeur`, `promo_date_debut`, `promo_date_fin`, `created_at`, `updated_at`) VALUES
@@ -205,7 +205,7 @@ INSERT INTO `promos` (`promo_id`, `promo_libelle`, `promo_valeur`, `promo_date_d
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ranks`
+-- Table structure for table `ranks`
 --
 
 CREATE TABLE `ranks` (
@@ -216,7 +216,7 @@ CREATE TABLE `ranks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `ranks`
+-- Dumping data for table `ranks`
 --
 
 INSERT INTO `ranks` (`rank_id`, `rank_libelle`, `created_at`, `updated_at`) VALUES
@@ -226,7 +226,7 @@ INSERT INTO `ranks` (`rank_id`, `rank_libelle`, `created_at`, `updated_at`) VALU
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reservations`
+-- Table structure for table `reservations`
 --
 
 CREATE TABLE `reservations` (
@@ -248,8 +248,10 @@ CREATE TABLE `reservations` (
   `reservation_prix_pack` decimal(10,2) DEFAULT NULL,
   `reservation_montant_total` decimal(10,2) DEFAULT NULL,
   `reservation_promo` varchar(20) DEFAULT NULL,
+  `reservation_frais_km` decimal(10,2) NOT NULL DEFAULT '0.00',
   `reservation_paye` int(1) NOT NULL DEFAULT '0',
   `reservation_payment_id` varchar(100) DEFAULT NULL,
+  `reservation_notation_prestation` int(1) NOT NULL DEFAULT '0',
   `reservation_client_id` int(11) DEFAULT NULL,
   `reservation_email` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -257,30 +259,32 @@ CREATE TABLE `reservations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `reservations`
+-- Dumping data for table `reservations`
 --
 
-INSERT INTO `reservations` (`reservation_id`, `reservation_date_debut`, `reservation_date_fin`, `reservation_creneau`, `reservation_emplacement`, `reservation_rue`, `reservation_cp`, `reservation_ville`, `reservation_complement`, `reservation_departement`, `reservation_type_logement`, `reservation_spa_id`, `reservation_spa_libelle`, `reservation_prix`, `reservation_pack_id`, `reservation_prix_pack`, `reservation_montant_total`, `reservation_promo`, `reservation_paye`, `reservation_payment_id`, `reservation_client_id`, `reservation_email`, `created_at`, `updated_at`) VALUES
-(20, '2020-10-18', '2020-10-19', 'Entre 8h et 12h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', 'Interphone au nom de Skybyk', '77', 'Appartement', 5, 'Spa Carbone 6 places', '160.00', 1, '20.00', '173.40', 'COPAIN2020', 1, '', 7, NULL, '2020-10-17 11:13:43', '2020-10-17 11:15:29'),
-(21, '2020-10-18', '2020-10-22', 'Entre 12h et 15h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', 'Interphone au nom de Skybyk', '77', 'Appartement', 4, 'Spa Baltik 6 places', '120.00', NULL, '20.00', '232.00', NULL, 1, '', 8, NULL, '2020-10-17 11:19:03', '2020-10-17 11:19:43'),
-(22, '2020-10-18', '2020-10-19', 'Entre 15h et 20h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', 'Interphone au nom de Skybyk', '77', 'Appartement', 1, 'Spa Sahara 4 places', '90.00', 1, '20.00', '97.75', 'COPAIN2020', 1, '', 9, 'cnl.alexandre@gmail.com', '2020-10-17 11:20:45', '2020-10-17 11:24:33'),
-(23, '2020-10-26', '2020-10-28', 'Entre 8h et 12h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', NULL, '77', 'Maison', 1, 'Spa Sahara 4 places', '90.00', 2, '20.00', '143.00', NULL, 1, '', 9, 'cnl.alexandre@gmail.com', '2020-10-17 11:25:55', '2020-10-17 11:25:55'),
-(24, '2020-10-18', '2020-10-19', 'Entre 12h et 15h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', 'Interphone au nom de Skybyk', '77', 'Appartement', 2, 'Spa Navy 4 places', '90.00', 1, '20.00', '113.00', NULL, 1, '', 9, 'cnl.alexandre@gmail.com', '2020-10-17 11:28:12', '2020-10-17 11:28:12'),
-(25, '2020-10-14', '2020-10-16', 'Entre 12h et 15h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', NULL, '77', 'Maison', 3, 'Spa Baltik 4 places', '90.00', NULL, NULL, '95.00', NULL, 1, '', 9, 'cnl.alexandre@gmail.com', '2020-10-17 11:31:11', '2020-10-17 11:31:11'),
-(26, '2020-10-22', '2020-10-24', 'Entre 15h et 20h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', NULL, '77', 'Maison', 2, 'Spa Navy 4 places', '90.00', NULL, NULL, '123.00', NULL, 1, '', 9, 'cnl.alexandre@gmail.com', '2020-10-18 15:46:56', '2020-10-18 15:46:56'),
-(27, '2020-10-21', '2020-10-22', 'Entre 12h et 15h', 'Interieur', '19 chemin de la porte verte', NULL, '77144 - MONTEVRAIN', NULL, '75', 'Maison', 1, 'Spa Sahara 4 places', '90.00', 2, '20.00', '122.00', NULL, 0, 'pi_1HeJfkGOBvkHIeeTX1ebfCi6', 10, 'cnl.alexandre@gmail.com', '2020-10-20 11:34:10', '2020-10-20 12:10:36'),
-(28, '2020-10-21', '2020-10-22', 'Entre 12h et 15h', 'Interieur', '19 chemin de la porte verte', NULL, 'MONTEVRAIN', NULL, '77', 'Appartement', 5, 'Spa Carbone 6 places', '160.00', NULL, NULL, '179.00', NULL, 1, 'pi_1HeMguGOBvkHIeeTqonkU2ND', 11, 'cnl.alexandre@gmail.com', '2020-10-20 15:23:43', '2020-10-20 15:24:11'),
-(29, '2020-10-24', '2020-10-25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 'Spa Baltik 4 places', '90.00', NULL, NULL, '109.00', NULL, 0, NULL, NULL, NULL, '2020-10-21 12:52:26', '2020-10-21 12:52:26'),
-(30, '2021-02-11', '2021-02-13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 'Spa Baltik 4 places', '90.00', 2, '20.00', '140.00', NULL, 0, NULL, NULL, NULL, '2020-10-23 10:43:05', '2020-10-23 10:43:05'),
-(31, '2020-11-05', '2020-11-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'Spa Sahara 4 places', '90.00', NULL, NULL, '120.00', NULL, 0, NULL, NULL, NULL, '2020-10-23 22:17:39', '2020-10-23 22:17:39');
+INSERT INTO `reservations` (`reservation_id`, `reservation_date_debut`, `reservation_date_fin`, `reservation_creneau`, `reservation_emplacement`, `reservation_rue`, `reservation_cp`, `reservation_ville`, `reservation_complement`, `reservation_departement`, `reservation_type_logement`, `reservation_spa_id`, `reservation_spa_libelle`, `reservation_prix`, `reservation_pack_id`, `reservation_prix_pack`, `reservation_montant_total`, `reservation_promo`, `reservation_frais_km`, `reservation_paye`, `reservation_payment_id`, `reservation_notation_prestation`, `reservation_client_id`, `reservation_email`, `created_at`, `updated_at`) VALUES
+(20, '2020-10-18', '2020-10-19', 'Entre 8h et 12h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', 'Interphone au nom de Skybyk', '77', 'Appartement', 5, 'Spa Carbone 6 places', '160.00', 1, '20.00', '173.40', 'COPAIN2020', '0.00', 1, '', 0, 7, NULL, '2020-10-17 11:13:43', '2020-10-17 11:15:29'),
+(21, '2020-10-18', '2020-10-22', 'Entre 12h et 15h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', 'Interphone au nom de Skybyk', '77', 'Appartement', 4, 'Spa Baltik 6 places', '120.00', NULL, '20.00', '232.00', NULL, '0.00', 1, '', 0, 8, NULL, '2020-10-17 11:19:03', '2020-10-17 11:19:43'),
+(22, '2020-10-18', '2020-10-19', 'Entre 15h et 20h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', 'Interphone au nom de Skybyk', '77', 'Appartement', 1, 'Spa Sahara 4 places', '90.00', 1, '20.00', '97.75', 'COPAIN2020', '0.00', 1, '', 0, 9, 'cnl.alexandre@gmail.com', '2020-10-17 11:20:45', '2020-10-17 11:24:33'),
+(23, '2020-10-26', '2020-10-28', 'Entre 8h et 12h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', NULL, '77', 'Maison', 1, 'Spa Sahara 4 places', '90.00', 2, '20.00', '143.00', NULL, '0.00', 1, '', 0, 9, 'cnl.alexandre@gmail.com', '2020-10-17 11:25:55', '2020-10-17 11:25:55'),
+(24, '2020-10-18', '2020-10-19', 'Entre 12h et 15h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', 'Interphone au nom de Skybyk', '77', 'Appartement', 2, 'Spa Navy 4 places', '90.00', 1, '20.00', '113.00', NULL, '0.00', 1, '', 0, 9, 'cnl.alexandre@gmail.com', '2020-10-17 11:28:12', '2020-10-17 11:28:12'),
+(25, '2020-10-14', '2020-10-16', 'Entre 12h et 15h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', NULL, '77', 'Maison', 3, 'Spa Baltik 4 places', '90.00', NULL, NULL, '95.00', NULL, '0.00', 1, '', 0, 9, 'cnl.alexandre@gmail.com', '2020-10-17 11:31:11', '2020-10-17 11:31:11'),
+(26, '2020-10-22', '2020-10-24', 'Entre 15h et 20h', 'Interieur', '11 rue Pablo Néruda', NULL, 'Torcy', NULL, '77', 'Maison', 2, 'Spa Navy 4 places', '90.00', NULL, NULL, '123.00', NULL, '0.00', 1, '', 0, 9, 'cnl.alexandre@gmail.com', '2020-10-18 15:46:56', '2020-10-18 15:46:56'),
+(27, '2020-10-21', '2020-10-22', 'Entre 12h et 15h', 'Interieur', '19 chemin de la porte verte', NULL, '77144 - MONTEVRAIN', NULL, '75', 'Maison', 1, 'Spa Sahara 4 places', '90.00', 2, '20.00', '122.00', NULL, '0.00', 0, 'pi_1HeJfkGOBvkHIeeTX1ebfCi6', 0, 10, 'cnl.alexandre@gmail.com', '2020-10-20 11:34:10', '2020-10-20 12:10:36'),
+(28, '2020-10-21', '2020-10-22', 'Entre 12h et 15h', 'Interieur', '19 chemin de la porte verte', NULL, 'MONTEVRAIN', NULL, '77', 'Appartement', 5, 'Spa Carbone 6 places', '160.00', NULL, NULL, '179.00', NULL, '0.00', 1, 'pi_1HeMguGOBvkHIeeTqonkU2ND', 0, 11, 'cnl.alexandre@gmail.com', '2020-10-20 15:23:43', '2020-10-20 15:24:11'),
+(29, '2020-10-24', '2020-10-25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 'Spa Baltik 4 places', '90.00', NULL, NULL, '109.00', NULL, '0.00', 0, NULL, 0, NULL, NULL, '2020-10-21 12:52:26', '2020-10-21 12:52:26'),
+(30, '2021-02-11', '2021-02-13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 'Spa Baltik 4 places', '90.00', 2, '20.00', '140.00', NULL, '0.00', 0, NULL, 0, NULL, NULL, '2020-10-23 10:43:05', '2020-10-23 10:43:05'),
+(31, '2020-11-05', '2020-11-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'Spa Sahara 4 places', '90.00', NULL, NULL, '120.00', NULL, '0.00', 0, NULL, 0, NULL, NULL, '2020-10-23 22:17:39', '2020-10-23 22:17:39'),
+(32, '2020-10-29', '2020-10-31', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 'Spa Navy 4 places', '90.00', NULL, NULL, '123.00', NULL, '0.00', 0, NULL, 0, NULL, NULL, '2020-10-23 23:31:31', '2020-10-23 23:31:31');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reservations_accessoires`
+-- Table structure for table `reservations_accessoires`
 --
 
 CREATE TABLE `reservations_accessoires` (
+  `ra_id` int(11) NOT NULL,
   `ra_reservation_id` int(11) NOT NULL,
   `ra_accessoire_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -288,31 +292,32 @@ CREATE TABLE `reservations_accessoires` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `reservations_accessoires`
+-- Dumping data for table `reservations_accessoires`
 --
 
-INSERT INTO `reservations_accessoires` (`ra_reservation_id`, `ra_accessoire_id`, `created_at`, `updated_at`) VALUES
-(20, 1, '2020-10-17 11:13:43', '2020-10-17 11:13:43'),
-(20, 5, '2020-10-17 11:13:43', '2020-10-17 11:13:43'),
-(20, 7, '2020-10-17 11:13:43', '2020-10-17 11:13:43'),
-(20, 8, '2020-10-17 11:13:43', '2020-10-17 11:13:43'),
-(21, 7, '2020-10-17 11:19:03', '2020-10-17 11:19:03'),
-(22, 5, '2020-10-17 11:20:45', '2020-10-17 11:20:45'),
-(22, 7, '2020-10-17 11:20:45', '2020-10-17 11:20:45'),
-(23, 5, '2020-10-17 11:25:55', '2020-10-17 11:25:55'),
-(24, 5, '2020-10-17 11:28:12', '2020-10-17 11:28:12'),
-(25, 3, '2020-10-17 11:31:11', '2020-10-17 11:31:11'),
-(25, 7, '2020-10-17 11:31:11', '2020-10-17 11:31:11'),
-(26, 3, '2020-10-18 15:46:56', '2020-10-18 15:46:56'),
-(27, 1, '2020-10-20 11:34:10', '2020-10-20 11:34:10'),
-(27, 5, '2020-10-20 11:34:10', '2020-10-20 11:34:10'),
-(28, 1, '2020-10-20 15:23:43', '2020-10-20 15:23:43'),
-(29, 1, '2020-10-21 12:52:26', '2020-10-21 12:52:26');
+INSERT INTO `reservations_accessoires` (`ra_id`, `ra_reservation_id`, `ra_accessoire_id`, `created_at`, `updated_at`) VALUES
+(1, 20, 1, '2020-10-17 11:13:43', '2020-10-17 11:13:43'),
+(2, 20, 5, '2020-10-17 11:13:43', '2020-10-17 11:13:43'),
+(3, 20, 7, '2020-10-17 11:13:43', '2020-10-17 11:13:43'),
+(4, 20, 8, '2020-10-17 11:13:43', '2020-10-17 11:13:43'),
+(5, 21, 7, '2020-10-17 11:19:03', '2020-10-17 11:19:03'),
+(6, 22, 5, '2020-10-17 11:20:45', '2020-10-17 11:20:45'),
+(7, 22, 7, '2020-10-17 11:20:45', '2020-10-17 11:20:45'),
+(8, 23, 5, '2020-10-17 11:25:55', '2020-10-17 11:25:55'),
+(9, 24, 5, '2020-10-17 11:28:12', '2020-10-17 11:28:12'),
+(10, 25, 3, '2020-10-17 11:31:11', '2020-10-17 11:31:11'),
+(11, 25, 7, '2020-10-17 11:31:11', '2020-10-17 11:31:11'),
+(12, 26, 3, '2020-10-18 15:46:56', '2020-10-18 15:46:56'),
+(13, 27, 1, '2020-10-20 11:34:10', '2020-10-20 11:34:10'),
+(14, 27, 5, '2020-10-20 11:34:10', '2020-10-20 11:34:10'),
+(15, 28, 1, '2020-10-20 15:23:43', '2020-10-20 15:23:43'),
+(16, 29, 1, '2020-10-21 12:52:26', '2020-10-21 12:52:26'),
+(17, 32, 3, '2020-10-23 23:31:31', '2020-10-23 23:31:31');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `spas`
+-- Table structure for table `spas`
 --
 
 CREATE TABLE `spas` (
@@ -330,7 +335,7 @@ CREATE TABLE `spas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `spas`
+-- Dumping data for table `spas`
 --
 
 INSERT INTO `spas` (`spa_id`, `spa_stock`, `spa_libelle`, `spa_nb_place`, `spa_desc`, `spa_color`, `spa_chemin_img`, `spa_prix`, `spa_prix_jour_supp`, `created_at`, `updated_at`) VALUES
@@ -343,7 +348,7 @@ INSERT INTO `spas` (`spa_id`, `spa_stock`, `spa_libelle`, `spa_nb_place`, `spa_d
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -358,7 +363,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `user_login`, `user_password`, `user_rank_id`, `user_last_connection`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -367,62 +372,62 @@ INSERT INTO `users` (`user_id`, `user_login`, `user_password`, `user_rank_id`, `
 (3, 'Alexandre', 'a64df9f267517d5caddc282637e244bd0688dc3a', 1, NULL, NULL, NULL, NULL);
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `accessoires`
+-- Indexes for table `accessoires`
 --
 ALTER TABLE `accessoires`
   ADD PRIMARY KEY (`accessoire_id`);
 
 --
--- Index pour la table `administrateurs`
+-- Indexes for table `administrateurs`
 --
 ALTER TABLE `administrateurs`
   ADD PRIMARY KEY (`administrateur_id`),
   ADD KEY `administrateur_user_id` (`administrateur_user_id`);
 
 --
--- Index pour la table `adresses`
+-- Indexes for table `adresses`
 --
 ALTER TABLE `adresses`
   ADD PRIMARY KEY (`adresse_id`),
   ADD KEY `adresse_client_id` (`adresse_client_id`);
 
 --
--- Index pour la table `clients`
+-- Indexes for table `clients`
 --
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`client_id`),
   ADD KEY `client_user_id` (`client_user_id`);
 
 --
--- Index pour la table `indisponibilites`
+-- Indexes for table `indisponibilites`
 --
 ALTER TABLE `indisponibilites`
   ADD PRIMARY KEY (`indisponibilite_id`);
 
 --
--- Index pour la table `packs`
+-- Indexes for table `packs`
 --
 ALTER TABLE `packs`
   ADD PRIMARY KEY (`pack_id`);
 
 --
--- Index pour la table `promos`
+-- Indexes for table `promos`
 --
 ALTER TABLE `promos`
   ADD PRIMARY KEY (`promo_id`);
 
 --
--- Index pour la table `ranks`
+-- Indexes for table `ranks`
 --
 ALTER TABLE `ranks`
   ADD PRIMARY KEY (`rank_id`);
 
 --
--- Index pour la table `reservations`
+-- Indexes for table `reservations`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`reservation_id`),
@@ -431,119 +436,126 @@ ALTER TABLE `reservations`
   ADD KEY `reservation_client_id` (`reservation_client_id`);
 
 --
--- Index pour la table `reservations_accessoires`
+-- Indexes for table `reservations_accessoires`
 --
 ALTER TABLE `reservations_accessoires`
-  ADD PRIMARY KEY (`ra_reservation_id`,`ra_accessoire_id`),
-  ADD KEY `ra_accessoire_id` (`ra_accessoire_id`);
+  ADD PRIMARY KEY (`ra_id`),
+  ADD KEY `ra_accessoire_id` (`ra_accessoire_id`),
+  ADD KEY `ra_reservation_id` (`ra_reservation_id`,`ra_accessoire_id`);
 
 --
--- Index pour la table `spas`
+-- Indexes for table `spas`
 --
 ALTER TABLE `spas`
   ADD PRIMARY KEY (`spa_id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `user_rank_id` (`user_rank_id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `accessoires`
+-- AUTO_INCREMENT for table `accessoires`
 --
 ALTER TABLE `accessoires`
   MODIFY `accessoire_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT pour la table `administrateurs`
+-- AUTO_INCREMENT for table `administrateurs`
 --
 ALTER TABLE `administrateurs`
   MODIFY `administrateur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `adresses`
+-- AUTO_INCREMENT for table `adresses`
 --
 ALTER TABLE `adresses`
   MODIFY `adresse_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT pour la table `clients`
+-- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
   MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT pour la table `indisponibilites`
+-- AUTO_INCREMENT for table `indisponibilites`
 --
 ALTER TABLE `indisponibilites`
   MODIFY `indisponibilite_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `packs`
+-- AUTO_INCREMENT for table `packs`
 --
 ALTER TABLE `packs`
   MODIFY `pack_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `promos`
+-- AUTO_INCREMENT for table `promos`
 --
 ALTER TABLE `promos`
   MODIFY `promo_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `ranks`
+-- AUTO_INCREMENT for table `ranks`
 --
 ALTER TABLE `ranks`
   MODIFY `rank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `reservations`
+-- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT pour la table `spas`
+-- AUTO_INCREMENT for table `reservations_accessoires`
+--
+ALTER TABLE `reservations_accessoires`
+  MODIFY `ra_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `spas`
 --
 ALTER TABLE `spas`
   MODIFY `spa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `administrateurs`
+-- Constraints for table `administrateurs`
 --
 ALTER TABLE `administrateurs`
   ADD CONSTRAINT `administrateurs_ibfk_1` FOREIGN KEY (`administrateur_user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Contraintes pour la table `adresses`
+-- Constraints for table `adresses`
 --
 ALTER TABLE `adresses`
   ADD CONSTRAINT `adresses_ibfk_1` FOREIGN KEY (`adresse_client_id`) REFERENCES `clients` (`client_id`);
 
 --
--- Contraintes pour la table `clients`
+-- Constraints for table `clients`
 --
 ALTER TABLE `clients`
   ADD CONSTRAINT `clients_ibfk_1` FOREIGN KEY (`client_user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Contraintes pour la table `reservations`
+-- Constraints for table `reservations`
 --
 ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`reservation_pack_id`) REFERENCES `packs` (`pack_id`),
@@ -551,14 +563,14 @@ ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_5` FOREIGN KEY (`reservation_client_id`) REFERENCES `clients` (`client_id`);
 
 --
--- Contraintes pour la table `reservations_accessoires`
+-- Constraints for table `reservations_accessoires`
 --
 ALTER TABLE `reservations_accessoires`
   ADD CONSTRAINT `reservations_accessoires_ibfk_1` FOREIGN KEY (`ra_reservation_id`) REFERENCES `reservations` (`reservation_id`),
   ADD CONSTRAINT `reservations_accessoires_ibfk_2` FOREIGN KEY (`ra_accessoire_id`) REFERENCES `accessoires` (`accessoire_id`);
 
 --
--- Contraintes pour la table `users`
+-- Constraints for table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_rank_id`) REFERENCES `ranks` (`rank_id`);

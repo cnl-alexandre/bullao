@@ -3,11 +3,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
-use App\Promo;
-use App\Spa;
+use Illuminate\Support\Facades\Session;
 use App\Reservation;
-use App\Pack;
-use App\Accessoire;
+use App\ReservationAccessoire;
+use App\Adresse;
+use App\Client;
 
 class SchedulersController extends Controller
 {
@@ -18,6 +18,11 @@ class SchedulersController extends Controller
 
     public function launch()
     {
+        /**
+         * CECI EST LANCÉ TOUTES LES HEURES PAR UNE TÂCHE CRON SUR OVH
+         * -----------------------------------------------------------
+         */
+
         /**
          * Scheduler permettant de purger les réservations qui n'ont pas été payés depuis plus de 12h après sa création
          * 
@@ -35,7 +40,7 @@ class SchedulersController extends Controller
 
     public function purgeReservationsNonPayees()
     {
-        $reservations = Reservation::where('reservation_paye', '=', '0')->where('reservation_payment_id', '=', '')->get();
+        $reservations = Reservation::where('reservation_paye', '=', '0')->whereNull('reservation_payment_id')->get();
         $count = 0;
 
         if(count($reservations) > 0)
@@ -46,6 +51,7 @@ class SchedulersController extends Controller
                 {
                     // On supprime toutes les Reservation_Accessoire
                     $reservationsAccessoires = ReservationAccessoire::where('ra_reservation_id', '=', $reservation->reservation_id)->get();
+
                     if(count($reservationsAccessoires) > 0)
                     {
                         foreach($reservationsAccessoires as $reservationAccessoire)
@@ -54,11 +60,11 @@ class SchedulersController extends Controller
                         }
                     }
 
+                    $nbResaClient = Reservation::where('reservation_client_id', '=', $reservation->reservation_client_id)->count();
+
                     // On supprime la réservation
                     $clientId = $reservation->reservation_client_id;
                     $reservation->delete();
-
-                    $nbResaClient = Reservation::where('reservation_client_id', '=', $clientId)->count();
 
                     if($nbResaClient == 0)
                     {
@@ -82,17 +88,16 @@ class SchedulersController extends Controller
             }
         }
 
-        Session::put('info', 'Le scheduler <code>purgeReservationsNonPayees</code> a été lancé et <code>'.$count.'</code> réservation(s) ont été supprimées.');
+        //Session::put('infoScheduler', 'Le scheduler <code>purgeReservationsNonPayees</code> a été lancé et <code>'.$count.'</code> réservation(s) ont été supprimées.');
     }
 
     public function notationPrestationAfter()
     {
-        // $reservations = Reservation::where('reservation_paye', '=', '1')
-        //                             ->where('reservation_payment_id', '<>', '')
-        //                             ->where('reservation_date_fin', 'LIKE', '%-%-'.date('Y-m-d', strtotime(date('Y-m-d'). ' - 3 days')))
-        //                             ->get();
-
-        $reservations = Reservation::where('reservation_paye', '=', '1')->get();
+        $reservations = Reservation::where('reservation_paye', '=', '1')
+                                    ->whereNotNull('reservation_payment_id')
+                                    ->where('reservation_notation_prestation', '=', '0')
+                                    ->where('reservation_date_fin', '<=', date('Y-m-d', strtotime(date('Y-m-d'). ' - 3 days')))
+                                    ->get();
 
         if(count($reservations) > 0)
         {
@@ -105,9 +110,12 @@ class SchedulersController extends Controller
                     // $mess->cc('jer.lemont@gmail.com');
                     $mess->subject('Bullao : Qu\'avez-vous pensé de la prestation ?');
                 });
+
+                $reservation->reservation_notation_prestation = 1;
+                $reservation->save();
             }
         }
 
-        Session::put('info', 'Le scheduler <code>notationPrestationAfter</code> a été lancé et <code>'.count($reservations).'</code> mail(s) ont été envoyés.');
+        //Session::put('infoScheduler', 'Le scheduler <code>notationPrestationAfter</code> a été lancé et <code>'.count($reservations).'</code> mail(s) ont été envoyés.');
     }
 }

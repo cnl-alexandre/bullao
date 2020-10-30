@@ -251,11 +251,6 @@ a {
   a:hover {
     text-decoration: none; }
 
-h1, h2, h3, h4, h5,
-.h1, .h2, .h3, .h4, .h5 {
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase; }
-
 .border-2 {
   border-width: 2px; }
 
@@ -469,8 +464,7 @@ h1, h2, h3, h4, h5,
     right: 0px; }
   .site-navbar .site-logo {
     position: absolute;
-    font-size: 1.2rem;
-    text-transform: uppercase;
+    font-size: 1.8rem;
     font-weight: 900;
     line-height: 0;
     margin: 0;
@@ -1161,6 +1155,11 @@ h1, h2, h3, h4, h5,
   @media (max-width: 991.98px) {
     .block__73694 .block__73422 {
       height: 400px;
+      background-position: center -360px; } }
+
+  @media (max-width: 767.98px) {
+    .block__73694 .block__73422 {
+      height: 400px;
       background-position: center -120px; } }
 
 @media (max-width: 991.98px) {
@@ -1237,6 +1236,10 @@ h1, h2, h3, h4, h5,
       color: #ff8b00; }
   .pricing ul li {
     margin-bottom: 20px; }
+    @media all and (max-width: 550px){
+        .pricing ul li {
+          margin-bottom: 10px; }
+    }
 
 /*PRELOADING------------ */
 #overlayer {

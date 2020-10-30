@@ -8,34 +8,74 @@ header{
 	z-index: 9999;
 }
 
+@media (min-width: 1200px){
+	.container {
+	    max-width: 1200px!important;
+	}
+}
+
+.site-navbar .site-logo {
+	font-family: "Oxygen";
+}
+
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
     font-family: "Oxygen";
+	text-transform: none;
 }
 
 .block-heading-1 .h2-reservation {
     font-size: 2.5rem;
 }
 @media all and (max-width: 425px){
-		.block-heading-1 .h2-reservation {
-				font-size: 1.6rem;
-		}
+	.block-heading-1 .h2-reservation {
+			font-size: 1.6rem;
+	}
 }
 
+
 @media all and (max-width: 425px){
-		.btn-radio-custom .input-col-step1-responsive {
-			flex-direction: column;
-			padding: 22px;
-			text-align: center!important;
-		}
-		.btn-radio-custom .col-4 {
-			max-width: none;
-			padding: 0;
-		}
+	.block-heading-1 .h2-reservation {
+			font-size: 1.6rem;
+	}
+}
+/* .block-team-member-1-spa {
+	display: flex;
+} */
+
+@media all and (max-width: 767px){
+	.input-row-step1-responsive {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		padding: 15px 10px 8px 10px;
+		text-align: left!important;
+	}
+	.input-row-step1-responsive img, .accessoire-recap img {
+		width: 100px!important;
+	}
+	.btn-radio-custom .input-col-step1-responsive {
+		flex-direction: column;
+		padding: 22px;
+		text-align: center!important;
+	}
+	.btn-radio-custom .col-4 {
+		max-width: none;
+		padding: 0;
+	}
 }
 
 .radio-custom .active .block-team-member-1, .checkbox-custom .active .block-team-member-1 {
     border: solid 1.5px #f5a623;
+}
+
+@media all and (max-width: 563px){
+	.block-team-member-1 {
+	    padding: 20px;
+	}
+	.block-team-member-1 h3 {
+	    font-size: 16px;
+	}
 }
 
 .aos-animate .disabled {
@@ -80,4 +120,26 @@ h1, h2, h3, h4, h5,
 
 .table th {
 	text-align: center;
+}
+
+
+/* SPECIFIQUE HOME */
+.custom-media {
+    padding: 30px;
+    background: #ffffff;
+    -webkit-box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+.custom-media .number {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: -300px;
+    margin-bottom: 20px;
 }
