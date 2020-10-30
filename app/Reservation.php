@@ -128,6 +128,13 @@ class Reservation extends Model
                 $this->reservation_montant_total        = $this->reservation_montant_total-(($this->reservation_montant_total*$promo->promo_valeur)/100);
             }
 
+            if(isset($array->fraisKm) && $array->fraisKm != "")
+            {
+                $this->reservation_frais_km             = $array->frais_km;
+
+                $this->reservation_montant_total        = $this->reservation_montant_total+$array->fraisKm;
+            }
+
             $c = Client::where('client_email', 'LIKE', $array->email)->get();
             
             if(count($c) == 0)

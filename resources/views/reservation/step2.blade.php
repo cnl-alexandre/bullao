@@ -93,8 +93,8 @@
                                 <input type="text" id="ville" class="form-control" name="ville" maxlength="100" required>
                             </div>
                             <div class="col-5 form-group">
-                                <label for="cp">Le département :</label>
-                                <select class="form-control" name="departement">
+                                <label for="departement">Le département :</label>
+                                <select class="form-control" name="departement" id="departement">
                                     <option value="" disabled selected hidden>Dept</option>
                                     <option value="75">75</option>
                                     <option value="77">77</option>
@@ -186,22 +186,32 @@
                             </div>
                         @endforeach
                     @endif
-                    <div id="bloc-promo">
-                        <hr>
-                        <div class="row">
-                            <div class="col-6 text-left">
-                                Sous-total :
-                            </div>
-                            <div class="col-6 text-right">
-                                <span id="recap-sous-total"></span>€
-                            </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            <h5>Sous-total :</h5>
                         </div>
+                        <div class="col-6 text-right">
+                            <span id="recap-sous-total">{{ number_format($reservation->reservation_montant_total, 2, '.', ' ') }}</span>€
+                        </div>
+                    </div>
+                    <div id="bloc-promo">
                         <div class="row">
                             <div class="col-6 text-left">
                                 Promo :
                             </div>
                             <div class="col-6 text-right">
                                 -<span id="recap-promo"></span>€
+                            </div>
+                        </div>
+                    </div>
+                    <div id="bloc-frais-km">
+                        <div class="row">
+                            <div class="col-6 text-left">
+                                Frais km :
+                            </div>
+                            <div class="col-6 text-right">
+                                +<span id="recap-frais-km"></span>€
                             </div>
                         </div>
                     </div>
@@ -220,6 +230,7 @@
                 <input type="hidden" name="step" value="2">
                 <input type="hidden" name="id" value="{{ $reservation->reservation_id }}">
                 <input type="hidden" name="montant_without_promo" id="montant_without_promo" value="{{ $reservation->reservation_montant_total }}">
+                <input type="hidden" name="montant_without_frais_km" id="montant_without_frais_km" value="{{ $reservation->reservation_montant_total }}">
                 <input type="hidden" name="montant_total" id="montant_total" value="{{ $reservation->reservation_montant_total }}">
 
             </div>
@@ -238,6 +249,8 @@
         var code = $(this).val();
         var montant = $('#montant_total').val();
         var montantWithoutPromo = $('#montant_without_promo').val();
+        var montantWithoutFrais = $('#montant_without_frais_km').val();
+
         if(code != "")
         {
             $.ajax({
@@ -250,15 +263,14 @@
                         $("#promo").addClass('is-valid');
                         $("#promo").removeClass('is-invalid');
 
-                        var promo = parseFloat(montant)*(parseFloat(response['promo']['promo_valeur'])/100);
+                        var promo = parseFloat(montantWithoutFrais)*(parseFloat(response['promo']['promo_valeur'])/100);
 
                         $('#bloc-promo').css("display", "block");
                         $('#recap-promo').html(promo.toFixed(2));
 
-                        var montant_total = parseFloat(montant)-parseFloat(promo);
-                        montant = parseFloat(montant);
+                        var montant_total = parseFloat(montantWithoutFrais)-parseFloat(promo);
 
-                        $('#recap-sous-total').html(montant.toFixed(2));
+                        //$('#recap-sous-total').html(montant.toFixed(2));
                         $('#montant_total').val(montant_total.toFixed(2));
                         $('#recap-montant-total').html(montant_total.toFixed(2));
                     }
@@ -317,8 +329,41 @@
         }
     });
 
+    /*$("#departement").change(function() {
+        var montant = $('#montant_total').val();
+        var montantWithoutFrais = $('#montant_without_frais_km').val();
+
+        var value = $(this).val();
+
+        if(value == '75')
+        {
+            var frais = 10.00;
+
+            $('#bloc-frais-km').css("display", "block");
+            $('#recap-frais-km').html(frais.toFixed(2));
+
+            var montant_total = parseFloat(montant)+parseFloat(frais);
+
+            $('#montant_total').val(montant_total.toFixed(2));
+            $('#montant_without_promo').val(montant_total.toFixed(2));
+            $('#recap-montant-total').html(montant_total.toFixed(2));
+        }
+        else
+        {
+            $('#bloc-frais-km').css("display", "none");
+            $('#recap-frais-km').html(null);
+
+            montantWithoutFrais = parseFloat(montantWithoutFrais);
+
+            $('#montant_total').val(montantWithoutFrais.toFixed(2));
+            $('#montant_without_promo').val(montantWithoutFrais.toFixed(2));
+            $('#recap-montant-total').html(montantWithoutFrais.toFixed(2));
+        }
+    });*/
+
     $(document).ready(function() {
         $('#bloc-promo').css("display", "none");
+        $('#bloc-frais-km').css("display", "none");
         $('#btn-confirm').attr("disabled", true);
         $('#btn-confirm').attr("title", "Vous devez accepter les CGV.");
     });
