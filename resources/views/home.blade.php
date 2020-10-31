@@ -284,8 +284,7 @@
                     <h3 class="text-black h6 mb-2">Quelles sont vos conditions de paiement ?</h3>
                     <p>
                         Pour des raisons pratiques et de sécurité, nous vous proposons le
-                        paiement de votre réservation par Paypal ou par virement bancaire. Le paiement par
-                        carte bleue arrive bientôt ! Soyez rassurés, Bullao travaille dans le respect de vos données
+                        paiement de votre réservation carte bancaire ! Soyez rassurés, Bullao travaille dans le respect de vos données
                         personnelles.
                     </p>
                 </div>
@@ -301,7 +300,7 @@
                     <h3 class="text-black h6 mb-2">Comment faire si je dois annuler ma réservation ?</h3>
                     <p>
                         Les imprévus ça arrivent à tout le monde ! En cas d’annulation, contactez
-                        notre service client soit via notre messagerie instantanée, par téléphone au ... ou par mail
+                        notre service client soit via notre messagerie instantanée, par téléphone ou par mail
                         à support@bullao.com. Vous aurez la possibilité d’annuler ou de déplacer votre location
                         à une date ultérieure (sous réserve de disponibilités).
                     </p>

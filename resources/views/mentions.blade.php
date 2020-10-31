@@ -41,7 +41,7 @@
                     Siret : 889 969 010
                 </p></blockquote>
                 <p>
-                    "Bullao" est une marque déposée à l'INPI sous le numéro national n°101010101011.
+                    <!-- "Bullao" est une marque déposée à l'INPI sous le numéro national n°101010101011. -->
                     <br>
                     Adresses web : bullao.fr + www.bullao.fr
                 </p>

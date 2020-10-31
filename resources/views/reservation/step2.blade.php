@@ -10,11 +10,10 @@
 
     <div class="site-section bg-light" id="formdata-section">
         <div class="container">
-            <div class="row mb-4 justify-content-center">
+            <div class="row mt-5 mt-md-0 mb-4 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                         <h2 class="h2-reservation">6. Votre réservation</h2>
-                        <br>
                     </div>
                 </div>
             </div>
@@ -94,7 +93,7 @@
                             </div>
                             <div class="col-5 form-group">
                                 <label for="cp">Le département :</label>
-                                <select class="form-control" name="departement">
+                                <select class="form-control" name="departement" required>
                                     <option value="" disabled selected hidden>Dept</option>
                                     <option value="75">75</option>
                                     <option value="77">77</option>
