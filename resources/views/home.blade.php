@@ -274,8 +274,7 @@
                       L’équipe Bullao est très attentive au respect des gestes barrières et
                       désinfecte l'ensemble du matériel utilisé et des accessoires avant et après chaque
                       utilisation. Pour limiter la propagation du virus, nous vous conseillons de limiter le
-                      nombre de personnes dans les spas et de porter un masque tout au long de leur
-                      utilisation.
+                      nombre de personnes dans les spas et de profiter de la soirée en petit comité.
                   </p>
               </div>
             </div>
