@@ -11,7 +11,7 @@
         <meta property="og:title" content="Bullao, réservation de spa-jacuzzi">
         <meta property="og:type" content="company">
         <meta property="og:url" content="https://bullao.fr">
-        <meta property="og:image" content="https://bullao.fr/img/favicon.webp">
+        <meta property="og:image" content="https://bullao.fr/medias/img/home/preview-rs.png">
         <meta property="og:description" content="Réservez votre spa-jacuzzi à domicile en Seine-et-Marne et Paris avec Bullao. Soirée jacuzzi bulle chez soi, livré, posé et retiré par Bullao">
         <meta property="og:site_name" content="Bullao">
 

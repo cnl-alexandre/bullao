@@ -253,7 +253,7 @@
               <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
                   <h3 class="text-black h6 mb-2">Quand est-ce que mon spa-jacuzzi sera prêt ?</h3>
                   <p>
-                      Nous savons que vous mourrez d’impatience de tester votre jacuzzi. En
+                      Nous savons que vous êtes d’impatient de tester votre jacuzzi. En
                       règle générale, nous prenons une heure pour installer et vérifier le bon fonctionnement
                       du matériel. Le spa et les accessoires Bullao sont désinfectés avant et après la
                       réservation.
@@ -284,7 +284,7 @@
                     <h3 class="text-black h6 mb-2">Quelles sont vos conditions de paiement ?</h3>
                     <p>
                         Pour des raisons pratiques et de sécurité, nous vous proposons le
-                        paiement de votre réservation carte bancaire ! Soyez rassurés, Bullao travaille dans le respect de vos données
+                        paiement de votre réservation par carte bancaire ! Soyez rassurés, Bullao travaille dans le respect de vos données
                         personnelles.
                     </p>
                 </div>

@@ -60,7 +60,7 @@
                                 <label for="creneau">Créneau d'installation</label>
                                 <select class="form-control" name="creneau"  required>
                                     <option value="" disabled selected hidden>Choisir un moment de la journée</option>
-                                    <option value="Entre 8h et 12h">Entre 8h et 12h</option>
+                                    <option value="Entre 8h et 12h">Entre 8h et 12h (Recommandé)</option>
                                     <option value="Entre 12h et 15h">Entre 12h et 15h</option>
                                     <option value="Entre 15h et 20h">Entre 15h et 20h</option>
                                 </select>
