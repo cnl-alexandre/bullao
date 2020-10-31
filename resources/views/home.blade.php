@@ -88,7 +88,7 @@
                     <h3 class="font-size-18 text-black mb-2">Réservation</h3>
                     Vous rêvez de vous détendre avec vos proches chez vous ?
                     Choisissez la date qui vous convient ainsi que le spa-jacuzzi désiré pour réserver depuis notre site.
-                    À votre écoute, on répond rapidement à toutes vos questions.
+                    À votre écoute, nous répondons rapidement à toutes vos questions.
                 </div>
             </div>
             <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
@@ -121,7 +121,7 @@
                     </div>
                     <h3 class="font-size-18 text-black mb-2">Localisation</h3>
                     Pour le moment, Bullao intervient sur l’ensemble du
-                    secteur de Marne-la-Vallée et Paris. Nous espérons desservir prochainement toute la
+                    secteur de Marne-la-Vallée et de Paris. Nous espérons desservir prochainement toute la
                     région Île-de-France.
                 </div>
             </div>
@@ -159,13 +159,13 @@
             </div>
             <div class="col-12 col-md-6">
                 <h3 class="text-black mb-3">Comment ça se passe ?</h3>
-                <p>Vous devez surement vous demander quelles sont les étapes à vérifier pour être sûr de son coup !
+                <p>Vous devez surement vous demander quelles sont les étapes à vérifier pour être sûr de votre coup !
                 Pour une soirée réussie, voici les derniers détails obligatoires avant de vous lancer </p>
                 <ul class="list-unstyled ul-check success">
                     <li>La pose du spa dure environ 1h à 1h30 suivant votre réservation et le retrait du spa dure environ 1h</li>
                     <li>Un espace optimal de 2,5m sur 2,5m soit un peu plus de 6m2</li>
                     <li>Une prise électrique murale à 20m maximum du spa</li>
-                    <li>Une arrivée d’eau extérieur ou une prise d’eau de salle de bain à 20m maximum du spa</li>
+                    <li>Une arrivée d’eau extérieure ou une prise d’eau de salle de bain à 20m maximum du spa</li>
                 </ul>
             </div>
         </div>
@@ -254,7 +254,7 @@
                   <h3 class="text-black h6 mb-2">Quand est-ce que mon spa-jacuzzi sera prêt ?</h3>
                   <p>
                       Nous savons que vous mourrez d’impatience de tester votre jacuzzi. En
-                      règle général, nous prenons une heure pour installer et vérifier le bon fonctionnement
+                      règle générale, nous prenons une heure pour installer et vérifier le bon fonctionnement
                       du matériel. Le spa et les accessoires Bullao sont désinfectés avant et après la
                       réservation.
                   </p>
@@ -299,7 +299,7 @@
                 <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-black h6 mb-2">Comment faire si je dois annuler ma réservation ?</h3>
                     <p>
-                        Les imprévus ça arrivent à tout le monde ! En cas d’annulation, contactez
+                        Les imprévus, ça arrive à tout le monde ! En cas d’annulation, contactez
                         notre service client soit via notre messagerie instantanée, par téléphone ou par mail
                         à support@bullao.com. Vous aurez la possibilité d’annuler ou de déplacer votre location
                         à une date ultérieure (sous réserve de disponibilités).
