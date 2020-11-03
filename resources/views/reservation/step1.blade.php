@@ -28,16 +28,16 @@
                         </a>
                     </ul>
                     <ul class="list-unstyled ul-check success collapse mb-3" id="collapse-1">
-                        <li>Spa intex jusqu'à 4 places</li>
+                        <li>Spa Intex© jusqu'à 4 places</li>
                         <li>120-140 diffuseurs de bulles</li>
                         <li>2 appui-têtes Classique</li>
                         <li>1 porte-verre</li>
-                        <li>1 Spot led d'ambiance</li>
+                        <li>1 spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li class="mb-0">Livraison et installation à domicile</li>
                     </ul>
                     <p class="text-center">
-                        <a href="{{ url('/reservation/4places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-4">Réserver</a>
+                        <a href="{{ url('/reservation/4places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-4">Choisir cette offre</a>
                     </p>
                 </div>
             </div>
@@ -54,17 +54,17 @@
                         </a>
                     </ul>
                     <ul class="list-unstyled ul-check success collapse mb-3" id="collapse-2">
-                        <li>Spa intex jusqu'à 6 places</li>
+                        <li>Spa Intex© jusqu'à 6 places</li>
                         <li>140-170 diffuseurs de bulles</li>
                         <li>2 appui-têtes Deluxe</li>
                         <li>2 porte-verre</li>
-                        <li>1 Spot led d'ambiance</li>
+                        <li>1 spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
                         <li class="mb-0">En option : 6 jets massants</li>
                     </ul>
                     <p class="text-center">
-                        <a href="{{ url('/reservation/6places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-6">Réserver</a>
+                        <a href="{{ url('/reservation/6places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-6">Choisir cette offre</a>
                     </p>
                 </div>
             </div>

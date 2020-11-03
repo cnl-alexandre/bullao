@@ -24,7 +24,6 @@
             <div class="row d-flex no-gutters align-items-stretch">
                 <div class="col-12 col-lg-6 block__73422" style="background-image: url({{ url('medias/img/home/preview_baltik_6p_ext_1.webp') }});" data-aos="fade" data-aos-delay="">
                 </div>
-                <!-- <img class="col-12 col-lg-6 block__73422" src="{{ url('medias/img/img_1.jpg') }}" alt="" data-aos="fade-up" data-aos-delay=""> -->
                 <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 font-size-28 text-black">Votre spa à domicile</h2>
                     <p class="text-justify">
@@ -163,7 +162,7 @@
                 Pour une soirée réussie, voici les derniers détails obligatoires avant de vous lancer </p>
                 <ul class="list-unstyled ul-check success">
                     <li>La pose du spa dure environ 1h à 1h30 suivant votre réservation et le retrait du spa dure environ 1h</li>
-                    <li>Un espace optimal de 2,5m sur 2,5m soit un peu plus de 6m2</li>
+                    <li>Un espace de 2,5m sur 2,5m soit un peu plus de 6m2 pour un spa 4 places et un espace de 3m sur 3m soit 9m2 pour un spa 6 places</li>
                     <li>Une prise électrique murale à 20m maximum du spa</li>
                     <li>Une arrivée d’eau extérieure ou une prise d’eau de salle de bain à 20m maximum du spa</li>
                 </ul>
@@ -188,15 +187,15 @@
                 <div class="pricing custom-media mb-2">
                     <h3 class="text-center text-black">1 soirée (24h)</h3>
                     <div class="price text-center mb-4  d-flex flex-column">
-                        <p style="margin-bottom: 0;line-height: 0;margin-top: 30px;">Prix unique</p>
+                        <p style="margin-bottom: 0;line-height: 0;margin-top: 30px;">À partir de</p>
                         <span><span>90€</span></span>
                     </div>
                     <ul class="list-unstyled ul-check success" style="margin-bottom: 0px;">
-                        <li>Spa intex jusqu'à 4 places</li>
+                        <li>Spa Intex© jusqu'à 4 places</li>
                         <li>120-140 diffuseurs de bulles</li>
                         <li>2 appui-têtes Classique</li>
                         <li>1 porte-verre</li>
-                        <li>1 Spot led d'ambiance</li>
+                        <li>1 spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li class="mb-0">Livraison et installation à domicile</li>
                     </ul>
@@ -216,11 +215,11 @@
                         <span><span>120€</span></span>
                     </div>
                     <ul class="list-unstyled ul-check success" style="margin-bottom: 0px;">
-                        <li>Spa intex jusqu'à 6 places</li>
+                        <li>Spa Intex© jusqu'à 6 places</li>
                         <li>140-170 diffuseurs de bulles</li>
                         <li>2 appui-têtes Deluxe</li>
                         <li>2 porte-verre</li>
-                        <li>1 Spot led d'ambiance</li>
+                        <li>1 spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
                         <li class="mb-0">En option : 6 jets massants</li>
@@ -253,7 +252,7 @@
               <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
                   <h3 class="text-black h6 mb-2">Quand est-ce que mon spa-jacuzzi sera prêt ?</h3>
                   <p>
-                      Nous savons que vous êtes d’impatient de tester votre jacuzzi. En
+                      Nous savons que vous êtes impatient de tester votre jacuzzi. En
                       règle générale, nous prenons une heure pour installer et vérifier le bon fonctionnement
                       du matériel. Le spa et les accessoires Bullao sont désinfectés avant et après la
                       réservation.
@@ -317,151 +316,6 @@
         </div>
     </div>
 </section>
-<!-- <div class="row">
-    <div class="col-lg-6 mx-auto">
-        <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-            <div id="accordion">
-              <div class="card">
-                <div class="card-header" id="heading-1">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link text-black h6" data-toggle="collapse" data-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                      Où installer mon spa-jacuzzi ?
-                    </button>
-                  </h5>
-                </div>
-
-                <div id="collapse-1" class="collapse show" aria-labelledby="heading-1" data-parent="#accordion">
-                  <div class="card-body">
-                      Pour une installation optimale, vous devez disposer d’un espace libre de 2
-                      mètres sur 2 mètres avec une surface en béton sous le sol, d'un point d'eau avec un
-                      robinet extérieur ou de cuisine et une prise électrique à 20 mètres de distance
-                      maximum.
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header" id="heading-2">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed text-black h6" data-toggle="collapse" data-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
-                      Quand est-ce que mon spa-jacuzzi sera prêt ?
-                    </button>
-                  </h5>
-                </div>
-                <div id="collapse-2" class="collapse" aria-labelledby="heading-2" data-parent="#accordion">
-                  <div class="card-body">
-                      Nous savons que vous mourrez d’impatience de tester votre jacuzzi. En
-                      règle général, nous prenons une heure pour installer et vérifier le bon fonctionnement
-                      du matériel. Le spa et les accessoires Bullao sont désinfectés avant et après la
-                      réservation.
-                  </div>
-                </div>
-              </div>
-                <div class="card">
-                    <div class="card-header" id="heading-3">
-                        <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-black h6" data-toggle="collapse" data-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-                            À quel moment se fait l’installation ?
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="collapse-3" class="collapse" aria-labelledby="heading-3" data-parent="#accordion">
-                        <div class="card-body">
-                            Pour profiter au maximum de votre spa-jacuzzi, Bullao recommande une
-                            installation en début de journée afin que l'eau chauffe rapidement et qu’elle atteigne la
-                            température idéale. Vous pourrez ainsi vous détendre tout le reste de la journée et de la
-                            nuit.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="heading-4">
-                        <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-black h6" data-toggle="collapse" data-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
-                            Quelles sont vos mesures face au Covid-19 ?
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="collapse-4" class="collapse" aria-labelledby="heading-4" data-parent="#accordion">
-                        <div class="card-body">
-                            L’équipe Bullao est très attentive au respect des gestes barrières et
-                            désinfecte l'ensemble du matériel utilisé et des accessoires avant et après chaque
-                            utilisation. Pour limiter la propagation du virus, nous vous conseillons de limiter le
-                            nombre de personnes dans les spas et de porter un masque tout au long de leur
-                            utilisation.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="heading-5">
-                        <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-black h6" data-toggle="collapse" data-target="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
-                          Quelles sont vos conditions de paiement ?
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-parent="#accordion">
-                        <div class="card-body">
-                            Pour des raisons pratiques et de sécurité, nous vous proposons le
-                            paiement de votre réservation par Paypal ou par virement bancaire. Le paiement par
-                            carte bleue arrive bientôt ! Soyez rassurés, Bullao travaille dans le respect de vos données
-                            personnelles.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="heading-6">
-                        <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-black h6" data-toggle="collapse" data-target="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
-                            Pourquoi Bullao et pas un autre ?
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="collapse-6" class="collapse" aria-labelledby="heading-6" data-parent="#accordion">
-                        <div class="card-body">
-                            Fini les locations douteuses sur les réseaux sociaux, avec Bullao, vous avez
-                            la garantie d'avoir un service de confiance sur-mesure, une hygiène irréprochable et une
-                            sécurité technique et sanitaire reconnue !
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="heading-7">
-                        <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-black h6" data-toggle="collapse" data-target="#collapse-7" aria-expanded="false" aria-controls="collapse-7">
-                            Comment faire si je dois annuler ma réservation ?
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="collapse-7" class="collapse" aria-labelledby="heading-7" data-parent="#accordion">
-                        <div class="card-body">
-                            Les imprévus ça arrivent à tout le monde ! En cas d’annulation, contactez
-                            notre service client soit via notre messagerie instantanée, par téléphone au ... ou par mail
-                            à support@bullao.com. Vous aurez la possibilité d’annuler ou de déplacer votre location
-                            à une date ultérieure (sous réserve de disponibilités).
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="heading-8">
-                        <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-black h6" data-toggle="collapse" data-target="#collapse-8" aria-expanded="false" aria-controls="collapse-8">
-                            Quelles sont vos conditions de remboursements ?
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="collapse-8" class="collapse" aria-labelledby="heading-8" data-parent="#accordion">
-                        <div class="card-body">
-                            En cas d’annulation, nous remboursons l’intégralité du montant de la
-                            réservation jusqu’à 72h (3 jours) avant la date prévue. Si vous souhaitez annuler après ce
-                            délai, nous ne remboursons qu’à hauteur de 50% du montant de la réservation. Le
-                            remboursement sera effectué dans un délai de 10 jours par virement bancaire.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 <div class="site-section" id="contact-section">
     <div class="container">
