@@ -21,15 +21,11 @@ class ReservationController extends Controller
     public function reservationStep1($nbPlace = 4)
     {
         $indispos       = Indisponibilite::where('indisponibilite_date', '>=', date('Y-m-d'))->get();
-        $spas           = Spa::where('spa_nb_place', '=', $nbPlace)->orderby('spa_id', 'ASC')->get();
         $packs          = Pack::orderby('pack_id', 'ASC')->get();
-        $accessoires    = Accessoire::orderby('accessoire_stock', 'DESC')->orderby('accessoire_prix', 'DESC')->get();
 
         return view('reservation.step1')->with([
             'indispos'      => $indispos,
-            'spas'          => $spas,
             'packs'         => $packs,
-            'accessoires'   => $accessoires,
             'nbPlace'       => $nbPlace
         ]);
     }
@@ -77,7 +73,7 @@ class ReservationController extends Controller
             return redirect('/');
         }
     }
-    
+
     public function reservationStep2Submit(Request $request)
     {
         /*$this->validate($request,[

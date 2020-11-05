@@ -37,15 +37,18 @@ class WebserviceController extends Controller
         $reservations = Reservation::select('reservation_spa_id')
                                     ->where([
                                         ['reservation_date_debut', '<=', $request->date_debut],
-                                        ['reservation_date_fin', '>=', $request->date_debut]
+                                        ['reservation_date_fin', '>=', $request->date_debut],
+                                        ['reservation_paye', '=', '1']
                                     ])
                                     ->orWhere([
                                         ['reservation_date_debut', '<=', $request->date_fin],
-                                        ['reservation_date_fin', '>=', $request->date_fin]
+                                        ['reservation_date_fin', '>=', $request->date_fin],
+                                        ['reservation_paye', '=', '1']
                                     ])
                                     ->orWhere([
                                         ['reservation_date_debut', '>=', $request->date_debut],
-                                        ['reservation_date_fin', '<=', $request->date_fin]
+                                        ['reservation_date_fin', '<=', $request->date_fin],
+                                        ['reservation_paye', '=', '1']
                                     ])
                                     ->get();
 

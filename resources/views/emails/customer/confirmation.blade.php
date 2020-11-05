@@ -44,7 +44,7 @@
 																																							Bonjour,
 																																							<br>Nous avons le plaisir de vous confirmer la validation de votre commande sur le site bullao.fr.
 																																							<br><br>Vos informations de livraisons ont bien été enregistrées dans notre base de données sécurisée.
-																																							<br><br>Si des informations sont incorrectes, vous êtes priées de nous contacter rapidement pour corriger votre réservation.
+																																							<br><br>Si une information est erronée, n'hésitez pas à nous prévenir.
 																																							<br><br>Nom : {{ $reservation->client->client_name }}
 																																							<br>Adresse : {{ $reservation->reservation_rue }}
 																																							<br>Ville : {{ $reservation->reservation_ville }} - {{ $reservation->reservation_departement }}
@@ -170,7 +170,7 @@
 																																			<td width="10%"></td>
 																																			<td width="80%">
 																																					<p style="line-height: 130%;margin-bottom: 25px;">
-																																						Merci pour votre achat et de la confiance que vous m’accordez.
+																																						Merci pour votre réservation et de la confiance que vous m’accordez.
 																																						<br><br>Grégoire de Bullao.
 																																					</p>
 																																			</td>

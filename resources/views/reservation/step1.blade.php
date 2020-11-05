@@ -6,7 +6,7 @@
 
 <section class="site-section bg-light" id="pricing-section">
     <div class="container">
-        <div class="row mt-5 mb-5 justify-content-center text-center">
+        <div class="row mt-5 mt-md-0 mb-3 mb-md-5 justify-content-center text-center">
             <div class="col-md-8">
                 <div class="block-heading-1" data-aos="" data-aos-delay="">
                     <h2 class="h2-reservation">1. Votre formule</h2>
@@ -14,53 +14,57 @@
                 </div>
             </div>
         </div>
-        <div class="row mb-5">
+        <div class="row">
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="" style="margin-left: auto;margin-right: 0;">
                 <div class="pricing mb-2">
                     <h3 class="text-center text-black">1 soirée (24h)</h3>
-                    <div class="price text-center mb-4  d-flex flex-column">
-                        <p style="margin-bottom: 0;line-height: 0;margin-top: 30px;">Prix unique</p>
+                    <div class="price text-center mb-0  d-flex flex-column">
+                        <p style="margin-bottom: 0;line-height: 0;margin-top: 25px;">À partir de</p>
                         <span><span>90€</span></span>
                     </div>
-                    <ul class="list-unstyled ul-check success" style="margin-bottom: 0px;">
-                        <li>Spa intex jusqu'à 4 places</li>
+                    <ul class="list-unstyled text-primary text-center mb-4">
+                        <a data-toggle="collapse" href="#collapse-1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Afficher le détail
+                        </a>
+                    </ul>
+                    <ul class="list-unstyled ul-check success collapse mb-3" id="collapse-1">
+                        <li>Spa Intex© jusqu'à 4 places</li>
                         <li>120-140 diffuseurs de bulles</li>
                         <li>2 appui-têtes Classique</li>
                         <li>1 porte-verre</li>
-                        <li>1 Spot led d'ambiance</li>
+                        <li>1 spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li class="mb-0">Livraison et installation à domicile</li>
                     </ul>
-                    <ul class="list-unstyled mb-0 text-center">
-                        <li><br><b>30€ par jours supplémentaires !</b></li>
-                    </ul>
                     <p class="text-center">
-                        <a href="{{ url('/reservation/4places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-4">Réserver</a>
+                        <a href="{{ url('/reservation/4places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-4">Choisir cette offre</a>
                     </p>
                 </div>
             </div>
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">
                 <div class="pricing mb-2">
                     <h3 class="text-center text-black">1 soirée XL (24h)</h3>
-                    <div class="price text-center mb-4 d-flex flex-column">
-                        <p style="margin-bottom: 0;line-height: 0;margin-top: 30px;">À partir de</p>
+                    <div class="price text-center mb-0 d-flex flex-column">
+                        <p style="margin-bottom: 0;line-height: 0;margin-top: 25px;">À partir de</p>
                         <span><span>120€</span></span>
                     </div>
-                    <ul class="list-unstyled ul-check success" style="margin-bottom: 0px;">
-                        <li>Spa intex jusqu'à 6 places</li>
+                    <ul class="list-unstyled text-primary text-center mb-4">
+                        <a data-toggle="collapse" href="#collapse-2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Afficher le détail
+                        </a>
+                    </ul>
+                    <ul class="list-unstyled ul-check success collapse mb-3" id="collapse-2">
+                        <li>Spa Intex© jusqu'à 6 places</li>
                         <li>140-170 diffuseurs de bulles</li>
                         <li>2 appui-têtes Deluxe</li>
                         <li>2 porte-verre</li>
-                        <li>1 Spot led d'ambiance</li>
+                        <li>1 spot led d'ambiance</li>
                         <li>Filtration et traitement de l'eau</li>
                         <li>Livraison et installation à domicile</li>
                         <li class="mb-0">En option : 6 jets massants</li>
                     </ul>
-                    <ul class="list-unstyled mb-0 text-center">
-                        <li><br><b>30€ par jours supplémentaires !</b></li>
-                    </ul>
                     <p class="text-center">
-                        <a href="{{ url('/reservation/6places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-6">Réserver</a>
+                        <a href="{{ url('/reservation/6places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-6">Choisir cette offre</a>
                     </p>
                 </div>
             </div>
@@ -81,7 +85,7 @@
                         <br>
                         <div class="text-center" id="containerdaterange" style="height:330px;">
                           <div class="form-group">
-                              <label for="daterange">Dates de résevation</label>
+                              <label for="daterange">Sélectionnez vos dates de réservations (jour de pose et jour de retrait)</label>
                               <input type="text" id="daterange" class="form-control daterange text-center" name="daterange">
                           </div>
                         </div>

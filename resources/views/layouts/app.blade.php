@@ -5,6 +5,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/jpg" href="{{ url('/medias/img/favicon.webp') }}"/>
+        <meta name="keywords" content="Bullao, spa, jacuzzi, spa-jacuzzi, réservation, réserver, seine-et-marne, bulle, bain">
+        <meta name="description" content="Réservez votre spa-jacuzzi à domicile en Seine-et-Marne et Paris avec Bullao. Soirée jacuzzi bulle chez soi, livré, posé et retiré par Bullao">
+        <meta name="Author" content="Bullao">
+        <meta property="og:title" content="Bullao, réservation de spa-jacuzzi">
+        <meta property="og:type" content="company">
+        <meta property="og:url" content="https://bullao.fr">
+        <meta property="og:image" content="https://bullao.fr/medias/img/home/preview-rs.png">
+        <meta property="og:description" content="Réservez votre spa-jacuzzi à domicile en Seine-et-Marne et Paris avec Bullao. Soirée jacuzzi bulle chez soi, livré, posé et retiré par Bullao">
+        <meta property="og:site_name" content="Bullao">
 
         @if(env('APP_DEPLOYED') == "0")
             <!-- DESACTIVATION INDEXATION -->
@@ -33,6 +42,8 @@
         <link rel="stylesheet" href="{{ url('/css/customer/custom.css?version='.env('APP_VERSION')) }}">
 
         @if(env('APP_DEPLOYED') == "1")
+            <meta name="robots" content="index,follow">
+
             <!-- Global site tag (gtag.js) - Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180769448-1"></script>
             <script>

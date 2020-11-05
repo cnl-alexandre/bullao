@@ -48,7 +48,7 @@
                             <li><a href="#home-section" class="nav-link">Accueil</a></li>
                             <li><a href="#services-section" class="nav-link">Notre concept</a></li>
                             <li><a href="#pricing-section" class="nav-link">Nos tarifs</a></li>
-                            <li><a href="#faq-section" class="nav-link">Des question ?</a></li>
+                            <li><a href="#faq-section" class="nav-link">Des questions ?</a></li>
 
                             <li><a href="#contact-section" class="nav-link">Nous contacter</a></li>
                         </ul>

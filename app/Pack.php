@@ -39,6 +39,7 @@ class Pack extends Model
         $nbStockReel = Reservation::where('reservation_pack_id', '=', $this->pack_id)
                         ->where('reservation_date_fin', '>=', date('Y-m-d'))
                         ->where('reservation_date_fin', '<=', date('Y-m-d'))
+                        ->where('reservation_paye', '=', '1')
                         ->count();
 
         return $this->pack_stock-$nbStockReel;
@@ -48,6 +49,7 @@ class Pack extends Model
     {
         $nbResaFutures = Reservation::where('reservation_pack_id', '=', $this->pack_id)
                         ->where('reservation_date_debut', '>', date('Y-m-d'))
+                        ->where('reservation_paye', '=', '1')
                         ->count();
 
         return $nbResaFutures;
@@ -56,6 +58,7 @@ class Pack extends Model
     {
         $nbResaPassees = Reservation::where('reservation_pack_id', '=', $this->pack_id)
                         ->where('reservation_date_fin', '<', date('Y-m-d'))
+                        ->where('reservation_paye', '=', '1')
                         ->count();
 
         return $nbResaPassees;

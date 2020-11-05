@@ -18,10 +18,13 @@ class BackOfficeController extends Controller
         // echo $dateToday;
         $nbResaEnCours = Reservation::where('reservation_date_debut', '<=', $dateToday)
                         ->where('reservation_date_fin', '>=', $dateToday)
+                        ->where('reservation_paye', '=', '1')
                         ->count();
         $nbResaOuvertes = Reservation::where('reservation_date_debut', '>=', $dateToday)
+                        ->where('reservation_paye', '=', '1')
                         ->count();
         $nbResaFermees = Reservation::where('reservation_date_fin', '<=', $dateToday)
+                        ->where('reservation_paye', '=', '1')
                         ->count();
 
         $resasSpa = [];

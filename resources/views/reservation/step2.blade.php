@@ -10,11 +10,10 @@
 
     <div class="site-section bg-light" id="formdata-section">
         <div class="container">
-            <div class="row mb-4 justify-content-center">
+            <div class="row mt-5 mt-md-0 mb-4 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                         <h2 class="h2-reservation">6. Votre réservation</h2>
-                        <br>
                     </div>
                 </div>
             </div>
@@ -61,7 +60,7 @@
                                 <label for="creneau">Créneau d'installation</label>
                                 <select class="form-control" name="creneau"  required>
                                     <option value="" disabled selected hidden>Choisir un moment de la journée</option>
-                                    <option value="Entre 8h et 12h">Entre 8h et 12h</option>
+                                    <option value="Entre 8h et 12h">Entre 8h et 12h (Recommandé)</option>
                                     <option value="Entre 12h et 15h">Entre 12h et 15h</option>
                                     <option value="Entre 15h et 20h">Entre 15h et 20h</option>
                                 </select>
@@ -94,7 +93,7 @@
                             </div>
                             <div class="col-5 form-group">
                                 <label for="departement">Le département :</label>
-                                <select class="form-control" name="departement" id="departement">
+                                <select class="form-control" name="departement" id="departement" required>
                                     <option value="" disabled selected hidden>Dept</option>
                                     <option value="75">75</option>
                                     <option value="77">77</option>
