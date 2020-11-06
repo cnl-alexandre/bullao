@@ -66,7 +66,7 @@ h1, h2, h3, h4, h5,
 }
 
 .radio-custom .active .block-team-member-1, .checkbox-custom .active .block-team-member-1 {
-    border: solid 1.5px #f5a623;
+    border: solid 2px #f5a623;
 }
 
 @media all and (max-width: 563px){
@@ -142,4 +142,10 @@ h1, h2, h3, h4, h5,
     color: #ffffff;
     margin-top: -300px;
     margin-bottom: 20px;
+}
+
+
+/* SPECIFIQUE STEP 2 */
+.site-step-2 .radio-custom .block-team-member-1:hover {
+	top: 0;
 }
