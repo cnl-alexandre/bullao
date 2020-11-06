@@ -143,8 +143,8 @@
                 @endif
                 <label for="0" class="btn btn-radio-custom col-md-3 pack-recap" id="0" data-aos="fade-up">
                     <input type="radio" name="pack" id="0" autocomplete="off" value="">
-                    <div class="block-team-member-1 text-center rounded d-flex" style="padding:15px;">
-                        <span class="d-block font-gray-6 font-size-14 mx-auto">Je ne prends pas de pack</span>
+                    <div class="block-team-member-1 text-center rounded d-flex" style="padding:30px;">
+                        <span class="d-block font-gray-9 font-size-14 mx-auto">Je ne prends pas de pack</span>
                     </div>
                 </label>
             </div>
