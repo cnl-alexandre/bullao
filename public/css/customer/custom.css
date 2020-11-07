@@ -144,6 +144,26 @@ h1, h2, h3, h4, h5,
     margin-bottom: 20px;
 }
 
+/* SPECIFIQUE TUNNEL ACHAT GLOBAL */
+.ariane-section {
+	padding-top: 6rem;
+	padding-bottom: 2rem;
+}
+@media all and (max-width: 767px){
+	.ariane-section {
+		padding-top: 3rem!important;
+	}
+}
+@media all and (max-width: 374px){
+	.separator {
+		width: 25px;
+	}
+}
+@media all and (max-width: 767px){
+	.site-step-1 .array_packs .block-team-member-1 img {
+		width: 100px;
+	}
+}
 
 /* SPECIFIQUE STEP 2 */
 .site-step-2 .radio-custom .block-team-member-1:hover {

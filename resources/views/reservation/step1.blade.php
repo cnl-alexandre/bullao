@@ -4,75 +4,22 @@
 
 @section('content')
 
-<section class="site-section bg-light" id="pricing-section">
+<section class="site-section ariane-section bg-light" id="pricing-section">
     <div class="container">
-        <div class="row mt-5 mt-md-0 mb-3 mb-md-5 justify-content-center text-center">
-            <div class="col-md-8">
-                <div class="block-heading-1" data-aos="" data-aos-delay="">
-                    <h2 class="h2-reservation">1. Votre formule</h2>
-                    <p>Choisissez la formule de votre choix qui vous semble la plus adaptée.</p>
-                </div>
+        <div class="row mt-5 mt-md-0 d-flex justify-content-center">
+            <div class="align-self-center">
+                <img src="{{ url('medias/img/pictos/reservation-on.png') }}" alt="">
+                <img src="{{ url('medias/img/pictos/separator-off.png') }}" class="separator" alt="">
+                <img src="{{ url('medias/img/pictos/livraison-off.png') }}" alt="">
+                <img src="{{ url('medias/img/pictos/separator-off.png') }}" class="separator" alt="">
+                <img src="{{ url('medias/img/pictos/paiement-off.png') }}" alt="">
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="" style="margin-left: auto;margin-right: 0;">
-                <div class="pricing mb-2">
-                    <h3 class="text-center text-black">1 soirée (24h)</h3>
-                    <div class="price text-center mb-0  d-flex flex-column">
-                        <p style="margin-bottom: 0;line-height: 0;margin-top: 25px;">À partir de</p>
-                        <span><span>90€</span></span>
-                    </div>
-                    <ul class="list-unstyled text-primary text-center mb-4">
-                        <a data-toggle="collapse" href="#collapse-1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            Afficher le détail
-                        </a>
-                    </ul>
-                    <ul class="list-unstyled ul-check success collapse mb-3" id="collapse-1">
-                        <li>Spa Intex© jusqu'à 4 places</li>
-                        <li>120-140 diffuseurs de bulles</li>
-                        <li>2 appui-têtes Classique</li>
-                        <li>1 porte-verre</li>
-                        <li>1 spot led d'ambiance</li>
-                        <li>Filtration et traitement de l'eau</li>
-                        <li class="mb-0">Livraison et installation à domicile</li>
-                    </ul>
-                    <p class="text-center">
-                        <a href="{{ url('/reservation/4places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-4">Choisir cette offre</a>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">
-                <div class="pricing mb-2">
-                    <h3 class="text-center text-black">1 soirée XL (24h)</h3>
-                    <div class="price text-center mb-0 d-flex flex-column">
-                        <p style="margin-bottom: 0;line-height: 0;margin-top: 25px;">À partir de</p>
-                        <span><span>120€</span></span>
-                    </div>
-                    <ul class="list-unstyled text-primary text-center mb-4">
-                        <a data-toggle="collapse" href="#collapse-2" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            Afficher le détail
-                        </a>
-                    </ul>
-                    <ul class="list-unstyled ul-check success collapse mb-3" id="collapse-2">
-                        <li>Spa Intex© jusqu'à 6 places</li>
-                        <li>140-170 diffuseurs de bulles</li>
-                        <li>2 appui-têtes Deluxe</li>
-                        <li>2 porte-verre</li>
-                        <li>1 spot led d'ambiance</li>
-                        <li>Filtration et traitement de l'eau</li>
-                        <li>Livraison et installation à domicile</li>
-                        <li class="mb-0">En option : 6 jets massants</li>
-                    </ul>
-                    <p class="text-center">
-                        <a href="{{ url('/reservation/6places') }}" class="btn btn-primary btn-md text-white" id="btn-reserver-6">Choisir cette offre</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+
     </div>
 </section>
 
-<form class="" action="{{ url('/reservation') }}" method="post">
+<form class="site-step-1" action="{{ url('/reservation') }}" method="post">
 
     {{ csrf_field() }}
 
@@ -81,11 +28,11 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="" data-aos-delay="">
-                        <h2 class="h2-reservation">2. Vos disponibilités</h2>
+                        <h2 class="h2-reservation">Date de réservation</h2>
                         <br>
                         <div class="text-center" id="containerdaterange" style="height:330px;">
                           <div class="form-group">
-                              <label for="daterange">Sélectionnez vos dates de réservations (jour de pose et jour de retrait)</label>
+                              <label for="daterange">Sélectionnez la date de la pose et celle du retrait </label>
                               <input type="text" id="daterange" class="form-control daterange text-center" name="daterange">
                           </div>
                         </div>
@@ -98,14 +45,14 @@
     <div class="site-section bg-light" id="spas-section">
         <div class="container">
             <div class="row mb-4 justify-content-center">
-                <div class="col-md-8 text-center">
+                <div class="col-md-9 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">3. Votre spa</h2>
+                        <h2 class="h2-reservation">Choix du spa-jacuzzi</h2>
                         <p>Quel spa vous fait le plus envie ? Faites-vous plaisir pour ce coup là !</p>
                     </div>
                 </div>
             </div>
-            <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom array_spas" data-toggle="buttons">
+            <div class="row d-flex justify-content-center btn-group btn-group-toggle radio-custom array_spas" data-toggle="buttons">
                 Chargement des spas
             </div>
             <input type="hidden" name="nbPlaceSpa" id="nbPlaceSpa" value="{{ $nbPlace }}">
@@ -117,7 +64,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">4. Votre thème</h2>
+                        <h2 class="h2-reservation">Thématiser la soirée</h2>
                         <p>Vous souhaitez thématiser simplement votre soirée ? Nous avons ce qu'il vous faut !</p>
                     </div>
                 </div>
@@ -144,7 +91,7 @@
                 <label for="0" class="btn btn-radio-custom col-md-3 pack-recap" id="0" data-aos="fade-up">
                     <input type="radio" name="pack" id="0" autocomplete="off" value="">
                     <div class="block-team-member-1 text-center rounded d-flex" style="padding:15px;">
-                        <span class="d-block font-gray-6 font-size-14 mx-auto">Je ne prends pas de pack</span>
+                        <span class="d-block font-gray-9 font-size-14 mx-auto">Je ne prends pas de pack</span>
                     </div>
                 </label>
             </div>
@@ -158,7 +105,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">5. Vos accessoires</h2>
+                        <h2 class="h2-reservation">Ajouter des accessoires</h2>
                         <p>Ajoutez les petits détails qui feront la différence à votre soirée spa !</p>
                     </div>
                 </div>
@@ -299,18 +246,18 @@
             }, 1000);
         }
 
-        if(nbPlace == 6)
-        {
-            $("#btn-reserver-6").html('Offre sélectionnée');
-            $("#btn-reserver-6").css('background-color', '#FF8B00');
-            $("#btn-reserver-6").css('border-color', '#FF8B00');
-        }
-        else if(nbPlace == 4)
-        {
-            $("#btn-reserver-4").html('Offre sélectionnée');
-            $("#btn-reserver-4").css('background-color', '#FF8B00');
-            $("#btn-reserver-4").css('border-color', '#FF8B00');
-        }
+        // if(nbPlace == 6)
+        // {
+        //     $("#btn-reserver-6").html('Offre sélectionnée');
+        //     $("#btn-reserver-6").css('background-color', '#FF8B00');
+        //     $("#btn-reserver-6").css('border-color', '#FF8B00');
+        // }
+        // else if(nbPlace == 4)
+        // {
+        //     $("#btn-reserver-4").html('Offre sélectionnée');
+        //     $("#btn-reserver-4").css('background-color', '#FF8B00');
+        //     $("#btn-reserver-4").css('border-color', '#FF8B00');
+        // }
 
         setTimeout(function(){
             $('#daterange').trigger('click');

@@ -801,10 +801,10 @@ a {
     color: #fff; }
 
 .site-section {
-  padding: 6rem 0; }
+  padding: 3.5rem 0; }
   @media (max-width: 991.98px) {
     .site-section {
-      padding: 3rem 0; } }
+      padding: 2rem 0; } }
 
 .gradient-bg-1, .block-feature-1 .icon {
   background: #51eaea;

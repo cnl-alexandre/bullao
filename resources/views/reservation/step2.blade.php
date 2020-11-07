@@ -10,13 +10,17 @@
 
     <div class="site-section site-step-2 bg-light" id="formdata-section">
         <div class="container">
-            <div class="row mt-5 mt-md-0 mb-4 justify-content-center">
-                <div class="col-md-7 text-center">
-                    <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">6. Votre réservation</h2>
-                    </div>
+
+            <div class="row mt-5 mt-md-4 mb-4 mb-md-4 d-flex justify-content-center">
+                <div class="align-self-center">
+                    <img src="{{ url('medias/img/pictos/reservation-on.png') }}" alt="">
+                    <img src="{{ url('medias/img/pictos/separator-on.png') }}" class="separator" alt="">
+                    <img src="{{ url('medias/img/pictos/livraison-on.png') }}" alt="">
+                    <img src="{{ url('medias/img/pictos/separator-off.png') }}" class="separator" alt="">
+                    <img src="{{ url('medias/img/pictos/paiement-off.png') }}" alt="">
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-lg-6 col-md-6 mb-5" style="margin-left: auto;">
                     <!--<ul class="nav nav-tabs nav-justified" role="tablist">
@@ -49,14 +53,14 @@
                                     <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons" required>
                                         <label for="type_logement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3">
                                             <input type="radio" name="type_logement" value="Maison">
-                                            <div class="block-team-member-1 text-center rounded" style="padding: 15px 5px 5px 5px;">
-                                                <h4 class="font-size-15" style="color: #525252;">Une maison</h4>
+                                            <div class="block-team-member-1 text-center rounded" style="padding: 17px 5px 0px 5px;">
+                                                <p class="font-size-15" style="color: #525252;">Une maison</p>
                                             </div>
                                         </label>
                                         <label for="type_logement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3">
                                             <input type="radio" name="type_logement" value="Appartement">
-                                            <div class="block-team-member-1 text-center rounded"  style="padding: 15px 5px 5px 5px;">
-                                                <h4 class="font-size-15" style="color: #525252;">Un appartement</h4>
+                                            <div class="block-team-member-1 text-center rounded"  style="padding: 17px 5px 0px 5px;">
+                                                <p class="font-size-15" style="color: #525252;">Un appartement</p>
                                             </div>
                                         </label>
                                     </div>
@@ -65,14 +69,14 @@
                                     <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
                                         <label for="emplacement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3">
                                             <input type="radio" name="emplacement" value="Intérieur">
-                                            <div class="block-team-member-1 text-center rounded" style="padding: 15px 10px 5px 10px;">
-                                                <h4 class="font-size-15" style="color: #525252;">À l'intérieur</h4>
+                                            <div class="block-team-member-1 text-center rounded" style="padding: 17px 10px 0px 10px;">
+                                                <p class="font-size-15" style="color: #525252;">À l'intérieur</p>
                                             </div>
                                         </label>
                                         <label for="emplacement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3">
                                             <input type="radio" name="emplacement" value="Extérieur">
-                                            <div class="block-team-member-1 text-center rounded"  style="padding: 15px 10px 5px 10px;">
-                                                <h4 class="font-size-15" style="color: #525252;">À l'extérieur</h4>
+                                            <div class="block-team-member-1 text-center rounded"  style="padding: 17px 10px 0px 10px;">
+                                                <p class="font-size-15" style="color: #525252;">À l'extérieur</p>
                                             </div>
                                         </label>
                                     </div>
@@ -82,20 +86,20 @@
                                     <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
                                         <label for="creneau" class="btn btn-radio-custom col-lg-12 col-md-12">
                                             <input type="radio" name="creneau" value="Entre 8h et 12h">
-                                            <div class="block-team-member-1 text-center rounded" style="padding: 15px 10px 5px 10px;">
-                                                <h4 class="font-size-15" style="color: #525252;">Entre 8h et 12h - Recommandé</h4>
+                                            <div class="block-team-member-1 text-center rounded" style="padding: 17px 10px 0px 10px;">
+                                                <p class="font-size-15" style="color: #525252;">Entre 8h et 12h - Recommandé</p>
                                             </div>
                                         </label>
                                         <label for="creneau" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3">
                                             <input type="radio" name="creneau" value="Entre 12h et 15h">
-                                            <div class="block-team-member-1 text-center rounded"  style="padding: 15px 10px 5px 10px;">
-                                                <h4 class="font-size-15" style="color: #525252;">Entre 12h et 15h</h4>
+                                            <div class="block-team-member-1 text-center rounded"  style="padding: 17px 10px 0px 10px;">
+                                                <p class="font-size-15" style="color: #525252;">Entre 12h et 15h</p>
                                             </div>
                                         </label>
                                         <label for="creneau" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3">
                                             <input type="radio" name="creneau" value="Entre 15h et 20h">
-                                            <div class="block-team-member-1 text-center rounded"  style="padding: 15px 10px 5px 10px;">
-                                                <h4 class="font-size-15" style="color: #525252;">Entre 15h et 20h</h4>
+                                            <div class="block-team-member-1 text-center rounded"  style="padding: 17px 10px 0px 10px;">
+                                                <p class="font-size-15" style="color: #525252;">Entre 15h et 20h</p>
                                             </div>
                                         </label>
                                         <small class="text-left">Idéal en début de journée pour une eau à température.</small>

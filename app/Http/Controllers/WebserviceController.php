@@ -52,7 +52,7 @@ class WebserviceController extends Controller
                                     ])
                                     ->get();
 
-        $spas = Spa::where('spa_nb_place', '=', $request->nb_place)->get();
+        $spas = Spa::get();
 
         $reserv = [];
         $nbSpaReserv = [];
@@ -97,7 +97,7 @@ class WebserviceController extends Controller
                             $html .= '<figure class="col-3 col-md-12 mt-1">';
                                 $html .= '<img src="'.url($spa->spa_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
-                            $html .= '<div class="col-8 col-md-12 ml-1 ml-md-0">';
+                            $html .= '<div class="col-9 col-md-12 ml-1 ml-md-0">';
                                 $html .= '<h3 class="font-size-20 text-black">'.$spa->spa_libelle.'</h3>';
                                 $html .= '<span class="d-block font-gray-6 font-size-14 mb-1">'.$spa->spa_desc.'</span>';
                                 $html .= '<span class="d-block font-size-14 mb-1">'.$spa->spa_nb_place.' places - '.$spa->spa_prix.'€</span>';
@@ -113,7 +113,7 @@ class WebserviceController extends Controller
                             $html .= '<figure class="col-3 col-md-12 mt-1">';
                                 $html .= '<img src="'.url($spa->spa_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
-                            $html .= '<div class="col-8 col-md-12 ml-1 ml-md-0">';
+                            $html .= '<div class="col-9 col-md-12 ml-1 ml-md-0">';
                                 $html .= '<h3 class="font-size-20 text-black">'.$spa->spa_libelle.'</h3>';
                                 // $html .= '<span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3">'.$spa->spa_desc.'</span>';
                                 $html .= '<span class="d-block font-size-14 mb-1" style="opacity:0.6;">Victime de son succès<br>sur les dates choisies.</span>';
