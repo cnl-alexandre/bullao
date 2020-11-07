@@ -45,7 +45,7 @@
                             <br>-->
 
                             <div class="card mb-4">
-                                <h5 class="card-header">Installation du spa-jacuzzi</h5>
+                                <h5 class="card-header">Installation du spa-jacuzzi :</h5>
                                 <div class="card-body">
 
 
@@ -109,7 +109,7 @@
                             </div>
 
                             <div class="card mb-4">
-                                <h5 class="card-header">Vos informations personnelles</h5>
+                                <h5 class="card-header">Vos informations personnelles :</h5>
                                 <div class="card-body">
                                     <div class="form-group mb-4">
                                         <label for="name">Votre nom et prénom :</label>
@@ -129,7 +129,7 @@
                             </div>
 
                             <div class="card">
-                                <h5 class="card-header">Et la livraison </h5>
+                                <h5 class="card-header">Et la livraison :</h5>
                                 <div class="card-body">
                                     <div class="form-group mb-4">
                                         <label for="adresse1">L'adresse :</label>
@@ -207,8 +207,15 @@
                                     </div>
                                 </div>
                             @endif
+
+
+
                             @if($reservation->reservation_pack_id != NULL)
                                 <hr>
+
+                                <div class="row mb-2">
+                                    <img src="{{ url($reservation->pack->pack_chemin_img) }}" width="100px" style="padding-left: 15px;" alt="">
+                                </div>
                                 <div class="row">
                                     <div class="col-6 text-left">
                                         + {{ $reservation->pack->pack_libelle }}
@@ -218,8 +225,14 @@
                                     </div>
                                 </div>
                             @endif
+
                             @if(count($reservation->accessoires) > 0)
                                 <hr>
+                                <div class="row mb-2">
+                                    @foreach($reservation->accessoires as $accessoire)
+                                        <img src="{{ url($accessoire->accessoire->accessoire_chemin_img) }}" width="100px" style="padding-left: 15px;" alt="">
+                                    @endforeach
+                                </div>
                                 @foreach($reservation->accessoires as $accessoire)
                                     <div class="row">
                                         <div class="col-6 text-left">
@@ -231,6 +244,7 @@
                                     </div>
                                 @endforeach
                             @endif
+
                             <hr>
                             <div class="row">
                                 <div class="col-6 text-left">

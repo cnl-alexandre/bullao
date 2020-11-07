@@ -164,6 +164,9 @@ h1, h2, h3, h4, h5,
 		width: 100px;
 	}
 }
+textarea:focus, input:focus{
+    outline: none;
+}
 
 /* SPECIFIQUE STEP 2 */
 .site-step-2 .radio-custom .block-team-member-1:hover {

@@ -292,7 +292,7 @@ class WebserviceController extends Controller
                 {
                     $html .= '<label for="accessoire-'.$accessoire->accessoire_id.'" class="btn btn-checkbox-custom col-lg-3 col-md-4 col-6 mb-3 accessoire-recap" data-aos="fade-up">';
                         $html .= '<input type="checkbox" name="accessoires[]" id="accessoire-'.$accessoire->accessoire_id.'" autocomplete="off" value="'.$accessoire->accessoire_id.'">';
-                        $html .= '<div class="block-team-member-1 text-center rounded">';
+                        $html .= '<div class="block-team-member-1 text-center rounded" style="height: 100%;">';
                             $html .= '<figure>';
                                 $html .= '<img src="'.url($accessoire->accessoire_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
@@ -305,7 +305,7 @@ class WebserviceController extends Controller
                 {
                     $html .= '<label for="accessoire-'.$accessoire->accessoire_id.'" class="btn btn-checkbox-custom col-lg-3 col-md-4 col-6 mb-3 accessoire-recap disabled" data-aos="fade-up">';
                         $html .= '<input type="checkbox" name="accessoires[]" id="accessoire-'.$accessoire->accessoire_id.'" disabled autocomplete="off" value="'.$accessoire->accessoire_id.'">';
-                        $html .= '<div class="block-team-member-1 text-center rounded nostock">';
+                        $html .= '<div class="block-team-member-1 text-center rounded nostock" style="height: 100%;">';
                             $html .= '<figure>';
                                 $html .= '<img src="'.url($accessoire->accessoire_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
