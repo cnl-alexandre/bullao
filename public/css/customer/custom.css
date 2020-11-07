@@ -124,6 +124,20 @@ h1, h2, h3, h4, h5,
 
 
 /* SPECIFIQUE HOME */
+.img-bg-section {
+	/* Image slider */
+	background-image: url("../../medias/img/home/hero_3.webp");
+}
+
+.services-img-1 {
+	background-image: url("../../medias/img/home/preview_baltik_6p_ext_1.webp");
+	border-radius: 12px;
+}
+.services-img-2 {
+	background-image: url("../../medias/img/home/preview_navy_4p_int_1.webp");
+	border-radius: 12px;
+}
+
 .custom-media {
     padding: 30px;
     background: #ffffff;
@@ -171,4 +185,7 @@ textarea:focus, input:focus{
 /* SPECIFIQUE STEP 2 */
 .site-step-2 .radio-custom .block-team-member-1:hover {
 	top: 0;
+}
+.site-step-2 input::placeholder {
+	color: #CCCCCC;
 }
