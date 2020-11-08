@@ -33,6 +33,16 @@ h1, h2, h3, h4, h5,
 	}
 }
 
+.text-action { /* ORANGE */
+	color: #ff8b00;
+}
+.bg-action {
+	background-color: #ff8b00!important;
+	border-color: #ff8b00!important;
+}
+.text-primaire { /* BLEU */
+	color : #3582EC;
+}
 
 @media all and (max-width: 425px){
 	.block-heading-1 .h2-reservation {
@@ -129,11 +139,51 @@ h1, h2, h3, h4, h5,
 	background-image: url("../../medias/img/home/hero_3.webp");
 }
 
+.services-section .services-img {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+	height: 400px;
+}
+@media (max-width: 991.98px) {
+	.services-section .services-img {
+	    height: 280px;
+	}
+}
+@media (max-width: 767.98px) {
+	.services-section .services-img {
+	    height: 280px;
+	}
+}
+
 .services-img-1 {
-	background-image: url("../../medias/img/home/preview_baltik_6p_ext_1.webp");
+	background-image: url("../../medias/img/home/preview_baltik_6p_ext_2.webp");
 	border-radius: 12px;
 }
+@media (max-width: 991.98px) {
+	.services-section .services-img-1 {
+	    background-position: center -100px;
+	}
+}
+@media (max-width: 767.98px) {
+	.services-section .services-img-1 {
+	    background-position: center -100px;
+	}
+}
+@media (max-width: 725.98px) {
+	.services-section .services-img-1 {
+	    background-position: center -60px;
+	}
+}
 .services-img-2 {
+	background-image: url("../../medias/img/home/preview_pack_1.webp");
+	border-radius: 12px;
+}
+.services-img-3 {
+	background-image: url("../../medias/img/home/explication.png");
+	border-radius: 12px;
+}
+.services-img-4 {
 	background-image: url("../../medias/img/home/preview_navy_4p_int_1.webp");
 	border-radius: 12px;
 }
@@ -143,7 +193,12 @@ h1, h2, h3, h4, h5,
     background: #ffffff;
     -webkit-box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
     box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+}
+@media all and (max-width: 767px){
+	.custom-media {
+		padding: 20px 20px 10px 20px;
+	}
 }
 .custom-media .number {
     width: 50px;
@@ -156,6 +211,12 @@ h1, h2, h3, h4, h5,
     color: #ffffff;
     margin-top: -300px;
     margin-bottom: 20px;
+}
+
+.block-produits {
+	padding: 20px 50px;
+    border: 1px solid #e9ecef;
+    background: #fff;
 }
 
 /* SPECIFIQUE TUNNEL ACHAT GLOBAL */
@@ -181,6 +242,16 @@ h1, h2, h3, h4, h5,
 textarea:focus, input:focus{
     outline: none;
 }
+.titre-card-header {
+	font-size: 1.2rem;
+}
+input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, input[type=select]:hover {
+	border: 1px solid #ff8b00;
+}
+input[type=text]:focus, input[type=tel]:focus, input[type=email]:focus, input[type=select]:focus {
+	border: 2px solid #ff8b00;
+}
+
 
 /* SPECIFIQUE STEP 2 */
 .site-step-2 .radio-custom .block-team-member-1:hover {
@@ -188,4 +259,8 @@ textarea:focus, input:focus{
 }
 .site-step-2 input::placeholder {
 	color: #CCCCCC;
+}
+.site-step-2 .card-header {
+	background-color: #3582EC;
+	color: #FFFFFF;
 }

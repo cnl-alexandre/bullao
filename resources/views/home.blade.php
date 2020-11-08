@@ -19,12 +19,12 @@
 </div>
 
 <div class="site-section">
-    <div class="block__73694 mb-2" id="services-section">
+    <div class="services-section mb-2" id="services-section">
         <div class="container">
             <div class="row d-flex no-gutters align-items-stretch">
-                <div class="col-12 col-lg-6 block__73422 services-img-1" data-aos="fade" data-aos-delay="">
+                <div class="col-12 col-lg-6 services-img services-img-1" data-aos="fade" data-aos-delay="">
                 </div>
-                <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade" data-aos-delay="">
+                <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-3" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 font-size-28 text-black">Votre spa à domicile</h2>
                     <p class="text-justify">
                         En couple, en famille ou entre amis, profitez d’un moment de détente
@@ -32,44 +32,25 @@
                         notre équipe vous garantie une installation saine et sécurisée pour une tranquillité
                         d’esprit inégalée. Vous n’avez rien à penser, nous nous occupons de tout.
                     </p>
-                    <p class="text-justify">
-                        Pour le moment, tous les spas-jacuzzi Bullao sont disponibles à la
-                        location privée ou professionnelle à Marne-la-Vallée et à Paris.
-                    </p>
-                    <ul class="ul-check primary list-unstyled mt-4">
-                        <li>Installation à domicile en 1h</li>
-                        <li>Spas Intex© jusqu'à 6 places</li>
-                        <li>Respect des mesures sanitaires</li>
-                        <li>Désinstallation rapide</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="block__73694">
+    <div class="services-section">
         <div class="container">
-            <div class="row d-flex no-gutters align-items-stretch">
-                <div class="col-12 col-lg-6 block__73422 services-img-2 order-lg-2" data-aos="fade" data-aos-delay="">
+            <div class="row d-flex no-gutters align-items-stretch mt-lg-5 mt-3">
+                <div class="col-12 col-lg-6 services-img services-img-2 order-lg-2" data-aos="fade" data-aos-delay="">
                 </div>
-                <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade" data-aos-delay="">
-                    <h2 class="mb-3 font-size-28 text-black">Votre soirée sur-mesure</h2>
+                <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-3 order-lg-1" data-aos="fade" data-aos-delay="">
+                    <h2 class="mb-3 font-size-28 text-black">Une soirée sur-mesure</h2>
                     <p class="text-justify">
-                        Bullao accompagne tous vos événements, aussi bien entre particuliers
-                        que professionnels. Un anniversaire, une occasion spéciale ou tout simplement un
-                        instant à deux, nous vous apportons la touche de relaxation qui fait toute la différence.
-                        Pour une expérience encore plus unique, notre équipe vous conseille à chaque étape de
-                        votre location.
+                        Grâce à nos packs à thèmes et nos accessoires, concevez vous-même votre soirée.
+                        Imaginez, associez et offrez-vous le luxe d’un spa à domicile pour une occasion spéciale ou tout simplement un
+                        instant à deux, nous vous apportons la touche de relaxation qui fait la différence.
                     </p>
-                    <p class="text-justify">
-                        Grâce à nos packs à thèmes et nos accessoires dédiés, concevez vous-même votre soirée.
-                        Imaginez, associez et offrez-vous le luxe d’un spa à domicile :
+                    <p class="text-center mt-4">
+                        <a href="{{ url('/reservation') }}" class="btn btn-primary bg-action btn-md text-white">Réserver un spa-jacuzzi</a>
                     </p>
-                    <ul class="ul-check primary list-unstyled mt-4">
-                        <li>4 couleurs de spa</li>
-                        <li>2 thématiques</li>
-                        <li>Large choix d’accessoires</li>
-                        <li>Location de 1 à 5 jours</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -85,9 +66,9 @@
                         <span><img src="{{ url('medias/img/pictos/003-checked.svg') }}" alt="" height="45px"></span>
                     </div>
                     <h3 class="font-size-18 text-black mb-2">Réservation</h3>
-                    Vous rêvez de vous détendre avec vos proches chez vous ?
-                    Choisissez la date qui vous convient ainsi que le spa-jacuzzi désiré pour réserver depuis notre site.
-                    À votre écoute, nous répondons rapidement à toutes vos questions.
+                    <p>Vous rêvez de vous détendre en couple ou en famille chez vous ?
+                    Réservez les dates qui vous conviennent ainsi que le spa-jacuzzi désiré sur notre site bullao.</p>
+
                 </div>
             </div>
             <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
@@ -96,12 +77,12 @@
                         <span><img src="{{ url('medias/img/pictos/004-settings.svg') }}" alt="" height="45px"></span>
                     </div>
                     <h3 class="font-size-18 text-black mb-2">Pose et retrait</h3>
-                    Afin de vous garantir la meilleure expérience, on se charge
-                    de la livraison, de la pose et du retrait chez vous. Pour que votre spa-jacuzzi soit
-                    opérationnel dans les temps, nous recommandons la pose en début de journée.
+                    <p>Afin de vous garantir la meilleure expérience, on se charge
+                    de la livraison et de la configuration chez vous en 1h. Nous avons adapté un protocole sanitaire.</p>
+
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <!-- <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="custom-media">
                     <div class="icon mb-3">
                         <span><img src="{{ url('medias/img/pictos/002-covid.svg') }}" alt="" height="45px"></span>
@@ -112,8 +93,8 @@
                     et après chaque utilisation. Nous travaillons dans le respect des règles sanitaires et
                     des gestes barrières.
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="">
+            </div> -->
+            <!-- <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="">
                 <div class="custom-media">
                     <div class="icon mb-3">
                         <span><img src="{{ url('medias/img/pictos/006-compass.svg') }}" alt="" height="45px"></span>
@@ -134,23 +115,24 @@
                     image ! Bullao vous propose différents thèmes et accessoires pour une expérience
                     inoubliable et sur-mesure.
                 </div>
-            </div>
+            </div> -->
             <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="custom-media">
                     <div class="icon mb-3">
                         <span><img src="{{ url('medias/img/pictos/001-photo-camera.svg') }}" alt="" height="45px"></span>
                     </div>
                     <h3 class="font-size-18 text-black mb-2">Partage</h3>
-                    Une fois réservé, il ne vous reste plus qu’à attendre encore un peu avant de profiter
+                    <p>Une fois réservé, il ne vous reste plus qu’à attendre encore un peu avant de profiter
                     de votre spa-jacuzzi.
-                    Venez nous partager votre expérience sur Facebook et Instagram !
+                    Venez partager votre expérience sur Facebook et Instagram !</p>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<section class="site-section">
+<!-- <section class="site-section">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 mb-3">
@@ -169,7 +151,31 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
+
+<div class="site-section">
+    <div class="services-section" id="services-section">
+        <div class="container">
+            <div class="row d-flex no-gutters align-items-stretch">
+                <div class="col-12 col-lg-6 services-img services-img services-img-3" data-aos="fade" data-aos-delay="">
+                </div>
+                <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade" data-aos-delay="">
+                    <h2 class="mb-3 font-size-28 text-black">Votre spa à domicile</h2>
+                    <p class="text-justify">
+                        Pour le moment, tous les spas-jacuzzi Bullao sont disponibles à la
+                        location privée ou professionnelle à Marne-la-Vallée et à Paris.
+                    </p>
+                    <ul class="ul-check primary list-unstyled mt-4">
+                        <li>Location de 1 à 5 jours</li>
+                        <li>5 spas différents, packs et accessoires</li>
+                        <li>Respect des mesures sanitaires</li>
+                        <li>Désinstallation rapide</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <section class="site-section bg-light" id="pricing-section">
     <div class="container">
@@ -178,60 +184,30 @@
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                     <h2>Nos tarifs</h2>
                     <p>Les spas-jacuzzi (4 places ou 6 places) de Bullao sont disponibles à la location de
-                      24h (1 soirée) à 5 jours. Nos prix sont dégressifs en fonction de la durée de votre location :</p>
+                      24h (1 soirée) à 10 jours. Nos prix sont dégressifs en fonction de la durée de votre location :</p>
                 </div>
             </div>
         </div>
-        <div class="row mb-5">
-            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="" style="margin-left: auto;margin-right: 0;">
-                <div class="pricing custom-media mb-2">
-                    <h3 class="text-center text-black">1 soirée (24h)</h3>
-                    <div class="price text-center mb-4  d-flex flex-column">
-                        <p style="margin-bottom: 0;line-height: 0;margin-top: 30px;">À partir de</p>
-                        <span><span>90€</span></span>
-                    </div>
-                    <ul class="list-unstyled ul-check success" style="margin-bottom: 0px;">
-                        <li>Spa Intex© jusqu'à 4 places</li>
-                        <li>120-140 diffuseurs de bulles</li>
-                        <li>2 appui-têtes Classique</li>
-                        <li>1 porte-verre</li>
-                        <li>1 spot led d'ambiance</li>
-                        <li>Filtration et traitement de l'eau</li>
-                        <li class="mb-0">Livraison et installation à domicile</li>
-                    </ul>
-                    <ul class="list-unstyled mb-0 text-center">
-                        <li><br><b>30€ par jours supplémentaires !</b></li>
-                    </ul>
-                    <p class="text-center">
-                        <a href="{{ url('/reservation/4places') }}" class="btn btn-primary btn-md text-white">Réserver</a>
-                    </p>
+        <div class="d-flex flex-column mb-5">
+            <div class="text-center mb-4" style="margin: auto;" data-aos="fade-up" data-aos-delay="">
+                <h3>Le contenu du spa</h3>
+                <div class="block-produits">
+                    <img src="{{url('/medias/img/spas/spa-sahara-4.png')}}" style="margin: 0 15px;" width="130px" alt="">
+                    <img src="{{url('/medias/img/spas/spa-navy-4.png')}}" style="margin: 0 15px;" width="130px" alt="">
+                    <img src="{{url('/medias/img/spas/spa-baltik-4.png')}}" style="margin: 0 15px;" width="130px" alt="">
+                    <img src="{{url('/medias/img/spas/spa-baltik-6.png')}}" style="margin: 0 15px;" width="130px" alt="">
+                    <img src="{{url('/medias/img/spas/spa-carbone-6.png')}}" style="margin: 0 15px;" width="130px" alt="">
+                    <p class="mt-2"><b>Spa Intex Baltik 4 places</b>, 170 diffuseurs de bulles, 790L, 2,3m sur 2,3m</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="100" style="margin-left: 0;margin-right: auto;">
-                <div class="pricing custom-media mb-2">
-                    <h3 class="text-center text-black">1 soirée XL (24h)</h3>
-                    <div class="price text-center mb-4 d-flex flex-column">
-                        <p style="margin-bottom: 0;line-height: 0;margin-top: 30px;">À partir de</p>
-                        <span><span>120€</span></span>
-                    </div>
-                    <ul class="list-unstyled ul-check success" style="margin-bottom: 0px;">
-                        <li>Spa Intex© jusqu'à 6 places</li>
-                        <li>140-170 diffuseurs de bulles</li>
-                        <li>2 appui-têtes Deluxe</li>
-                        <li>2 porte-verre</li>
-                        <li>1 spot led d'ambiance</li>
-                        <li>Filtration et traitement de l'eau</li>
-                        <li>Livraison et installation à domicile</li>
-                        <li class="mb-0">En option : 6 jets massants</li>
-                    </ul>
-                    <ul class="list-unstyled mb-0 text-center">
-                        <li><br><b>30€ par jours supplémentaires !</b></li>
-                    </ul>
-                    <p class="text-center mt-2">
-                        <a href="{{ url('/reservation/6places') }}" class="btn btn-primary btn-md text-white">Réserver</a>
-                    </p>
+            <div class="text-center" style="margin: auto;" data-aos="fade-up" data-aos-delay="">
+                <h3>Nos thèmes</h3>
+                <div class="block-produits">
+                    <img src="{{url('/medias/img/packs/pack-love.png')}}" style="margin: 0 15px;" width="130px" alt="">
+                    <img src="{{url('/medias/img/packs/pack-fun.png')}}" style="margin: 0 15px;" width="130px" alt="">
                 </div>
             </div>
+
         </div>
         <div class="row site-section" id="faq-section">
             <div class="col-12 text-center" data-aos="fade">

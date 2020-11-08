@@ -28,7 +28,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="" data-aos-delay="">
-                        <h2 class="h2-reservation">Date de réservation</h2>
+                        <h2 class="h2-reservation text-primaire">Date de réservation</h2>
                         <br>
                         <div class="text-center" id="containerdaterange" style="height:330px;">
                           <div class="form-group">
@@ -47,7 +47,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-9 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">Choix du spa-jacuzzi</h2>
+                        <h2 class="h2-reservation text-primaire">Choix du spa-jacuzzi</h2>
                         <p>Quel spa vous fait le plus envie ? Faites-vous plaisir pour ce coup là !</p>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">Thématiser la soirée</h2>
+                        <h2 class="h2-reservation text-primaire">Thématiser la soirée</h2>
                         <p>Vous souhaitez thématiser simplement votre soirée ? Nous avons ce qu'il vous faut !</p>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                                     <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
                                 <div>
-                                    <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
+                                    <h3 class="font-size-20 text-action">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
                                     <span class="d-block font-gray-6 font-size-15 mb-1"><?php echo $pack->pack_description; ?></span>
                                     <!-- {{ $pack->stock() }} -->
                                 </div>
@@ -105,7 +105,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">Ajouter des accessoires</h2>
+                        <h2 class="h2-reservation text-primaire">Ajouter des accessoires</h2>
                         <p>Ajoutez les petits détails qui feront la différence à votre soirée spa !</p>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                     <a href="{{ url('/') }}" class="btn btn-secondary btn-md text-white">Retour</a>
                 </div>
                 <div class="col-6 text-right">
-                    <input type="submit" name="" value="Continuer" id="btn-confirm" class="btn btn-primary btn-md text-white">
+                    <input type="submit" name="" value="Continuer" id="btn-confirm" class="btn btn-primary bg-action btn-md text-white">
                 </div>
             </div>
         </div>

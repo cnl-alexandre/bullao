@@ -11,7 +11,7 @@
     <div class="site-section site-step-2 bg-light" id="formdata-section">
         <div class="container">
 
-            <div class="row mt-5 mt-md-4 mb-4 mb-md-4 d-flex justify-content-center">
+            <div class="row mt-5 mt-md-4 mb-5 mb-md-4 d-flex justify-content-center">
                 <div class="align-self-center">
                     <img src="{{ url('medias/img/pictos/reservation-on.png') }}" alt="">
                     <img src="{{ url('medias/img/pictos/separator-on.png') }}" class="separator" alt="">
@@ -44,8 +44,8 @@
                         <div class="tab-pane fade" id="register" role="tabpanel">
                             <br>-->
 
-                            <div class="card mb-4">
-                                <h5 class="card-header">Installation du spa-jacuzzi :</h5>
+                            <div class="card shadow mb-4">
+                                <h1 class="card-header titre-card-header">Installation du spa-jacuzzi :</h1>
                                 <div class="card-body">
 
 
@@ -108,8 +108,8 @@
                                 </div>
                             </div>
 
-                            <div class="card mb-4">
-                                <h5 class="card-header">Informations personnelles :</h5>
+                            <div class="card shadow mb-4">
+                                <h1 class="card-header titre-card-header">Informations personnelles :</h1>
                                 <div class="card-body">
                                     <div class="form-group mb-4">
                                         <label for="name">Votre nom et prénom :</label>
@@ -128,8 +128,8 @@
                                 </div>
                             </div>
 
-                            <div class="card">
-                                <h5 class="card-header">Adresse de livraison :</h5>
+                            <div class="card shadow">
+                                <h1 class="card-header titre-card-header">Adresse de livraison :</h1>
                                 <div class="card-body">
                                     <div class="form-group mb-4">
                                         <label for="adresse1">L'adresse :</label>
@@ -165,12 +165,12 @@
                 </div>
                 <div class="col-lg-5 col-md-6" style="margin-right: auto;height: min-content;">
 
-                    <div class="card">
-                        <h5 class="card-header">Détail de la réservation :</h5>
+                    <div class="card shadow">
+                        <h1 class="card-header titre-card-header">Détail de la réservation :</h1>
                         <div class="card-body">
                             <img src="{{ url($reservation->spa->spa_chemin_img) }}" alt="Spa Intex choix réservation" width="150px">
                             <br>
-                            <div class="row">
+                            <div class="row" style="color: #525252">
                                 <div class="col-12 text-left">
                                     <b>Du {{ $reservation->dateDebut->format('d/m/Y') }} au {{ $reservation->dateFin->format('d/m/Y') }}</b>
 
@@ -235,7 +235,7 @@
                             @endif
 
                             <hr>
-                            <div class="row">
+                            <div class="row"  style="color: #525252">
                                 <div class="col-6 text-left">
                                     <h5>Sous-total :</h5>
                                 </div>
@@ -244,7 +244,7 @@
                                 </div>
                             </div>
 
-                                <div class="form-group mb-4">
+                                <div class="form-group mt-3 mb-4">
                                     <label for="promo">Vous avez un code promo ?</label>
                                     <input type="text" id="promo" class="form-control" name="promo" placeholder="MONCODE" maxlength="10">
                                 </div>
@@ -269,8 +269,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="row">
+                            <div class="row" style="padding: 10px 0px 5px 0px;margin: 25px 0px 17px 0px;background-color: #efefef;color: #525252;">
                                 <div class="col-6 text-left">
                                     <h5>Total :</h5>
                                 </div>
@@ -278,7 +277,6 @@
                                     <span id="recap-montant-total">{{ number_format($reservation->reservation_montant_total, 2, '.', ' ') }}</span>€
                                 </div>
                             </div>
-                            <hr>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-check mb-3">
@@ -294,7 +292,7 @@
                                     <a href="{{ url('/') }}" class="btn btn-secondary btn-md text-white">Annuler</a>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <input type="submit" name="" id="btn-confirm" value="Confirmer" class="btn btn-primary btn-md text-white">
+                                    <input type="submit" name="" id="btn-confirm" value="Confirmer" class="btn btn-primary bg-action btn-md text-white">
                                 </div>
                             </div>
                         </div>
@@ -302,7 +300,7 @@
 
                 </div>
             </div>
-            <div class="row justify-content-center mt-4">
+            <div class="row justify-content-center">
                 <input type="hidden" name="step" value="2">
                 <input type="hidden" name="id" value="{{ $reservation->reservation_id }}">
                 <input type="hidden" name="montant_without_promo" id="montant_without_promo" value="{{ $reservation->reservation_montant_total }}">
