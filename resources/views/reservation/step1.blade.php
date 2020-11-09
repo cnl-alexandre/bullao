@@ -28,7 +28,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="" data-aos-delay="">
-                        <h2 class="h2-reservation text-action">Date de réservation</h2>
+                        <h2 class="h2-reservation font-size-28 text-action">Date de réservation</h2>
                         <br>
                         <div class="text-center" id="containerdaterange" style="height:330px;">
                           <div class="form-group">
@@ -47,7 +47,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-9 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation text-action">Choix du spa-jacuzzi</h2>
+                        <h2 class="h2-reservation font-size-28 text-action">Choix du spa-jacuzzi</h2>
                         <p>Quel spa vous fait le plus envie ? Faites-vous plaisir pour ce coup là !</p>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation text-action">Thématiser la soirée</h2>
+                        <h2 class="h2-reservation font-size-28 text-action">Thématiser la soirée</h2>
                         <p>Vous souhaitez thématiser simplement votre soirée ? Nous avons ce qu'il vous faut !</p>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation text-action">Ajouter des accessoires</h2>
+                        <h2 class="h2-reservation font-size-28 text-action">Ajouter des accessoires</h2>
                         <p>Ajoutez les petits détails qui feront la différence à votre soirée spa !</p>
                     </div>
                 </div>

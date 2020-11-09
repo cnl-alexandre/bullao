@@ -182,9 +182,9 @@
         <div class="row mb-4 justify-content-center text-center">
             <div class="col-md-7">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <h2>Nos spas et tarifs</h2>
-                    <p>Les spas-jacuzzi (4 places ou 6 places) de Bullao sont disponibles à la location de
-                      24h (1 soirée) à 10 jours. Nos prix sont dégressifs en fonction de la durée de votre location :</p>
+                    <h2 class="font-size-28 text-black">Nos tarifs</h2>
+                    <p>Les spas-jacuzzi (4 places ou 6 places) sont disponibles à la location de
+                      24h (1 soirée) à 10 jours :</p>
                 </div>
             </div>
         </div>
@@ -336,7 +336,7 @@ ca
     <div class="container">
         <div class="row site-section" id="faq-section">
             <div class="col-12 text-center" data-aos="fade">
-                <h2 class="section-title text-primary">Encore un doute ?</h2>
+                <h2 class="section-title font-size-22 text-black">Encore un doute ?</h2>
             </div>
         </div>
         <div class="row">
@@ -425,7 +425,7 @@ ca
             <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-delay="">
                 <div class="block-heading-1">
                     <span>Vous n’êtes plus qu’à une bulle du bonheur...</span>
-                    <h2>Nous contacter</h2>
+                    <h2 class="font-size-22 text-black">Nous contacter</h2>
                 </div>
             </div>
         </div>
@@ -434,7 +434,7 @@ ca
                 <img src="{{ url('/medias/img/home/messagerie.webp') }}" alt="Image" class="img-fluid">
             </div>
             <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
-                <h2 class="text-black">Des réponses à vos questions</h2>
+                <h2 class="font-size-18 text-black">Des réponses à vos questions</h2>
                 <p>Pour vous aider à réaliser toutes vos envies, l’équipe Bullao se tient à votre
 entière disposition. Notre module de messagerie instantanée (en bas à droite de l’écran)
 vous permet de nous contacter à tout moment pour concevoir ensemble l’expérience
@@ -448,7 +448,7 @@ de vos rêves.</p>
     <div class="container">
         <div class="row mt-2">
             <div class="col-12 col-md-6 mx-auto">
-                <h4 class="mb-3">Vos précédentes réservations</h4>
+                <h4 class="mb-3 font-size-22 text-black">Vos précédentes réservations</h4>
                   Vous souhaitez recevoir un résumé ? Renseignez votre email et vous recevrez le détail des précédentes réservations.
             </div>
             <div class="col-12 col-md-5 mx-auto">
