@@ -157,7 +157,7 @@
     <div class="services-section" id="services-section">
         <div class="container">
             <div class="row d-flex no-gutters align-items-stretch">
-                <div class="col-12 col-lg-6 services-img services-img services-img-3" data-aos="fade" data-aos-delay="">
+                <div class="col-12 col-lg-6 services-img services-img services-img-4" data-aos="fade" data-aos-delay="">
                 </div>
                 <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 font-size-28 text-black">Votre spa à domicile</h2>
@@ -182,33 +182,158 @@
         <div class="row mb-4 justify-content-center text-center">
             <div class="col-md-7">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <h2>Nos tarifs</h2>
+                    <h2>Nos spas et tarifs</h2>
                     <p>Les spas-jacuzzi (4 places ou 6 places) de Bullao sont disponibles à la location de
                       24h (1 soirée) à 10 jours. Nos prix sont dégressifs en fonction de la durée de votre location :</p>
                 </div>
             </div>
         </div>
-        <div class="d-flex flex-column mb-5">
-            <div class="text-center mb-4" style="margin: auto;" data-aos="fade-up" data-aos-delay="">
-                <h3>Le contenu du spa</h3>
-                <div class="block-produits">
-                    <img src="{{url('/medias/img/spas/spa-sahara-4.png')}}" style="margin: 0 15px;" width="130px" alt="">
-                    <img src="{{url('/medias/img/spas/spa-navy-4.png')}}" style="margin: 0 15px;" width="130px" alt="">
-                    <img src="{{url('/medias/img/spas/spa-baltik-4.png')}}" style="margin: 0 15px;" width="130px" alt="">
-                    <img src="{{url('/medias/img/spas/spa-baltik-6.png')}}" style="margin: 0 15px;" width="130px" alt="">
-                    <img src="{{url('/medias/img/spas/spa-carbone-6.png')}}" style="margin: 0 15px;" width="130px" alt="">
-                    <p class="mt-2"><b>Spa Intex Baltik 4 places</b>, 170 diffuseurs de bulles, 790L, 2,3m sur 2,3m</p>
-                </div>
-            </div>
-            <div class="text-center" style="margin: auto;" data-aos="fade-up" data-aos-delay="">
-                <h3>Nos thèmes</h3>
-                <div class="block-produits">
-                    <img src="{{url('/medias/img/packs/pack-love.png')}}" style="margin: 0 15px;" width="130px" alt="">
-                    <img src="{{url('/medias/img/packs/pack-fun.png')}}" style="margin: 0 15px;" width="130px" alt="">
-                </div>
-            </div>
+        <div class="row">
+            <div class="col-12" data-aos="fade-up" data-aos-delay="">
+                <div class="block-produits d-flex flex-column">
 
+                    <ul class="nav nav-pills mb-3 mx-auto" id="pills-tab" role="tablist">
+                        <li class="nav-item mx-auto">
+                            <a class="nav-link active" id="pills-sahara4-tab" data-toggle="pill" href="#pills-sahara4" role="tab" aria-controls="pills-sahara4" aria-selected="true">Sahara 4p</a>
+                        </li>
+                        <li class="nav-item mx-auto">
+                            <a class="nav-link" id="pills-navy4-tab" data-toggle="pill" href="#pills-navy4" role="tab" aria-controls="pills-navy4" aria-selected="false">Navy 6p</a>
+                        </li>
+                        <li class="nav-item mx-auto">
+                            <a class="nav-link" id="pills-baltik4-tab" data-toggle="pill" href="#pills-baltik4" role="tab" aria-controls="pills-baltik4" aria-selected="false">Baltik 4p</a>
+                        </li>
+                        <li class="nav-item mx-auto">
+                            <a class="nav-link" id="pills-baltik6-tab" data-toggle="pill" href="#pills-baltik6" role="tab" aria-controls="pills-baltik6" aria-selected="false">Baltik 6p</a>
+                        </li>
+                        <li class="nav-item mx-auto">
+                            <a class="nav-link" id="pills-carbone6-tab" data-toggle="pill" href="#pills-carbone6" role="tab" aria-controls="pills-carbone6" aria-selected="false">Carbone 6p</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active " id="pills-sahara4" role="tabpanel" aria-labelledby="pills-sahara4-tab">
+                            <div class="row align-items-center">
+                                <div class="col-10 col-md-6 col-lg-7 mx-auto">
+                                    <img src="{{url('medias/img/home/spa-sahara-4-min.png')}}" class="img-produit" alt="">
+                                </div>
+                                <div class="col-10 col-md-5 col-lg-5 mx-auto">
+                                    <h4>Spa Sahara 4 personnes </h4>
+                                    <ul class="ul-check primary list-unstyled mt-4">
+                                        <li>120 diffuseurs de bulles</li>
+                                        <li>Traitement au Braume inclus</li>
+                                        <li>196cm de diamètre et 71cm de hauteur</li>
+                                        <li>Jusqu'à 795L d'eau (~3,5€)</li>
+                                        <li><b>90€</b> la première soirée et <br><b>30€</b> par soir en plus</li>
+                                    </ul>
+                                    <p class="text-center mt-1">
+                                          <a href="{{ url('/reservation') }}" class="btn btn-primary bg-action btn-md text-white">Réserver un spa-jacuzzi</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row tab-pane fade" id="pills-navy4" role="tabpanel" aria-labelledby="pills-navy4-tab">
+                            <div class="row align-items-center">
+                                <div class="col-10 col-md-6 col-lg-7 mx-auto">
+                                    <img src="{{url('medias/img/home/spa-navy-4-min.png')}}" class="img-produit" alt="">
+                                </div>
+                                <div class="col-10 col-md-5 col-lg-5 mx-auto">
+                                    <h4>Spa Navy 4 personnes </h4>
+                                    <ul class="ul-check primary list-unstyled mt-4">
+                                        <li>140 diffuseurs de bulles</li>
+                                        <li>Traitement au Braume inclus</li>
+                                        <li>196cm de diamètre et 71cm de hauteur</li>
+                                        <li>Jusqu'à 795L d'eau (~3,5€)</li>
+                                        <li><b>90€</b> la première soirée et <br><b>30€</b> par soir en plus</li>
+                                    </ul>
+                                    <p class="text-center mt-1">
+                                        <a href="{{ url('/reservation') }}" class="btn btn-primary bg-action btn-md text-white">Réserver un spa-jacuzzi</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                      <div class="tab-pane fade" id="pills-baltik4" role="tabpanel" aria-labelledby="pills-baltik4-tab">
+                          <div class="row align-items-center">
+                              <div class="col-10 col-md-6 col-lg-7 mx-auto">
+                                  <img src="{{url('medias/img/home/spa-baltik-4-min.png')}}" class="img-produit" alt="">
+                              </div>
+                              <div class="col-10 col-md-5 col-lg-5 mx-auto">
+                                  <h4>Spa Baltik 4 personnes </h4>
+                                  <ul class="ul-check primary list-unstyled mt-4">
+                                      <li>140 diffuseurs de bulles</li>
+                                      <li>Traitement au Braume inclus</li>
+                                      <li>196cm de diamètre et 71cm de hauteur</li>
+                                      <li>Jusqu'à 795L d'eau (~3,5€)</li>
+                                      <li><b>90€</b> la première soirée et <br><b>30€</b> par soir en plus</li>
+                                  </ul>
+                                  <p class="text-center mt-1">
+                                      <a href="{{ url('/reservation') }}" class="btn btn-primary bg-action btn-md text-white">Réserver un spa-jacuzzi</a>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="tab-pane fade" id="pills-baltik6" role="tabpanel" aria-labelledby="pills-baltik6-tab">
+                          <div class="row align-items-center">
+                              <div class="col-10 col-md-6 col-lg-7 mx-auto">
+                                  <img src="{{url('medias/img/home/spa-baltik-6-min.png')}}" class="img-produit" alt="">
+                              </div>
+                              <div class="col-10 col-md-5 col-lg-5 mx-auto">
+                                  <h4>Spa Baltik 6 personnes </h4>
+                                  <ul class="ul-check primary list-unstyled mt-4">
+                                      <li>170 diffuseurs de bulles</li>
+                                      <li>Traitement au Braume inclus</li>
+                                      <li>218cm de diamètre et 71cm de hauteur</li>
+                                      <li>Jusqu'à 1098L d'eau (~4,5€)</li>
+                                      <li><b>120€</b> la première soirée et <br><b>40€</b> par soir en plus</li>
+                                  </ul>
+                                  <p class="text-center mt-1">
+                                      <a href="{{ url('/reservation') }}" class="btn btn-primary bg-action btn-md text-white">Réserver un spa-jacuzzi</a>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="tab-pane fade" id="pills-carbone6" role="tabpanel" aria-labelledby="pills-carbone6-tab">
+                          <div class="row align-items-center">
+                              <div class="col-10 col-md-6 col-lg-7 mx-auto">
+                                  <img src="{{url('medias/img/home/spa-carbone-6-min.png')}}" class="img-produit" alt="">
+                              </div>
+                              <div class="col-10 col-md-5 col-lg-5 mx-auto">
+                                  <h4>Spa Carbone 6 personnes </h4>
+                                  <ul class="ul-check primary list-unstyled mt-4">
+                                      <li>140 diffuseurs de bulles</li>
+                                      <li>BONUS : Jets massants </li>
+                                      <li>Traitement au Braume inclus</li>
+                                      <li>218cm de diamètre et 71cm de hauteur</li>
+                                      <li>Jusqu'à 1098L d'eau (~4,5€)</li>
+                                      <li><b>160€</b> la première soirée et <br><b>40€</b> par soir en plus</li>
+                                  </ul>
+                                  <p class="text-center mt-1">
+                                      <a href="{{ url('/reservation') }}" class="btn btn-primary bg-action btn-md text-white">Réserver un spa-jacuzzi</a>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
+
+    </div>
+</section>
+
+<!-- <section class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-9" style="background-color:#F2F2F2;margin: auto;">
+ca
+            </div>
+        </div>
+
+    </div>
+</section> -->
+
+<section class="site-section bg-light" id="fac-section">
+    <div class="container">
         <div class="row site-section" id="faq-section">
             <div class="col-12 text-center" data-aos="fade">
                 <h2 class="section-title text-primary">Encore un doute ?</h2>
@@ -293,6 +418,7 @@
     </div>
 </section>
 
+
 <div class="site-section" id="contact-section">
     <div class="container">
         <div class="row mt-3">
@@ -339,6 +465,13 @@ de vos rêves.</p>
         </div>
     </div>
 </div>
+
+<script>
+$(function(){
+    $("#carouselExampleCaptions").carousel('pause');
+});
+</script>
+
 @if(Session::has('success'))
     <script>alert("{!! Session::get('success') !!}");</script>
     {{ Session::forget('success') }}

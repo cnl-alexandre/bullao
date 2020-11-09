@@ -184,7 +184,7 @@ h1, h2, h3, h4, h5,
 	border-radius: 12px;
 }
 .services-img-4 {
-	background-image: url("../../medias/img/home/preview_navy_4p_int_1.webp");
+	background-image: url("../../medias/img/home/preview_navy_4p_int_2.webp");
 	border-radius: 12px;
 }
 
@@ -214,9 +214,43 @@ h1, h2, h3, h4, h5,
 }
 
 .block-produits {
-	padding: 20px 50px;
+	padding: 20px 0px;
     border: 1px solid #e9ecef;
     background: #fff;
+}
+/* .block-produits  img {
+	max-width: 100px;
+	margin: auto;
+}
+@media all and (max-width: 767px){
+	.block-produits .carousel-item img {
+		max-width: 200px;
+	}
+}
+@media all and (max-width: 450px){
+	.block-produits .carousel-item img {
+		max-width: 100%;
+	}
+}
+.block-produits .carousel-caption {
+	color: #000000;
+}
+
+@media all and (max-width: 450px){
+	.block-produits .carousel-caption {
+		padding-top: 300px;
+		color: #FFFFFF;
+	}
+} */
+
+.block-produits .nav-pills .nav-link.active {
+	    border-radius: 50px;
+}
+.block-produits .nav-pills a {
+	color: #151515;
+}
+.block-produits .img-produit {
+	width: 100%;
 }
 
 /* SPECIFIQUE TUNNEL ACHAT GLOBAL */
