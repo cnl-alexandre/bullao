@@ -51,14 +51,14 @@
 
                                     Quel est votre logement ?
                                     <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons" required>
-                                        <label for="type_logement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3">
-                                            <input type="radio" name="type_logement" value="Maison">
+                                        <label for="type_logement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3 typeLogement">
+                                            <input type="radio" name="type_logement" class="typeLogement" value="Maison">
                                             <div class="block-team-member-1 text-center rounded" style="padding: 17px 5px 0px 5px;">
                                                 <p class="font-size-15" style="color: #525252;">Une maison</p>
                                             </div>
                                         </label>
-                                        <label for="type_logement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3">
-                                            <input type="radio" name="type_logement" value="Appartement">
+                                        <label for="type_logement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3 typeLogement">
+                                            <input type="radio" name="type_logement" class="typeLogement" value="Appartement">
                                             <div class="block-team-member-1 text-center rounded"  style="padding: 17px 5px 0px 5px;">
                                                 <p class="font-size-15" style="color: #525252;">Un appartement</p>
                                             </div>
@@ -67,14 +67,14 @@
 
                                     Où posera-t-on le spa ?
                                     <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
-                                        <label for="emplacement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3">
-                                            <input type="radio" name="emplacement" value="Intérieur">
+                                        <label for="emplacement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3 emplacement">
+                                            <input type="radio" name="emplacement" class="emplacement" value="Intérieur">
                                             <div class="block-team-member-1 text-center rounded" style="padding: 17px 10px 0px 10px;">
                                                 <p class="font-size-15" style="color: #525252;">À l'intérieur</p>
                                             </div>
                                         </label>
-                                        <label for="emplacement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3">
-                                            <input type="radio" name="emplacement" value="Extérieur">
+                                        <label for="emplacement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3 emplacement">
+                                            <input type="radio" name="emplacement"  class="emplacement" value="Extérieur">
                                             <div class="block-team-member-1 text-center rounded"  style="padding: 17px 10px 0px 10px;">
                                                 <p class="font-size-15" style="color: #525252;">À l'extérieur</p>
                                             </div>
@@ -84,20 +84,20 @@
 
                                     Quel moment de la journée ?
                                     <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom" data-toggle="buttons">
-                                        <label for="creneau" class="btn btn-radio-custom col-lg-12 col-md-12">
-                                            <input type="radio" name="creneau" value="Entre 8h et 12h">
+                                        <label for="creneau" class="btn btn-radio-custom col-lg-12 col-md-12 creneau">
+                                            <input type="radio" name="creneau" class="creneau" value="Entre 8h et 12h">
                                             <div class="block-team-member-1 text-center rounded" style="padding: 17px 10px 0px 10px;">
                                                 <p class="font-size-15" style="color: #525252;">Entre 8h et 12h - Recommandé</p>
                                             </div>
                                         </label>
-                                        <label for="creneau" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3">
-                                            <input type="radio" name="creneau" value="Entre 12h et 15h">
+                                        <label for="creneau" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3 creneau">
+                                            <input type="radio" name="creneau" class="creneau" value="Entre 12h et 15h">
                                             <div class="block-team-member-1 text-center rounded"  style="padding: 17px 10px 0px 10px;">
                                                 <p class="font-size-15" style="color: #525252;">Entre 12h et 15h</p>
                                             </div>
                                         </label>
-                                        <label for="creneau" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3">
-                                            <input type="radio" name="creneau" value="Entre 15h et 20h">
+                                        <label for="creneau" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3 creneau">
+                                            <input type="radio" name="creneau" class="creneau" value="Entre 15h et 20h">
                                             <div class="block-team-member-1 text-center rounded"  style="padding: 17px 10px 0px 10px;">
                                                 <p class="font-size-15" style="color: #525252;">Entre 15h et 20h</p>
                                             </div>
@@ -391,7 +391,20 @@
     });
 
     $("#acceptCGV").click(function() {
-        if($(this).is(':checked'))
+        inputCheck();
+    });
+    $(".typeLogement").change(function() {
+        inputCheck();
+    });
+    $(".emplacement").change(function() {
+        inputCheck();
+    });
+    $(".creneau").change(function() {
+        inputCheck();
+    });
+
+    function inputCheck() {
+        if($("#acceptCGV").is(':checked') && $(".typeLogement").is(':checked') && $(".emplacement").is(':checked') && $(".creneau").is(':checked'))
         {
             $('#btn-confirm').attr("disabled", false);
             $('#btn-confirm').attr("title", null);
@@ -399,9 +412,10 @@
         else
         {
             $('#btn-confirm').attr("disabled", true);
-            $('#btn-confirm').attr("title", "Vous devez accepter les CGV.");
+            $('#btn-confirm').attr("title", "Vous devez remplir toutes les informations.");
         }
-    });
+
+    }
 
     /*$("#departement").change(function() {
         var montant = $('#montant_total').val();

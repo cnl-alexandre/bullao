@@ -28,7 +28,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="" data-aos-delay="">
-                        <h2 class="h2-reservation text-primaire">Date de réservation</h2>
+                        <h2 class="h2-reservation text-action">Date de réservation</h2>
                         <br>
                         <div class="text-center" id="containerdaterange" style="height:330px;">
                           <div class="form-group">
@@ -47,7 +47,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-9 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation text-primaire">Choix du spa-jacuzzi</h2>
+                        <h2 class="h2-reservation text-action">Choix du spa-jacuzzi</h2>
                         <p>Quel spa vous fait le plus envie ? Faites-vous plaisir pour ce coup là !</p>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation text-primaire">Thématiser la soirée</h2>
+                        <h2 class="h2-reservation text-action">Thématiser la soirée</h2>
                         <p>Vous souhaitez thématiser simplement votre soirée ? Nous avons ce qu'il vous faut !</p>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                                     <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
                                 <div>
-                                    <h3 class="font-size-20 text-action">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
+                                    <h3 class="font-size-20 text-primaire">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
                                     <span class="d-block font-gray-6 font-size-15 mb-1"><?php echo $pack->pack_description; ?></span>
                                     <!-- {{ $pack->stock() }} -->
                                 </div>
@@ -105,7 +105,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation text-primaire">Ajouter des accessoires</h2>
+                        <h2 class="h2-reservation text-action">Ajouter des accessoires</h2>
                         <p>Ajoutez les petits détails qui feront la différence à votre soirée spa !</p>
                     </div>
                 </div>
@@ -141,9 +141,6 @@
         var date_debut = dates[0].split('/').reverse().join('-');
         var date_fin = dates[1].split('/').reverse().join('-');
         var nb_place = $('#nbPlaceSpa').val();
-
-        $('#btn-confirm').attr("disabled", true);
-        $('#btn-confirm').attr("title", "Vous devez choisir un spa.");
 
         $.ajax({
             url : "{{ url('/webservices/spa/stock/verify') }}",
@@ -209,55 +206,23 @@
         });
     });
 
+
     $(".pack-recap").click(function() {
         $("html, body").animate({
             scrollTop: $("#accessoires-section").offset().top
-        }, 1000);
+        }, 1500);
 
-        $("#btn-confirm").attr("disabled", false);
-        $("#btn-confirm").attr("title", null);
     })
-
-    @if(count($packs) > 0)
-        $("#btn-pack-clear").click(function() {
-            @foreach($packs as $pack)
-                $("#label-pack-{{ $pack->pack_id }}").removeClass("active");
-                $("#pack-{{ $pack->pack_id }}").prop('checked', false);
-            @endforeach
-
-            return false;
-        });
-    @endif
 
     $(document).ready(function() {
 
         $('#btn-confirm').attr("disabled", true);
-        $('#btn-confirm').attr("title", "Vous devez choisir un spa et faire un choix au niveau des packs.");
+        $('#btn-confirm').attr("title", "Vous devez choisir un spa.");
 
         // Gestion du scroll automatique
         var url = $(location).attr('href');
         var nbPlaceComplete = url.substring(url.length - 7, url.length);
         var nbPlace = nbPlaceComplete.substring(0, 1);
-
-        if(nbPlace == 4 || nbPlace == 6)
-        {
-            $('html, body').animate({
-                scrollTop: $("#datepicker-section").offset().top
-            }, 1000);
-        }
-
-        // if(nbPlace == 6)
-        // {
-        //     $("#btn-reserver-6").html('Offre sélectionnée');
-        //     $("#btn-reserver-6").css('background-color', '#FF8B00');
-        //     $("#btn-reserver-6").css('border-color', '#FF8B00');
-        // }
-        // else if(nbPlace == 4)
-        // {
-        //     $("#btn-reserver-4").html('Offre sélectionnée');
-        //     $("#btn-reserver-4").css('background-color', '#FF8B00');
-        //     $("#btn-reserver-4").css('border-color', '#FF8B00');
-        // }
 
         setTimeout(function(){
             $('#daterange').trigger('click');
@@ -308,7 +273,7 @@
             autoApply: true,
             alwaysShowCalendars: true,
             maxSpan: {
-                days: 5
+                days: 12
             },
             drops: "auto",
             isInvalidDate: function(date) {
@@ -323,7 +288,7 @@
         $('#daterange').on('hide.daterangepicker', function(ev, picker) {
             $('html, body').animate({
                 scrollTop: $("#spas-section").offset().top
-            }, 1000);
+            }, 1500);
 
             setTimeout(function(){
                 $('#daterange').trigger('click');
