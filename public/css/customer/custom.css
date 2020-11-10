@@ -171,12 +171,12 @@ h1, h2, h3, h4, h5,
 }
 @media (max-width: 767.98px) {
 	.services-section .services-img-1 {
-	    background-position: center -100px;
+	    background-position: center -600px;
 	}
 }
-@media (max-width: 725.98px) {
+@media (max-width: 440.98px) {
 	.services-section .services-img-1 {
-	    background-position: center -60px;
+	    background-position: center 0px;
 	}
 }
 .services-img-2 {

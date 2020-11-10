@@ -22,7 +22,7 @@
     <div class="services-section mb-2" id="services-section">
         <div class="container">
             <div class="row d-flex no-gutters align-items-stretch">
-                <div class="col-12 col-lg-6 services-img services-img-1" data-aos="fade" data-aos-delay="">
+                <div class="col-12 col-lg-6 services-img services-img-1">
                 </div>
                 <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-3" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 font-size-28 text-black">Votre spa à domicile</h2>
