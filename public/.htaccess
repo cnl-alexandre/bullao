@@ -18,4 +18,31 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    # Redirection vers HTTPS
+    RewriteCond     %{SERVER_PORT} ^80$
+    RewriteRule     ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
+
+    # Masquer les informations du serveur
+    ServerSignature Off
+
+    # Activation du suivi des liens symboliques
+    Options +FollowSymLinks
+
+    # Choix du fuseau horaire
+    SetEnv TZ Europe/Paris
+
+    # Encodage par défaut des fichiers textes et HTML
+    AddDefaultCharset UTF-8
+
+    # Redirection Work in Progress
+    # Redirect / https://preprod.bullao.fr/workinprogress/index.php
+
 </IfModule>
+
+# Protections diverses (XSS, clickjacking et MIME-Type sniffing)
+<ifModule mod_headers.c>
+Header set X-XSS-Protection "1; mode=block"
+Header always append X-Frame-Options SAMEORIGIN
+Header set X-Content-Type-Options: "nosniff”
+</ifModule>
