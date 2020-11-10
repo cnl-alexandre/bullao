@@ -19,7 +19,7 @@
     </div>
 </section>
 
-<section class="site-section bg-light" id="accepted-section" style="height: 100vh;">
+<section class="site-section bg-light" id="accepted-section" style="min-height: 40vh;">
     <div class="container">
         <div class="row mb-4 d-flex align-items-center">
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="" style="margin-left: auto;margin-right: 0;">
