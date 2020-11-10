@@ -765,12 +765,12 @@ a {
     position: relative;
     z-index: 2; }
   .site-section-cover, .site-section-cover .container > .row {
-    height: calc(100vh - 196px);
+    height: calc(80vh - 196px);
     min-height: 577px; }
     @media (max-width: 991.98px) {
       .site-section-cover, .site-section-cover .container > .row {
         height: calc(70vh - 196px);
-        min-height: 400px; } }
+        min-height: 350px; } }
   .site-section-cover.overlay {
     position: relative; }
     .site-section-cover.overlay:before {

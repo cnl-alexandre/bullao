@@ -142,7 +142,7 @@
                             <a class="nav-link active" id="pills-sahara4-tab" data-toggle="pill" href="#pills-sahara4" role="tab" aria-controls="pills-sahara4" aria-selected="true">Sahara 4p</a>
                         </li>
                         <li class="nav-item mx-auto">
-                            <a class="nav-link" id="pills-navy4-tab" data-toggle="pill" href="#pills-navy4" role="tab" aria-controls="pills-navy4" aria-selected="false">Navy 6p</a>
+                            <a class="nav-link" id="pills-navy4-tab" data-toggle="pill" href="#pills-navy4" role="tab" aria-controls="pills-navy4" aria-selected="false">Navy 4p</a>
                         </li>
                         <li class="nav-item mx-auto">
                             <a class="nav-link" id="pills-baltik4-tab" data-toggle="pill" href="#pills-baltik4" role="tab" aria-controls="pills-baltik4" aria-selected="false">Baltik 4p</a>
