@@ -82,40 +82,6 @@
 
                 </div>
             </div>
-            <!-- <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="custom-media">
-                    <div class="icon mb-3">
-                        <span><img src="{{ url('medias/img/pictos/002-covid.svg') }}" alt="" height="45px"></span>
-                    </div>
-                    <h3 class="font-size-18 text-black mb-2">Hygiène</h3>
-                    Bullao vous assure une hygiène et une sécurité optimale.
-                    Tout le matériel est soigneusement nettoyé et désinfecté avant
-                    et après chaque utilisation. Nous travaillons dans le respect des règles sanitaires et
-                    des gestes barrières.
-                </div>
-            </div> -->
-            <!-- <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="">
-                <div class="custom-media">
-                    <div class="icon mb-3">
-                        <span><img src="{{ url('medias/img/pictos/006-compass.svg') }}" alt="" height="45px"></span>
-                    </div>
-                    <h3 class="font-size-18 text-black mb-2">Localisation</h3>
-                    Pour le moment, Bullao intervient sur l’ensemble du
-                    secteur de Marne-la-Vallée et de Paris. Nous espérons desservir prochainement toute la
-                    région Île-de-France.
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="custom-media">
-                    <div class="icon mb-3">
-                        <span><img src="{{ url('medias/img/pictos/005-paint-brush.svg') }}" alt="" height="45px"></span>
-                    </div>
-                    <h3 class="font-size-18 text-black mb-2">Personnalisation</h3>
-                    Une demande particulière ? Façonnez votre instant spa-jacuzzi à votre
-                    image ! Bullao vous propose différents thèmes et accessoires pour une expérience
-                    inoubliable et sur-mesure.
-                </div>
-            </div> -->
             <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="custom-media">
                     <div class="icon mb-3">
@@ -131,27 +97,6 @@
         </div>
     </div>
 </div>
-
-<!-- <section class="site-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6 mb-3">
-                <img src="{{ url('medias/img/home/explication.png') }}" alt="" style="width: inherit;max-width: 500px;">
-            </div>
-            <div class="col-12 col-md-6">
-                <h3 class="text-black mb-3">Comment ça se passe ?</h3>
-                <p>Vous devez surement vous demander quelles sont les étapes à vérifier pour être sûr de votre coup !
-                Pour une soirée réussie, voici les derniers détails obligatoires avant de vous lancer </p>
-                <ul class="list-unstyled ul-check success">
-                    <li>La pose du spa dure environ 1h à 1h30 suivant votre réservation et le retrait du spa dure environ 1h</li>
-                    <li>Un espace de 2,5m sur 2,5m soit un peu plus de 6m2 pour un spa 4 places et un espace de 3m sur 3m soit 9m2 pour un spa 6 places</li>
-                    <li>Une prise électrique murale à 20m maximum du spa</li>
-                    <li>Une arrivée d’eau extérieure ou une prise d’eau de salle de bain à 20m maximum du spa</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section> -->
 
 <div class="site-section">
     <div class="services-section" id="services-section">
@@ -213,7 +158,7 @@
                         <div class="tab-pane fade show active " id="pills-sahara4" role="tabpanel" aria-labelledby="pills-sahara4-tab">
                             <div class="row align-items-center">
                                 <div class="col-10 col-md-6 col-lg-7 mx-auto">
-                                    <img src="{{url('medias/img/home/spa-sahara-4-min.png')}}" class="img-produit" alt="">
+                                    <img src="{{url('medias/img/home/spa-sahara-4-comparo.webp')}}" class="img-produit" alt="">
                                 </div>
                                 <div class="col-10 col-md-5 col-lg-5 mx-auto">
                                     <h4>Spa Sahara 4 personnes </h4>
@@ -233,7 +178,7 @@
                         <div class="row tab-pane fade" id="pills-navy4" role="tabpanel" aria-labelledby="pills-navy4-tab">
                             <div class="row align-items-center">
                                 <div class="col-10 col-md-6 col-lg-7 mx-auto">
-                                    <img src="{{url('medias/img/home/spa-navy-4-min.png')}}" class="img-produit" alt="">
+                                    <img src="{{url('medias/img/home/spa-navy-4-comparo.webp')}}" class="img-produit" alt="">
                                 </div>
                                 <div class="col-10 col-md-5 col-lg-5 mx-auto">
                                     <h4>Spa Navy 4 personnes </h4>
@@ -253,7 +198,7 @@
                       <div class="tab-pane fade" id="pills-baltik4" role="tabpanel" aria-labelledby="pills-baltik4-tab">
                           <div class="row align-items-center">
                               <div class="col-10 col-md-6 col-lg-7 mx-auto">
-                                  <img src="{{url('medias/img/home/spa-baltik-4-min.png')}}" class="img-produit" alt="">
+                                  <img src="{{url('medias/img/home/spa-baltik-4-comparo.webp')}}" class="img-produit" alt="">
                               </div>
                               <div class="col-10 col-md-5 col-lg-5 mx-auto">
                                   <h4>Spa Baltik 4 personnes </h4>
@@ -273,7 +218,7 @@
                       <div class="tab-pane fade" id="pills-baltik6" role="tabpanel" aria-labelledby="pills-baltik6-tab">
                           <div class="row align-items-center">
                               <div class="col-10 col-md-6 col-lg-7 mx-auto">
-                                  <img src="{{url('medias/img/home/spa-baltik-6-min.png')}}" class="img-produit" alt="">
+                                  <img src="{{url('medias/img/home/spa-baltik-6-comparo.webp')}}" class="img-produit" alt="">
                               </div>
                               <div class="col-10 col-md-5 col-lg-5 mx-auto">
                                   <h4>Spa Baltik 6 personnes </h4>
@@ -293,7 +238,7 @@
                       <div class="tab-pane fade" id="pills-carbone6" role="tabpanel" aria-labelledby="pills-carbone6-tab">
                           <div class="row align-items-center">
                               <div class="col-10 col-md-6 col-lg-7 mx-auto">
-                                  <img src="{{url('medias/img/home/spa-carbone-6-min.png')}}" class="img-produit" alt="">
+                                  <img src="{{url('medias/img/home/spa-carbone-6-comparo.webp')}}" class="img-produit" alt="">
                               </div>
                               <div class="col-10 col-md-5 col-lg-5 mx-auto">
                                   <h4>Spa Carbone 6 personnes </h4>
@@ -465,12 +410,6 @@ de vos rêves.</p>
         </div>
     </div>
 </div>
-
-<script>
-$(function(){
-    $("#carouselExampleCaptions").carousel('pause');
-});
-</script>
 
 @if(Session::has('success'))
     <script>alert("{!! Session::get('success') !!}");</script>

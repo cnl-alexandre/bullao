@@ -9,10 +9,10 @@
         <div class="row mt-5 mt-md-0 d-flex justify-content-center">
             <div class="align-self-center">
                 <img src="{{ url('medias/img/pictos/reservation-on.png') }}" alt="">
-                <img src="{{ url('medias/img/pictos/separator-off.png') }}" class="separator" alt="">
-                <img src="{{ url('medias/img/pictos/livraison-off.png') }}" alt="">
-                <img src="{{ url('medias/img/pictos/separator-off.png') }}" class="separator" alt="">
-                <img src="{{ url('medias/img/pictos/paiement-off.png') }}" alt="">
+                <img src="{{ url('medias/img/pictos/separator-on.png') }}" class="separator" alt="">
+                <img src="{{ url('medias/img/pictos/livraison-on.png') }}" alt="">
+                <img src="{{ url('medias/img/pictos/separator-on.png') }}" class="separator" alt="">
+                <img src="{{ url('medias/img/pictos/paiement-on.png') }}" alt="">
             </div>
         </div>
 
