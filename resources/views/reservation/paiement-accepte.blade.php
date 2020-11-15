@@ -4,16 +4,24 @@
 
 @section('content')
 
-<section class="site-section bg-light" id="accepted-section" style="height: 100vh;">
+<section class="site-section ariane-section bg-light" id="pricing-section">
     <div class="container">
-        <div class="row mb-5 justify-content-center text-center">
-            <div class="col-md-7">
-                <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <h2>Paiement accepté</h2>
-                </div>
+        <div class="row mt-5 mt-md-0 d-flex justify-content-center">
+            <div class="align-self-center">
+                <img src="{{ url('medias/img/pictos/reservation-on.png') }}" alt="">
+                <img src="{{ url('medias/img/pictos/separator-on.png') }}" class="separator" alt="">
+                <img src="{{ url('medias/img/pictos/livraison-on.png') }}" alt="">
+                <img src="{{ url('medias/img/pictos/separator-on.png') }}" class="separator" alt="">
+                <img src="{{ url('medias/img/pictos/paiement-on.png') }}" alt="">
             </div>
         </div>
-        <div class="row mb-5 d-flex align-items-center">
+
+    </div>
+</section>
+
+<section class="site-section bg-light" id="accepted-section" style="min-height: 40vh;">
+    <div class="container">
+        <div class="row mb-4 d-flex align-items-center">
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="" style="margin-left: auto;margin-right: 0;">
                 <div class="text-center">
                     <img src="{{ url('/medias/img/paiement/checked.svg') }}" alt="Paiement accepté" class="img-fluid rounded-circle" width="180px;" >
@@ -26,7 +34,7 @@
                     <p class="text-center text-black mb-4">Suite à la réservation de votre spa-jacuzzi sur le site Bullao, un mail de confirmation vous a été envoyé à l’adresse mail fournie.</p>
                     <p class="text-center text-black mb-5">Nous vous remercions de votre confiance.</p>
                     <p class="text-center">
-                        <a href="{{ url('/') }}" class="btn btn-primary btn-md text-white">Retour à l’accueil</a>
+                        <a href="{{ url('/') }}" class="btn btn-primary bg-action btn-md text-white">Retour à l’accueil</a>
                     </p>
                 </div>
             </div>

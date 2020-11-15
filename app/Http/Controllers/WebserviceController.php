@@ -52,7 +52,7 @@ class WebserviceController extends Controller
                                     ])
                                     ->get();
 
-        $spas = Spa::where('spa_nb_place', '=', $request->nb_place)->get();
+        $spas = Spa::get();
 
         $reserv = [];
         $nbSpaReserv = [];
@@ -91,14 +91,14 @@ class WebserviceController extends Controller
             {
                 if(!in_array($spa->spa_id, $reserv) && $spa->spa_stock > 0)
                 {
-                    $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap spa-no-disabled" data-aos="fade-up">';
-                        $html .= '<input type="radio" name="spa" id="spa-'.$spa->spa_id.'" autocomplete="off" value="'.$spa->spa_id.'">';
+                    $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap spa-no-disabled spa" data-aos="fade-up">';
+                        $html .= '<input type="radio" name="spa" id="spa-'.$spa->spa_id.'" class="spa" autocomplete="off" value="'.$spa->spa_id.'">';
                         $html .= '<div class="block-team-member-1 text-center input-row-step1-responsive">';
                             $html .= '<figure class="col-3 col-md-12 mt-1">';
                                 $html .= '<img src="'.url($spa->spa_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
-                            $html .= '<div class="col-8 col-md-12 ml-1 ml-md-0">';
-                                $html .= '<h3 class="font-size-20 text-black">'.$spa->spa_libelle.'</h3>';
+                            $html .= '<div class="col-9 col-md-12 ml-1 ml-md-0">';
+                                $html .= '<h3 class="font-size-20 text-primaire">'.$spa->spa_libelle.'</h3>';
                                 $html .= '<span class="d-block font-gray-6 font-size-14 mb-1">'.$spa->spa_desc.'</span>';
                                 $html .= '<span class="d-block font-size-14 mb-1">'.$spa->spa_nb_place.' places - '.$spa->spa_prix.'€</span>';
                             $html .= '</div>';
@@ -107,14 +107,14 @@ class WebserviceController extends Controller
                 }
                 else
                 {
-                    $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap disabled" data-aos="fade-up">';
-                        $html .= '<input type="radio" name="spa" id="spa-'.$spa->spa_id.'" disabled autocomplete="off" value="'.$spa->spa_id.'">';
+                    $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap disabled spa" data-aos="fade-up">';
+                        $html .= '<input type="radio" name="spa" id="spa-'.$spa->spa_id.'" class="spa" disabled autocomplete="off" value="'.$spa->spa_id.'">';
                         $html .= '<div class="block-team-member-1 text-center rounded nostock input-row-step1-responsive">';
                             $html .= '<figure class="col-3 col-md-12 mt-1">';
                                 $html .= '<img src="'.url($spa->spa_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
-                            $html .= '<div class="col-8 col-md-12 ml-1 ml-md-0">';
-                                $html .= '<h3 class="font-size-20 text-black">'.$spa->spa_libelle.'</h3>';
+                            $html .= '<div class="col-9 col-md-12 ml-1 ml-md-0">';
+                                $html .= '<h3 class="font-size-20 text-primaire">'.$spa->spa_libelle.'</h3>';
                                 // $html .= '<span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3">'.$spa->spa_desc.'</span>';
                                 $html .= '<span class="d-block font-size-14 mb-1" style="opacity:0.6;">Victime de son succès<br>sur les dates choisies.</span>';
                                 $html .= '<span class="d-block font-size-14 mb-1">'.$spa->spa_nb_place.' places - '.$spa->spa_prix.'€</span>';
@@ -128,7 +128,9 @@ class WebserviceController extends Controller
                 $html .= '$(".spa-no-disabled").click(function() {';
                     $html .= '$("html, body").animate({';
                         $html .= 'scrollTop: $("#packs-section").offset().top';
-                    $html .= '}, 1000);';
+                    $html .= '}, 1500);';
+                    $html .= '$("#btn-confirm").attr("disabled", false);';
+                    $html .= '$("#btn-confirm").attr("title", null);';
                 $html .= '})';
             $html .= '</script>';
         }
@@ -197,7 +199,7 @@ class WebserviceController extends Controller
                             $html .= '<figure>';
                                 $html .= '<img src="'.url($spa->spa_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
-                            $html .= '<h3 class="font-size-20 text-black">'.$spa->spa_libelle.'</h3>';
+                            $html .= '<h3 class="font-size-20 text-action">'.$spa->spa_libelle.'</h3>';
                             $html .= '<span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-1">'.$spa->spa_desc.'</span>';
                             $html .= '<span class="d-block font-size-14 mb-1">'.$spa->spa_prix.'€</span>';
                         $html .= '</div>';
@@ -211,7 +213,7 @@ class WebserviceController extends Controller
                             $html .= '<figure>';
                                 $html .= '<img src="'.url($spa->spa_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
-                            $html .= '<h3 class="font-size-20 text-black">'.$spa->spa_libelle.'</h3>';
+                            $html .= '<h3 class="font-size-20 text-action">'.$spa->spa_libelle.'</h3>';
                             // $html .= '<span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-14 mb-3">'.$spa->spa_desc.'</span>';
                             $html .= '<span class="text-danger letter-spacing-1 text-uppercase font-size-14" style="opacity:0.6;">Victime de son succès</span>';
                             $html .= '<span class="d-block font-size-14 mb-1">'.$spa->spa_prix.'€</span>';
@@ -292,11 +294,11 @@ class WebserviceController extends Controller
                 {
                     $html .= '<label for="accessoire-'.$accessoire->accessoire_id.'" class="btn btn-checkbox-custom col-lg-3 col-md-4 col-6 mb-3 accessoire-recap" data-aos="fade-up">';
                         $html .= '<input type="checkbox" name="accessoires[]" id="accessoire-'.$accessoire->accessoire_id.'" autocomplete="off" value="'.$accessoire->accessoire_id.'">';
-                        $html .= '<div class="block-team-member-1 text-center rounded">';
+                        $html .= '<div class="block-team-member-1 text-center rounded" style="height: 100%;">';
                             $html .= '<figure>';
                                 $html .= '<img src="'.url($accessoire->accessoire_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
-                            $html .= '<h3 class="font-size-18 text-black">'.$accessoire->accessoire_libelle.'</h3>';
+                            $html .= '<h3 class="font-size-18 text-primaire">'.$accessoire->accessoire_libelle.'</h3>';
                             $html .= '<span class="d-block font-gray-5 font-size-14 mb-1">'.$accessoire->accessoire_prix.'€</span>';
                         $html .= '</div>';
                     $html .= '</label>';
@@ -305,11 +307,11 @@ class WebserviceController extends Controller
                 {
                     $html .= '<label for="accessoire-'.$accessoire->accessoire_id.'" class="btn btn-checkbox-custom col-lg-3 col-md-4 col-6 mb-3 accessoire-recap disabled" data-aos="fade-up">';
                         $html .= '<input type="checkbox" name="accessoires[]" id="accessoire-'.$accessoire->accessoire_id.'" disabled autocomplete="off" value="'.$accessoire->accessoire_id.'">';
-                        $html .= '<div class="block-team-member-1 text-center rounded nostock">';
+                        $html .= '<div class="block-team-member-1 text-center rounded nostock" style="height: 100%;">';
                             $html .= '<figure>';
                                 $html .= '<img src="'.url($accessoire->accessoire_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
-                            $html .= '<h3 class="font-size-18 text-black">'.$accessoire->accessoire_libelle.'</h3>';
+                            $html .= '<h3 class="font-size-18 text-primaire">'.$accessoire->accessoire_libelle.'</h3>';
                             // $html .= '<span class="d-block font-gray-5 font-size-14 mb-2">'.$accessoire->accessoire_prix.'€</span>';
                             $html .= '<span class="text-danger">Victime de son succès</span>';
                         $html .= '</div>';

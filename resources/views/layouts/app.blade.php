@@ -32,8 +32,6 @@
         <link rel="stylesheet" href="{{ url('/css/customer/jquery.fancybox.min.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ url('/css/customer/owl.theme.default.min.css') }}">
-        <link rel="stylesheet" href="{{ url('/css/customer/mediaelementplayer.css') }}">
-        <link rel="stylesheet" href="{{ url('/fonts/flaticon/font/flaticon.css') }}">
 
         <link rel="stylesheet" href="{{ url('/css/customer/aos.css') }}">
 
@@ -65,28 +63,29 @@
             @include('partials.footer')
         </div>
 
-        <script src="{{ url('/js/jquery-3.3.1.min.js') }}"></script>
-        <!-- <script src="{{ url('/js/customer/jquery-migrate-3.0.1.min.js') }}"></script> -->
-        <script src="{{ url('/js/customer/jquery-ui.js') }}"></script>
-        <script src="{{ url('/js/customer/popper.min.js') }}"></script>
-        <script src="{{ url('/js/bootstrap.min.js') }}"></script>
-        <script src="{{ url('/js/customer/owl.carousel.min.js') }}"></script>
-        <script src="{{ url('/js/customer/mediaelement-and-player.min.js') }}"></script>
-        <script src="{{ url('/js/customer/jquery.stellar.min.js') }}"></script>
-        <script src="{{ url('/js/customer/jquery.animateNumber.min.js') }}"></script>
-        <script src="{{ url('/js/customer/jquery.countdown.min.js') }}"></script>
-        <script src="{{ url('/js/customer/jquery.easing.1.3.js') }}"></script>
-        <script src="{{ url('/js/customer/jquery.fancybox.min.js') }}"></script>
-        <script src="{{ url('/js/customer/jquery.sticky.js') }}"></script>
-        <script src="{{ url('/js/customer/jquery.waypoints.min.js') }}"></script>
-        <script src="{{ url('/js/customer/jquery.magnific-popup.min.js') }}"></script>
-        <script src="{{ url('/js/customer/bootstrap-datepicker.min.js') }}"></script>
-        <script src="{{ url('/js/customer/aos.js') }}"></script>
-        <script src="{{ url('/js/customer/slick.min.js') }}"></script>
-        <script src="{{ url('/js/customer/typed.js') }}"></script>
 
-        <script src="{{ url('/js/customer/main.js') }}"></script>
     </body>
+
+    <script src="{{ url('/js/jquery-3.3.1.min.js') }}"></script>
+    <!-- <script src="{{ url('/js/customer/jquery-migrate-3.0.1.min.js') }}"></script> -->
+    <script src="{{ url('/js/customer/jquery-ui.js') }}"></script>
+    <!-- <script src="{{ url('/js/customer/popper.min.js') }}"></script> -->
+    <script src="{{ url('/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('/js/customer/owl.carousel.min.js') }}"></script>
+    <script src="{{ url('/js/customer/jquery.stellar.min.js') }}"></script>
+    <!-- <script src="{{ url('/js/customer/jquery.animateNumber.min.js') }}"></script> -->
+    <script src="{{ url('/js/customer/jquery.countdown.min.js') }}"></script>
+    <script src="{{ url('/js/customer/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ url('/js/customer/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ url('/js/customer/jquery.sticky.js') }}"></script>
+    <script src="{{ url('/js/customer/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ url('/js/customer/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url('/js/customer/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ url('/js/customer/aos.js') }}"></script>
+    <!-- <script src="{{ url('/js/customer/slick.min.js') }}"></script> -->
+    <!-- <script src="{{ url('/js/customer/typed.js') }}"></script> -->
+
+    <script src="{{ url('/js/customer/main.js') }}"></script>
 
     <script async type="text/javascript" src="https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/dbc2b88096ae40eb9710cd74e16ebf84715c7466079d48dab279d2a834f4aa12.js"></script>
 

@@ -18,7 +18,6 @@ Route::get('/', 'HomeController@home');
 
 // Réservation
 Route::get('/reservation', 'ReservationController@reservationStep1');
-Route::get('/reservation/{nbPlace}places', 'ReservationController@reservationStep1');
 Route::post('/reservation', 'ReservationController@reservationStep1Submit');
 Route::get('/reservation/informations', 'ReservationController@reservationStep2');
 Route::post('/reservation/informations', 'ReservationController@reservationStep2Submit');

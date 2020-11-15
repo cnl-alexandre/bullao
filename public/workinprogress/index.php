@@ -22,8 +22,8 @@
 
       <div class="notification">
         <img class="logo" src="assets/logo.png" alt="Logo entreprise">
-        <h1 class="title">Création du site en cours</h1>
-        <p class="text">Bonjour, nous sommes actuellement en cours de création du site internet, celui-ci devrait être posté dans les prochains jours.</p>
+        <h1 class="title">Maintenance</h1>
+        <p class="text">Bonjour, nous sommes actuellement en cours de mise à jour. Nous allons revenir dans pas longtemps !</p>
         <img class="illustration" src="assets/illustration.svg" alt="Illustration site maintenance">
       </div>
 
