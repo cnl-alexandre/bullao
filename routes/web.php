@@ -78,7 +78,10 @@ Route::get('/system/dashboard', 'system\BackOfficeController@dashboard')        
 
 // RESERVATION
 Route::get('/system/reservations/list', 'system\ReservationController@list')                                        ->middleware('global.system');
+Route::get('/system/reservations/new', 'system\ReservationController@new')                                          ->middleware('global.system');
+Route::post('/system/reservations/new', 'system\ReservationController@newSubmit');
 Route::get('/system/reservations/edit/{id}', 'system\ReservationController@edit')                                   ->middleware('global.system');
+Route::post('/system/reservations/edit/{id}', 'system\ReservationController@editSubmit');
 
 // PRODUITS (SPAS-PACKS-ACCESSOIRES)
 Route::get('system/produits/spas/list', 'system\ProduitController@listSpas')                                        ->middleware('global.system');
@@ -98,6 +101,13 @@ Route::get('system/produits/accessoires/new', 'system\ProduitController@newAcces
 Route::post('system/produits/accessoires/new', 'system\ProduitController@newAccessoireSubmit');
 Route::get('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoire')                      ->middleware('global.system');
 Route::post('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoireSubmit');
+
+// CLIENTS
+Route::get('system/clients/list', 'system\ClientController@listClients')                                            ->middleware('global.system');
+Route::get('system/clients/new', 'system\ClientController@newClient')                                               ->middleware('global.system');
+Route::post('system/clients/new', 'system\ClientController@newClientSubmit');
+Route::get('system/clients/edit/{id}', 'system\ClientController@editClient')                                        ->middleware('global.system');
+Route::post('system/clients/edit/{id}', 'system\ClientController@editClientSubmit');
 
 // PARAMETRES - Code Promo
 Route::get('system/parametres/codespromo/list', 'system\ParametresController@listCodesPromo')                       ->middleware('global.system');

@@ -3,6 +3,8 @@ namespace App\Http\Controllers\system;
 
 use App\Http\Controllers\Controller;
 use App\Reservation;
+use App\Spa;
+use App\Pack;
 use App\Accessoire;
 
 class ReservationController extends Controller
@@ -32,9 +34,25 @@ class ReservationController extends Controller
         ]);
     }
 
+    public function new()
+    {
+        $spas = Spa::All();
+        $packs = Pack::All();
+        $accessoires = Accessoire::All();
+
+        return view('system.reservation.edit')->with([
+            'spas'                      => $spas,
+            'packs'                     => $packs,
+            'accessoires'               => $accessoires,
+            'action'                    => url('/system/reservations/new')
+        ]);
+    }
+
     public function edit($id)
     {
         $reservation = Reservation::find($id);
+        $spas = Spa::All();
+        $packs = Pack::All();
         $accessoires = Accessoire::All();
 
         $idAccessoiresReservation = [];
@@ -49,6 +67,8 @@ class ReservationController extends Controller
 
         return view('system.reservation.edit')->with([
             'reservation'               => $reservation,
+            'spas'                      => $spas,
+            'packs'                     => $packs,
             'accessoires'               => $accessoires,
             'action'                    => url('/system/reservations/edit'),
             'idAccessoiresReservation'  => $idAccessoiresReservation

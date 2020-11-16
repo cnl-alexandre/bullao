@@ -58,6 +58,17 @@
         </a>
     </li>
 
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Clientèle
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('system/clients/list') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Clients</span>
+        </a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Heading -->

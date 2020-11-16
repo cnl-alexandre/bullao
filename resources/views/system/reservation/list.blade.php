@@ -10,6 +10,10 @@
 
 <!-- DataTales Example -->
 <div class="card shadow">
+    <div class="text-right">
+        <a href="{{ url('/system/reservations/new') }}" class="btn btn-primary text-white mt-3 mr-3">Ajouter</a>
+    </div>
+    <hr>
     <ul class="nav nav-tabs nav-justified" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="login-tab" data-toggle="tab" href="#ResaFutures" role="tab">Réservations à venir ({{ count($listeResas) }})</a>

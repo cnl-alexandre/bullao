@@ -111,7 +111,7 @@
                         location privée ou professionnelle à Marne-la-Vallée et à Paris.
                     </p>
                     <ul class="ul-check primary list-unstyled mt-4">
-                        <li>Location de 1 à 5 jours</li>
+                        <li>Location de 24h à 10 jours</li>
                         <li>5 spas différents, packs et accessoires</li>
                         <li>Respect des mesures sanitaires</li>
                         <li>Désinstallation rapide</li>
@@ -167,7 +167,7 @@
                                         <li>Traitement au Braume inclus</li>
                                         <li>196cm de diamètre et 71cm de hauteur</li>
                                         <li>Jusqu'à 795L d'eau (~3,5€)</li>
-                                        <li><b>90€</b> la première soirée et <br><b>30€</b> par soir en plus</li>
+                                        <li><b>90€</b> la première soirée et <br><b>30€</b> par soirée supplémentaire</li>
                                     </ul>
                                     <p class="text-center mt-1">
                                           <a href="{{ url('/reservation') }}" class="btn btn-primary bg-action btn-md text-white">Réserver un spa-jacuzzi</a>
@@ -187,7 +187,7 @@
                                         <li>Traitement au Braume inclus</li>
                                         <li>196cm de diamètre et 71cm de hauteur</li>
                                         <li>Jusqu'à 795L d'eau (~3,5€)</li>
-                                        <li><b>90€</b> la première soirée et <br><b>30€</b> par soir en plus</li>
+                                        <li><b>90€</b> la première soirée et <br><b>30€</b> par soirée supplémentaire</li>
                                     </ul>
                                     <p class="text-center mt-1">
                                         <a href="{{ url('/reservation') }}" class="btn btn-primary bg-action btn-md text-white">Réserver un spa-jacuzzi</a>
@@ -207,7 +207,7 @@
                                       <li>Traitement au Braume inclus</li>
                                       <li>196cm de diamètre et 71cm de hauteur</li>
                                       <li>Jusqu'à 795L d'eau (~3,5€)</li>
-                                      <li><b>90€</b> la première soirée et <br><b>30€</b> par soir en plus</li>
+                                      <li><b>90€</b> la première soirée et <br><b>30€</b> par soirée supplémentaire</li>
                                   </ul>
                                   <p class="text-center mt-1">
                                       <a href="{{ url('/reservation') }}" class="btn btn-primary bg-action btn-md text-white">Réserver un spa-jacuzzi</a>
@@ -227,7 +227,7 @@
                                       <li>Traitement au Braume inclus</li>
                                       <li>218cm de diamètre et 71cm de hauteur</li>
                                       <li>Jusqu'à 1098L d'eau (~4,5€)</li>
-                                      <li><b>120€</b> la première soirée et <br><b>40€</b> par soir en plus</li>
+                                      <li><b>120€</b> la première soirée et <br><b>30€</b> par soirée supplémentaire</li>
                                   </ul>
                                   <p class="text-center mt-1">
                                       <a href="{{ url('/reservation') }}" class="btn btn-primary bg-action btn-md text-white">Réserver un spa-jacuzzi</a>
@@ -248,7 +248,7 @@
                                       <li>Traitement au Braume inclus</li>
                                       <li>218cm de diamètre et 71cm de hauteur</li>
                                       <li>Jusqu'à 1098L d'eau (~4,5€)</li>
-                                      <li><b>160€</b> la première soirée et <br><b>40€</b> par soir en plus</li>
+                                      <li><b>140€</b> la première soirée et <br><b>30€</b> par soirée supplémentaire</li>
                                   </ul>
                                   <p class="text-center mt-1">
                                       <a href="{{ url('/reservation') }}" class="btn btn-primary bg-action btn-md text-white">Réserver un spa-jacuzzi</a>
@@ -381,9 +381,10 @@ ca
             <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
                 <h2 class="font-size-18 text-black">Des réponses à vos questions</h2>
                 <p>Pour vous aider à réaliser toutes vos envies, l’équipe Bullao se tient à votre
-entière disposition. Notre module de messagerie instantanée (en bas à droite de l’écran)
-vous permet de nous contacter à tout moment pour concevoir ensemble l’expérience
-de vos rêves.</p>
+                    entière disposition. Notre module de messagerie instantanée (en bas à droite de l’écran)
+                    vous permet de nous contacter à tout moment pour concevoir ensemble l’expérience
+                    de vos rêves.
+                </p>
             </div>
         </div>
     </div>
