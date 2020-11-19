@@ -72,8 +72,8 @@ class ProduitController extends Controller
             'spaDescription'          => 'required'
         ]);
 
-        $newSpa = Spa::find($id);;
-        $newSpa->edit($request);
+        $spa = Spa::find($id);
+        $spa->edit($request);
 
         Session::put('success', 'Le spa a bien été modifié.');
         return redirect('/system/produits/spas/list');

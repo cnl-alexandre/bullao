@@ -46,8 +46,17 @@ class Client extends Model
         {
             $idUser = $u[0]->user_id;
         }
-        
+
         $this->client_user_id       = $idUser;
+        $this->save();
+    }
+
+    public function edit($array)
+    {
+        $this->client_name          = $array->clientName;
+        $this->client_email         = $array->clientEmail;
+        $this->client_phone         = $array->clientPhone;
+
         $this->save();
     }
 

@@ -33,9 +33,8 @@
     <div class="row">
         <div class="col-md-6 ml-auto my-3">
             <div class="card">
+                <h5 class="card-header titre-card-header">Propriétés de la reservation</h5>
                 <div class="card-body">
-                    <h5 class="mt-2">Propriétés de la reservation </h5>
-                    <hr>
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="reservationDateDebut">Date de début</label>
@@ -103,14 +102,21 @@
                                 @endif
                             </select>
                         </div>
+                        <div class="col-md-6 form-group">
+                            <label for="reservationMontant">Montant total</label>
+                            @if(isset($reservation))
+                                <input type="text" class="form-control" name="reservationMontant" id="reservationMontant" value="{{ $reservation->reservation_montant_total }}" disabled>
+                            @else
+                                <input type="text" class="form-control" name="reservationMontant" id="reservationMontant">
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
             <br>
             <div class="card">
+                <h5 class="card-header titre-card-header">Adresse de la reservation</h5>
                 <div class="card-body">
-                    <h5 class="mt-2">Adresse de la reservation </h5>
-                    <hr>
                     <div class="row">
                         <div class="col-md-9 form-group">
                             <label for="reservationVille">Ville</label>
@@ -162,9 +168,8 @@
             </div>
             <br>
             <div class="card">
+                <h5 class="card-header titre-card-header">Informations des produits</h5>
                 <div class="card-body">
-                    <h5 class="mt-2">Informations des produits</h5>
-                    <hr>
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label for="reservationLibelleSpa">Spa</label>
@@ -237,14 +242,13 @@
         </div>
         <div class="col-md-3 mr-auto my-3">
             <div class="card">
+                <h5 class="card-header titre-card-header">Fiche client <a href="{{ url('/system/clients/edit/'.$reservation->client->client_id) }}">voir</a></h5>
                 <div class="card-body">
-                    <h5 class="mt-2">Fiche client</h5>
-                    <hr>
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label for="reservationClientName">Nom</label>
                             @if(isset($reservation))
-                                <input type="text" class="form-control" name="reservationClientName" id="reservationClientName" value="{{ $reservation->client->client_name }}">
+                                <input type="text" class="form-control" name="reservationClientName" id="reservationClientName" value="{{ $reservation->client->client_name }}" disabled>
                             @else
                                 <input type="text" class="form-control" name="reservationClientName" id="reservationClientName">
                             @endif
@@ -252,7 +256,7 @@
                         <div class="col-md-12 form-group">
                             <label for="reservationClientPhone">Téléphone</label>
                             @if(isset($reservation))
-                                <input type="text" class="form-control" name="reservationClientPhone" id="reservationClientPhone" value="{{ $reservation->client->client_phone }}">
+                                <input type="text" class="form-control" name="reservationClientPhone" id="reservationClientPhone" value="{{ $reservation->client->client_phone }}" disabled>
                             @else
                                 <input type="text" class="form-control" name="reservationClientPhone" id="reservationClientPhone">
                             @endif
@@ -260,7 +264,7 @@
                         <div class="col-md-12 form-group">
                             <label for="reservationClientEmail">Email</label>
                             @if(isset($reservation))
-                                <input type="text" class="form-control" name="reservationClientEmail" id="reservationClientEmail" value="{{ $reservation->client->client_email }}">
+                                <input type="text" class="form-control" name="reservationClientEmail" id="reservationClientEmail" value="{{ $reservation->client->client_email }}" disabled>
                             @else
                                 <input type="text" class="form-control" name="reservationClientEmail" id="reservationClientEmail">
                             @endif
@@ -271,9 +275,8 @@
             <br>
             @if(isset($reservation))
                 <div class="card">
+                    <h5 class="card-header titre-card-header">Carte</h5>
                     <div class="card-body">
-                        <h5 class="mt-2">Carte</h5>
-                        <hr>
                         <div class="row">
                             <div class="col-md-12">
                                 <?php
