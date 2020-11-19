@@ -35,13 +35,19 @@ class ClientController extends Controller
 
     public function newClientSubmit(Request $request){
         $this->validate($request,[
-            'clientName'                => 'required',
-            'clientPhone'               => 'required',
-            'clientEmail'               => 'required'
+            'name'                => 'required',
+            'phone'               => 'required',
+            'email'               => 'required'
         ]);
 
         $newClient = new Client;
-        $newClient->edit($request);
+        $newClient->create($request);
+        $idClient = $newClient->client_id;
+
+        if(isset($request->ville) && $request->ville != ""){
+            $newAdresse = new Adresse;
+            $newAdresse->create($idClient, $request);
+        }
 
         Session::put('success', 'Le client a bien été ajouté');
         return redirect('/system/clients/list');
@@ -56,39 +62,39 @@ class ClientController extends Controller
         $adresses = Adresse::where('adresse_client_id', '=', $id)
                             ->orderby('adresse_id', 'ASC')
                             ->get();
-        // $packs = Pack::All();
-        // $accessoires = Accessoire::All();
-        //
-        // $idAccessoiresReservation = [];
-        //
-        // if(count($reservation->accessoires) > 0)
-        // {
-        //     foreach($reservation->accessoires as $accessoire)
-        //     {
-        //         array_push($idAccessoiresReservation, $accessoire->ra_accessoire_id);
-        //     }
-        // }
 
         return view('system.clients.edit')->with([
             'client'                    => $client,
             'reservations'              => $reservations,
             'adresses'                  => $adresses,
-            // 'packs'                     => $packs,
-            // 'accessoires'               => $accessoires,
             'action'                    => url('/system/clients/edit/'.$id)
-            // 'idAccessoiresReservation'  => $idAccessoiresReservation
         ]);
     }
 
     public function editClientSubmit(Request $request, $id){
         $this->validate($request,[
-            'clientName'                => 'required',
-            'clientPhone'               => 'required',
-            'clientEmail'               => 'required'
+            'name'                => 'required',
+            'phone'               => 'required',
+            'email'               => 'required'
         ]);
 
         $client = Client::find($id);
         $client->edit($request);
+
+        // if(isset($request->ville) && $request->ville != "")
+        // {
+        //
+        //     $verif = Adresse::where('adresse_rue', 'LIKE', $request->ville)
+        //                     ->where('adresse_ville', 'LIKE', $request->adresse1)
+        //                     ->get();
+        //
+        //     if(count($verif) == 0){
+        //
+        //     }
+        //
+        //     $address = new Adresse;
+        //     $address->edit($request);
+        // }
 
         Session::put('success', 'Le client a bien été modifié');
         return redirect('/system/clients/list');

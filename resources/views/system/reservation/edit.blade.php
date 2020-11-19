@@ -242,7 +242,7 @@
         </div>
         <div class="col-md-3 mr-auto my-3">
             <div class="card">
-                <h5 class="card-header titre-card-header">Fiche client <a href="{{ url('/system/clients/edit/'.$reservation->client->client_id) }}">voir</a></h5>
+                <h5 class="card-header titre-card-header">Fiche client <a href="{{ url('/system/clients/edit/'.$reservation->reservation_client_id) }}">voir</a></h5>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12 form-group">

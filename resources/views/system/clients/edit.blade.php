@@ -38,20 +38,20 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-9 form-group">
-                                        <label for="adresseVille">Ville</label>
-                                        <input type="text" class="form-control" name="adresseVille" id="adresseVille" value="{{ $adresse->adresse_ville }}">
+                                        <label for="ville">Ville</label>
+                                        <input type="text" class="form-control" name="ville" id="ville" value="{{ $adresse->adresse_ville }}">
                                     </div>
                                     <div class="col-md-3 form-group">
-                                        <label for="adresseDepartement">Departement</label>
-                                        <input type="text" class="form-control" name="adresseDepartement" id="adresseDepartement" value="{{ $adresse->adresse_departement }}">
+                                        <label for="departement">Departement</label>
+                                        <input type="text" class="form-control" name="departement" id="departement" value="{{ $adresse->adresse_departement }}">
                                     </div>
                                     <div class="col-md-12 form-group">
-                                        <label for="adresseAdresse">Adresse</label>
-                                        <input type="text" class="form-control" name="adresseAdresse" id="adresseAdresse" value="{{ $adresse->adresse_rue }}">
+                                        <label for="adresse1">Adresse</label>
+                                        <input type="text" class="form-control" name="adresse1" id="adresse1" value="{{ $adresse->adresse_rue }}">
                                     </div>
                                     <div class="col-md-12 form-group">
-                                        <label for="reservationComplement">Complément</label>
-                                        <input type="text" class="form-control" name="adresseComplement" id="adresseComplement" value="{{ $adresse->adresse_complement }}">
+                                        <label for="adresse2">Complément</label>
+                                        <input type="text" class="form-control" name="adresse2" id="adresse2" value="{{ $adresse->adresse_complement }}">
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +61,24 @@
                     <div class="card">
                         <h5 class="card-header titre-card-header">Adresse</h5>
                         <div class="card-body text-center">
-                            Il n'y a pas d'adresse sur ce profil
+                            <div class="row">
+                                <div class="col-md-9 form-group">
+                                    <label for="ville">Ville</label>
+                                    <input type="text" class="form-control" name="ville" id="ville">
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <label for="departement">Departement</label>
+                                    <input type="text" class="form-control" name="departement" id="departement">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <label for="adresse1">Adresse</label>
+                                    <input type="text" class="form-control" name="adresse1" id="adresse1">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <label for="adresse2">Complément</label>
+                                    <input type="text" class="form-control" name="adresse2" id="adresse2">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 @endif
@@ -71,20 +88,20 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-9 form-group">
-                            <label for="adresseVille">Ville</label>
-                            <input type="text" class="form-control" name="adresseVille" id="adresseVille" value="">
+                            <label for="ville">Ville</label>
+                            <input type="text" class="form-control" name="ville" id="adresseVille" value="">
                         </div>
                         <div class="col-md-3 form-group">
-                            <label for="adresseDepartement">Departement</label>
-                            <input type="text" class="form-control" name="adresseDepartement" id="adresseDepartement" value="">
+                            <label for="departement">Departement</label>
+                            <input type="text" class="form-control" name="departement" id="departement" value="">
                         </div>
                         <div class="col-md-12 form-group">
-                            <label for="adresseAdresse">Adresse</label>
-                            <input type="text" class="form-control" name="adresseAdresse" id="adresseAdresse" value="">
+                            <label for="adresse1">Adresse</label>
+                            <input type="text" class="form-control" name="adresse1" id="adresse1" value="">
                         </div>
                         <div class="col-md-12 form-group">
-                            <label for="reservationComplement">Complément</label>
-                            <input type="text" class="form-control" name="adresseComplement" id="adresseComplement" value="">
+                            <label for="adresse2">Complément</label>
+                            <input type="text" class="form-control" name="adresse2" id="adresse2" value="">
                         </div>
                     </div>
                 </div>
@@ -97,27 +114,27 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <label for="clientName">Nom</label>
+                            <label for="name">Nom</label>
                             @if(isset($client))
-                                <input type="text" class="form-control" name="clientName" id="clientName" value="{{ $client->client_name }}">
+                                <input type="text" class="form-control" name="name" id="name" value="{{ $client->client_name }}">
                             @else
-                                <input type="text" class="form-control" name="clientName" id="clientName" value="">
+                                <input type="text" class="form-control" name="name" id="name" value="">
                             @endif
                         </div>
                         <div class="col-md-12 form-group">
-                            <label for="reservationClientPhone">Téléphone</label>
+                            <label for="phone">Téléphone</label>
                             @if(isset($client))
-                                <input type="text" class="form-control" name="clientPhone" id="clientPhone" value="{{ $client->client_phone }}">
+                                <input type="tel" class="form-control" name="phone" id="phone" maxlength="10" value="{{ $client->client_phone }}">
                             @else
-                                <input type="text" class="form-control" name="clientPhone" id="clientPhone" value="">
+                                <input type="tel" class="form-control" name="phone" id="phone" maxlength="10" value="">
                             @endif
                         </div>
                         <div class="col-md-12 form-group">
-                            <label for="reservationClientEmail">Email</label>
+                            <label for="email">Email</label>
                             @if(isset($client))
-                                <input type="text" class="form-control" name="clientEmail" id="clientEmail" value="{{ $client->client_email }}">
+                                <input type="text" class="form-control" name="email" id="email" value="{{ $client->client_email }}">
                             @else
-                                <input type="text" class="form-control" name="clientEmail" id="clientEmail" value="">
+                                <input type="text" class="form-control" name="email" id="email" value="">
                             @endif
                         </div>
                     </div>
@@ -222,19 +239,21 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
                     </div>
                 </div>
             @endforeach
         @else
             <div class="row mb-4">
-                <div class="col-6 mx-auto">
+                <div class="col-6 ml-auto">
                     <div class="card">
                         <h5 class="card-header titre-card-header">Réservation</h5>
                         <div class="card-body text-center">
                             Il n'y a pas de réservations
                         </div>
                     </div>
+                </div>
+                <div class="col-3 mr-auto">
+
                 </div>
             </div>
         @endif

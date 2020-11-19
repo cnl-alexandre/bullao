@@ -21,7 +21,7 @@ h1, h2, h3 {
 }
 
 .form-control {
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.6rem;
 }
 
 .form-control::-webkit-input-placeholder { opacity: 0.55; }  /* WebKit, Blink, Edge */
