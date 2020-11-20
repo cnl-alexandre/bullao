@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="site-section-cover overlay inner-page bg-light" style="background-image: url('medias/img/hero_3.jpg')" data-aos="fade">
+<div class="site-section-cover overlay inner-page bg-light article-img-1" data-aos="fade">
     <div class="container">
         <div class="row align-items-center justify-content-center text-center">
             <div class="col-lg-10">

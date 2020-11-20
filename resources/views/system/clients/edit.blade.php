@@ -30,82 +30,65 @@
     </div>
     <div class="row mb-4">
         <div class="col-6 ml-auto">
-            @if(isset($client))
-                @if(count($adresses) > 0)
-                    @foreach($adresses as $adresse)
-                        <div class="card">
-                            <h5 class="card-header titre-card-header">Adresse : {{ $adresse->adresse_name }} - reference#{{ $adresse->adresse_id }}</h5>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-9 form-group">
-                                        <label for="ville">Ville</label>
-                                        <input type="text" class="form-control" name="ville" id="ville" value="{{ $adresse->adresse_ville }}">
-                                    </div>
-                                    <div class="col-md-3 form-group">
-                                        <label for="departement">Departement</label>
-                                        <input type="text" class="form-control" name="departement" id="departement" value="{{ $adresse->adresse_departement }}">
-                                    </div>
-                                    <div class="col-md-12 form-group">
-                                        <label for="adresse1">Adresse</label>
-                                        <input type="text" class="form-control" name="adresse1" id="adresse1" value="{{ $adresse->adresse_rue }}">
-                                    </div>
-                                    <div class="col-md-12 form-group">
-                                        <label for="adresse2">Complément</label>
-                                        <input type="text" class="form-control" name="adresse2" id="adresse2" value="{{ $adresse->adresse_complement }}">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @else
+            @if(count($adresses) > 0)
+                @foreach($adresses as $adresse)
                     <div class="card">
-                        <h5 class="card-header titre-card-header">Adresse</h5>
-                        <div class="card-body text-center">
+                        <h5 class="card-header titre-card-header">Adresse : {{ $adresse->adresse_name }} - reference#{{ $adresse->adresse_id }}</h5>
+                        <div class="card-body">
                             <div class="row">
+                                <input type="hidden" name="idAdresse" value="{{ $adresse->adresse_id }}">
                                 <div class="col-md-9 form-group">
                                     <label for="ville">Ville</label>
-                                    <input type="text" class="form-control" name="ville" id="ville">
+                                    <input type="text" class="form-control" name="ville" id="ville" value="{{ $adresse->adresse_ville }}">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="departement">Departement</label>
-                                    <input type="text" class="form-control" name="departement" id="departement">
+                                    <input type="text" class="form-control" name="departement" id="departement" value="{{ $adresse->adresse_departement }}">
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <label for="adresse1">Adresse</label>
-                                    <input type="text" class="form-control" name="adresse1" id="adresse1">
+                                    <input type="text" class="form-control" name="adresse1" id="adresse1" value="{{ $adresse->adresse_rue }}">
                                 </div>
-                                <div class="col-md-12 form-group">
+                                <div class="col-md-9 form-group">
                                     <label for="adresse2">Complément</label>
-                                    <input type="text" class="form-control" name="adresse2" id="adresse2">
+                                    <input type="text" class="form-control" name="adresse2" id="adresse2" value="{{ $adresse->adresse_complement }}">
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <label for="nomAdresse">Nom de l'adresse</label>
+                                    <input type="text" class="form-control" name="nomAdresse" id="nomAdresse" value="{{ $adresse->adresse_name }}">
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endif
+                @endforeach
             @else
-            <div class="card">
-                <h5 class="card-header titre-card-header">Adresse</h5>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-9 form-group">
-                            <label for="ville">Ville</label>
-                            <input type="text" class="form-control" name="ville" id="adresseVille" value="">
-                        </div>
-                        <div class="col-md-3 form-group">
-                            <label for="departement">Departement</label>
-                            <input type="text" class="form-control" name="departement" id="departement" value="">
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <label for="adresse1">Adresse</label>
-                            <input type="text" class="form-control" name="adresse1" id="adresse1" value="">
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <label for="adresse2">Complément</label>
-                            <input type="text" class="form-control" name="adresse2" id="adresse2" value="">
+                <div class="card">
+                    <h5 class="card-header titre-card-header">Adresse</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-9 form-group">
+                                <label for="ville">Ville</label>
+                                <input type="text" class="form-control" name="ville" id="ville">
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <label for="departement">Departement</label>
+                                <input type="text" class="form-control" name="departement" id="departement">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="adresse1">Adresse</label>
+                                <input type="text" class="form-control" name="adresse1" id="adresse1">
+                            </div>
+                            <div class="col-md-9 form-group">
+                                <label for="adresse2">Complément</label>
+                                <input type="text" class="form-control" name="adresse2" id="adresse2">
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <label for="nomAdresse">Nom de l'adresse</label>
+                                <input type="text" class="form-control" name="nomAdresse" id="nomAdresse">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @endif
         </div>
         <div class="col-3 mr-auto">

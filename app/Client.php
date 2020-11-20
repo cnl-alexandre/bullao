@@ -53,9 +53,9 @@ class Client extends Model
 
     public function edit($array)
     {
-        $this->client_name          = $array->clientName;
-        $this->client_email         = $array->clientEmail;
-        $this->client_phone         = $array->clientPhone;
+        $this->client_name          = $array->name;
+        $this->client_email         = $array->email;
+        $this->client_phone         = $array->phone;
 
         $this->save();
     }

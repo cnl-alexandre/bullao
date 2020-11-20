@@ -28,7 +28,10 @@ class ClientController extends Controller
 
     public function newClient()
     {
+        $adresses = [];
+
         return view('system.clients.edit')->with([
+            'adresses'      => $adresses,
             'action'        => url('/system/clients/new')
         ]);
     }
@@ -80,6 +83,16 @@ class ClientController extends Controller
 
         $client = Client::find($id);
         $client->edit($request);
+
+        // Si un id est existant, on save les modifications par l'id
+        if(isset($request->idAdresse)){
+            $adresse = Adresse::find($request->idAdresse);
+            $adresse->edit($id, $request);
+        }
+        else {
+            $newAdresse = new Adresse;
+            $newAdresse->create($id, $request);
+        }
 
         // if(isset($request->ville) && $request->ville != "")
         // {

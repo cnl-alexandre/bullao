@@ -31,7 +31,7 @@ class Adresse extends Model
     }
 
     public function edit($clientId, $array){
-        $this->adresse_name         = "Principale";
+        $this->adresse_name         = $array->nomAdresse;
         $this->adresse_client_id    = $clientId;
         $this->adresse_rue          = $array->adresse1;
         $this->adresse_cp           = $array->cp;
