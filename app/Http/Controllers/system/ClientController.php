@@ -85,13 +85,20 @@ class ClientController extends Controller
         $client->edit($request);
 
         // Si un id est existant, on save les modifications par l'id
-        if(isset($request->idAdresse)){
-            $adresse = Adresse::find($request->idAdresse);
-            $adresse->edit($id, $request);
-        }
-        else {
-            $newAdresse = new Adresse;
-            $newAdresse->create($id, $request);
+        // if(isset($request->idAdresse)){
+        //     $adresse = Adresse::find($request->idAdresse);
+        //     $adresse->edit($id, $request);
+        // }
+        // else {
+        //     $newAdresse = new Adresse;
+        //     $newAdresse->create($id, $request);
+        // }
+
+        if(count($client->adresses) > 0){
+            for ($i=1; $i <= count($client->adresses); $i++) {
+                $adresse = Adresse::find($request["id-".$i]);
+                $adresse->edit($request, $i);
+            }
         }
 
         // if(isset($request->ville) && $request->ville != "")

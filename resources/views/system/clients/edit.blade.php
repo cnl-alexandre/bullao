@@ -31,35 +31,37 @@
     <div class="row mb-4">
         <div class="col-6 ml-auto">
             @if(count($adresses) > 0)
+                <?php $i=1; ?>
                 @foreach($adresses as $adresse)
                     <div class="card">
                         <h5 class="card-header titre-card-header">Adresse : {{ $adresse->adresse_name }} - reference#{{ $adresse->adresse_id }}</h5>
                         <div class="card-body">
                             <div class="row">
-                                <input type="hidden" name="idAdresse" value="{{ $adresse->adresse_id }}">
+                                <input type="hidden" name="id-{{ $i }}" value="{{ $adresse->adresse_id }}">
                                 <div class="col-md-9 form-group">
-                                    <label for="ville">Ville</label>
-                                    <input type="text" class="form-control" name="ville" id="ville" value="{{ $adresse->adresse_ville }}">
+                                    <label for="ville-{{ $i }}">Ville</label>
+                                    <input type="text" class="form-control" name="ville-{{ $i }}" id="ville-{{ $i }}" value="{{ $adresse->adresse_ville }}">
                                 </div>
                                 <div class="col-md-3 form-group">
-                                    <label for="departement">Departement</label>
-                                    <input type="text" class="form-control" name="departement" id="departement" value="{{ $adresse->adresse_departement }}">
+                                    <label for="departement-{{ $i }}">Departement</label>
+                                    <input type="text" class="form-control" name="departement-{{ $i }}" id="departement-{{ $i }}" value="{{ $adresse->adresse_departement }}">
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    <label for="adresse1">Adresse</label>
-                                    <input type="text" class="form-control" name="adresse1" id="adresse1" value="{{ $adresse->adresse_rue }}">
+                                    <label for="adresse1-{{ $i }}">Adresse</label>
+                                    <input type="text" class="form-control" name="adresse1-{{ $i }}" id="adresse1-{{ $i }}" value="{{ $adresse->adresse_rue }}">
                                 </div>
                                 <div class="col-md-9 form-group">
-                                    <label for="adresse2">Complément</label>
-                                    <input type="text" class="form-control" name="adresse2" id="adresse2" value="{{ $adresse->adresse_complement }}">
+                                    <label for="adresse2-{{ $i }}">Complément</label>
+                                    <input type="text" class="form-control" name="adresse2-{{ $i }}" id="adresse2-{{ $i }}" value="{{ $adresse->adresse_complement }}">
                                 </div>
                                 <div class="col-md-3 form-group">
-                                    <label for="nomAdresse">Nom de l'adresse</label>
-                                    <input type="text" class="form-control" name="nomAdresse" id="nomAdresse" value="{{ $adresse->adresse_name }}">
+                                    <label for="nomAdresse-{{ $i }}">Nom de l'adresse</label>
+                                    <input type="text" class="form-control" name="nomAdresse-{{ $i }}" id="nomAdresse-{{ $i }}" value="{{ $adresse->adresse_name }}">
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php $i++; ?>
                 @endforeach
             @else
                 <div class="card">
@@ -84,7 +86,7 @@
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="nomAdresse">Nom de l'adresse</label>
-                                <input type="text" class="form-control" name="nomAdresse" id="nomAdresse">
+                                <input type="text" class="form-control" name="nomAdresse" id="nomAdresse" disabled>
                             </div>
                         </div>
                     </div>

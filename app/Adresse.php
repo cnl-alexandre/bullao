@@ -30,14 +30,13 @@ class Adresse extends Model
         return $this->adresse_id;
     }
 
-    public function edit($clientId, $array){
-        $this->adresse_name         = $array->nomAdresse;
-        $this->adresse_client_id    = $clientId;
-        $this->adresse_rue          = $array->adresse1;
-        $this->adresse_cp           = $array->cp;
-        $this->adresse_ville        = $array->ville;
-        $this->adresse_complement   = $array->adresse2;
-        $this->adresse_departement  = $array->departement;
+    public function edit($array, $i){
+        $this->adresse_name         = $array["nomAdresse-".$i];
+        $this->adresse_rue          = $array["adresse1-".$i];
+        $this->adresse_cp           = $array["cp-".$i];
+        $this->adresse_ville        = $array["ville-".$i];
+        $this->adresse_complement   = $array["adresse2-".$i];
+        $this->adresse_departement  = $array["departement-".$i];
         $this->save();
     }
 
