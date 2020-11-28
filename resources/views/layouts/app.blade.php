@@ -65,6 +65,8 @@
             </script>
             <!-- Fin Hotjar -->
         @endif
+
+        <script src="{{ url('/js/jquery-3.3.1.min.js') }}"></script>
     </head>
     <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
         <div class="site-wrap">
@@ -78,7 +80,7 @@
 
     </body>
 
-    <script src="{{ url('/js/jquery-3.3.1.min.js') }}"></script>
+
     <!-- <script src="{{ url('/js/customer/jquery-migrate-3.0.1.min.js') }}"></script> -->
     <script src="{{ url('/js/customer/jquery-ui.js') }}"></script>
     <!-- <script src="{{ url('/js/customer/popper.min.js') }}"></script> -->

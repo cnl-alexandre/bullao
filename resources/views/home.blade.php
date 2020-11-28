@@ -22,11 +22,11 @@
     <div class="services-section mb-2" id="services-section">
         <div class="container">
             <div class="row d-flex no-gutters align-items-stretch">
-                <div class="col-12 col-lg-6 services-img services-img-1">
+                <div class="col-12 col-lg-6 services-img services-img-1 radius">
                 </div>
                 <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-3" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 font-size-28 text-black">Votre spa à domicile</h2>
-                    <p class="text-justify">
+                    <p class="">
                         En couple, en famille ou entre amis, profitez d’un moment de détente
                         inoubliable sans bouger de chez vous. Dans le respect de mesures sanitaires très strictes,
                         notre équipe vous garantie une installation saine et sécurisée pour une tranquillité
@@ -39,11 +39,11 @@
     <div class="services-section">
         <div class="container">
             <div class="row d-flex no-gutters align-items-stretch mt-lg-5 mt-3">
-                <div class="col-12 col-lg-6 services-img services-img-2 order-lg-2" data-aos="fade" data-aos-delay="">
+                <div class="col-12 col-lg-6 services-img services-img-2 radius order-lg-2" data-aos="fade" data-aos-delay="">
                 </div>
                 <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-3 order-lg-1" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 font-size-28 text-black">Une soirée sur-mesure</h2>
-                    <p class="text-justify">
+                    <p class="">
                         Grâce à nos packs à thèmes et nos accessoires, concevez vous-même votre soirée.
                         Imaginez, associez et offrez-vous le luxe d’un spa à domicile pour une occasion spéciale ou tout simplement un
                         instant à deux, nous vous apportons la touche de relaxation qui fait la différence.
@@ -57,38 +57,38 @@
     </div>
 </div>
 
-<div class="site-section bg-light" style="padding-bottom:3rem;">
+<div class="site-section bg-light">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="">
-                <div class="custom-media">
+                <div class="custom-media radius">
                     <div class="icon mb-3">
                         <span><img src="{{ url('medias/img/pictos/003-checked.svg') }}" alt="" height="45px"></span>
                     </div>
                     <h3 class="font-size-18 text-black mb-2">Réservation</h3>
-                    <p>Vous rêvez de vous détendre en couple ou en famille chez vous ?
+                    <p class="mb-0">Vous rêvez de vous détendre en couple ou en famille chez vous ?
                     Réservez les dates qui vous conviennent ainsi que le spa-jacuzzi désiré sur notre site bullao.</p>
 
                 </div>
             </div>
             <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="custom-media">
+                <div class="custom-media radius">
                     <div class="icon mb-3">
                         <span><img src="{{ url('medias/img/pictos/004-settings.svg') }}" alt="" height="45px"></span>
                     </div>
                     <h3 class="font-size-18 text-black mb-2">Pose et retrait</h3>
-                    <p>Afin de vous garantir la meilleure expérience, on se charge
+                    <p class="mb-0">Afin de vous garantir la meilleure expérience, on se charge
                     de la livraison et de la configuration chez vous en 1h. Nous avons adapté un protocole sanitaire.</p>
 
                 </div>
             </div>
             <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="custom-media">
+                <div class="custom-media radius">
                     <div class="icon mb-3">
                         <span><img src="{{ url('medias/img/pictos/001-photo-camera.svg') }}" alt="" height="45px"></span>
                     </div>
                     <h3 class="font-size-18 text-black mb-2">Partage</h3>
-                    <p>Une fois réservé, il ne vous reste plus qu’à attendre encore un peu avant de profiter
+                    <p class="mb-0">Une fois réservé, il ne vous reste plus qu’à attendre encore un peu avant de profiter
                     de votre spa-jacuzzi.
                     Venez partager votre expérience sur Facebook et Instagram !</p>
 
@@ -102,7 +102,7 @@
     <div class="services-section" id="services-section">
         <div class="container">
             <div class="row d-flex no-gutters align-items-stretch">
-                <div class="col-12 col-lg-6 services-img services-img services-img-4" data-aos="fade" data-aos-delay="">
+                <div class="col-12 col-lg-6 services-img services-img radius services-img-4" data-aos="fade" data-aos-delay="">
                 </div>
                 <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade" data-aos-delay="">
                     <h2 class="mb-3 font-size-28 text-black">Votre spa à domicile</h2>
@@ -135,7 +135,7 @@
         </div>
         <div class="row">
             <div class="col-12" data-aos="fade-up" data-aos-delay="">
-                <div class="block-produits d-flex flex-column">
+                <div class="block-produits d-flex flex-column radius">
 
                     <ul class="nav nav-pills mb-3 mx-auto" id="pills-tab" role="tablist">
                         <li class="nav-item mx-auto">
@@ -266,18 +266,28 @@
     </div>
 </section>
 
-<!-- <section class="site-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-9" style="background-color:#F2F2F2;margin: auto;">
-ca
+<div class="site-section">
+    <div class="services-section" id="services-section">
+        <div class="container">
+            <div class="row d-flex no-gutters align-items-stretch">
+                <div class="col-12 col-lg-6 services-img services-img radius services-img-5 order-lg-2" data-aos="fade" data-aos-delay="">
+                </div>
+                <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade" data-aos-delay="">
+                    <h2 class="mb-3 font-size-28 text-black">Offrez pour un cadeau</h2>
+                    <p class="text-justify">
+                        Faites plaisir pour les fêtes de fin d'année avec une carte cadeau Bullao.
+                        Recevez une carte personnalisée à offrir, valable 24 mois.
+                    </p>
+                    <p class="text-center mt-4">
+                        <a href="{{ url('/cartecadeau') }}" class="btn btn-primary bg-action btn-md text-white">Réserver une carte cadeau</a>
+                    </p>
+                </div>
             </div>
         </div>
-
     </div>
-</section> -->
+</div>
 
-<section class="site-section bg-light" id="fac-section">
+<!-- <section class="site-section bg-light" id="fac-section">
     <div class="container">
         <div class="row site-section" id="faq-section">
             <div class="col-12 text-center" data-aos="fade">
@@ -361,12 +371,12 @@ ca
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
 <div class="site-section" id="contact-section">
     <div class="container">
-        <div class="row mt-3">
+        <div class="row">
             <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-delay="">
                 <div class="block-heading-1">
                     <span>Vous n’êtes plus qu’à une bulle du bonheur...</span>
@@ -411,6 +421,17 @@ ca
         </div>
     </div>
 </div>
+
+<!-- <section class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-9" style="background-color:#F2F2F2;margin: auto;">
+ca
+            </div>
+        </div>
+
+    </div>
+</section> -->
 
 @if(Session::has('success'))
     <script>alert("{!! Session::get('success') !!}");</script>

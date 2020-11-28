@@ -190,6 +190,10 @@ h1, h2, h3, h4, h5,
 .services-img-4 {
 	background-image: url("../../medias/img/home/preview_navy_4p_int_2.webp");
 }
+.services-img-5 {
+	background-image: url("../../medias/img/home/cartecadeau.jpg");
+	max-height: 300px;
+}
 
 .custom-media {
     padding: 30px;
@@ -308,4 +312,12 @@ input[type=text]:focus, input[type=tel]:focus, input[type=email]:focus, input[ty
 /* SPECIFIQUE CGV - MENTIONS */
 .article-img-1 {
 	background-image: url("../../medias/img/home/hero_3.webp");
+}
+
+.article-img-noel-1 {
+	background-image: url("../../medias/img/cadeaux/slider-1.jpg");
+}
+
+.cadeau-img-1 {
+	background-image: url("../../medias/img/cadeaux/paquet.png");
 }
