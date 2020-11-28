@@ -48,6 +48,18 @@ class ReservationController extends Controller
         ]);
     }
 
+    public function newSubmit(Request $request)
+    {
+
+        $reservation                            = new Reservation;
+        $reservation->create($request);
+
+        $joursSupp = $reservation->joursSupp($request->daterange);
+
+        Session::put('joursSupp', $joursSupp);
+        return redirect('/system/reservation/list');
+    }
+
     public function edit($id)
     {
         $reservation = Reservation::find($id);
@@ -74,4 +86,6 @@ class ReservationController extends Controller
             'idAccessoiresReservation'  => $idAccessoiresReservation
         ]);
     }
+
+
 }

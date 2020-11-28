@@ -47,7 +47,7 @@ class Reservation extends Model
         {
             $html = '<span class="badge badge-success">Payé</span>';
         }
-        
+
         return $html;
     }
 
@@ -60,7 +60,7 @@ class Reservation extends Model
     {
         $montant_total = 0.00;
 
-        if($array->step == 1)
+        if($array->step == 1 || $array->step == "")
         {
             $daterange = $array->daterange;
             $dates = explode(' - ', $daterange);
@@ -108,7 +108,7 @@ class Reservation extends Model
             $this->reservation_montant_total        = $montant_total;
             $this->save();
         }
-        else if($array->step == 2)
+        else if($array->step == 2 || $array->step == "")
         {
             $this->reservation_emplacement      = $array->emplacement;
             $this->reservation_type_logement    = $array->type_logement;
@@ -118,7 +118,7 @@ class Reservation extends Model
             $this->reservation_ville            = ucfirst($array->ville);
             $this->reservation_complement       = $array->adresse2;
             $this->reservation_departement      = $array->departement;
-            
+
             if(isset($array->promo) && $array->promo != "")
             {
                 $this->reservation_promo                = $array->promo;
@@ -136,7 +136,7 @@ class Reservation extends Model
             }
 
             $c = Client::where('client_email', 'LIKE', $array->email)->get();
-            
+
             if(count($c) == 0)
             {
                 $client = new Client;

@@ -29,6 +29,16 @@ class Client extends Model
         return $this->hasMany('App\Reservation', 'reservation_client_id');
     }
 
+    public function cadeauPaiement()
+    {
+        return $this->hasMany('App\Cadeau', 'cadeau_client_id');
+    }
+
+    public function cadeauUtilisation()
+    {
+        return $this->hasMany('App\Cadeau', 'cadeau_client_id_used');
+    }
+
     public function create($array)
     {
         $this->client_name          = $array->name;

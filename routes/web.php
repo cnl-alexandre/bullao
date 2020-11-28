@@ -16,16 +16,16 @@ use Illuminate\Support\Facades\Route;
 // HOME
 Route::get('/', 'HomeController@home');
 
-// Réservation
+// RÉSERVATION
 Route::get('/reservation', 'ReservationController@reservationStep1');
 Route::post('/reservation', 'ReservationController@reservationStep1Submit');
 Route::get('/reservation/informations', 'ReservationController@reservationStep2');
 Route::post('/reservation/informations', 'ReservationController@reservationStep2Submit');
 
-// PRESS & ARTICLES
-Route::get('/cgv-bullao', 'ArticleController@cgv');
-Route::get('/mentions-legales', 'ArticleController@mentions');
-//Route::get('/blog/NOM_ARTICLE', 'ArticleController@NOM_FONCTION');
+// CARTE CADEAU
+Route::get('/cartecadeau', 'Customer\CadeauController@presentation');
+Route::post('/cartecadeau/offrir', 'Customer\CadeauController@creationCarte');
+// Route::post('/cartecadeau/offrir', 'Customer\CadeauController@creationCarteSubmit');
 
 // PAIEMENT
 Route::get('/reservation/paiement', 'ReservationController@paiement');
@@ -38,6 +38,12 @@ Route::post('/webservices/promo/verify', 'WebserviceController@verifyPromo');
 Route::post('/webservices/spa/stock/verify', 'WebserviceController@verifySpaStock');
 Route::post('/webservices/pack/stock/verify', 'WebserviceController@verifyPackStock');
 Route::post('/webservices/accessoire/stock/verify', 'WebserviceController@verifyAccessoireStock');
+
+// PRESS & ARTICLES
+Route::get('/foire-aux-questions', 'ArticleController@faq');
+Route::get('/cgv-bullao', 'ArticleController@cgv');
+Route::get('/mentions-legales', 'ArticleController@mentions');
+//Route::get('/blog/NOM_ARTICLE', 'ArticleController@NOM_FONCTION');
 
 // ACCOUNT
 Route::get('/account/login', 'AccountController@login');

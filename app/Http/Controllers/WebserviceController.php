@@ -93,7 +93,7 @@ class WebserviceController extends Controller
                 {
                     $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap spa-no-disabled spa" data-aos="fade-up">';
                         $html .= '<input type="radio" name="spa" id="spa-'.$spa->spa_id.'" class="spa" autocomplete="off" value="'.$spa->spa_id.'">';
-                        $html .= '<div class="block-team-member-1 text-center input-row-step1-responsive">';
+                        $html .= '<div class="block-team-member-1 text-center input-row-step1-responsive radius">';
                             $html .= '<figure class="col-3 col-md-12 mt-1">';
                                 $html .= '<img src="'.url($spa->spa_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
@@ -109,7 +109,7 @@ class WebserviceController extends Controller
                 {
                     $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap disabled spa" data-aos="fade-up">';
                         $html .= '<input type="radio" name="spa" id="spa-'.$spa->spa_id.'" class="spa" disabled autocomplete="off" value="'.$spa->spa_id.'">';
-                        $html .= '<div class="block-team-member-1 text-center rounded nostock input-row-step1-responsive">';
+                        $html .= '<div class="block-team-member-1 text-center rounded nostock input-row-step1-responsive radius">';
                             $html .= '<figure class="col-3 col-md-12 mt-1">';
                                 $html .= '<img src="'.url($spa->spa_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
@@ -195,7 +195,7 @@ class WebserviceController extends Controller
                 {
                     $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap" data-aos="fade-up" rel="'.$spa->spa_prix.'" rel2="'.$spa->spa_libelle.' '.$spa->spa_nb_place.' places">';
                         $html .= '<input type="radio" name="spa" id="spa-'.$spa->spa_id.'" autocomplete="off" value="'.$spa->spa_id.'">';
-                        $html .= '<div class="block-team-member-1 text-center rounded">';
+                        $html .= '<div class="block-team-member-1 text-center rounded radius">';
                             $html .= '<figure>';
                                 $html .= '<img src="'.url($spa->spa_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
@@ -209,7 +209,7 @@ class WebserviceController extends Controller
                 {
                     $html .= '<label for="spa-'.$spa->spa_id.'" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 spa-recap disabled" data-aos="fade-up" rel="'.$spa->spa_prix.'" rel2="'.$spa->spa_libelle.' '.$spa->spa_nb_place.' places">';
                         $html .= '<input type="radio" name="spa" id="spa-'.$spa->spa_id.'" disabled autocomplete="off" value="'.$spa->spa_id.'">';
-                        $html .= '<div class="block-team-member-1 text-center rounded nostock">';
+                        $html .= '<div class="block-team-member-1 text-center rounded nostock radius">';
                             $html .= '<figure>';
                                 $html .= '<img src="'.url($spa->spa_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
@@ -294,7 +294,7 @@ class WebserviceController extends Controller
                 {
                     $html .= '<label for="accessoire-'.$accessoire->accessoire_id.'" class="btn btn-checkbox-custom col-lg-3 col-md-4 col-6 mb-3 accessoire-recap" data-aos="fade-up">';
                         $html .= '<input type="checkbox" name="accessoires[]" id="accessoire-'.$accessoire->accessoire_id.'" autocomplete="off" value="'.$accessoire->accessoire_id.'">';
-                        $html .= '<div class="block-team-member-1 text-center rounded" style="height: 100%;">';
+                        $html .= '<div class="block-team-member-1 text-center rounded  radius" style="height: 100%;">';
                             $html .= '<figure>';
                                 $html .= '<img src="'.url($accessoire->accessoire_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';
@@ -307,7 +307,7 @@ class WebserviceController extends Controller
                 {
                     $html .= '<label for="accessoire-'.$accessoire->accessoire_id.'" class="btn btn-checkbox-custom col-lg-3 col-md-4 col-6 mb-3 accessoire-recap disabled" data-aos="fade-up">';
                         $html .= '<input type="checkbox" name="accessoires[]" id="accessoire-'.$accessoire->accessoire_id.'" disabled autocomplete="off" value="'.$accessoire->accessoire_id.'">';
-                        $html .= '<div class="block-team-member-1 text-center rounded nostock" style="height: 100%;">';
+                        $html .= '<div class="block-team-member-1 text-center rounded nostock radius" style="height: 100%;">';
                             $html .= '<figure>';
                                 $html .= '<img src="'.url($accessoire->accessoire_chemin_img).'" alt="Image" class="img-fluid rounded-circle">';
                             $html .= '</figure>';

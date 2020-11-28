@@ -74,7 +74,7 @@
                     @foreach($packs as $pack)
                         <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-6 col-md-12 mb-3 pack-recap" id="label-pack-{{ $pack->pack_id }}" data-aos="fade-up">
                             <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}">
-                            <div class="block-team-member-1 text-left rounded d-flex input-col-step1-responsive">
+                            <div class="block-team-member-1 text-left rounded d-flex input-col-step1-responsive radius">
                                 <figure class="col-4">
                                     <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
