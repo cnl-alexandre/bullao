@@ -24,10 +24,10 @@ Route::post('/reservation/informations', 'ReservationController@reservationStep2
 
 // CARTE CADEAU
 Route::get('/cartecadeau', 'Customer\CadeauController@presentation');
+Route::get('/cartecadeau/offrir', 'Customer\CadeauController@creationCarte');
 Route::post('/cartecadeau/offrir', 'Customer\CadeauController@creationCarte');
 Route::post('/cartecadeau/offrir/submit', 'Customer\CadeauController@creationCarteSubmit');
 Route::get('/cartecadeau/paiement', 'Customer\CadeauController@paiement');
-Route::post('/cartecadeau/paiement', 'Customer\CadeauController@paiementSubmit');
 Route::get('/cartecadeau/paiement-accepte', 'Customer\CadeauController@success');
 
 // PAIEMENT

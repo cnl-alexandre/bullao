@@ -46,7 +46,7 @@
 																		<br><br>Vos informations de livraisons ont bien été enregistrées dans notre base de données sécurisée.
 																		<br><br>Si une information est erronée, n'hésitez pas à nous prévenir.
 																		<br><br>{{ $carte->cadeau_offre }} : {{ $carte->cadeau_montant }}
-																		<br>Email : {{ Session::get('clientEmail') }}
+																		<br>Email : {{ $carte->clientPaiement->client_email }}
 																		<br>
 																	</p>
 																</td>

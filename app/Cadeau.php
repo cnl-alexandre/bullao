@@ -25,13 +25,11 @@ class Cadeau extends Model
         return $this->belongsTo('App\Client', 'cadeau_client_id_used', 'client_id');
     }
 
-    public function create($array, $code)
+    public function create($array)
     {
-        $c = Client::where('client_email', 'LIKE', $array->email)->get();
+        $c = Client::where('client_email', 'LIKE', $array->email)->first();
 
-        Session::put('clientEmail', $array->email);
-
-        if(count($c) == 0)
+        if($c == NULL)
         {
             $client = new Client;
             $client->create($array);
@@ -39,7 +37,7 @@ class Cadeau extends Model
         }
         else
         {
-            $idClient = $c[0]->client_id;
+            $idClient = $c->client_id;
         }
 
         if(isset($array->adresse1) && $array->adresse1 != "")
@@ -55,26 +53,30 @@ class Cadeau extends Model
             }
         }
 
+        $dateDebut = date('Y-m-d');
+        $dateFin = date('Y-m-d', strtotime($dateDebut. ' + 1 year'));
+
         $this->cadeau_client_id   = $idClient;
         $this->cadeau_montant     = $array->montant;
         $this->cadeau_offre       = $array->offre;
-        $this->cadeau_code        = $code;
-        //$this->cadeau_date_paie   = $array->datePaie;
-        //$this->cadeau_date_fin    = $array->dateFin;
+        $this->cadeau_code        = $this->generateCode(12);
+        $this->cadeau_date_fin    = $dateFin;
+        $this->cadeau_date_debut  = $dateDebut;
         $this->save();
 
         return $this->cadeau_id;
     }
 
-    public function edit($clientId, $array){
-        $this->cadeau_client_id   = $clientId;
-        $this->cadeau_montant     = $array->montant;
-        $this->cadeau_offre       = $array->offre;
-        $this->cadeau_code        = $array->code;
-        $this->cadeau_date_paie   = $array->datePaie;
-        $this->cadeau_client_id_used    = $array->clientIdUsed;
-        $this->cadeau_date_used    = $array->dateUsed;
-        $this->save();
+    public function generateCode($nb)
+    {
+        $caracteres = '123456789abcdefghjkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';
+        $longueurMax = strlen($caracteres);
+        $code = '';
+        for ($i = 0; $i < $nb; $i++){
+            $code .= $caracteres[rand(0, $longueurMax - 1)];
+        }
+
+        return $code;
     }
 
     public function getDateCreatedAttribute()

@@ -22,92 +22,94 @@ class CadeauController extends Controller
 
     public function creationCarte(Request $request)
     {
-        //Session::put('libelle', $request->libelle);
-        //Session::put('prix', $request->prix);
-
-        return view('reservation.cadeau.commande')->with([
-            'action'        => url('/cartecadeau/offrir/submit'),
-            'libelle'       => $request->libelle,
-            'prix'          => $request->prix
-        ]);
+        if(isset($request->libelle)){
+            return view('reservation.cadeau.commande')->with([
+                'action'        => url('/cartecadeau/offrir/submit'),
+                'libelle'       => $request->libelle,
+                'prix'          => $request->prix
+            ]);
+        }
+        else {
+            return redirect('/cartecadeau');
+        }
     }
 
     public function creationCarteSubmit(Request $request)
     {
-        $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $longueurMax = strlen($caracteres);
-        $code = '';
-        for ($i = 0; $i < 12; $i++){
-            $code .= $caracteres[rand(0, $longueurMax - 1)];
+        if(isset($request->email)){
+            $carte         = new Cadeau;
+            $carte->create($request);
+
+            Session::put('carte', $carte->cadeau_id);
+
+            return redirect('/cartecadeau/paiement');
+        }
+        else {
+            return redirect('/cartecadeau');
         }
 
-        $carte         = new Cadeau;
-        $carte->create($request, $code);
-
-        Session::put('carte', $carte);
-
-        return redirect('/cartecadeau/paiement');
     }
 
     public function paiement()
     {
-        $carte = Cadeau::Find(Session::get('carte')->cadeau_id);
 
-        // Intention de paiement
-        \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
+        if(Session::get('carte')){
+            $carte = Cadeau::Find(Session::get('carte'));
 
-        $intent = \Stripe\PaymentIntent::create([
-            'amount' => $carte->cadeau_montant*100,
-            'currency' => 'eur',
-            'receipt_email' => 'cnl.alexandre@gmail.com',
-        ]);
+            // Intention de paiement
+            \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
 
-        $carte->cadeau_payment_id = $intent->id;
-        $carte->save();
+            $intent = \Stripe\PaymentIntent::create([
+                'amount' => $carte->cadeau_montant*100,
+                'currency' => 'eur',
+                'receipt_email' => $carte->clientPaiement->client_email
+            ]);
 
-        return view('reservation.cadeau.paiement')->with([
-            'carte'         => $carte,
-            'intent'        => $intent
-        ]);
-    }
+            $carte->cadeau_payment_id = $intent->id;
+            $carte->save();
 
-    public function paiementSubmit(Request $request)
-    {
-        $carte = Cadeau::Find($request->cadeau_id);
+            return view('reservation.cadeau.paiement')->with([
+                'carte'         => $carte,
+                'intent'        => $intent
+            ]);
+        }
+        else {
+            return redirect('/cartecadeau');
+        }
+
     }
 
     public function success()
     {
-        $carte = Session::get('carte');
+        if(Session::get('carte')){
+            $carte = Cadeau::Find(Session::get('carte'));
+            $carte->cadeau_paye = 1;
+            $datePaie = date('Y-m-d');
+            $carte->cadeau_date_paie = $datePaie;
+            $carte->save();
 
-        $client = Client::Find($carte->cadeau_id);
+            // Mail destiné au client
+            Mail::send('emails.customer.confirmationCarte', ['carte' => $carte], function($mess) use ($carte){
+                $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
+                $mess->to($carte->clientPaiement->client_email);          // Mail du client
+                $mess->subject('Bullao : confirmation de réservation');
+            });
 
-        $r = Cadeau::Find($carte->cadeau_id);
-        $r->cadeau_paye = 1;
-        $r->save();
+            // Mail destiné aux Admins
+            Mail::send('emails.system.confirmationCarte', ['carte' => $carte], function($mess){
+                $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
+                $mess->to(env('MAIL_ADMIN'));                           // Mail de l'admin
+                // $mess->cc('contact@bullao.fr');
+                $mess->subject('Bullao : Nouvelle réservation !');
+            });
 
-        Session::put('carte', $r);
+            Session::forget('carte');
 
-        $carte = Session::get('carte');
-
-        // // Mail destiné au client
-        Mail::send('emails.customer.confirmationCarte', ['carte' => $carte], function($mess) use ($carte){
-            $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
-            $mess->to(Session::get('clientEmail'));          // Mail du client
-            $mess->subject('Bullao : confirmation de réservation');
-        });
-
-        // // Mail destiné aux Admins
-        Mail::send('emails.system.confirmationCarte', ['carte' => $carte], function($mess){
-            $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
-            $mess->to(env('MAIL_ADMIN'));                           // Mail de l'admin
-            // $mess->cc('contact@bullao.fr');
-            $mess->subject('Bullao : Nouvelle réservation !');
-        });
-
-        Session::forget('carte');
-
-        return view('reservation.paiement-accepte')->with([]);
+            return view('reservation.paiement-accepte')->with([]);
+        }
+        else {
+            return redirect('/cartecadeau');
+        }
     }
 
 }

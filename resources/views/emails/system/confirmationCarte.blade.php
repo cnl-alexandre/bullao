@@ -45,7 +45,7 @@
 																		<br>Une nouvelle commande vient d'être validée et payée sur le site bullao.fr ce jour.
 																		<br><br>Les informations de la commande enregistrées sont donc les suivantes :
 																		<br><br>{{ $carte->cadeau_offre }} : {{ $carte->cadeau_montant }}
-																		<br>Email : {{ Session::get('clientEmail') }}
+																		<br>Email : {{ $carte->clientPaiement->client_email }}
 																		<br>
 																	</p>
 																</td>
