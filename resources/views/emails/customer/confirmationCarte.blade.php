@@ -29,7 +29,7 @@
 											</tr>
 											<tr>
 												<td width="100%" bgcolor="#fff" style="text-align: center;">
-													<h1 style="color: #194F9A;font-size: 1.4rem;font-weight: lighter;margin: 25px 0;">Nouvelle réservation<br>d'un spa</h1>
+													<h1 style="color: #194F9A;font-size: 1.4rem;font-weight: lighter;margin: 25px 0;">Validation de votre carte</h1>
 												</td>
 											</tr>
 											<tr>
@@ -42,8 +42,9 @@
 																<td width="80%">
 																	<p style="line-height: 130%;margin-bottom: 25px;">
 																		Bonjour,
-																		<br>Une nouvelle commande vient d'être validée et payée sur le site bullao.fr ce jour.
-																		<br><br>Les informations de la commande enregistrées sont donc les suivantes :
+																		<br>Nous avons le plaisir de vous confirmer la validation de votre carte cadeau sur le site bullao.fr.
+																		<br><br>Vos informations de livraisons ont bien été enregistrées dans notre base de données sécurisée.
+																		<br><br>Si une information est erronée, n'hésitez pas à nous prévenir.
 																		<br><br>Nom : {{ $reservation->client->client_name }}
 																		<br>Adresse : {{ $reservation->reservation_rue }}
 																		<br>Ville : {{ $reservation->reservation_ville }} - {{ $reservation->reservation_departement }}
@@ -169,7 +170,8 @@
 																<td width="10%"></td>
 																<td width="80%">
 																	<p style="line-height: 130%;margin-bottom: 25px;">
-																		Bon courage pour l'organisation ;)
+																		Merci pour votre réservation et de la confiance que vous m’accordez.
+																		<br><br>Grégoire de Bullao.
 																	</p>
 																</td>
 																<td width="10%"></td>
