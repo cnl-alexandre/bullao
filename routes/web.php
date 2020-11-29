@@ -25,7 +25,10 @@ Route::post('/reservation/informations', 'ReservationController@reservationStep2
 // CARTE CADEAU
 Route::get('/cartecadeau', 'Customer\CadeauController@presentation');
 Route::post('/cartecadeau/offrir', 'Customer\CadeauController@creationCarte');
-// Route::post('/cartecadeau/offrir', 'Customer\CadeauController@creationCarteSubmit');
+Route::post('/cartecadeau/offrir/submit', 'Customer\CadeauController@creationCarteSubmit');
+Route::get('/cartecadeau/paiement', 'Customer\CadeauController@paiement');
+Route::post('/cartecadeau/paiement', 'Customer\CadeauController@paiementSubmit');
+Route::get('/cartecadeau/paiement-accepte', 'Customer\CadeauController@success');
 
 // PAIEMENT
 Route::get('/reservation/paiement', 'ReservationController@paiement');
@@ -88,6 +91,9 @@ Route::get('/system/reservations/new', 'system\ReservationController@new')      
 Route::post('/system/reservations/new', 'system\ReservationController@newSubmit');
 Route::get('/system/reservations/edit/{id}', 'system\ReservationController@edit')                                   ->middleware('global.system');
 Route::post('/system/reservations/edit/{id}', 'system\ReservationController@editSubmit');
+
+// RESERVATION
+Route::get('/system/cartescadeaux/list', 'system\CarteCdxController@list');
 
 // PRODUITS (SPAS-PACKS-ACCESSOIRES)
 Route::get('system/produits/spas/list', 'system\ProduitController@listSpas')                                        ->middleware('global.system');

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form class="" action="{{ url('/reservation/informations') }}" method="post">
+<form class="" action="{{ url('/cartecadeau/offrir/submit') }}" method="post">
 
     {{ csrf_field() }}
 
@@ -106,8 +106,12 @@
                         <h1 class="card-header titre-card-header">Détail de la réservation :</h1>
                         <div class="card-body">
 
-                            {{ $prix }}
-                            {{ $libelle }}
+                            <div class="">
+                                {{ $prix }}
+                                {{ $libelle }}
+                            </div>
+                            <input type="hidden" name="montant" value="{{ $prix }}">
+                            <input type="hidden" name="offre" value="{{ $libelle }}">
 
                             <div class="row">
                                 <div class="col-12">
@@ -147,92 +151,12 @@
 
 <script>
 
-    $("#promo").keyup(function() {
-        var code = $(this).val();
-        var montant = $('#montant_total').val();
-        var montantWithoutPromo = $('#montant_without_promo').val();
-        var montantWithoutFrais = $('#montant_without_frais_km').val();
-
-        if(code != "")
-        {
-            $.ajax({
-                url : "{{ url('/webservices/promo/verify') }}",
-                type : 'POST',
-                data : '_token={{ csrf_token() }}&code=' + code,
-                success : function(response, statut){
-                    if(response != "" && typeof response == "object")
-                    {
-                        $("#promo").addClass('is-valid');
-                        $("#promo").removeClass('is-invalid');
-
-                        var promo = parseFloat(montantWithoutFrais)*(parseFloat(response['promo']['promo_valeur'])/100);
-
-                        $('#bloc-promo').css("display", "block");
-                        $('#recap-promo').html(promo.toFixed(2));
-
-                        var montant_total = parseFloat(montantWithoutFrais)-parseFloat(promo);
-
-                        //$('#recap-sous-total').html(montant.toFixed(2));
-                        $('#montant_total').val(montant_total.toFixed(2));
-                        $('#recap-montant-total').html(montant_total.toFixed(2));
-                    }
-                    else
-                    {
-                        $('#bloc-promo').css("display", "none");
-
-                        montantWithoutPromo = parseFloat(montantWithoutPromo);
-
-                        $('#montant_total').val(montantWithoutPromo.toFixed(2));
-                        $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
-
-                        $("#promo").removeClass('is-valid');
-                        $("#promo").addClass('is-invalid');
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('ERREUR : '+jqXHR.responseText);
-
-                    $('#bloc-promo').css("display", "none");
-
-                    montantWithoutPromo = parseFloat(montantWithoutPromo);
-
-                    $('#montant_total').val(montantWithoutPromo.toFixed(2));
-                    $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
-
-                    $("#promo").removeClass('is-valid');
-                    $("#promo").addClass('is-invalid');
-                }
-            });
-        }
-        else
-        {
-            $('#bloc-promo').css("display", "none");
-
-            montantWithoutPromo = parseFloat(montantWithoutPromo);
-
-            $('#montant_total').val(montantWithoutPromo.toFixed(2));
-            $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
-
-            $("#promo").removeClass('is-valid');
-            $("#promo").addClass('is-invalid');
-        }
-    });
-
     $("#acceptCGV").click(function() {
-        inputCheck();
-    });
-    $(".typeLogement").change(function() {
-        inputCheck();
-    });
-    $(".emplacement").change(function() {
-        inputCheck();
-    });
-    $(".creneau").change(function() {
         inputCheck();
     });
 
     function inputCheck() {
-        if($("#acceptCGV").is(':checked') && $(".typeLogement").is(':checked') && $(".emplacement").is(':checked') && $(".creneau").is(':checked'))
+        if($("#acceptCGV").is(':checked') )
         {
             $('#btn-confirm').attr("disabled", false);
             $('#btn-confirm').attr("title", null);
@@ -245,41 +169,8 @@
 
     }
 
-    /*$("#departement").change(function() {
-        var montant = $('#montant_total').val();
-        var montantWithoutFrais = $('#montant_without_frais_km').val();
-
-        var value = $(this).val();
-
-        if(value == '75')
-        {
-            var frais = 10.00;
-
-            $('#bloc-frais-km').css("display", "block");
-            $('#recap-frais-km').html(frais.toFixed(2));
-
-            var montant_total = parseFloat(montant)+parseFloat(frais);
-
-            $('#montant_total').val(montant_total.toFixed(2));
-            $('#montant_without_promo').val(montant_total.toFixed(2));
-            $('#recap-montant-total').html(montant_total.toFixed(2));
-        }
-        else
-        {
-            $('#bloc-frais-km').css("display", "none");
-            $('#recap-frais-km').html(null);
-
-            montantWithoutFrais = parseFloat(montantWithoutFrais);
-
-            $('#montant_total').val(montantWithoutFrais.toFixed(2));
-            $('#montant_without_promo').val(montantWithoutFrais.toFixed(2));
-            $('#recap-montant-total').html(montantWithoutFrais.toFixed(2));
-        }
-    });*/
 
     $(document).ready(function() {
-        $('#bloc-promo').css("display", "none");
-        $('#bloc-frais-km').css("display", "none");
         $('#btn-confirm').attr("disabled", true);
         $('#btn-confirm').attr("title", "Vous devez accepter les CGV.");
     });
