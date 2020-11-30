@@ -23,12 +23,12 @@ Route::get('/reservation/informations', 'ReservationController@reservationStep2'
 Route::post('/reservation/informations', 'ReservationController@reservationStep2Submit');
 
 // CARTE CADEAU
-Route::get('/cartecadeau', 'Customer\CadeauController@presentation');
-Route::get('/cartecadeau/offrir', 'Customer\CadeauController@creationCarte');
-Route::post('/cartecadeau/offrir', 'Customer\CadeauController@creationCarte');
-Route::post('/cartecadeau/offrir/submit', 'Customer\CadeauController@creationCarteSubmit');
-Route::get('/cartecadeau/paiement', 'Customer\CadeauController@paiement');
-Route::get('/cartecadeau/paiement-accepte', 'Customer\CadeauController@success');
+Route::get('/cartecadeau', 'customer\CadeauController@presentation');
+Route::get('/cartecadeau/offrir', 'customer\CadeauController@creationCarte');
+Route::post('/cartecadeau/offrir', 'customer\CadeauController@creationCarte');
+Route::post('/cartecadeau/offrir/submit', 'customer\CadeauController@creationCarteSubmit');
+Route::get('/cartecadeau/paiement', 'customer\CadeauController@paiement');
+Route::get('/cartecadeau/paiement-accepte', 'customer\CadeauController@success');
 
 // PAIEMENT
 Route::get('/reservation/paiement', 'ReservationController@paiement');
