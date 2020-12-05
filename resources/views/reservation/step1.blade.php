@@ -33,7 +33,7 @@
                         <div class="text-center" id="containerdaterange" style="height:330px;">
                           <div class="form-group">
                               <label for="daterange">Sélectionnez la date de la pose et celle du retrait </label>
-                              <input type="text" id="daterange" class="form-control daterange text-center" name="daterange">
+                              <input type="text" id="daterange" class="form-control daterange text-center" name="daterange" style="height:5px;opacity:0;">
                           </div>
                         </div>
                     </div>

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/jpg" href="{{ url('/medias/img/favicon.webp') }}"/>
 
-        @if(env('APP_ENV') == "0")
+        @if(env('APP_DEPLOYED') == "0")
             <!-- DESACTIVATION INDEXATION -->
             <meta name="robots" content="noindex">
             <meta name="googlebot" content="noindex">
@@ -29,7 +29,7 @@
 
         <script src="https://js.stripe.com/v3/"></script>
 
-        @if(env('APP_ENV') == "1")
+        @if(env('APP_DEPLOYED') == "1")
             <!-- Global site tag (gtag.js) - Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180769448-1"></script>
             <script>

@@ -4,11 +4,22 @@
 
 @section('content')
 
-<div class="site-section-cover overlay inner-page bg-light article-img-noel-1" data-aos="fade">
+<!-- <div class="site-section-cover overlay inner-page bg-light article-img-noel-1" data-aos="fade">
     <div class="container">
         <div class="row align-items-center justify-content-center text-center" style="height: 255px">
             <div class="col-lg-10">
                 <div class="box-shadow-content">
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="owl-carousel slide-one-item">
+    <div class="site-section-cover overlay img-bg-section article-img-noel-1">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center" style="min-height: 300px;">
+                <div class="col-md-12 col-lg-8">
+
                 </div>
             </div>
         </div>
