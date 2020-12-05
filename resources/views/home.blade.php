@@ -377,7 +377,7 @@
 <div class="site-section" id="contact-section">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-delay="">
+            <div class="col-12 text-center mt-5 mb-5" data-aos="fade-up" data-aos-delay="">
                 <div class="block-heading-1">
                     <span>Vous n’êtes plus qu’à une bulle du bonheur...</span>
                     <h2 class="font-size-22 text-black">Nous contacter</h2>

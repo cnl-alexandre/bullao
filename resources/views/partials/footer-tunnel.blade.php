@@ -19,12 +19,3 @@
     </div>
 
 </div>
-<div class="container row pt-3 mt-2 text-center bg-light">
-    <div class="col-md-12">
-        <div>
-            <p class="copyright" style="font-size:14px;"><small>
-            Copyright &copy;{{ date('Y') }} Tous droits réservés - Bullao - Grégoire Conil
-            </small></p>
-        </div>
-    </div>
-</div>

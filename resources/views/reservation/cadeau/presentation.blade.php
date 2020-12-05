@@ -14,23 +14,45 @@
         </div>
     </div>
 </div> -->
-<div class="owl-carousel slide-one-item">
-    <div class="site-section-cover overlay img-bg-section article-img-noel-1">
-        <div class="container">
-            <div class="row align-items-center justify-content-center text-center" style="min-height: 300px;">
-                <div class="col-md-12 col-lg-8">
 
+
+<div class="owl-carousel slide-one-item">
+    <div class="site-section-cover overlay img-bg-section article-img-noel-1" style="min-height: auto; height: 260px;">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center" style="height: 140px;min-height: 280px;">
+                <div class="col-md-12 col-lg-8">
+                    <h1 class="mb-4" data-aos="fade-up" data-aos-delay="100">La carte cadeau</h1>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- <div class="site-section-cover overlay inner-page bg-light article-img-noel-1" data-aos="fade">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+          <div class="col-lg-10">
+
+            <div class="box-shadow-content">
+              <div class="block-heading-1">
+                <span class="d-block mb-3 text-white"  data-aos="fade-up">April 9th, 2019 <span class="mx-2 text-primary">&bullet;</span> by James Miller</span>
+                <h1 class="mb-4" data-aos="fade-up" data-aos-delay="100">How To Find Gold In Mining</h1>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> -->
+
 
 
 <div class="site-section picker-section" id="datepicker-section">
     <div class="container">
-        <div class="row d-flex no-gutters align-items-stretch mt-5">
+        <div class="row d-flex no-gutters align-items-stretch mt-2">
             <div class="col-12 col-lg-5 services-img radius order-lg-2" data-aos="fade" data-aos-delay="">
                 <img src="{{ url('medias/img/cadeaux/paquet.png') }}" width="500px" alt="">
             </div>
@@ -65,14 +87,14 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation font-size-28 text-action" style="color:red!important">Faites le bon choix</h2>
-                        <p>Vous souhaitez thématiser simplement votre soirée ? Nous avons ce qu'il vous faut !</p>
+                        <h2 class="h2-reservation font-size-28 text-action" style="color:red!important">Choisissez votre carte cadeau</h2>
+                        <p>Une fois votre carte cadeau sélectionnée, cliquez sur le bouton en dessous.</p>
                     </div>
                 </div>
             </div>
             <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom array_packs" data-toggle="buttons">
 
-                <label for="carte-cadeau-90" class="btn btn-radio-custom col-lg-4 col-md-6  mb-3 carte-recap" data-aos="fade-up" rel="Carte Détente" rel2="90">
+                <label for="carte-cadeau-90" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 carte-recap card-select" data-aos="fade-up" rel="Carte Détente" rel2="90">
                     <input type="radio" name="carte" id="carte-cadeau-90" autocomplete="off" value="Carte Détente">
                     <div class="block-team-member-1 text-left rounded d-flex input-col-step1-responsive radius">
                         <div>
@@ -84,7 +106,7 @@
 
                     </div>
                 </label>
-                <label for="carte-cadeau-120" class="btn btn-radio-custom col-lg-4 col-md-6  mb-3 carte-recap" data-aos="fade-up" rel="Carte Grand Bain" rel2="120">
+                <label for="carte-cadeau-120" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 carte-recap card-select" data-aos="fade-up" rel="Carte Grand Bain" rel2="120">
                     <input type="radio" name="carte" id="carte-cadeau-120" autocomplete="off" value="Carte Grand Bain">
                     <div class="block-team-member-1 text-left rounded d-flex input-col-step1-responsive radius">
                         <div>
@@ -96,7 +118,7 @@
 
                     </div>
                 </label>
-                <label for="carte-cadeau-140" class="btn btn-radio-custom col-lg-4 col-md-6  mb-3 carte-recap" data-aos="fade-up" rel="Carte Sensation" rel2="140">
+                <label for="carte-cadeau-140" class="btn btn-radio-custom col-lg-4 col-md-6 mb-3 carte-recap card-select" data-aos="fade-up" rel="Carte Sensation" rel2="140">
                     <input type="radio" name="carte" id="carte-cadeau-140" autocomplete="off" value="Carte Sensation">
                     <div class="block-team-member-1 text-left rounded d-flex input-col-step1-responsive radius">
                         <div>
@@ -111,16 +133,16 @@
                 <input type="hidden" name="prix" id="prix" value="">
             </div>
             <p class="text-center mt-1">
-                <button type="submit" class="btn btn-primary bg-action btn-md text-white">Offrir une carte cadeau</button>
+                <input type="submit" id="btn-confirm" value="Offrir une carte cadeau" class="btn btn-primary bg-action btn-md text-white">
             </p>
         </div>
     </div>
 
 </form>
 
-<!-- <footer style="background-color:#ffffff;">
+<footer style="background-color:#ffffff;">
     @include('partials.footer-tunnel')
-</footer> -->
+</footer>
 
 <script>
     $(".carte-recap").click(function() {
@@ -130,6 +152,11 @@
         $("#prix").val(prix);
         // console.log(libelle); console.log(prix);
     })
+
+    $("#btn-confirm").attr("disabled", true);
+    $(".card-select").click(function() {
+        $("#btn-confirm").attr("disabled", false);
+    });
 </script>
 
 @endsection

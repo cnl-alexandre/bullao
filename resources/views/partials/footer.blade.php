@@ -13,10 +13,11 @@
                   <div class="col-md-4 ml-auto">
                       <h2 class="footer-heading mb-3">Rubriques</h2>
                       <ul class="list-unstyled">
-                          <li><a href="{{ url('/') }}">Accueil</a></li>
-                          <li><a href="{{ url('/reservation') }}">Réservation</a></li>
-                          <li><a href="{{ url('/mentions-legales') }}">Mentions légales</a></li>
-                          <li><a href="{{ url('/cgv-bullao') }}">CGV</a></li>
+                            <li><a href="{{ url('/') }}">Accueil</a></li>
+                            <li><a href="{{ url('/reservation') }}">Réservation</a></li>
+                            <li><a href="{{ url('/foire-aux-questions') }}">Foire aux questions</a></li>
+                            <li><a href="{{ url('/mentions-legales') }}">Mentions légales</a></li>
+                            <li><a href="{{ url('/cgv-bullao') }}">CGV</a></li>
                       </ul>
                   </div>
 

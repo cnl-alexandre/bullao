@@ -45,12 +45,10 @@
                 <div class="col-12">
                     <nav class="site-navigation text-right ml-auto " role="navigation">
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li><a href="{{ url('/#home-section') }}" class="nav-link">Bonjour</a></li>
-                            <li><a href="{{ url('/#services-section') }}" class="nav-link">Concept</a></li>
-                            <li><a href="{{ url('/#pricing-section') }}" class="nav-link">Tarifs</a></li>
-                            <li><a href="{{ url('/#faq-section') }}" class="nav-link">FAQ</a></li>
-
-                            <li><a href="{{ url('/#contact-section') }}" class="nav-link">Contact</a></li>
+                            <li><a href="{{ url('/') }}" class="nav-link">Notre concept</a></li>
+                            <li><a href="{{ url('/reservation') }}" class="nav-link">Réserver un spa</a></li>
+                            <li><a href="{{ url('/cartecadeau') }}" class="nav-link" style="color:red!important">Carte cadeau</a></li>
+                            <li><a href="{{ url('/') }}#contact-section" class="nav-link">Nous contacter</a></li>
                         </ul>
                     </nav>
                 </div>

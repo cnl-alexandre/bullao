@@ -6,7 +6,7 @@
 
 <section class="site-section ariane-section bg-light" id="pricing-section">
     <div class="container">
-        <div class="row mt-5 mt-md-0 d-flex justify-content-center">
+        <div class="row mt-md-0 d-flex justify-content-center">
             <div class="align-self-center">
                 <img src="{{ url('medias/img/pictos/reservation-on.png') }}" alt="">
                 <img src="{{ url('medias/img/pictos/separator-off.png') }}" class="separator" alt="">
@@ -33,7 +33,7 @@
                         <div class="text-center" id="containerdaterange" style="height:330px;">
                           <div class="form-group">
                               <label for="daterange">Sélectionnez la date de la pose et celle du retrait </label>
-                              <input type="text" id="daterange" class="form-control daterange text-center" name="daterange" style="height:5px;opacity:0;">
+                              <input type="text" id="daterange" class="form-control daterange text-center" name="daterange" style="height:0px;opacity:0;">
                           </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="site-section bg-light" id="spas-section">
-        <div class="container">
+        <div class="container mt-5">
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-9 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
@@ -60,7 +60,7 @@
     </div>
 
     <div class="site-section" id="packs-section">
-        <div class="container">
+        <div class="container mt-5">
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
@@ -101,7 +101,7 @@
     </div>
 
     <div class="site-section bg-light" id="accessoires-section">
-        <div class="container">
+        <div class="container mt-5">
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
