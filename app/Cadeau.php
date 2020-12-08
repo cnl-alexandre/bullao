@@ -79,6 +79,16 @@ class Cadeau extends Model
         return $code;
     }
 
+    public function getDateDebutAttribute()
+    {
+        return Carbon::parse($this->attributes['cadeau_date_debut']);
+    }
+
+    public function getDateFinAttribute()
+    {
+        return Carbon::parse($this->attributes['cadeau_date_fin']);
+    }
+
     public function getDateCreatedAttribute()
     {
         return Carbon::parse($this->attributes['created_at']);

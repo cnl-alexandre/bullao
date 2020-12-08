@@ -103,7 +103,7 @@
                 <div class="col-lg-5 col-md-6" style="margin-right: auto;height: min-content;">
 
                     <div class="card shadow">
-                        <h1 class="card-header titre-card-header">Détail de la réservation :</h1>
+                        <h1 class="card-header titre-card-header">Détail de la commande :</h1>
                         <div class="card-body">
 
                             <div class="">
@@ -128,7 +128,7 @@
                                     <a href="{{ url('/') }}" class="btn btn-secondary btn-md text-white">Annuler</a>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <input type="submit" name="" id="btn-confirm" value="Confirmer" class="btn btn-primary bg-action btn-md text-white">
+                                    <input type="submit" name="" id="btn-confirm" value="Confirmer l'achat" class="btn btn-primary bg-action btn-md text-white">
                                 </div>
                             </div>
                         </div>

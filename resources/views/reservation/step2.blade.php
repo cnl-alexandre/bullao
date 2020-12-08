@@ -246,7 +246,7 @@
 
                                 <div class="form-group mt-3 mb-4">
                                     <label for="promo">Vous avez un code promo ?</label>
-                                    <input type="text" id="promo" class="form-control" name="promo" placeholder="MONCODE" maxlength="10">
+                                    <input type="text" id="promo" class="form-control" name="promo" placeholder="MONCODE" maxlength="15">
                                 </div>
 
                             <div id="bloc-promo">
@@ -292,7 +292,7 @@
                                     <a href="{{ url('/') }}" class="btn btn-secondary btn-md text-white">Annuler</a>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <input type="submit" name="" id="btn-confirm" value="Confirmer" class="btn btn-primary bg-action btn-md text-white">
+                                    <input type="submit" name="" id="btn-confirm" value="Confirmer l'achat" class="btn btn-primary bg-action btn-md text-white">
                                 </div>
                             </div>
                         </div>
@@ -337,12 +337,18 @@
                         $("#promo").addClass('is-valid');
                         $("#promo").removeClass('is-invalid');
 
-                        var promo = parseFloat(montantWithoutFrais)*(parseFloat(response['promo']['promo_valeur'])/100);
-
+                        console.log(response);
+                        if(typeof response['promo'] !== 'undefined'){
+                            var promo = parseFloat(montantWithoutFrais)*(parseFloat(response['promo']['promo_valeur'])/100);
+                            $('#recap-promo').html(promo.toFixed(2));
+                            var montant_total = parseFloat(montantWithoutFrais)-parseFloat(promo);
+                        }
+                        else if (typeof response['carte'] !== 'undefined') {
+                            var carte = parseFloat(response['carte']['cadeau_montant']);
+                            $('#recap-promo').html(carte.toFixed(2));
+                            var montant_total = parseFloat(montantWithoutFrais)-parseFloat(carte);
+                        }
                         $('#bloc-promo').css("display", "block");
-                        $('#recap-promo').html(promo.toFixed(2));
-
-                        var montant_total = parseFloat(montantWithoutFrais)-parseFloat(promo);
 
                         //$('#recap-sous-total').html(montant.toFixed(2));
                         $('#montant_total').val(montant_total.toFixed(2));

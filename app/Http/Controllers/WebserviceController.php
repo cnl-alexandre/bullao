@@ -8,6 +8,7 @@ use App\Spa;
 use App\Reservation;
 use App\Pack;
 use App\Accessoire;
+use App\Cadeau;
 
 class WebserviceController extends Controller
 {
@@ -18,12 +19,44 @@ class WebserviceController extends Controller
 
     public function verifyPromo(Request $request)
     {
-        $promo       = Promo::where('promo_libelle', 'LIKE', $request->code)->first();
+        $today = date('Y-m-d');
 
-        if($promo != NULL)
+        // $promo      = Promo::where([
+        //                     ['promo_libelle', 'LIKE', $request->code],
+        //                     ['promo_date_debut', '<=', $today],
+        //                     ['promo_date_fin', '>=', $today]
+        //                     ])
+        //                     ->first();
+
+        $promo      = Promo::where('promo_libelle', 'LIKE', $request->code)
+                            ->where('promo_date_debut', '<=', $today)
+                            ->where('promo_date_fin', '>=', $today)
+                            ->first();
+
+        $carte      = Cadeau::where('cadeau_code', 'LIKE', $request->code)
+                            ->where('cadeau_date_debut', '<=', $today)
+                            ->where('cadeau_date_fin', '>=', $today)
+                            // ->where('cadeau_paye', '=', '1')
+                            ->first();
+
+        // $carte      = Cadeau::where([
+        //                     ['cadeau_code', 'LIKE', $request->code]
+        //                     // ['cadeau_date_debut', '<=', $today],
+        //                     // ['cadeau_date_fin', '>=', $today],
+        //                     // ['cadeau_paye', '=', '1']
+        //                     ])
+        //                     ->first();
+
+        if(isset($promo) && $promo != NULL)
         {
             return response()->json([
                 'promo'       => $promo
+            ]);
+        }
+        elseif(isset($carte) && $carte != NULL)
+        {
+            return response()->json([
+                'carte'       => $carte
             ]);
         }
         else
