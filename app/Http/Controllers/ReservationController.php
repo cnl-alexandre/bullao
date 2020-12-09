@@ -8,6 +8,7 @@ use App\Pack;
 use App\Accessoire;
 use Illuminate\Http\Request;
 use App\Reservation;
+use App\Cadeau;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
 
@@ -134,6 +135,15 @@ class ReservationController extends Controller
         $r = Reservation::Find($reservation->reservation_id);
         $r->reservation_paye = 1;
         $r->save();
+
+        if(isset($reservation->reservation_cadeau_id) && $reservation->reservation_cadeau_id != NULL)
+        {
+            $carte = Cadeau::Find($reservation->reservation_cadeau_id);
+            $carte->cadeau_used = '1';
+            $carte->cadeau_client_id_used = $reservation->reservation_client_id;
+            $carte->cadeau_date_used = date('Y-m-d');
+            $carte->save();
+        }
 
         if(count($reservation->accessoires) > 0)
         {

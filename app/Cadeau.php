@@ -67,6 +67,15 @@ class Cadeau extends Model
         return $this->cadeau_id;
     }
 
+    public function utilisation($idUser, $cadeauId)
+    {
+        $carte = Cadeau::where('cadeau_id', 'LIKE', $cadeauId);
+
+        $this->cadeau_client_id_used = $idUser;
+        $this->cadeau_date_used = date('Y-m-d');
+        $this->save();
+    }
+
     public function generateCode($nb)
     {
         $caracteres = '123456789abcdefghjkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';

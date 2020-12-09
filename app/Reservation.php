@@ -121,11 +121,21 @@ class Reservation extends Model
 
             if(isset($array->promo) && $array->promo != "")
             {
-                $this->reservation_promo                = $array->promo;
+                $code = $array->promo;
 
-                $promo = Promo::where('promo_libelle', 'LIKE', $array->promo)->first();
+                $promo = Promo::where('promo_libelle', 'LIKE', $code)->first();
+                $carte = Cadeau::where('cadeau_code', 'LIKE', $code)->first();
 
-                $this->reservation_montant_total        = $this->reservation_montant_total-(($this->reservation_montant_total*$promo->promo_valeur)/100);
+                if(isset($promo) && $promo != NULL)
+                {
+                    $this->reservation_promo = $code;
+                    $this->reservation_montant_total        = $this->reservation_montant_total-(($this->reservation_montant_total*$promo->promo_valeur)/100);
+                }
+                elseif(isset($carte) && $carte != NULL)
+                {
+                    $this->reservation_cadeau_id = $carte->cadeau_id;
+                    $this->reservation_montant_total        = $this->reservation_montant_total-$carte->cadeau_montant;
+                }
             }
 
             if(isset($array->fraisKm) && $array->fraisKm != "")
