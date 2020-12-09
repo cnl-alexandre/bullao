@@ -29,7 +29,7 @@
 											</tr>
 											<tr>
 												<td width="100%" bgcolor="#fff" style="text-align: center;">
-													<h1 style="color: #194F9A;font-size: 1.4rem;font-weight: lighter;margin: 25px 0;">Nouvelle réservation<br>d'un spa</h1>
+													<h1 style="color: #194F9A;font-size: 1.4rem;font-weight: lighter;margin: 25px 0;">Nouvelle Carte Cadeau</h1>
 												</td>
 											</tr>
 											<tr>
@@ -42,11 +42,14 @@
 																<td width="80%">
 																	<p style="line-height: 130%;margin-bottom: 25px;">
 																		Bonjour,
-																		<br>Une nouvelle commande vient d'être validée et payée sur le site bullao.fr ce jour.
-																		<br><br>Les informations de la commande enregistrées sont donc les suivantes :
+																		<br>Nous avons le plaisir de vous confirmer la validation de votre carte cadeau sur le site bullao.fr.
+																		<br><br>Vos informations ont bien été enregistrées dans notre base de données sécurisée.
+																		<br><br>Si une information est erronée, n'hésitez pas à nous prévenir.
 																		<br><br>{{ $carte->cadeau_offre }} : {{ $carte->cadeau_montant }}
 																		<br>Email : {{ $carte->clientPaiement->client_email }}
-																		<br>
+																		<br>Code : {{ $carte->cadeau_code }}
+																		<br>Valable du {{ $carte->DateDebut->format('d/m/Y') }} au {{ $carte->DateFin->format('d/m/Y') }}
+																		<br><br>Vous recevrez également une carte physique à offrir.
 																	</p>
 																</td>
 																<td width="10%"></td>

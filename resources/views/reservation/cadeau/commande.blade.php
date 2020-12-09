@@ -106,7 +106,7 @@
                         <h1 class="card-header titre-card-header">Détail de la commande :</h1>
                         <div class="card-body">
 
-                            <div style="border: 1px solid #e9ecef;padding: 20px;">
+                            <div style="border: 1px solid red;border-radius: 8px;padding: 20px;">
                                 <img src="{{ url('/medias/img/cadeaux/paquet.png') }}" class="mb-2" width="170px" alt="">
                                 <h4>{{ $libelle }}</h4>
                                 <p class="mb-0">Une valeur de {{ $prix }}€ valable 24 mois</p>
