@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="site-section ariane-section bg-light" id="pricing-section">
+<section class="site-section bg-light" id="pricing-section">
     <div class="container">
         <div class="row mt-md-0 d-flex justify-content-center">
             <div class="align-self-center">
@@ -15,11 +15,10 @@
                 <img src="{{ url('medias/img/pictos/paiement-off.png') }}" alt="">
             </div>
         </div>
-
     </div>
 </section>
 
-<form class="site-step-1" action="{{ url('/reservation') }}" method="post">
+<form class="" action="{{ url('/reservation') }}" method="post">
 
     {{ csrf_field() }}
 
@@ -28,12 +27,12 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="" data-aos-delay="">
-                        <h2 class="h2-reservation font-size-28 text-action">Date de réservation</h2>
+                        <h2 class="h2-reservation">2. Vos disponibilités</h2>
                         <br>
                         <div class="text-center" id="containerdaterange" style="height:330px;">
                           <div class="form-group">
-                              <label for="daterange">Sélectionnez la date de la pose et celle du retrait </label>
-                              <input type="text" id="daterange" class="form-control daterange text-center" name="daterange" style="height:0px;opacity:0;">
+                              <label for="daterange">Sélectionnez vos dates de réservations (jour de pose et jour de retrait)</label>
+                              <input type="text" id="daterange" class="form-control daterange text-center" name="daterange">
                           </div>
                         </div>
                     </div>
@@ -45,14 +44,14 @@
     <div class="site-section bg-light" id="spas-section">
         <div class="container mt-5">
             <div class="row mb-4 justify-content-center">
-                <div class="col-md-9 text-center">
+                <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation font-size-28 text-action">Choix du spa-jacuzzi</h2>
+                        <h2 class="h2-reservation">3. Votre spa</h2>
                         <p>Quel spa vous fait le plus envie ? Faites-vous plaisir pour ce coup là !</p>
                     </div>
                 </div>
             </div>
-            <div class="row d-flex justify-content-center btn-group btn-group-toggle radio-custom array_spas" data-toggle="buttons">
+            <div class="row d-flex justify-content-around btn-group btn-group-toggle radio-custom array_spas" data-toggle="buttons">
                 Chargement des spas
             </div>
             <input type="hidden" name="nbPlaceSpa" id="nbPlaceSpa" value="{{ $nbPlace }}">
@@ -64,7 +63,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation font-size-28 text-action">Thématiser la soirée</h2>
+                        <h2 class="h2-reservation">4. Votre thème</h2>
                         <p>Vous souhaitez thématiser simplement votre soirée ? Nous avons ce qu'il vous faut !</p>
                     </div>
                 </div>
@@ -79,7 +78,7 @@
                                     <img src="{{ url($pack->pack_chemin_img) }}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
                                 <div>
-                                    <h3 class="font-size-20 text-primaire">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
+                                    <h3 class="font-size-20 text-black">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</h3>
                                     <span class="d-block font-gray-6 font-size-15 mb-1"><?php echo $pack->pack_description; ?></span>
                                     <!-- {{ $pack->stock() }} -->
                                 </div>
@@ -90,7 +89,7 @@
                 @endif
                 <label for="0" class="btn btn-radio-custom col-md-3 pack-recap" id="0" data-aos="fade-up">
                     <input type="radio" name="pack" id="0" autocomplete="off" value="">
-                    <div class="block-team-member-1 text-center rounded d-flex" style="padding:15px;">
+                    <div class="block-team-member-1 text-center rounded d-flex" style="padding:30px;">
                         <span class="d-block font-gray-9 font-size-14 mx-auto">Je ne prends pas de pack</span>
                     </div>
                 </label>
@@ -105,7 +104,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation font-size-28 text-action">Ajouter des accessoires</h2>
+                        <h2 class="h2-reservation">5. Vos accessoires</h2>
                         <p>Ajoutez les petits détails qui feront la différence à votre soirée spa !</p>
                     </div>
                 </div>
@@ -119,7 +118,7 @@
                     <a href="{{ url('/') }}" class="btn btn-secondary btn-md text-white">Retour</a>
                 </div>
                 <div class="col-6 text-right">
-                    <input type="submit" name="" value="Continuer" id="btn-confirm" class="btn btn-primary bg-action btn-md text-white">
+                    <input type="submit" name="" value="Continuer" id="btn-confirm" class="btn btn-primary btn-md text-white">
                 </div>
             </div>
         </div>
@@ -141,6 +140,9 @@
         var date_debut = dates[0].split('/').reverse().join('-');
         var date_fin = dates[1].split('/').reverse().join('-');
         var nb_place = $('#nbPlaceSpa').val();
+
+        $('#btn-confirm').attr("disabled", true);
+        $('#btn-confirm').attr("title", "Vous devez choisir un spa.");
 
         $.ajax({
             url : "{{ url('/webservices/spa/stock/verify') }}",
@@ -206,23 +208,55 @@
         });
     });
 
-
     $(".pack-recap").click(function() {
         $("html, body").animate({
             scrollTop: $("#accessoires-section").offset().top
-        }, 1500);
+        }, 1000);
 
+        $("#btn-confirm").attr("disabled", false);
+        $("#btn-confirm").attr("title", null);
     })
+
+    @if(count($packs) > 0)
+        $("#btn-pack-clear").click(function() {
+            @foreach($packs as $pack)
+                $("#label-pack-{{ $pack->pack_id }}").removeClass("active");
+                $("#pack-{{ $pack->pack_id }}").prop('checked', false);
+            @endforeach
+
+            return false;
+        });
+    @endif
 
     $(document).ready(function() {
 
         $('#btn-confirm').attr("disabled", true);
-        $('#btn-confirm').attr("title", "Vous devez choisir un spa.");
+        $('#btn-confirm').attr("title", "Vous devez choisir un spa et faire un choix au niveau des packs.");
 
         // Gestion du scroll automatique
         var url = $(location).attr('href');
         var nbPlaceComplete = url.substring(url.length - 7, url.length);
         var nbPlace = nbPlaceComplete.substring(0, 1);
+
+        if(nbPlace == 4 || nbPlace == 6)
+        {
+            $('html, body').animate({
+                scrollTop: $("#datepicker-section").offset().top
+            }, 1000);
+        }
+
+        if(nbPlace == 6)
+        {
+            $("#btn-reserver-6").html('Offre sélectionnée');
+            $("#btn-reserver-6").css('background-color', '#FF8B00');
+            $("#btn-reserver-6").css('border-color', '#FF8B00');
+        }
+        else if(nbPlace == 4)
+        {
+            $("#btn-reserver-4").html('Offre sélectionnée');
+            $("#btn-reserver-4").css('background-color', '#FF8B00');
+            $("#btn-reserver-4").css('border-color', '#FF8B00');
+        }
 
         setTimeout(function(){
             $('#daterange').trigger('click');
@@ -273,7 +307,7 @@
             autoApply: true,
             alwaysShowCalendars: true,
             maxSpan: {
-                days: 12
+                days: 5
             },
             drops: "auto",
             isInvalidDate: function(date) {
@@ -288,7 +322,7 @@
         $('#daterange').on('hide.daterangepicker', function(ev, picker) {
             $('html, body').animate({
                 scrollTop: $("#spas-section").offset().top
-            }, 1500);
+            }, 1000);
 
             setTimeout(function(){
                 $('#daterange').trigger('click');
