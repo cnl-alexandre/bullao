@@ -68,6 +68,11 @@ class Reservation extends Model
             $dateDebut = $this->dateFr2Us($dates[0]);
             $dateFin = $this->dateFr2Us($dates[1]);
 
+            if($dateFin == $dateDebut)
+            {
+                $dateFin = date('Y-m-d', strtotime($dateFin. ' + 1 days'));
+            }
+
             $this->reservation_date_debut           = $dateDebut;
             $this->reservation_date_fin             = $dateFin;
 
