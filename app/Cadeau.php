@@ -56,12 +56,13 @@ class Cadeau extends Model
         $dateDebut = date('Y-m-d');
         $dateFin = date('Y-m-d', strtotime($dateDebut. ' + 1 year'));
 
-        $this->cadeau_client_id   = $idClient;
-        $this->cadeau_montant     = $array->montant;
-        $this->cadeau_offre       = $array->offre;
-        $this->cadeau_code        = $this->generateCode(12);
-        $this->cadeau_date_fin    = $dateFin;
-        $this->cadeau_date_debut  = $dateDebut;
+        $this->cadeau_client_id         = $idClient;
+        $this->cadeau_montant           = $array->montant;
+        $this->cadeau_montant_restant   = $array->montant;
+        $this->cadeau_offre             = $array->offre;
+        $this->cadeau_code              = $this->generateCode(12);
+        $this->cadeau_date_fin          = $dateFin;
+        $this->cadeau_date_debut        = $dateDebut;
         $this->save();
 
         return $this->cadeau_id;

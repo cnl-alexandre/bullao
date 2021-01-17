@@ -300,13 +300,12 @@
 
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div>
                 <input type="hidden" name="step" value="2">
                 <input type="hidden" name="id" value="{{ $reservation->reservation_id }}">
                 <input type="hidden" name="montant_without_promo" id="montant_without_promo" value="{{ $reservation->reservation_montant_total }}">
                 <input type="hidden" name="montant_without_frais_km" id="montant_without_frais_km" value="{{ $reservation->reservation_montant_total }}">
                 <input type="hidden" name="montant_total" id="montant_total" value="{{ $reservation->reservation_montant_total }}">
-
             </div>
         </div>
     </div>
@@ -337,16 +336,29 @@
                         $("#promo").addClass('is-valid');
                         $("#promo").removeClass('is-invalid');
 
-                        console.log(response);
+                        // console.log(response);
                         if(typeof response['promo'] !== 'undefined'){
                             var promo = parseFloat(montantWithoutFrais)*(parseFloat(response['promo']['promo_valeur'])/100);
                             $('#recap-promo').html(promo.toFixed(2));
                             var montant_total = parseFloat(montantWithoutFrais)-parseFloat(promo);
                         }
                         else if (typeof response['carte'] !== 'undefined') {
-                            var carte = parseFloat(response['carte']['cadeau_montant']);
+                            var carte = parseFloat(response['carte']['cadeau_montant_restant']);
                             $('#recap-promo').html(carte.toFixed(2));
                             var montant_total = parseFloat(montantWithoutFrais)-parseFloat(carte);
+
+                            console.log("carte : "+carte);
+
+                            if (montant_total <= '0') {
+                                var montant_total = parseFloat(0);
+                            }
+
+                            // if(carte > montant_total){
+                            //     // $('#recap-promo').html(montant_total.toFixed(2));
+                            //     var montant_total = parseFloat(0);
+                            // }
+                            console.log("Total : "+montant_total); console.log("Montant base : "+montantWithoutFrais);
+
                         }
                         $('#bloc-promo').css("display", "block");
 

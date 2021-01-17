@@ -102,86 +102,110 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::Find(Session::get('reservation')->reservation_id);
 
-        // Intention de paiement
-        \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
+        if(Session::get('reservation')){
+            if($reservation->reservation_montant_total >= "1"){
+                // Intention de paiement
+                \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
 
-        $intent = \Stripe\PaymentIntent::create([
-            //'amount' => 13000,
-            'amount' => $reservation->reservation_montant_total*100,
-            'currency' => 'eur',
-            'receipt_email' => $reservation->reservation_email
-        ]);
+                $intent = \Stripe\PaymentIntent::create([
+                    'amount' => $reservation->reservation_montant_total*100,
+                    'currency' => 'eur',
+                    'receipt_email' => $reservation->reservation_email
+                ]);
 
-        $reservation->reservation_payment_id = $intent->id;
-        $reservation->save();
+                $reservation->reservation_payment_id = $intent->id;
+                $reservation->save();
 
-        return view('reservation.paiement')->with([
-            'reservation'   => $reservation,
-            'intent'        => $intent
-        ]);
+                return view('reservation.paiement')->with([
+                    'reservation'   => $reservation,
+                    'intent'        => $intent
+                ]);
+            }
+            else{
+                return redirect('/reservation/paiement-accepte');
+            }
+        }
+        else{
+            // code...
+        }
+
     }
 
-    public function paiementSubmit(Request $request)
-    {
-
-      $reservation = Reservation::Find($request->reservation_id);
-
-    }
+    // public function paiementSubmit(Request $request)
+    // {
+    //
+    //   $reservation = Reservation::Find($request->reservation_id);
+    //
+    // }
 
     public function success()
     {
         $reservation = Session::get('reservation');
 
-        $r = Reservation::Find($reservation->reservation_id);
-        $r->reservation_paye = 1;
-        $r->save();
+        if (Session::get('reservation')) {
+            $r = Reservation::Find($reservation->reservation_id);
+            $r->reservation_paye = 1;
+            $r->save();
 
-        if(isset($reservation->reservation_cadeau_id) && $reservation->reservation_cadeau_id != NULL)
-        {
-            $carte = Cadeau::Find($reservation->reservation_cadeau_id);
-            $carte->cadeau_used = '1';
-            $carte->cadeau_client_id_used = $reservation->reservation_client_id;
-            $carte->cadeau_date_used = date('Y-m-d');
-            $carte->save();
-        }
-
-        if(count($reservation->accessoires) > 0)
-        {
-            foreach($reservation->accessoires as $rAccessoire)
+            if(isset($reservation->reservation_cadeau_id) && $reservation->reservation_cadeau_id != NULL)
             {
-                $accessoire = Accessoire::find($rAccessoire->ra_accessoire_id);
-                if($accessoire->accessoire_conso == 1)
+                $carte = Cadeau::Find($reservation->reservation_cadeau_id);
+                // Décrémenter le montant restant du montant total
+                
+                    // Si montant restant supérieur montant total
+                        // restant - total
+
+                    // Si montant restant inférieur montant total
+                        // montant restant = 0
+
+                $carte->cadeau_used = '1';
+                $carte->cadeau_client_id_used = $reservation->reservation_client_id;
+                $carte->cadeau_date_used = date('Y-m-d');
+                $carte->save();
+            }
+
+            if(count($reservation->accessoires) > 0)
+            {
+                foreach($reservation->accessoires as $rAccessoire)
                 {
-                    $accessoire->accessoire_stock = $accessoire->accessoire_stock-1;
-                    $accessoire->save();
+                    $accessoire = Accessoire::find($rAccessoire->ra_accessoire_id);
+                    if($accessoire->accessoire_conso == 1)
+                    {
+                        $accessoire->accessoire_stock = $accessoire->accessoire_stock-1;
+                        $accessoire->save();
+                    }
                 }
             }
+
+            Session::put('reservation', $r);
+
+            $reservation = Session::get('reservation');
+
+            // Mail destiné au client
+            Mail::send('emails.customer.confirmation', ['reservation' => $reservation], function($mess) use ($reservation){
+                $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
+                $mess->to($reservation->client->client_email);          // Mail du client
+                // $mess->cc('jer.lemont@gmail.com');
+                $mess->subject('Bullao : confirmation de réservation');
+            });
+
+            // Mail destiné aux Admins
+            Mail::send('emails.system.confirmation', ['reservation' => $reservation], function($mess){
+                $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
+                $mess->to(env('MAIL_ADMIN'));                           // Mail de l'admin
+                $mess->cc('contact@bullao.fr');
+                $mess->subject('Bullao : Nouvelle réservation !');
+            });
+
+            Session::forget('reservation');
+            Session::forget('joursSupp');
+
+            return view('reservation.paiement-accepte')->with([]);
+        }
+        else {
+            return redirect('/');
         }
 
-        Session::put('reservation', $r);
-
-        $reservation = Session::get('reservation');
-
-        // Mail destiné au client
-        Mail::send('emails.customer.confirmation', ['reservation' => $reservation], function($mess) use ($reservation){
-            $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
-            $mess->to($reservation->client->client_email);          // Mail du client
-            // $mess->cc('jer.lemont@gmail.com');
-            $mess->subject('Bullao : confirmation de réservation');
-        });
-
-        // Mail destiné aux Admins
-        Mail::send('emails.system.confirmation', ['reservation' => $reservation], function($mess){
-            $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
-            $mess->to(env('MAIL_ADMIN'));                           // Mail de l'admin
-            $mess->cc('contact@bullao.fr');
-            $mess->subject('Bullao : Nouvelle réservation !');
-        });
-
-        Session::forget('reservation');
-        Session::forget('joursSupp');
-
-        return view('reservation.paiement-accepte')->with([]);
     }
 
     public function cancel()

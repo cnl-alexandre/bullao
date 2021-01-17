@@ -36,7 +36,7 @@ class WebserviceController extends Controller
         $carte      = Cadeau::where('cadeau_code', 'LIKE', $request->code)
                             ->where('cadeau_date_debut', '<=', $today)
                             ->where('cadeau_date_fin', '>=', $today)
-                            // ->where('cadeau_paye', '=', '1')
+                            ->where('cadeau_montant_restant', '>=', '1')
                             ->first();
 
         // $carte      = Cadeau::where([
