@@ -13,28 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Maintenance
+Route::get('/maintenance', 'MaintenanceController@index');
+
 // HOME
-Route::get('/', 'HomeController@home');
+Route::get('/', 'HomeController@home')                                                                              ->middleware('maintenance');
 
 // RÉSERVATION
-Route::get('/reservation', 'ReservationController@reservationStep1');
+Route::get('/reservation', 'ReservationController@reservationStep1')                                                ->middleware('maintenance');
 Route::post('/reservation', 'ReservationController@reservationStep1Submit');
-Route::get('/reservation/informations', 'ReservationController@reservationStep2');
+Route::get('/reservation/informations', 'ReservationController@reservationStep2')                                   ->middleware('maintenance');
 Route::post('/reservation/informations', 'ReservationController@reservationStep2Submit');
 
 // CARTE CADEAU
-Route::get('/cartecadeau', 'customer\CadeauController@presentation');
-Route::get('/cartecadeau/offrir', 'customer\CadeauController@creationCarte');
+Route::get('/cartecadeau', 'customer\CadeauController@presentation')                                                ->middleware('maintenance');
+Route::get('/cartecadeau/offrir', 'customer\CadeauController@creationCarte')                                        ->middleware('maintenance');
 Route::post('/cartecadeau/offrir', 'customer\CadeauController@creationCarte');
 Route::post('/cartecadeau/offrir/submit', 'customer\CadeauController@creationCarteSubmit');
-Route::get('/cartecadeau/paiement', 'customer\CadeauController@paiement');
-Route::get('/cartecadeau/paiement-accepte', 'customer\CadeauController@success');
+Route::get('/cartecadeau/paiement', 'customer\CadeauController@paiement')                                           ->middleware('maintenance');
+Route::get('/cartecadeau/paiement-accepte', 'customer\CadeauController@success')                                    ->middleware('maintenance');
 
 // PAIEMENT
-Route::get('/reservation/paiement', 'ReservationController@paiement');
+Route::get('/reservation/paiement', 'ReservationController@paiement')                                               ->middleware('maintenance');
 Route::post('/reservation/paiement', 'ReservationController@paiementSubmit');
-Route::get('/reservation/paiement-accepte', 'ReservationController@success');
-Route::get('/reservation/paiement-refuse', 'ReservationController@cancel');
+Route::get('/reservation/paiement-accepte', 'ReservationController@success')                                        ->middleware('maintenance');
+Route::get('/reservation/paiement-refuse', 'ReservationController@cancel')                                          ->middleware('maintenance');
 
 // WebServices
 Route::post('/webservices/promo/verify', 'WebserviceController@verifyPromo');
@@ -43,16 +46,16 @@ Route::post('/webservices/pack/stock/verify', 'WebserviceController@verifyPackSt
 Route::post('/webservices/accessoire/stock/verify', 'WebserviceController@verifyAccessoireStock');
 
 // PRESS & ARTICLES
-Route::get('/contact', 'ArticleController@contact');
-Route::get('/foire-aux-questions', 'ArticleController@faq');
-Route::get('/cgv-bullao', 'ArticleController@cgv');
-Route::get('/mentions-legales', 'ArticleController@mentions');
+Route::get('/contact', 'ArticleController@contact')                                                                 ->middleware('maintenance');
+Route::get('/foire-aux-questions', 'ArticleController@faq')                                                         ->middleware('maintenance');
+Route::get('/cgv-bullao', 'ArticleController@cgv')                                                                  ->middleware('maintenance');
+Route::get('/mentions-legales', 'ArticleController@mentions')                                                       ->middleware('maintenance');
 //Route::get('/blog/NOM_ARTICLE', 'ArticleController@NOM_FONCTION');
 
 // ACCOUNT
-Route::get('/account/login', 'AccountController@login');
+Route::get('/account/login', 'AccountController@login')                                                             ->middleware('maintenance');
 Route::post('/account/login', 'AccountController@loginSubmit');
-Route::get('/account/forgot-password', 'AccountController@forgotPassword');
+Route::get('/account/forgot-password', 'AccountController@forgotPassword')                                          ->middleware('maintenance');
 Route::post('/account/forgot-password', 'AccountController@forgotPasswordSubmit');
 Route::get('/account/logout', 'AccountController@logout');
 Route::post('/account/send-reservations', 'AccountController@sendReservationSubmit');
@@ -68,13 +71,10 @@ Route::post('/account/send-reservations', 'AccountController@sendReservationSubm
  */
 
 // My account
-Route::get('/account/dashboard', 'customer\AccountController@dashboard');
-Route::get('/account/reservations', 'customer\AccountController@reservations');
-Route::get('/account/addresses', 'customer\AccountController@addresses');
-Route::get('/account/profil', 'customer\AccountController@profil');
-
-// Maintenance
-Route::get('/maintenance', 'MaintenanceController@index');
+Route::get('/account/dashboard', 'customer\AccountController@dashboard')                                            ->middleware('maintenance');
+Route::get('/account/reservations', 'customer\AccountController@reservations')                                      ->middleware('maintenance');
+Route::get('/account/addresses', 'customer\AccountController@addresses')                                            ->middleware('maintenance');
+Route::get('/account/profil', 'customer\AccountController@profil')                                                  ->middleware('maintenance');
 
 /**
  *  ######  ##    ##  ######  ######## ######## ##     ##
@@ -87,57 +87,61 @@ Route::get('/maintenance', 'MaintenanceController@index');
  */
 
 // ADMINISTRATION
-Route::get('/system/dashboard', 'system\BackOfficeController@dashboard')                                            ->middleware('cache.headers', 'global.system');
+Route::get('/system/dashboard', 'system\BackOfficeController@dashboard')                                            ->middleware('cache.headers', 'global.system', 'maintenance');
 
 // RESERVATION
-Route::get('/system/reservations/list', 'system\ReservationController@list')                                        ->middleware('global.system');
-Route::get('/system/reservations/new', 'system\ReservationController@new')                                          ->middleware('global.system');
+Route::get('/system/reservations/list', 'system\ReservationController@list')                                        ->middleware('global.system', 'maintenance');
+Route::get('/system/reservations/new', 'system\ReservationController@new')                                          ->middleware('global.system', 'maintenance');
 Route::post('/system/reservations/new', 'system\ReservationController@newSubmit');
-Route::get('/system/reservations/edit/{id}', 'system\ReservationController@edit')                                   ->middleware('global.system');
+Route::get('/system/reservations/edit/{id}', 'system\ReservationController@edit')                                   ->middleware('global.system', 'maintenance');
 Route::post('/system/reservations/edit/{id}', 'system\ReservationController@editSubmit');
 
-// RESERVATION
-Route::get('/system/cartescadeaux/list', 'system\CarteCdxController@list');
+// CARTES CADEAUX
+Route::get('/system/cartescadeaux/list', 'system\CarteCdxController@list')                                          ->middleware('global.system', 'maintenance');
 
 // PRODUITS (SPAS-PACKS-ACCESSOIRES)
-Route::get('system/produits/spas/list', 'system\ProduitController@listSpas')                                        ->middleware('global.system');
-Route::get('system/produits/spas/new', 'system\ProduitController@newSpa')                                           ->middleware('global.system');
+Route::get('system/produits/spas/list', 'system\ProduitController@listSpas')                                        ->middleware('global.system', 'maintenance');
+Route::get('system/produits/spas/new', 'system\ProduitController@newSpa')                                           ->middleware('global.system', 'maintenance');
 Route::post('system/produits/spas/new', 'system\ProduitController@newSpaSubmit');
-Route::get('system/produits/spas/edit/{id}', 'system\ProduitController@editSpa')                                    ->middleware('global.system');
+Route::get('system/produits/spas/edit/{id}', 'system\ProduitController@editSpa')                                    ->middleware('global.system', 'maintenance');
 Route::post('system/produits/spas/edit/{id}', 'system\ProduitController@editSpaSubmit');
 
-Route::get('system/produits/packs/list', 'system\ProduitController@listPacks')                                      ->middleware('global.system');
-Route::get('system/produits/packs/new', 'system\ProduitController@newPack')                                         ->middleware('global.system');
+Route::get('system/produits/packs/list', 'system\ProduitController@listPacks')                                      ->middleware('global.system', 'maintenance');
+Route::get('system/produits/packs/new', 'system\ProduitController@newPack')                                         ->middleware('global.system', 'maintenance');
 Route::post('system/produits/packs/new', 'system\ProduitController@newPackSubmit');
-Route::get('system/produits/packs/edit/{id}', 'system\ProduitController@editPack')                                  ->middleware('global.system');
+Route::get('system/produits/packs/edit/{id}', 'system\ProduitController@editPack')                                  ->middleware('global.system', 'maintenance');
 Route::post('system/produits/packs/edit/{id}', 'system\ProduitController@editPackSubmit');
 
-Route::get('system/produits/accessoires/list', 'system\ProduitController@listAccessoires')                          ->middleware('global.system');
-Route::get('system/produits/accessoires/new', 'system\ProduitController@newAccessoire')                             ->middleware('global.system');
+Route::get('system/produits/accessoires/list', 'system\ProduitController@listAccessoires')                          ->middleware('global.system', 'maintenance');
+Route::get('system/produits/accessoires/new', 'system\ProduitController@newAccessoire')                             ->middleware('global.system', 'maintenance');
 Route::post('system/produits/accessoires/new', 'system\ProduitController@newAccessoireSubmit');
-Route::get('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoire')                      ->middleware('global.system');
+Route::get('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoire')                      ->middleware('global.system', 'maintenance');
 Route::post('system/produits/accessoires/edit/{id}', 'system\ProduitController@editAccessoireSubmit');
 
 // CLIENTS
-Route::get('system/clients/list', 'system\ClientController@listClients')                                            ->middleware('global.system');
-Route::get('system/clients/new', 'system\ClientController@newClient')                                               ->middleware('global.system');
+Route::get('system/clients/list', 'system\ClientController@listClients')                                            ->middleware('global.system', 'maintenance');
+Route::get('system/clients/new', 'system\ClientController@newClient')                                               ->middleware('global.system', 'maintenance');
 Route::post('system/clients/new', 'system\ClientController@newClientSubmit');
-Route::get('system/clients/edit/{id}', 'system\ClientController@editClient')                                        ->middleware('global.system');
+Route::get('system/clients/edit/{id}', 'system\ClientController@editClient')                                        ->middleware('global.system', 'maintenance');
 Route::post('system/clients/edit/{id}', 'system\ClientController@editClientSubmit');
 
 // PARAMETRES - Code Promo
-Route::get('system/parametres/codespromo/list', 'system\ParametresController@listCodesPromo')                       ->middleware('global.system');
-Route::get('system/parametres/codespromo/new', 'system\ParametresController@newCodePromo')                          ->middleware('global.system');
+Route::get('system/parametres/codespromo/list', 'system\ParametresController@listCodesPromo')                       ->middleware('global.system', 'maintenance');
+Route::get('system/parametres/codespromo/new', 'system\ParametresController@newCodePromo')                          ->middleware('global.system', 'maintenance');
 Route::post('system/parametres/codespromo/new', 'system\ParametresController@newCodePromoSubmit');
-Route::get('system/parametres/codespromo/edit/{id}', 'system\ParametresController@editCodePromo')                   ->middleware('global.system');
+Route::get('system/parametres/codespromo/edit/{id}', 'system\ParametresController@editCodePromo')                   ->middleware('global.system', 'maintenance');
 Route::post('system/parametres/codespromo/edit/{id}', 'system\ParametresController@editCodePromoSubmit');
 
 // PARAMETRES - Indispo
-Route::get('system/parametres/indisponibilite/list', 'system\ParametresController@listIndispo')                     ->middleware('global.system');
-Route::get('system/parametres/indisponibilite/new', 'system\ParametresController@newIndispo')                       ->middleware('global.system');
+Route::get('system/parametres/indisponibilite/list', 'system\ParametresController@listIndispo')                     ->middleware('global.system', 'maintenance');
+Route::get('system/parametres/indisponibilite/new', 'system\ParametresController@newIndispo')                       ->middleware('global.system', 'maintenance');
 Route::post('system/parametres/indisponibilite/new', 'system\ParametresController@newIndispoSubmit');
-Route::get('system/parametres/indisponibilite/edit/{id}', 'system\ParametresController@editIndispo')                ->middleware('global.system');
+Route::get('system/parametres/indisponibilite/edit/{id}', 'system\ParametresController@editIndispo')                ->middleware('global.system', 'maintenance');
 Route::post('system/parametres/indisponibilite/edit/{id}', 'system\ParametresController@editIndispoSubmit');
+
+// PARAMETRES
+Route::get('system/parametres/parameters', 'system\ParametresController@parameters')                                ->middleware('global.system', 'maintenance');
+Route::post('system/parametres/parameters/maintenance', 'system\ParametresController@maintenanceSubmit')            ->middleware('global.system', 'maintenance');
 
 // SCHEDULERS
 Route::get('schedulers/launch', 'SchedulersController@launch');

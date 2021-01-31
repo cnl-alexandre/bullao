@@ -28,6 +28,4 @@
 
 
     </body>
-
-    <script async type="text/javascript" src="https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/dbc2b88096ae40eb9710cd74e16ebf84715c7466079d48dab279d2a834f4aa12.js"></script>
 </html>

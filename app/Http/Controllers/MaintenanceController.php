@@ -13,10 +13,10 @@ class MaintenanceController extends Controller
 
     public function index()
     {
-        $parametre = Parametre::where('parametre_libelle', "=", "maintenance_message")->first();
+        $message = Parametre::where('parametre_libelle', "=", "maintenance_message")->first();
 
         return view('maintenance')->with([
-            "parametre" => $parametre
+            "message" => $message
         ]);
     }
 }

@@ -96,9 +96,9 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/system/parametres/') }}">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Options</span>
+        <a class="nav-link" href="{{ url('/system/parametres/parameters') }}">
+            <i class="fas fa-fw fa-cogs"></i>
+            <span>Paramètres</span>
         </a>
     </li>
 

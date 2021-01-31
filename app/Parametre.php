@@ -11,13 +11,6 @@ class Parametre extends Model
     protected $table = 'parametres';
     protected $primaryKey = 'parametre_id';
 
-    public function create($array)
-    {
-        $this->parametre_libelle        = $array->libelle;
-        $this->parametre_value          = $array->value;
-        $this->save();
-    }
-
     public function getDateCreatedAttribute()
     {
         return Carbon::parse($this->attributes['created_at']);

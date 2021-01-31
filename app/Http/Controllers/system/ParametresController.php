@@ -7,6 +7,7 @@ use App\Promo;
 use App\Reservation;
 use App\Indisponibilite;
 use Illuminate\Http\Request;
+use App\Parametre;
 
 class ParametresController extends Controller
 {
@@ -125,5 +126,55 @@ class ParametresController extends Controller
 
         Session::put('success', 'La date a bien été modifié.');
         return redirect('/system/parametres/indisponibilite/list');
+    }
+
+    public function parameters()
+    {
+        $parametres = Parametre::all();
+
+        $parameters = [];
+
+        foreach($parametres as $parametre)
+        {
+            $parameters[$parametre->parametre_libelle] = $parametre->parametre_value;
+        }
+
+        return view('system.parametres.parameters')->with([
+            'parametres'              =>  $parameters
+        ]);
+    }
+
+    public function maintenanceSubmit(Request $request)
+    {
+        // Mode
+        $maintenance = Parametre::where('parametre_libelle', '=', 'maintenance')->first();
+        if($maintenance == NULL)
+        {
+            $maintenance = new Parametre;
+            $maintenance->parametre_libelle = "maintenance";
+        }
+        $maintenance->parametre_value = $request->maintenance;
+        $maintenance->save();
+
+        // Message
+        $message = Parametre::where('parametre_libelle', '=', 'maintenance_message')->first();
+        if($message == NULL)
+        {
+            $message = new Parametre;
+            $message->parametre_libelle = "maintenance_message";
+        }
+        $message->parametre_value = $request->maintenance_message;
+        $message->save();
+
+        if($request->maintenance == "1")
+        {
+            Session::put('success', 'La maintenance est activée.');
+        }
+        else
+        {
+            Session::put('success', 'La maintenance est désactivée.');
+        }
+
+        return redirect('/system/parametres/parameters');
     }
 }
