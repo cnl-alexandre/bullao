@@ -73,6 +73,9 @@ Route::get('/account/reservations', 'customer\AccountController@reservations');
 Route::get('/account/addresses', 'customer\AccountController@addresses');
 Route::get('/account/profil', 'customer\AccountController@profil');
 
+// Maintenance
+Route::get('/maintenance', 'MaintenanceController@index');
+
 /**
  *  ######  ##    ##  ######  ######## ######## ##     ##
  * ##    ##  ##  ##  ##    ##    ##    ##       ###   ###
@@ -128,6 +131,7 @@ Route::get('system/parametres/codespromo/new', 'system\ParametresController@newC
 Route::post('system/parametres/codespromo/new', 'system\ParametresController@newCodePromoSubmit');
 Route::get('system/parametres/codespromo/edit/{id}', 'system\ParametresController@editCodePromo')                   ->middleware('global.system');
 Route::post('system/parametres/codespromo/edit/{id}', 'system\ParametresController@editCodePromoSubmit');
+
 // PARAMETRES - Indispo
 Route::get('system/parametres/indisponibilite/list', 'system\ParametresController@listIndispo')                     ->middleware('global.system');
 Route::get('system/parametres/indisponibilite/new', 'system\ParametresController@newIndispo')                       ->middleware('global.system');
