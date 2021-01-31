@@ -6,7 +6,7 @@
 <style>
 @font-face {
   font-family: "Regular";
-  src: "{{ url('/fonts/Lato-Regular.ttf') }}";
+  src: url("{{ url('/fonts/Lato-Regular.ttf') }}");
 }
 html, body {
     margin: 0;
@@ -58,7 +58,7 @@ html, body {
     <section class="page">
         <div class="notification">
               <img class="logo" src="{{ url('/medias/img/logos/logo-bleu.svg') }}" alt="Logo entreprise">
-              <h1 class="title">Site en maintenance</h1>
+              <h1 class="title">Site en pause</h1>
               <p class="text"> {{ $message->parametre_value }}</p>
               <img class="illustration" src="{{ url('/medias/img/systems/undraw_maintenance.svg') }}" alt="Illustration site maintenance">
         </div>
