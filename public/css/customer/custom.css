@@ -310,7 +310,10 @@ input[type=text]:focus, input[type=tel]:focus, input[type=email]:focus, input[ty
 /* SPECIFIQUE CARTE CADEAU */
 
 
-
+/* SPECIFIQUE CONTACT */
+.contact-img-1 {
+	background-image: url("../../medias/img/contact/contact-1.png");
+}
 
 /* SPECIFIQUE CGV - MENTIONS */
 .article-img-1 {

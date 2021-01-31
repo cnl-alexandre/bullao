@@ -43,6 +43,7 @@ Route::post('/webservices/pack/stock/verify', 'WebserviceController@verifyPackSt
 Route::post('/webservices/accessoire/stock/verify', 'WebserviceController@verifyAccessoireStock');
 
 // PRESS & ARTICLES
+Route::get('/contact', 'ArticleController@contact');
 Route::get('/foire-aux-questions', 'ArticleController@faq');
 Route::get('/cgv-bullao', 'ArticleController@cgv');
 Route::get('/mentions-legales', 'ArticleController@mentions');

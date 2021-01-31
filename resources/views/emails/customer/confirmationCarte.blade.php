@@ -42,14 +42,14 @@
 																<td width="80%">
 																	<p style="line-height: 130%;margin-bottom: 25px;">
 																		Bonjour,
-																		<br>Nous avons le plaisir de vous confirmer la validation de votre carte cadeau sur le site bullao.fr.
-																		<br><br>Vos informations ont bien été enregistrées dans notre base de données sécurisée.
-																		<br><br>Si une information est erronée, n'hésitez pas à nous prévenir.
-																		<br><br>{{ $carte->cadeau_offre }} : {{ $carte->cadeau_montant }}
-																		<br>Email : {{ $carte->clientPaiement->client_email }}
-																		<br>Code : {{ $carte->cadeau_code }}
+																		<br>Nous avons le plaisir de valider l'achat de votre carte cadeau sur le site bullao.fr.
+																		<br><br>La carte cadeau sera expédiée rapidement et vous recevrez cette carte d'ici 7 à 10 jours maximum.
+																		<br><br>Pour utiliser la carte cadeau, rien de plus simple. Inscrivez le code ci-dessous au même endroit pour utiliser un code promo quand vous finalisez votre commande.
+																		<br><br><b>Informations de la carte cadeau</b>
+																		<br>{{ $carte->cadeau_offre }} : {{ $carte->cadeau_montant }}€
+																		<br>Email de l'acquereur : {{ $carte->clientPaiement->client_email }}
+																		<br>Code cadeau : {{ $carte->cadeau_code }}
 																		<br>Valable du {{ $carte->DateDebut->format('d/m/Y') }} au {{ $carte->DateFin->format('d/m/Y') }}
-																		<br>
 																	</p>
 																</td>
 																<td width="10%"></td>

@@ -10,6 +10,11 @@ class ArticleController extends Controller
         //$this->middleware('auth');
     }
 
+    public function contact()
+    {
+        return view('articles.contact')->with([]);
+    }
+
     public function faq()
     {
         return view('articles.faq')->with([]);
