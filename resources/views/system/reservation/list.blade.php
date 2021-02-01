@@ -32,11 +32,11 @@
                                 <th>#</th>
                                 <th>Début</th>
                                 <th>Fin</th>
+                                <th>Nom client</th>
                                 <th>Ville</th>
-                                <th>Creneau</th>
-                                <th>Emplacement</th>
+                                <th>Adresse</th>
                                 <th>Spa libelle</th>
-                                <th>Montant total</th>
+                                <th>Montant</th>
                                 <th style="width:50px;"></th>
                             </tr>
                         </thead>
@@ -47,9 +47,9 @@
                                         <td>{{ $detailResa->reservation_id }}</td>
                                         <td>@if($detailResa->reservation_date_debut != NULL){{  $detailResa->DateDebut->format('d/m/Y')  }} @endif</td>
                                         <td>@if($detailResa->reservation_date_fin != NULL){{  $detailResa->DateFin->format('d/m/Y')  }} @endif</td>
+                                        <td>{{ $detailResa->client->client_name }}</td>
                                         <td>{{ $detailResa->reservation_ville }} ({{ $detailResa->reservation_departement }})</td>
-                                        <td>{{ $detailResa->reservation_creneau }}</td>
-                                        <td>{{ $detailResa->reservation_emplacement }}</td>
+                                        <td>{{ $detailResa->reservation_rue }}</td>
                                         <td>{{ $detailResa->reservation_spa_libelle }}</td>
                                         <td>{{ $detailResa->reservation_montant_total }}€</td>
                                         <td><a href="{{ url('/system/reservations/edit/'.$detailResa->reservation_id) }}" class="btn btn-primary"><i class="fas fa-eye"></i></a></td>
@@ -70,11 +70,11 @@
                                 <th>#</th>
                                 <th>Début</th>
                                 <th>Fin</th>
+                                <th>Nom client</th>
                                 <th>Ville</th>
-                                <th>Creneau</th>
-                                <th>Emplacement</th>
+                                <th>Adresse</th>
                                 <th>Spa libelle</th>
-                                <th>Montant total</th>
+                                <th>Montant</th>
                                 <th style="width:50px;"></th>
                             </tr>
                         </thead>
@@ -85,9 +85,11 @@
                                         <td>{{ $listeResaPassee->reservation_id }}</td>
                                         <td>@if($listeResaPassee->reservation_date_debut != NULL){{  $listeResaPassee->DateDebut->format('d/m/Y')  }} @endif</td>
                                         <td>@if($listeResaPassee->reservation_date_fin != NULL){{  $listeResaPassee->DateFin->format('d/m/Y')  }} @endif</td>
+                                        <td>{{ $listeResaPassee->client->client_name }}</td>
                                         <td>{{ $listeResaPassee->reservation_ville }} ({{ $listeResaPassee->reservation_departement }})</td>
-                                        <td>{{ $listeResaPassee->reservation_creneau }}</td>
-                                        <td>{{ $listeResaPassee->reservation_emplacement }}</td>
+                                        <td>{{ $listeResaPassee->reservation_rue }}</td>
+                                        <!-- <td>{{ $listeResaPassee->reservation_creneau }}</td>
+                                        <td>{{ $listeResaPassee->reservation_emplacement }}</td> -->
                                         <td>{{ $listeResaPassee->reservation_spa_libelle }}</td>
                                         <td>{{ $listeResaPassee->reservation_montant_total }} €</td>
                                         <td><a href="{{ url('/system/reservations/edit/'.$listeResaPassee->reservation_id) }}" class="btn btn-primary"><i class="fas fa-eye"></i></a></td>

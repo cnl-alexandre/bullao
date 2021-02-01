@@ -18,7 +18,7 @@ class ParametresController extends Controller
 
     public function listCodesPromo()
     {
-        $listeCodesPromo = Promo::orderby('promo_id', 'ASC')->get();
+        $listeCodesPromo = Promo::orderby('promo_id', 'DESC')->get();
 
         // Count par utilisation de code promo dans reservation
 
@@ -78,7 +78,7 @@ class ParametresController extends Controller
 
     public function listIndispo()
     {
-        $listeIndispo = Indisponibilite::orderby('indisponibilite_id', 'ASC')->get();
+        $listeIndispo = Indisponibilite::orderby('indisponibilite_date', 'DESC')->get();
 
         return view('system.parametres.indisponibilite.list')->with([
             'listeIndispo'              =>  $listeIndispo

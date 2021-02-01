@@ -9,10 +9,10 @@
 <p class="mb-4">Liste de toutes les cartes cadeaux achetées sur le site.</p>
 
 <div class="card shadow mb-4">
-    <div class="text-right">
-        <a href="{{ url('/system/cartes//new') }}" class="btn btn-primary text-white mt-3 mr-3">Ajouter</a>
+    <!-- <div class="text-right">
+        <a href="{{ url('/system/cartes/new') }}" class="btn btn-primary text-white mt-3 mr-3">Ajouter</a>
     </div>
-    <hr>
+    <hr>-->
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered dataTable" width="100%" cellspacing="0">

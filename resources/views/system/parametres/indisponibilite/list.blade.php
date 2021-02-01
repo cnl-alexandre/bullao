@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Gestions des codes promo</h1>
+<h1 class="h3 mb-2 text-gray-800">Gestions des dates indisponibles</h1>
 <p class="mb-4">Liste de tous les dates indisponibilités référencées sur le site.</p>
 
 <!-- DataTales Example -->
