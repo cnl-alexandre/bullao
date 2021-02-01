@@ -145,13 +145,14 @@ class ReservationController extends Controller
         if (Session::get('reservation')) {
             $r = Reservation::Find($reservation->reservation_id);
             $r->reservation_paye = 1;
+            $r->reservation_active = 1;
             $r->save();
 
             if(isset($reservation->reservation_cadeau_id) && $reservation->reservation_cadeau_id != NULL)
             {
                 $carte = Cadeau::Find($reservation->reservation_cadeau_id);
                 // Décrémenter le montant restant du montant total
-                
+
                     // Si montant restant supérieur montant total
                         // restant - total
 

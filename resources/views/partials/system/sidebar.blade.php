@@ -40,6 +40,19 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Clientèle
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('system/clients/list') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Clients</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
     <!-- Heading -->
     <div class="sidebar-heading">
@@ -68,19 +81,6 @@
     <hr class="sidebar-divider">
     <!-- Heading -->
     <div class="sidebar-heading">
-        Clientèle
-    </div>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ url('system/clients/list') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Clients</span>
-        </a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-    <!-- Heading -->
-    <div class="sidebar-heading">
         Paramètres
     </div>
     <li class="nav-item">
@@ -93,12 +93,6 @@
         <a class="nav-link" href="{{ url('/system/parametres/indisponibilite/list') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Indisponibilité</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ url('/system/parametres/parameters') }}">
-            <i class="fas fa-fw fa-cogs"></i>
-            <span>Paramètres</span>
         </a>
     </li>
 

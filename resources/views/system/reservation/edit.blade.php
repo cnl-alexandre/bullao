@@ -7,7 +7,7 @@
 
 <form action="{{ $action }}" method="post" enctype="multipart/form-data" id="uploadreservation">
     {{ csrf_field() }}
-    <div class="row">
+     <div class="row"> <!-- Header title + cta -->
         <div class="col-md-7 text-left">
             @if(isset($reservation))
                 <h1 class="h3 mb-2 text-gray-800">Visualiser la reservation</h1>
@@ -31,6 +31,170 @@
     </div>
 
     <div class="row">
+
+        <!-- Mise à jour front
+        <div class="col-md-9 ml-auto mr-auto my-3">
+            <div class="card">
+                <h5 class="card-header titre-card-header">Informations principales</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="reservationDateDebut">Date installation</label>
+                                    @if(isset($reservation))
+                                        <input type="date" class="form-control" name="reservationDateDebut" id="reservationDateDebut" value="{{ $reservation->reservation_date_debut }}">
+                                    @else
+                                        <input type="date" class="form-control" name="reservationDateDebut" id="reservationDateDebut">
+                                    @endif
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="reservationDateFin">Date désinstallation</label>
+                                    @if(isset($reservation))
+                                        <input type="date" class="form-control" name="reservationDateFin" id="reservationDateFin" value="{{ $reservation->reservation_date_fin }}">
+                                    @else
+                                        <input type="date" class="form-control" name="reservationDateFin" id="reservationDateFin">
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="reservationHeureDebut">Heure installation</label>
+                                    @if(isset($reservation))
+                                        <input type="time" class="form-control" name="reservationHeureDebut" id="reservationHeureDebut" value="{{ $reservation->reservation_heure_debut }}">
+                                    @else
+                                        <input type="time" class="form-control" name="reservationHeureDebut" id="reservationHeureDebut">
+                                    @endif
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="reservationHeureFin">Heure désinstallation</label>
+                                    @if(isset($reservation))
+                                        <input type="time" class="form-control" name="reservationHeureFin" id="reservationHeureFin" value="{{ $reservation->reservation_heure_fin }}">
+                                    @else
+                                        <input type="time" class="form-control" name="reservationHeureFin" id="reservationHeureFin">
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label for="name">Nom</label>
+                                    @if(isset($reservation))
+                                        <input type="text" class="form-control" name="name" id="name" value="{{ $reservation->client->client_name }}">
+                                    @else
+                                        <input type="text" class="form-control" name="name" id="name">
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label for="ville">Ville</label>
+                                    @if(isset($reservation))
+                                        <input type="text" class="form-control" name="ville" id="ville" value="{{ $reservation->reservation_ville }}">
+                                    @else
+                                        <input type="text" class="form-control" name="ville" id="ville">
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label for="adresse1">Adresse</label>
+                                    @if(isset($reservation))
+                                        <input type="text" class="form-control" name="adresse1" id="adresse1" value="{{ $reservation->reservation_rue }}">
+                                    @else
+                                        <input type="text" class="form-control" name="adresse1" id="adresse1">
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label for="adresse2">Complément</label>
+                                    @if(isset($reservation))
+                                        <input type="text" class="form-control" name="adresse2" id="adresse2" value="{{ $reservation->reservation_complement }}">
+                                    @else
+                                        <input type="text" class="form-control" name="adresse2" id="adresse2">
+                                    @endif
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9 ml-auto mr-auto">
+            <div class="card">
+                <h5 class="card-header titre-card-header">Informations principales</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label for="reservationLibelleSpa">Spa</label>
+                                    <select class="form-control" name="reservationLibelleSpa" id="reservationLibelleSpa">
+                                        <option value="">Sélection du spa (obligatoire)</option>
+                                        @if(isset($reservation))
+                                            @foreach($spas as $spa)
+                                                @if($reservation->reservation_spa_id == $spa->spa_id)
+                                                    <option value="{{ $spa->spa_id }}" selected>{{ $spa->spa_libelle }} {{ $spa->spa_nb_place }} places</option>
+                                                @else
+                                                    <option value="{{ $spa->spa_id }}">{{ $spa->spa_libelle }} {{ $spa->spa_nb_place }} places</option>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            @foreach($spas as $spa)
+                                                <option value="{{ $spa->spa_id }}">{{ $spa->spa_libelle }} {{ $spa->spa_nb_place }} places</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label for="pack">Pack</label>
+                                    <select class="form-control" name="pack" id="pack">
+                                        @if(isset($reservation))
+                                            <option value="">Pas de pack sélectionné</option>
+                                            @foreach($packs as $pack)
+                                                @if($reservation->reservation_pack_id == $pack->pack_id)
+                                                    <option value="{{ $pack->pack_id }}" selected>{{ $pack->pack_libelle }}</option>
+                                                @else
+                                                    <option value="{{ $pack->pack_id }}">{{ $pack->pack_libelle }}</option>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <option value="">Sélection du pack</option>
+                                            @foreach($packs as $pack)
+                                                <option value="{{ $pack->pack_id }}">{{ $pack->pack_libelle }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
         <div class="col-md-6 ml-auto my-3">
             <div class="card">
                 <h5 class="card-header titre-card-header">Propriétés de la reservation</h5>
@@ -54,8 +218,8 @@
 
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="reservationCreneau">Créneau</label>
-                            <select class="form-control" name="reservationCreneau">
+                            <label for="creneau">Créneau</label>
+                            <select class="form-control" name="creneau">
                                 @if(isset($reservation))
                                     @if($reservation->reservation_creneau == "Entre 8h et 12h")
                                         <option value="Entre 8h et 12h" selected>Entre 8h et 12h</option>
@@ -81,8 +245,8 @@
                             </select>
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="reservationEmplacement">Emplacement</label>
-                            <select class="form-control" name="reservationEmplacement">
+                            <label for="emplacement">Emplacement</label>
+                            <select class="form-control" name="emplacement">
 
                                 @if(isset($reservation))
                                     @if($reservation->reservation_emplacement == "Intérieur")
@@ -103,11 +267,11 @@
                             </select>
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="reservationMontant">Montant total</label>
+                            <label for="montant_total">Montant total</label>
                             @if(isset($reservation))
-                                <input type="text" class="form-control" name="reservationMontant" id="reservationMontant" value="{{ $reservation->reservation_montant_total }}" disabled>
+                                <input type="text" class="form-control" name="montant_total" id="montant_total" value="{{ $reservation->reservation_montant_total }}" disabled>
                             @else
-                                <input type="text" class="form-control" name="reservationMontant" id="reservationMontant">
+                                <input type="text" class="form-control" name="montant_total" id="montant_total" disabled>
                             @endif
                         </div>
                     </div>
@@ -119,47 +283,47 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-9 form-group">
-                            <label for="reservationVille">Ville</label>
+                            <label for="ville">Ville</label>
                             @if(isset($reservation))
-                                <input type="text" class="form-control" name="reservationVille" id="reservationVille" value="{{ $reservation->reservation_ville }}">
+                                <input type="text" class="form-control" name="ville" id="ville" value="{{ $reservation->reservation_ville }}">
                             @else
-                                <input type="text" class="form-control" name="reservationVille" id="reservationVille">
+                                <input type="text" class="form-control" name="ville" id="ville">
                             @endif
 
                         </div>
                         <div class="col-md-3 form-group">
-                            <label for="reservationDepartement">Departement</label>
+                            <label for="departement">Departement</label>
                             @if(isset($reservation))
-                                <input type="text" class="form-control" name="reservationDepartement" id="reservationDepartement" value="{{ $reservation->reservation_departement }}">
+                                <input type="text" class="form-control" name="departement" id="departement" value="{{ $reservation->reservation_departement }}">
                             @else
-                                <input type="text" class="form-control" name="reservationDepartement" id="reservationDepartement">
+                                <input type="text" class="form-control" name="departement" id="departement">
                             @endif
 
                         </div>
                         <div class="col-md-8 form-group">
-                            <label for="reservationAdresse">Adresse</label>
+                            <label for="adresse1">Adresse</label>
                             @if(isset($reservation))
-                                <input type="text" class="form-control" name="reservationAdresse" id="reservationAdresse" value="{{ $reservation->reservation_rue }}">
+                                <input type="text" class="form-control" name="adresse1" id="adresse1" value="{{ $reservation->reservation_rue }}">
                             @else
-                                <input type="text" class="form-control" name="reservationAdresse" id="reservationAdresse">
+                                <input type="text" class="form-control" name="adresse1" id="adresse1">
                             @endif
 
                         </div>
                         <div class="col-md-4 form-group">
-                            <label for="reservationType">Type</label>
+                            <label for="type_logement">Type</label>
                             @if(isset($reservation))
-                                <input type="text" class="form-control" name="reservationType" id="reservationType" value="{{ $reservation->reservation_type_logement }}">
+                                <input type="text" class="form-control" name="type_logement" id="type_logement" value="{{ $reservation->reservation_type_logement }}">
                             @else
-                                <input type="text" class="form-control" name="reservationType" id="reservationType">
+                                <input type="text" class="form-control" name="type_logement" id="type_logement">
                             @endif
 
                         </div>
                         <div class="col-md-12 form-group">
-                            <label for="reservationComplement">Complément</label>
+                            <label for="adresse2">Complément</label>
                             @if(isset($reservation))
-                                <input type="text" class="form-control" name="reservationComplement" id="reservationComplement" value="{{ $reservation->reservation_complement }}">
+                                <input type="text" class="form-control" name="adresse2" id="adresse2" value="{{ $reservation->reservation_complement }}">
                             @else
-                                <input type="text" class="form-control" name="reservationComplement" id="reservationComplement">
+                                <input type="text" class="form-control" name="adresse2" id="adresse2">
                             @endif
 
                         </div>
@@ -193,8 +357,8 @@
                         </div>
 
                         <div class="col-md-12 form-group">
-                            <label for="reservationLibellePack">Pack</label>
-                            <select class="form-control" name="reservationLibellePack" id="reservationLibellePack">
+                            <label for="pack">Pack</label>
+                            <select class="form-control" name="pack" id="pack">
                                 @if(isset($reservation))
                                     <option value="">Pas de pack sélectionné</option>
                                     @foreach($packs as $pack)
@@ -215,24 +379,22 @@
 
                         @if(count($accessoires) > 0)
                             <div class="col-md-12 form-group">
-                                <label for="reservationLibelleAccessoires">Accessoires</label>
+                                <label for="accessoire">Accessoires</label>
                                 <div class="row">
-
-                                        @foreach($accessoires as $accessoire)
-                                            <div class="col-md-3">
-                                                <div class="form-check">
-                                                    @if(isset($reservation) && in_array($accessoire->accessoire_id, $idAccessoiresReservation))
-                                                        <input class="form-check-input" type="checkbox" checked value="{{ $accessoire->accessoire_id }}" id="reservationLibelleAccessoire{{ $accessoire->accessoire_id }}">
-                                                    @else
-                                                        <input class="form-check-input" type="checkbox" value="{{ $accessoire->accessoire_id }}" id="reservationLibelleAccessoire{{ $accessoire->accessoire_id }}">
-                                                    @endif
-                                                    <label class="form-check-label" for="reservationLibelleAccessoire{{ $accessoire->accessoire_id }}">
-                                                        {{ $accessoire->accessoire_libelle }}
-                                                    </label>
-                                                </div>
+                                    @foreach($accessoires as $accessoire)
+                                        <div class="col-md-3">
+                                            <div class="form-check">
+                                                @if(isset($reservation) && in_array($accessoire->accessoire_id, $idAccessoiresReservation))
+                                                    <input class="form-check-input" type="checkbox" checked value="{{ $accessoire->accessoire_id }}" id="accessoire{{ $accessoire->accessoire_id }}">
+                                                @else
+                                                    <input class="form-check-input" type="checkbox" value="{{ $accessoire->accessoire_id }}" id="accessoire{{ $accessoire->accessoire_id }}" disabled>
+                                                @endif
+                                                <label class="form-check-label" for="accessoire{{ $accessoire->accessoire_id }}">
+                                                    {{ $accessoire->accessoire_libelle }}
+                                                </label>
                                             </div>
-                                        @endforeach
-
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         @endif
@@ -250,27 +412,27 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <label for="reservationClientName">Nom</label>
+                            <label for="name">Nom</label>
                             @if(isset($reservation))
-                                <input type="text" class="form-control" name="reservationClientName" id="reservationClientName" value="{{ $reservation->client->client_name }}" disabled>
+                                <input type="text" class="form-control" name="name" id="name" value="{{ $reservation->client->client_name }}">
                             @else
-                                <input type="text" class="form-control" name="reservationClientName" id="reservationClientName">
+                                <input type="text" class="form-control" name="name" id="name">
                             @endif
                         </div>
                         <div class="col-md-12 form-group">
-                            <label for="reservationClientPhone">Téléphone</label>
+                            <label for="phone">Téléphone</label>
                             @if(isset($reservation))
-                                <input type="text" class="form-control" name="reservationClientPhone" id="reservationClientPhone" value="{{ $reservation->client->client_phone }}" disabled>
+                                <input type="text" class="form-control" name="phone" id="phone" value="{{ $reservation->client->client_phone }}">
                             @else
-                                <input type="text" class="form-control" name="reservationClientPhone" id="reservationClientPhone">
+                                <input type="text" class="form-control" name="phone" id="phone">
                             @endif
                         </div>
                         <div class="col-md-12 form-group">
-                            <label for="reservationClientEmail">Email</label>
+                            <label for="email">Email</label>
                             @if(isset($reservation))
-                                <input type="text" class="form-control" name="reservationClientEmail" id="reservationClientEmail" value="{{ $reservation->client->client_email }}" disabled>
+                                <input type="text" class="form-control" name="email" id="email" value="{{ $reservation->client->client_email }}">
                             @else
-                                <input type="text" class="form-control" name="reservationClientEmail" id="reservationClientEmail">
+                                <input type="text" class="form-control" name="email" id="email">
                             @endif
                         </div>
                     </div>

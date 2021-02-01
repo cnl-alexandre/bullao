@@ -25,14 +25,14 @@ class SchedulersController extends Controller
 
         /**
          * Scheduler permettant de purger les réservations qui n'ont pas été payés depuis plus de 12h après sa création
-         * 
+         *
          * Lancement toutes les heures
         */
         $this->purgeReservationsNonPayees();
 
         /**
          * Scheduler permettant d'envoyer un mail aux clients qui ont eu une réservation il y a 3 jours
-         * 
+         *
          * Lancement toutes les heures
         */
         $this->notationPrestationAfter();
@@ -40,7 +40,7 @@ class SchedulersController extends Controller
 
     public function purgeReservationsNonPayees()
     {
-        $reservations = Reservation::where('reservation_paye', '=', '0')->whereNull('reservation_payment_id')->get();
+        $reservations = Reservation::where('reservation_paye', '=', '0')->where('reservation_active', '=', '0')->whereNull('reservation_payment_id')->get();
         $count = 0;
 
         if(count($reservations) > 0)

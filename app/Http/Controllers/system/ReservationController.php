@@ -2,10 +2,12 @@
 namespace App\Http\Controllers\system;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Reservation;
 use App\Spa;
 use App\Pack;
 use App\Accessoire;
+use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
@@ -19,12 +21,12 @@ class ReservationController extends Controller
         $dateToday = date("Y-m-d");
 
         $listeResas = Reservation::where('reservation_date_fin', '>=', $dateToday)
-                                        ->where('reservation_paye', '=', '1')
+                                        ->where('reservation_active', '=', '1')
                                         ->orderby('reservation_date_debut', 'ASC')
                                         ->orderby('reservation_id', 'ASC')
                                         ->get();
         $listeResaPassees = Reservation::where('reservation_date_fin', '<', $dateToday)
-                                        ->where('reservation_paye', '=', '1')
+                                        ->where('reservation_active', '=', '1')
                                         ->orderby('reservation_date_fin', 'ASC')
                                         ->get();
 
@@ -50,14 +52,27 @@ class ReservationController extends Controller
 
     public function newSubmit(Request $request)
     {
+        $this->validate($request,[
+            'name'                => 'required'
+        ]);
 
         $reservation                            = new Reservation;
+
+        $datedebut = $this->dateUs2Fr($request->reservationDateDebut);
+        $datefin = $this->dateUs2Fr($request->reservationDateFin);
+        $request['daterange'] = $datedebut.' - '.$datefin;
+
+        $spalibelle = Spa::find($request->reservationLibelleSpa);
+        $request['spa'] = $spalibelle->spa_id;
+
+        $request['validation'] = "1";
+
+        $reservation->create($request);
+        $request['step'] = '2';
         $reservation->create($request);
 
-        $joursSupp = $reservation->joursSupp($request->daterange);
-
-        Session::put('joursSupp', $joursSupp);
-        return redirect('/system/reservation/list');
+        Session::put('success', 'La réservation a bien été créé');
+        return redirect('/system/reservations/list');
     }
 
     public function edit($id)
@@ -82,10 +97,42 @@ class ReservationController extends Controller
             'spas'                      => $spas,
             'packs'                     => $packs,
             'accessoires'               => $accessoires,
-            'action'                    => url('/system/reservations/edit'),
+            'action'                    => url('/system/reservations/edit/'.$id),
             'idAccessoiresReservation'  => $idAccessoiresReservation
         ]);
     }
 
+    public function editSubmit(Request $request, $id)
+    {
+        $this->validate($request,[
+            'name'                => 'required'
+        ]);
+
+        $datedebut = $this->dateUs2Fr($request->reservationDateDebut);
+        $datefin = $this->dateUs2Fr($request->reservationDateFin);
+        $request['daterange'] = $datedebut.' - '.$datefin;
+
+        $spalibelle = Spa::find($request->reservationLibelleSpa);
+        $request['spa'] = $spalibelle->spa_id;
+
+        $reservation = Reservation::find($id);
+        $reservation->create($request);
+        $request['step'] = '2';
+        $reservation->create($request);
+
+        Session::put('success', 'La réservation a bien été modifié');
+        return redirect('/system/reservations/edit/'.$id);
+    }
+
+    function dateUs2Fr($date)
+    {
+        $split = explode("-",$date);
+
+        $annee = $split[0];
+        $mois = $split[1];
+        $jour = $split[2];
+
+        return "$jour"."/"."$mois"."/"."$annee";
+    }
 
 }

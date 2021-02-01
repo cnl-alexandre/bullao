@@ -58,6 +58,8 @@ class Reservation extends Model
 
     public function create($array)
     {
+        echo $array['daterange'];
+
         $montant_total = 0.00;
 
         if($array->step == 1 || $array->step == "")
@@ -123,6 +125,11 @@ class Reservation extends Model
             $this->reservation_ville            = ucfirst($array->ville);
             $this->reservation_complement       = $array->adresse2;
             $this->reservation_departement      = $array->departement;
+
+            if(isset($array->validation) && $array->validation == "1" )
+            {
+                $this->reservation_active       = $array->validation;
+            }
 
             if(isset($array->promo) && $array->promo != "")
             {

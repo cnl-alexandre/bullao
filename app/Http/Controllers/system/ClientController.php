@@ -38,9 +38,7 @@ class ClientController extends Controller
 
     public function newClientSubmit(Request $request){
         $this->validate($request,[
-            'name'                => 'required',
-            'phone'               => 'required',
-            'email'               => 'required'
+            'name'                => 'required'
         ]);
 
         $newClient = new Client;
@@ -53,7 +51,7 @@ class ClientController extends Controller
         }
 
         Session::put('success', 'Le client a bien été ajouté');
-        return redirect('/system/clients/list');
+        return redirect('/system/clients/edit/'.$idClient);
     }
 
     public function editClient($id)
@@ -76,9 +74,7 @@ class ClientController extends Controller
 
     public function editClientSubmit(Request $request, $id){
         $this->validate($request,[
-            'name'                => 'required',
-            'phone'               => 'required',
-            'email'               => 'required'
+            'name'                => 'required'
         ]);
 
         $client = Client::find($id);
@@ -117,6 +113,6 @@ class ClientController extends Controller
         // }
 
         Session::put('success', 'Le client a bien été modifié');
-        return redirect('/system/clients/list');
+        return redirect('/system/clients/edit/'.$id);
     }
 }

@@ -49,11 +49,11 @@
         <i class="fas fa-caret-down"></i>
     </a>
     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-        <!-- <a class="dropdown-item" href="{{ url('/administration/administrateur/edit/'.Session::get('Admin')->administrateur_id) }}">
-            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-            Mon compte
+        <a class="dropdown-item" href="{{ url('/system/parametres/parameters') }}">
+            <i class="fas fa-fw fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+            Paramètres
         </a>
-        <div class="dropdown-divider"></div> -->
+        <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="{{ url('/account/logout') }}">
             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
             Déconnexion
