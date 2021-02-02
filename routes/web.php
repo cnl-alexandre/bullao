@@ -98,6 +98,10 @@ Route::post('/system/reservations/edit/{id}', 'system\ReservationController@edit
 
 // CARTES CADEAUX
 Route::get('/system/cartescadeaux/list', 'system\CarteCdxController@list')                                          ->middleware('global.system');
+Route::get('system/cartescadeaux/new', 'system\CarteCdxController@newCarte')                                         ->middleware('global.system');
+Route::post('system/cartescadeaux/new', 'system\CarteCdxController@newCarteSubmit');
+Route::get('system/cartescadeaux/edit/{id}', 'system\CarteCdxController@editCarte')                                  ->middleware('global.system');
+Route::post('system/cartescadeaux/edit/{id}', 'system\CarteCdxController@editPackSubmit');
 
 // PRODUITS (SPAS-PACKS-ACCESSOIRES)
 Route::get('system/produits/spas/list', 'system\ProduitController@listSpas')                                        ->middleware('global.system');

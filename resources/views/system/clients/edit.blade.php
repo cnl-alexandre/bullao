@@ -234,7 +234,7 @@
                         <h5 class="card-header titre-card-header">Réservation</h5>
                         <div class="card-body text-center">
                             Il n'y a pas de réservations <br>
-                            <a href="{{ url('/system/clients/new/') }}">Ajouter une réservation</a>
+                            <a href="{{ url('/system/reservations/new/') }}">Ajouter une réservation</a>
                         </div>
                     </div>
                 </div>

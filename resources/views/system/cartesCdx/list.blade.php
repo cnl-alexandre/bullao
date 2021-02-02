@@ -34,13 +34,13 @@
                         @foreach($listeCartes as $detailCarte)
                             <tr>
                                 <td>{{ $detailCarte->cadeau_id }}</td>
-                                <td>{{ $detailCarte->client_name }}</td>
+                                <td>{{ $detailCarte->clientPaiement->client_name }}</td>
                                 <td>{{ $detailCarte->cadeau_montant }} €</td>
                                 <td>{{ $detailCarte->cadeau_offre }}</td>
                                 <td>{{ $detailCarte->cadeau_date_paie }}</td>
                                 <td>{{ $detailCarte->cadeau_date_fin }}</td>
                                 <td>{{ $detailCarte->cadeau_code }}</td>
-                                <td><a href="{{ url('/system/cartes/edit/'.$detailCarte->pack_id) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a></td>
+                                <td><a href="{{ url('/system/cartescadeaux/edit/'.$detailCarte->cadeau_id) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a></td>
                             </tr>
                         @endforeach
                     @endif

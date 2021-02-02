@@ -25,5 +25,15 @@ class CarteCdxController extends Controller
         ]);
     }
 
+    public function editCarte($id)
+    {
+        $carte = Cadeau::find($id);
+
+        return view('system.cartesCdx.edit')->with([
+            'carte'                    => $carte,
+            'action'                    => url('/system/cartescadeaux/edit/'.$id)
+        ]);
+    }
+
 
 }
