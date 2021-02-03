@@ -105,7 +105,7 @@ class CadeauController extends Controller
 
             Session::forget('carte');
 
-            return view('reservation.paiement-accepte')->with([]);
+            return view('reservation.cadeau.paiement-accepte')->with([]);
         }
         else {
             return redirect('/cartecadeau');

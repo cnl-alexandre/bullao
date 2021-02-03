@@ -60,7 +60,7 @@
                                     <div class="form-group mb-3">
                                         <label for="phone">Numéro de téléphone :</label>
                                         <input type="tel" id="phone" class="form-control" name="phone" maxlength="10" placeholder="0612345678" required>
-                                        <small>Uniquement si besoin le jour de la location.</small>
+                                        <small>Uniquement si besoin, pas de spams également.l</small>
                                     </div>
                                 </div>
                             </div>

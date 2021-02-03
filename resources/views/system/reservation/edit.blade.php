@@ -274,6 +274,18 @@
                                 <input type="text" class="form-control" name="montant_total" id="montant_total" disabled>
                             @endif
                         </div>
+                        <div class="col-md-2 form-check">
+                            <input type="checkbox" class="form-check-label" name="paie" value="paie" checked>
+                            <label for="">Payé</label>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="montant_total">Moyen de paiement</label>
+                            @if(isset($reservation))
+                                <input type="text" class="form-control" name="montant_total" id="montant_total" value="{{ $reservation->reservation_moyen_paiement }}" disabled>
+                            @else
+                                <input type="text" class="form-control" name="montant_total" id="montant_total" disabled>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

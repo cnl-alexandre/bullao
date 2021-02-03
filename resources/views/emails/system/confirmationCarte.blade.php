@@ -42,9 +42,7 @@
 																<td width="80%">
 																	<p style="line-height: 130%;margin-bottom: 25px;">
 																		Bonjour,
-																		<br>Nous avons le plaisir de valider l'achat de votre carte cadeau sur le site bullao.fr.
-																		<br><br>Vos informations ont bien été enregistrées dans notre base de données sécurisée.
-																		<br><br>Si une information est erronée, n'hésitez pas à nous prévenir.
+																		<br>L'achat d'une carte cadeau vient d'être effectué sur le site bullao.fr.
 																		<br><br>{{ $carte->cadeau_offre }} : {{ $carte->cadeau_montant }}€
 																		<br>Email : {{ $carte->clientPaiement->client_email }}
 																		<br>Code : {{ $carte->cadeau_code }}

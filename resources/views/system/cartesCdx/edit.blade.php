@@ -37,7 +37,7 @@
                         <div class="col-md-6 form-group">
                             <label for="reservationDateDebut">Offre</label>
                             @if(isset($carte))
-                                <input type="text" class="form-control" name="reservationDateDebut" id="reservationDateDebut" value="{{ $carte->cadeau_offre }} - {{ $carte->cadeau_montant }}" disabled>
+                                <input type="text" class="form-control" name="reservationDateDebut" id="reservationDateDebut" value="{{ $carte->cadeau_offre }} - {{ $carte->cadeau_montant }}€" disabled>
                             @else
                                 <input type="text" class="form-control" name="reservationDateDebut" id="reservationDateDebut">
                             @endif
@@ -120,30 +120,45 @@
                     <div class="row">
                         <div class="col-md-9 form-group">
                             <label for="ville">Ville</label>
-                            <input type="text" class="form-control" name="ville" id="ville">
+                            @if(isset($carte))
+                                <input type="text" class="form-control" name="ville" id="ville" value="{{ $carte->cadeau_ville }}">
+                            @else
+                                <input type="text" class="form-control" name="ville" id="ville">
+                            @endif
+
                         </div>
                         <div class="col-md-3 form-group">
                             <label for="departement">Departement</label>
-                            <input type="text" class="form-control" name="departement" id="departement">
+                            @if(isset($carte))
+                                <input type="text" class="form-control" name="departement" id="departement" value="{{ $carte->cadeau_departement }}">
+                            @else
+                                <input type="text" class="form-control" name="departement" id="departement">
+                            @endif
+
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="adresse1">Adresse</label>
-                            <input type="text" class="form-control" name="adresse1" id="adresse1">
+                            @if(isset($carte))
+                                <input type="text" class="form-control" name="adresse1" id="adresse1" value="{{ $carte->cadeau_rue }}">
+                            @else
+                                <input type="text" class="form-control" name="adresse1" id="adresse1">
+                            @endif
+
                         </div>
-                        <div class="col-md-9 form-group">
+                        <div class="col-md-12 form-group">
                             <label for="adresse2">Complément</label>
-                            <input type="text" class="form-control" name="adresse2" id="adresse2">
-                        </div>
-                        <div class="col-md-3 form-group">
-                            <label for="nomAdresse">Nom de l'adresse</label>
-                            <input type="text" class="form-control" name="nomAdresse" id="nomAdresse" disabled>
+                            @if(isset($carte))
+                                <input type="text" class="form-control" name="adresse2" id="adresse2" value="{{ $carte->cadeau_complement }}">
+                            @else
+                                <input type="text" class="form-control" name="adresse2" id="adresse2">
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-3 mr-auto">
-            <div class="card">
+            <!-- <div class="card">
                 <h5 class="card-header titre-card-header">Fiche client</h5>
                 <div class="card-body">
                     <div class="row">
@@ -173,7 +188,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 

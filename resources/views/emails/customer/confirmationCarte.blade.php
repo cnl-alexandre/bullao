@@ -45,12 +45,14 @@
 																		<br>Nous avons le plaisir de valider l'achat de votre carte cadeau sur le site bullao.fr.
 																		<br><br>La carte cadeau sera expédiée rapidement et vous recevrez cette carte d'ici 7 à 10 jours maximum.
 																		<br><br>Pour utiliser la carte cadeau, rien de plus simple. Inscrivez le code ci-dessous au même endroit pour utiliser un code promo quand vous finalisez votre commande.
-																		<br><br><b>Informations de la carte cadeau</b>
+																		<br><br><b>Informations de la carte cadeau :</b>
 																		<br>{{ $carte->cadeau_offre }} : {{ $carte->cadeau_montant }}€
 																		<br>Email de l'acquereur : {{ $carte->clientPaiement->client_email }}
 																		<br>Code cadeau : {{ $carte->cadeau_code }}
 																		<br>Valable du {{ $carte->DateDebut->format('d/m/Y') }} au {{ $carte->DateFin->format('d/m/Y') }}
-																	</p>
+																		<br><br><b>Adresse de livraison</b>
+																		<br>{{ $carte->cadeau_rue }}
+																		<br>{{ $carte->cadeau_ville }} {{ $carte->cadeau_departement }}																	</p>
 																</td>
 																<td width="10%"></td>
 															</tr>

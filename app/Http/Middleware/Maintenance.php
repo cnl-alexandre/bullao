@@ -21,7 +21,7 @@ class Maintenance
      */
     public function handle($request, Closure $next)
     {
-        $parametre = Parametre::where('parametre_libelle', "=", "maintenance")->first();
+        $parametre = Parametre::where('parametre_libelle', "=", 'maintenance')->first();
 
         if($parametre == NULL)
         {
