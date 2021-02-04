@@ -25,6 +25,23 @@ class CarteCdxController extends Controller
         ]);
     }
 
+    public function newCarte(){
+
+        return view('system.cartesCdx.edit')->with([
+            'action'        => url('/system/cartescadeaux/new')
+        ]);
+    }
+
+    public function newCarteSubmit(Request $request){
+
+        $newCarte = new Cadeau;
+        $newCarte->create($request);
+        $idCarte = $newCarte->cadeau_id;
+
+        Session::put('success', 'La carte a bien été ajouté');
+        return redirect('/system/cartescadeaux/edit/'.$idCarte);
+    }
+
     public function editCarte($id)
     {
         $carte = Cadeau::find($id);
@@ -34,6 +51,16 @@ class CarteCdxController extends Controller
             'action'                    => url('/system/cartescadeaux/edit/'.$id)
         ]);
     }
+    public function editCarteSubmit(Request $request, $id){
+        // $this->validate($request,[
+        //     'name'                => 'required'
+        // ]);
 
+        $carte = Cadeau::find($id);
+        $carte->create($request);
+
+        Session::put('success', 'La carte a bien été modifié');
+        return redirect('/system/cartescadeaux/edit/'.$id);
+    }
 
 }

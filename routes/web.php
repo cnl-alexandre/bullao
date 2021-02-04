@@ -101,7 +101,7 @@ Route::get('/system/cartescadeaux/list', 'system\CarteCdxController@list')      
 Route::get('system/cartescadeaux/new', 'system\CarteCdxController@newCarte')                                         ->middleware('global.system');
 Route::post('system/cartescadeaux/new', 'system\CarteCdxController@newCarteSubmit');
 Route::get('system/cartescadeaux/edit/{id}', 'system\CarteCdxController@editCarte')                                  ->middleware('global.system');
-Route::post('system/cartescadeaux/edit/{id}', 'system\CarteCdxController@editPackSubmit');
+Route::post('system/cartescadeaux/edit/{id}', 'system\CarteCdxController@editCarteSubmit');
 
 // PRODUITS (SPAS-PACKS-ACCESSOIRES)
 Route::get('system/produits/spas/list', 'system\ProduitController@listSpas')                                        ->middleware('global.system');

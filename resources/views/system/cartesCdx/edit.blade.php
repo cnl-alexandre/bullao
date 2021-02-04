@@ -19,13 +19,13 @@
             <a href="{{url()->previous()}}">Retour</a>
         </div>
         <div class="col-md-5 text-right">
-            <!-- <button type="submit" class="btn btn-primary btn-lg">
-                @if(isset($client))
+            <button type="submit" class="btn btn-primary btn-lg">
+                @if(isset($carte))
                     Enregistrer
                 @else
                     Ajouter
                 @endif
-            </button> -->
+            </button>
         </div>
     </div>
     <div class="row mb-4">
@@ -35,35 +35,43 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <label for="reservationDateDebut">Offre</label>
+                            <label for="offre">Offre</label>
                             @if(isset($carte))
-                                <input type="text" class="form-control" name="reservationDateDebut" id="reservationDateDebut" value="{{ $carte->cadeau_offre }} - {{ $carte->cadeau_montant }}€" disabled>
+                                <input type="text" class="form-control" name="offre" id="offre" value="{{ $carte->cadeau_offre }}">
                             @else
-                                <input type="text" class="form-control" name="reservationDateDebut" id="reservationDateDebut">
+                                <input type="text" class="form-control" name="offre" id="offre">
+                            @endif
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label for="montant">Montant</label>
+                            @if(isset($carte))
+                                <input type="text" class="form-control" name="montant" id="montant" value="{{ $carte->cadeau_montant }}">
+                            @else
+                                <input type="text" class="form-control" name="montant" id="montant">
+                            @endif
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label for="montantRestant">Montant restant</label>
+                            @if(isset($carte))
+                                <input type="text" class="form-control" name="montantRestant" id="montantRestant" value="{{ $carte->cadeau_montant_restant }}">
+                            @else
+                                <input type="text" class="form-control" name="montantRestant" id="montantRestant">
                             @endif
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="reservationDateFin">Montant restant</label>
+                            <label for="dateDebut">Date de début</label>
                             @if(isset($carte))
-                                <input type="text" class="form-control" name="reservationDateFin" id="reservationDateFin" value="{{ $carte->cadeau_montant_restant }}" disabled>
+                                <input type="date" class="form-control" name="dateDebut" id="dateDebut" value="{{ $carte->cadeau_date_debut }}">
                             @else
-                                <input type="text" class="form-control" name="reservationDateFin" id="reservationDateFin">
+                                <input type="date" class="form-control" name="dateDebut" id="dateDebut">
                             @endif
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="reservationDateDebut">Date de début</label>
+                            <label for="dateFin">Date de fin</label>
                             @if(isset($carte))
-                                <input type="date" class="form-control" name="reservationDateDebut" id="reservationDateDebut" value="{{ $carte->cadeau_date_debut }}">
+                                <input type="date" class="form-control" name="dateFin" id="dateFin" value="{{ $carte->cadeau_date_fin }}">
                             @else
-                                <input type="date" class="form-control" name="reservationDateDebut" id="reservationDateDebut">
-                            @endif
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label for="reservationDateFin">Date de fin</label>
-                            @if(isset($carte))
-                                <input type="date" class="form-control" name="reservationDateFin" id="reservationDateFin" value="{{ $carte->cadeau_date_fin }}">
-                            @else
-                                <input type="date" class="form-control" name="reservationDateFin" id="reservationDateFin">
+                                <input type="date" class="form-control" name="dateFin" id="dateFin">
                             @endif
                         </div>
                         <div class="col-md-6 form-group">
