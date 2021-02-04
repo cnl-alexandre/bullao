@@ -39,17 +39,23 @@ class BackOfficeController extends Controller
 
             $resasSpa[$spa->spa_libelle.' '.$spa->spa_nb_place.' places'] = $nb;
         }
-
+        // Resultat : reservation en cours
         $detailsResaEnCours = Reservation::where('reservation_date_debut', '<=', $dateToday)
                                 ->where('reservation_date_fin', '>=', $dateToday)
                                 ->where('reservation_active', '=', '1')
                                 ->orderby('reservation_date_debut', 'ASC')
                                 ->get();
-
+        // Resultat : reservation futures
         $detailsResaFutures = Reservation::where('reservation_date_debut', '>=', $dateToday)
                                 ->where('reservation_active', '=', '1')
                                 ->orderby('reservation_date_debut', 'ASC')
                                 ->get();
+        // Resultats : dates d'installation
+        $detailsDatesInstall = Reservation::where('reservation_date_debut', '<=', $dateToday)
+                                ->where('reservation_active', '=', '1')
+                                ->orderby('reservation_date_debut', 'ASC')
+                                ->get();
+
 
         for($i=12;$i>=0;$i--)
         {

@@ -28,12 +28,12 @@
             </button>
         </div>
     </div>
-    <div class="row mb-4">
+    <div class="row">
         <div class="col-6 ml-auto">
             @if(count($adresses) > 0)
                 <?php $i=1; ?>
                 @foreach($adresses as $adresse)
-                    <div class="card">
+                    <div class="card mb-4">
                         <h5 class="card-header titre-card-header">Adresse : {{ $adresse->adresse_name }} - reference#{{ $adresse->adresse_id }}</h5>
                         <div class="card-body">
                             <div class="row">
@@ -43,12 +43,16 @@
                                     <input type="text" class="form-control" name="ville-{{ $i }}" id="ville-{{ $i }}" value="{{ $adresse->adresse_ville }}">
                                 </div>
                                 <div class="col-md-3 form-group">
-                                    <label for="departement-{{ $i }}">Departement</label>
-                                    <input type="text" class="form-control" name="departement-{{ $i }}" id="departement-{{ $i }}" value="{{ $adresse->adresse_departement }}">
+                                    <label for="cp-{{ $i }}">Code postal</label>
+                                    <input type="text" class="form-control" name="cp-{{ $i }}" id="cp-{{ $i }}" value="{{ $adresse->adresse_cp }}">
                                 </div>
-                                <div class="col-md-12 form-group">
+                                <div class="col-md-9 form-group">
                                     <label for="adresse1-{{ $i }}">Adresse</label>
                                     <input type="text" class="form-control" name="adresse1-{{ $i }}" id="adresse1-{{ $i }}" value="{{ $adresse->adresse_rue }}">
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <label for="departement-{{ $i }}">Departement</label>
+                                    <input type="text" class="form-control" name="departement-{{ $i }}" id="departement-{{ $i }}" value="{{ $adresse->adresse_departement }}">
                                 </div>
                                 <div class="col-md-9 form-group">
                                     <label for="adresse2-{{ $i }}">Complément</label>
@@ -127,7 +131,7 @@
             </div>
         </div>
     </div>
-
+    <hr class="ml-auto mr-auto mb-4" style="width: 70%;">
     @if(isset($client))
         @if(count($reservations) > 0)
             @foreach($reservations as $reservation)

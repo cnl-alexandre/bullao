@@ -72,7 +72,7 @@
                     @if(count($detailsResaEnCours) > 0)
                         @foreach($detailsResaEnCours as $detailResa)
                         <li>
-                            <a href="{{ url('/system/reservations/edit/'.$detailResa->reservation_id) }}">Le <b>{{ $detailResa->DateDebut->format('d M')  }}.</b> à <b>{{ $detailResa->reservation_ville }} ({{ $detailResa->reservation_departement }})</b></a>
+                            <a href="{{ url('/system/reservations/edit/'.$detailResa->reservation_id) }}">Le <b>{{ $detailResa->DateDebut->format('d M')  }}.</b> au <b>{{ $detailResa->DateFin->format('d M')  }}.</b> à <b>{{ $detailResa->reservation_ville }} ({{ $detailResa->reservation_departement }})</b></a>
                         </li>
                         @endforeach
                     @else
@@ -85,7 +85,7 @@
                     @if(count($detailsResaFutures) > 0)
                         @foreach($detailsResaFutures as $detailResa)
                         <li>
-                            <a href="{{ url('/system/reservations/edit/'.$detailResa->reservation_id) }}">Le <b>{{ $detailResa->DateDebut->format('d M')  }}.</b> à <b>{{ $detailResa->reservation_ville }} ({{ $detailResa->reservation_departement }})</b></a>
+                            <a href="{{ url('/system/reservations/edit/'.$detailResa->reservation_id) }}">Le <b>{{ $detailResa->DateDebut->format('d M')  }}.</b> au <b>{{ $detailResa->DateFin->format('d M')  }}.</b> à <b>{{ $detailResa->reservation_ville }} ({{ $detailResa->reservation_departement }})</b></a>
                         </li>
                         @endforeach
                     @else
