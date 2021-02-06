@@ -29,7 +29,7 @@
                     <p class="">
                         En couple, en famille ou entre amis, profitez d’un moment de détente
                         inoubliable sans bouger de chez vous. Dans le respect de mesures sanitaires très strictes,
-                        notre équipe vous garantie une installation saine et sécurisée pour une tranquillité
+                        notre équipe vous garantit une installation saine et sécurisée pour une tranquillité
                         d’esprit inégalée. Vous n’avez rien à penser, nous nous occupons de tout.
                     </p>
                 </div>
@@ -124,12 +124,12 @@
 
 <div class="site-section bg-dark" id="about-section">
     <div class="container">
-        <div class="row justify-content-center mb-4 block-img-video-1-wrap">
-            <div class="col-md-12 mb-5">
-                <figure class="block-img-video-1" data-aos="fade">
-                    <a href="https://vimeo.com/45830194" data-fancybox data-ratio="2">
+        <div class="row justify-content-center block-img-video-1-wrap">
+            <div class="col-md-12">
+                <figure class="block-img-video-1 mx-auto mb-0" data-aos="fade" style="width: 70%;">
+                    <a href="https://youtu.be/ln4Hf6qZBn8" data-fancybox data-ratio="2">
                         <span class="icon"><span class="icon-play"></span></span>
-                        <img src="images/hero_1.jpg" alt="Image" class="img-fluid">
+                        <img src="{{url('medias/img/home/img_video2.png')}}" alt="Image" class="img-fluid">
                     </a>
                 </figure>
             </div>
@@ -209,7 +209,7 @@
                                     <h4>Spa Sahara 4 personnes </h4>
                                     <ul class="ul-check primary list-unstyled mt-4">
                                         <li>120 diffuseurs de bulles</li>
-                                        <li>Traitement au Braume inclus</li>
+                                        <li>Traitement au brome inclus</li>
                                         <li>196cm de diamètre et 71cm de hauteur</li>
                                         <li>Jusqu'à 795L d'eau (~3,5€)</li>
                                         <li><b>90€</b> la première soirée et <br><b>30€</b> par soirée supplémentaire</li>
@@ -229,7 +229,7 @@
                                     <h4>Spa Navy 4 personnes </h4>
                                     <ul class="ul-check primary list-unstyled mt-4">
                                         <li>140 diffuseurs de bulles</li>
-                                        <li>Traitement au Braume inclus</li>
+                                        <li>Traitement au brome inclus</li>
                                         <li>196cm de diamètre et 71cm de hauteur</li>
                                         <li>Jusqu'à 795L d'eau (~3,5€)</li>
                                         <li><b>90€</b> la première soirée et <br><b>30€</b> par soirée supplémentaire</li>
@@ -249,7 +249,7 @@
                                   <h4>Spa Baltik 4 personnes </h4>
                                   <ul class="ul-check primary list-unstyled mt-4">
                                       <li>140 diffuseurs de bulles</li>
-                                      <li>Traitement au Braume inclus</li>
+                                      <li>Traitement au brome inclus</li>
                                       <li>196cm de diamètre et 71cm de hauteur</li>
                                       <li>Jusqu'à 795L d'eau (~3,5€)</li>
                                       <li><b>90€</b> la première soirée et <br><b>30€</b> par soirée supplémentaire</li>
@@ -269,7 +269,7 @@
                                   <h4>Spa Baltik 6 personnes </h4>
                                   <ul class="ul-check primary list-unstyled mt-4">
                                       <li>170 diffuseurs de bulles</li>
-                                      <li>Traitement au Braume inclus</li>
+                                      <li>Traitement au brome inclus</li>
                                       <li>218cm de diamètre et 71cm de hauteur</li>
                                       <li>Jusqu'à 1098L d'eau (~4,5€)</li>
                                       <li><b>120€</b> la première soirée et <br><b>30€</b> par soirée supplémentaire</li>
@@ -290,7 +290,7 @@
                                   <ul class="ul-check primary list-unstyled mt-4">
                                       <li>140 diffuseurs de bulles</li>
                                       <li>BONUS : Jets massants </li>
-                                      <li>Traitement au Braume inclus</li>
+                                      <li>Traitement au brome inclus</li>
                                       <li>218cm de diamètre et 71cm de hauteur</li>
                                       <li>Jusqu'à 1098L d'eau (~4,5€)</li>
                                       <li><b>140€</b> la première soirée et <br><b>30€</b> par soirée supplémentaire</li>
@@ -419,7 +419,7 @@
 </section> -->
 
 
-<div class="site-section" id="contact-section">
+<!-- <div class="site-section" id="contact-section">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mt-5 mb-5" data-aos="fade-up" data-aos-delay="">
@@ -443,7 +443,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="site-section bg-light" id="contact-section">
     <div class="container">

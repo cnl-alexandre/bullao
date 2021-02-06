@@ -17,35 +17,25 @@
 </div>
 
 <div class="site-section">
-    <div class="contact-section mb-2" id="contact-section">
+    <div class="contact-section mb-5" id="contact-section">
         <div class="container">
             <div class="row d-flex no-gutters align-items-stretch">
                 <div class="col-12 col-lg-6 services-img contact-img-1 radius">
                 </div>
                 <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-3" data-aos="fade" data-aos-delay="">
-                    <h2 class="mb-3 font-size-28 text-black">Vous voulez nous contacter ?</h2>
+                    <h2 class="mb-2 font-size-28 text-black">Vous voulez nous contacter ?</h2>
                     <p class="">
-                        Pour vous aider à réaliser toutes vos envies, Bullao se tient à votre disposition via les moyens de contacts ci-dessous. Nous restons disponible pour répondre à toutes vos questions et à vos demandes soit par email ou par téléphone
-
+                        Pour vous aider à réaliser toutes vos envies, Bullao se tient à votre disposition.
+                        <div class="bg-light pl-2 py-3" style="width: 100%;">
+                            <img src="{{url('/medias/img/pictos/contact_sms.svg')}}" class="mx-3" alt="Contact par téléphone"> <a href="tel:0606060606">06.06.06.06.06</a>
+                        </div>
                     </p>
-                    <p>
-
-                    </p>
-                    <p class="">
-                        Nous sommes disponible très souvent
+                    <p class="mt-4">
+                        Nous restons disponible pour répondre à toutes vos questions et à vos demandes.
                         <br>
                         <div class="bg-light pl-2 py-3" style="width: 100%;">
-                            <img src="" alt=""> 0606060606
+                            <img src="{{url('/medias/img/pictos/contact_mail.svg')}}" class="mx-3" alt="Contact par mail"> <a href="mailto:contact@bullao.fr">contact@bullao.fr</a>
                         </div>
-
-                        <br>
-                        Debut de texte court
-                        <br><br>
-
-                        <div class="bg-light pl-2 py-3" style="width: 100%;">
-                            <img src="" alt=""> contact@bullao.fr
-                        </div>
-                        <br><br><br><br><br><br><br><br><br>
                     </p>
                 </div>
             </div>
@@ -57,14 +47,19 @@
                 <div class="col-12 col-lg-6 services-img services-img-2 radius order-lg-2" data-aos="fade" data-aos-delay="">
                 </div>
                 <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-3 order-lg-1" data-aos="fade" data-aos-delay="">
-                    <h2 class="mb-3 font-size-28 text-black">Vous n'êtes plus qu'à une bulle du bonheur...</h2>
+                    <h2 class="mb-3 font-size-28 text-black">Et les réseaux sociaux...</h2>
                     <p class="">
-                        Nous sommes présent également sur les réseaux sociaux
+                        Vous pouvez nous retrouver sur Instagram pour avoir un aperçu de précédentes prestations et suivre l'actualité Bullao.
+                        <div class="bg-light pl-2 py-3" style="width: 100%;">
+                            <img src="{{url('/medias/img/pictos/contact_insta.svg')}}" class="mx-3" alt="Réseau social Instagram"> <a href="instagram.com/@bullaospa">instagram.com/@bullaospa</a>
+                        </div>
                     </p>
-                    <p class="">
-                        <b>Instagram :</b> @Bullaospa
-                        <br><br>
-                        <b>Facebook & Messenger :</b> @Bullaospa
+                    <p class="mt-4">
+                        Nous sommes également disponible sur le réseau Facebook
+                        <br>
+                        <div class="bg-light pl-2 py-3" style="width: 100%;">
+                            <img src="{{url('/medias/img/pictos/contact_fb.svg')}}" class="mx-3" alt="Réseau social Facebook"> <a href="facebook.com/bullaospa">facebook.com/bullaospa</a>
+                        </div>
                     </p>
                 </div>
             </div>
