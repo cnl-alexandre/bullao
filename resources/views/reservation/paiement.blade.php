@@ -18,7 +18,7 @@
             <p class="font-size-14">
                 {{ $reservation->reservation_spa_libelle }}
                 <br>Du {{ $reservation->DateDebut->format('d/m/Y') }} au {{ $reservation->DateFin->format('d/m/Y') }}
-                <br>Montant total : {{ $reservation->reservation_montant_total }}€
+                <br>Montant total : {{ number_format(Session::get('montant_total'), 2, '.', ' ') }}€
             </p>
         </div>
 

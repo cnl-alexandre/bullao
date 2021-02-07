@@ -103,7 +103,7 @@ class ReservationController extends Controller
         $reservation = Reservation::Find(Session::get('reservation')->reservation_id);
 
         if(Session::get('reservation')){
-            if($reservation->reservation_montant_total >= "1"){
+            if(Session::get('montant_total') > 1){
                 // Intention de paiement
                 \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
 
@@ -146,24 +146,30 @@ class ReservationController extends Controller
             $r = Reservation::Find($reservation->reservation_id);
             $r->reservation_paye = 1;
             $r->reservation_active = 1;
-            $r->save();
 
             if(isset($reservation->reservation_cadeau_id) && $reservation->reservation_cadeau_id != NULL)
             {
                 $carte = Cadeau::Find($reservation->reservation_cadeau_id);
-                // Décrémenter le montant restant du montant total
 
-                    // Si montant restant supérieur montant total
-                        // restant - total
+                $montantRestant = 0.00;
 
-                    // Si montant restant inférieur montant total
-                        // montant restant = 0
+                if($carte->cadeau_montant_restant > $reservation->reservation_montant_total) {
+                    $montantRestant = $carte->cadeau_montant_restant - $reservation->reservation_montant_total;
+                    $r->reservation_montant_total = 0.00;
+                }
+                else {
+                    $montantRestant = 0.00;
+                    $r->reservation_montant_total = $reservation->reservation_montant_total - $carte->cadeau_montant_restant;
+                }
 
                 $carte->cadeau_used = '1';
                 $carte->cadeau_client_id_used = $reservation->reservation_client_id;
                 $carte->cadeau_date_used = date('Y-m-d');
+                $carte->cadeau_montant_restant = $montantRestant;
                 $carte->save();
             }
+
+            $r->save();
 
             if(count($reservation->accessoires) > 0)
             {
@@ -199,6 +205,7 @@ class ReservationController extends Controller
             });
 
             Session::forget('reservation');
+            Session::forget('montant_total');
             Session::forget('joursSupp');
 
             return view('reservation.paiement-accepte')->with([]);

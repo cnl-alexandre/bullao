@@ -277,6 +277,9 @@
                                     <span id="recap-montant-total">{{ number_format($reservation->reservation_montant_total, 2, '.', ' ') }}</span>€
                                 </div>
                             </div>
+                            <div id="bloc-msg-prix" class="text-muted">
+                                Le montant est inférieur à 1€, le reste vous est offert.
+                            </div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-check mb-3">
@@ -338,26 +341,28 @@
 
                         // console.log(response);
                         if(typeof response['promo'] !== 'undefined'){
-                            var promo = parseFloat(montantWithoutFrais)*(parseFloat(response['promo']['promo_valeur'])/100);
+                            var promo = parseFloat(montantWithoutPromo)*(parseFloat(response['promo']['promo_valeur'])/100);
                             $('#recap-promo').html(promo.toFixed(2));
-                            var montant_total = parseFloat(montantWithoutFrais)-parseFloat(promo);
+                            var montant_total = parseFloat(montantWithoutPromo) - parseFloat(promo);
                         }
                         else if (typeof response['carte'] !== 'undefined') {
                             var carte = parseFloat(response['carte']['cadeau_montant_restant']);
                             $('#recap-promo').html(carte.toFixed(2));
-                            var montant_total = parseFloat(montantWithoutFrais)-parseFloat(carte);
+                            var montant_total = parseFloat(montantWithoutPromo) - parseFloat(carte);
 
                             console.log("carte : "+carte);
 
-                            if (montant_total <= '0') {
-                                var montant_total = parseFloat(0);
+                            if (montant_total < 1.00 && montant_total > 0.00) {
+                                montant_total = 0.00;
+                                $('#bloc-msg-prix').css("display", "block");
                             }
 
                             // if(carte > montant_total){
                             //     // $('#recap-promo').html(montant_total.toFixed(2));
                             //     var montant_total = parseFloat(0);
                             // }
-                            console.log("Total : "+montant_total); console.log("Montant base : "+montantWithoutFrais);
+                            console.log("Total : "+montant_total);
+                            console.log("Montant base : "+montantWithoutPromo);
 
                         }
                         $('#bloc-promo').css("display", "block");
@@ -374,6 +379,7 @@
 
                         $('#montant_total').val(montantWithoutPromo.toFixed(2));
                         $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
+                        $('#bloc-msg-prix').css("display", "none");
 
                         $("#promo").removeClass('is-valid');
                         $("#promo").addClass('is-invalid');
@@ -388,6 +394,7 @@
 
                     $('#montant_total').val(montantWithoutPromo.toFixed(2));
                     $('#recap-montant-total').html(montantWithoutPromo.toFixed(2));
+                    $('#bloc-msg-prix').css("display", "none");
 
                     $("#promo").removeClass('is-valid');
                     $("#promo").addClass('is-invalid');
@@ -470,6 +477,7 @@
     $(document).ready(function() {
         $('#bloc-promo').css("display", "none");
         $('#bloc-frais-km').css("display", "none");
+        $('#bloc-msg-prix').css("display", "none");
         $('#btn-confirm').attr("disabled", true);
         $('#btn-confirm').attr("title", "Vous devez accepter les CGV.");
     });

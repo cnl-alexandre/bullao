@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use App\Client;
 use App\ReservationAccessoire;
@@ -58,8 +59,6 @@ class Reservation extends Model
 
     public function create($array)
     {
-        echo $array['daterange'];
-
         $montant_total = 0.00;
 
         if($array->step == 1 || $array->step == "")
@@ -146,7 +145,15 @@ class Reservation extends Model
                 elseif(isset($carte) && $carte != NULL)
                 {
                     $this->reservation_cadeau_id = $carte->cadeau_id;
-                    $this->reservation_montant_total        = $this->reservation_montant_total-$carte->cadeau_montant;
+
+                    if($carte->cadeau_montant_restant > $this->reservation_montant_total) {
+                        $montantRestant = $carte->cadeau_montant_restant - $this->reservation_montant_total;
+                        Session::put('montant_total', 0.00);
+                    }
+                    else {
+                        $montantRestant = 0.00;
+                        Session::put('montant_total', $this->reservation_montant_total - $carte->cadeau_montant_restant);
+                    }
                 }
             }
 
