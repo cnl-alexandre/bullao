@@ -46,7 +46,7 @@ class BackOfficeController extends Controller
                                 ->orderby('reservation_date_debut', 'ASC')
                                 ->get();
         // Resultat : reservation futures
-        $detailsResaFutures = Reservation::where('reservation_date_debut', '>=', $dateToday)
+        $detailsResaFutures = Reservation::where('reservation_date_debut', '>', $dateToday)
                                 ->where('reservation_active', '=', '1')
                                 ->orderby('reservation_date_debut', 'ASC')
                                 ->get();

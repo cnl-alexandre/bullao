@@ -23,12 +23,12 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Réservations
+        Commandes
     </div>
     <li class="nav-item">
         <a class="nav-link" href="{{ url('/system/reservations/list') }}">
             <i class="fas fa-fw fa-table"></i>
-            <span>Récapitulatif</span>
+            <span>Réservations</span>
         </a>
     </li>
     <li class="nav-item">
