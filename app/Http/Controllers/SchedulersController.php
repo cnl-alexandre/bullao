@@ -8,6 +8,7 @@ use App\Reservation;
 use App\ReservationAccessoire;
 use App\Adresse;
 use App\Client;
+use Illuminate\Support\Facades\Log;
 
 class SchedulersController extends Controller
 {
@@ -35,12 +36,12 @@ class SchedulersController extends Controller
          *
          * Lancement toutes les heures
         */
-        $this->notationPrestationAfter();
+        //$this->notationPrestationAfter();
     }
 
     public function purgeReservationsNonPayees()
     {
-        $reservations = Reservation::where('reservation_paye', '=', '0')->where('reservation_active', '=', '0')->whereNull('reservation_payment_id')->get();
+        $reservations = Reservation::where('reservation_paye', '=', '0')->where('reservation_active', '=', '0')->get();
         $count = 0;
 
         if(count($reservations) > 0)
@@ -88,6 +89,16 @@ class SchedulersController extends Controller
             }
         }
 
+        // Log::emergency($message);
+        // Log::alert($message);
+        // Log::critical($message);
+        // Log::error($message);
+        // Log::warning($message);
+        // Log::notice($message);
+        // Log::info($message);
+        // Log::debug($message);
+
+        Log::info('Le scheduler "purgeReservationsNonPayees" a été lancé et '.$count.' réservation(s) ont été supprimées.');
         //Session::put('infoScheduler', 'Le scheduler <code>purgeReservationsNonPayees</code> a été lancé et <code>'.$count.'</code> réservation(s) ont été supprimées.');
     }
 
