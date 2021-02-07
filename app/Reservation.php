@@ -124,6 +124,9 @@ class Reservation extends Model
             $this->reservation_ville            = ucfirst($array->ville);
             $this->reservation_complement       = $array->adresse2;
             $this->reservation_departement      = $array->departement;
+            $this->reservation_heure_install    = $array->reservationHeureDebut;
+            $this->reservation_heure_desinstall = $array->reservationHeureFin;
+
 
             if(isset($array->validation) && $array->validation == "1" )
             {

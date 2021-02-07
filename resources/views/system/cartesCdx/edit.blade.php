@@ -45,17 +45,17 @@
                         <div class="col-md-3 form-group">
                             <label for="montant">Montant</label>
                             @if(isset($carte))
-                                <input type="text" class="form-control" name="montant" id="montant" value="{{ $carte->cadeau_montant }}">
+                                <input type="number" class="form-control" name="montant" id="montant" value="{{ $carte->cadeau_montant }}">
                             @else
-                                <input type="text" class="form-control" name="montant" id="montant">
+                                <input type="number" class="form-control" name="montant" id="montant">
                             @endif
                         </div>
                         <div class="col-md-3 form-group">
                             <label for="montantRestant">Montant restant</label>
                             @if(isset($carte))
-                                <input type="text" class="form-control" name="montantRestant" id="montantRestant" value="{{ $carte->cadeau_montant_restant }}">
+                                <input type="number" class="form-control" name="montantRestant" id="montantRestant" value="{{ $carte->cadeau_montant_restant }}">
                             @else
-                                <input type="text" class="form-control" name="montantRestant" id="montantRestant">
+                                <input type="number" class="form-control" name="montantRestant" id="montantRestant">
                             @endif
                         </div>
                         <div class="col-md-6 form-group">
