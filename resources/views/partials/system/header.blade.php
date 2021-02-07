@@ -49,6 +49,10 @@
         <i class="fas fa-caret-down"></i>
     </a>
     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+        <a class="dropdown-item" href="{{ url('/system/parametres/administrateurs/list') }}">
+            <i class="fas fa-fw fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+            Administrateurs
+        </a>
         <a class="dropdown-item" href="{{ url('/system/parametres/parameters') }}">
             <i class="fas fa-fw fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
             Paramètres

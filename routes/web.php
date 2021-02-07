@@ -92,9 +92,12 @@ Route::get('/system/dashboard', 'system\BackOfficeController@dashboard')        
 // RESERVATION
 Route::get('/system/reservations/list', 'system\ReservationController@list')                                        ->middleware('global.system');
 Route::get('/system/reservations/new', 'system\ReservationController@new')                                          ->middleware('global.system');
+Route::get('/system/reservations/new/{id}', 'system\ReservationController@new')                                      ->middleware('global.system');
 Route::post('/system/reservations/new', 'system\ReservationController@newSubmit');
 Route::get('/system/reservations/edit/{id}', 'system\ReservationController@edit')                                   ->middleware('global.system');
 Route::post('/system/reservations/edit/{id}', 'system\ReservationController@editSubmit');
+Route::get('/system/reservation/{id}/send/client', 'system\ReservationController@sendClient');
+Route::get('/system/reservation/{id}/send/admin', 'system\ReservationController@sendAdmin');
 
 // CARTES CADEAUX
 Route::get('/system/cartescadeaux/list', 'system\CarteCdxController@list')                                          ->middleware('global.system');
@@ -146,6 +149,14 @@ Route::post('system/parametres/indisponibilite/edit/{id}', 'system\ParametresCon
 // PARAMETRES
 Route::get('system/parametres/parameters', 'system\ParametresController@parameters')                                ->middleware('global.system');
 Route::post('system/parametres/parameters/maintenance', 'system\ParametresController@maintenanceSubmit')            ->middleware('global.system');
+
+// ADMIN GESTION
+Route::get('system/parametres/administrateurs/list', 'system\AdministrateurController@listAdmins')                  ->middleware('global.system');
+Route::get('system/parametres/administrateur/new', 'system\AdministrateurController@newAdmin')                      ->middleware('global.system');
+Route::post('system/parametres/administrateur/new', 'system\AdministrateurController@newAdminSubmit');
+Route::get('system/parametres/administrateur/edit/{id}', 'system\AdministrateurController@editAdmin')               ->middleware('global.system');
+Route::post('system/parametres/administrateur/edit/{id}', 'system\AdministrateurController@editAdminSubmit');
+
 
 // SCHEDULERS
 Route::get('schedulers/launch', 'SchedulersController@launch');

@@ -70,6 +70,12 @@ class Client extends Model
         $this->save();
     }
 
+    public function firstAddress(){
+        return Adresse::where('adresse_client_id', "=", $this->client_id)
+                ->where('adresse_name', 'LIKE', 'Principale')
+                ->first();
+    }
+
     public function createSession()
     {
         Session::forget('Client');

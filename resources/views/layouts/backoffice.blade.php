@@ -27,9 +27,8 @@
 
         <!-- Scripts -->
         <script src="{{ url('/js/jquery-3.3.1.min.js') }}"></script>
-        <script src="{{ url('js/popper.min.js') }}"></script>
+        <script src="{{ url('/js/popper.min.js') }}"></script>
         <script src="{{ url('/js/bootstrap.min.js') }}"></script>
-        <script src="{{ url('/js/system/sb-admin-2.min.js') }}"></script>
 
         <script src="{{ url('/js/system/datatables/jquery.dataTables.min.js') }}"></script>
         <script src="{{ url('/js/system/datatables/dataTables.bootstrap4.min.js') }}"></script>
@@ -64,4 +63,7 @@
             </div>
         </div>
     </body>
+
+    <script src="{{ url('/js/system/sb-admin-2.min.js') }}"></script>
+
 </html>

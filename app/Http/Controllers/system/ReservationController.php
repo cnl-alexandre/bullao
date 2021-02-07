@@ -7,7 +7,10 @@ use App\Reservation;
 use App\Spa;
 use App\Pack;
 use App\Accessoire;
+use App\Client;
+use App\Adresse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ReservationController extends Controller
 {
@@ -36,8 +39,16 @@ class ReservationController extends Controller
         ]);
     }
 
-    public function new()
+    public function new($id = null)
     {
+        $client = null;
+        $adresse = null;
+
+        if ($id != null) {
+
+            $client = Client::find($id);
+        }
+
         $spas = Spa::All();
         $packs = Pack::All();
         $accessoires = Accessoire::All();
@@ -46,8 +57,39 @@ class ReservationController extends Controller
             'spas'                      => $spas,
             'packs'                     => $packs,
             'accessoires'               => $accessoires,
+            'client'                    => $client,
             'action'                    => url('/system/reservations/new')
         ]);
+    }
+
+    public function sendClient($id)
+    {
+        $reservation = Reservation::find($id);
+
+        Mail::send('emails.customer.confirmation', ['reservation' => $reservation], function($mess) use ($reservation){
+            $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
+            $mess->to($reservation->client->client_email);          // Mail du client
+            // $mess->cc('jer.lemont@gmail.com');
+            $mess->subject('Bullao : confirmation de réservation');
+        });
+
+        Session::put('success', 'Le mail client a bien été envoyé');
+        return redirect('/system/reservations/edit/'.$id);
+    }
+
+    public function sendAdmin($id)
+    {
+        $reservation = Reservation::find($id);
+
+        Mail::send('emails.system.confirmation', ['reservation' => $reservation], function($mess){
+            $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
+            $mess->to(env('MAIL_ADMIN'));                           // Mail de l'admin
+            $mess->cc('contact@bullao.fr');
+            $mess->subject('Bullao : Nouvelle réservation !');
+        });
+
+        Session::put('success', 'Le mail admin a bien été envoyé');
+        return redirect('/system/reservations/edit/'.$id);
     }
 
     public function newSubmit(Request $request)
