@@ -4,9 +4,9 @@
 
 @section('content')
 
-<section class="site-section bg-light" id="pricing-section">
+<section class="site-section bg-light pb-4" id="pricing-section">
     <div class="container">
-        <div class="row mt-md-0 d-flex justify-content-center">
+        <div class="row mt-5 d-flex justify-content-center">
             <div class="align-self-center">
                 <img src="{{ url('medias/img/pictos/reservation-on.png') }}" alt="">
                 <img src="{{ url('medias/img/pictos/separator-off.png') }}" class="separator" alt="">
@@ -27,12 +27,12 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="" data-aos-delay="">
-                        <h2 class="h2-reservation">2. Vos disponibilités</h2>
+                        <h2 class="h2-reservation">1. Vos disponibilités</h2>
                         <br>
                         <div class="text-center" id="containerdaterange" style="height:330px;">
                           <div class="form-group">
-                              <label for="daterange">Sélectionnez vos dates de réservations (jour de pose et jour de retrait)</label>
-                              <input type="text" id="daterange" class="form-control daterange text-center" name="daterange">
+                              <label for="daterange">Choisir une date d'installation et une seconde pour la desinstallation</label>
+                              <input type="text" id="daterange" class="form-control daterange text-center" style="height: 5px;opacity: 0;" name="daterange">
                           </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">3. Votre spa</h2>
+                        <h2 class="h2-reservation">2. Votre spa</h2>
                         <p>Quel spa vous fait le plus envie ? Faites-vous plaisir pour ce coup là !</p>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">4. Votre thème</h2>
+                        <h2 class="h2-reservation">3. Votre thème</h2>
                         <p>Vous souhaitez thématiser simplement votre soirée ? Nous avons ce qu'il vous faut !</p>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
             <div class="row mb-4 justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="h2-reservation">5. Vos accessoires</h2>
+                        <h2 class="h2-reservation">4. Vos accessoires</h2>
                         <p>Ajoutez les petits détails qui feront la différence à votre soirée spa !</p>
                     </div>
                 </div>
