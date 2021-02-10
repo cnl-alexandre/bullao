@@ -313,6 +313,11 @@ input[type=text]:focus, input[type=tel]:focus, input[type=email]:focus, input[ty
 /* SPECIFIQUE CONTACT */
 .contact-img-1 {
 	background-image: url("../../medias/img/contact/contact-1.png");
+	height: auto!important;
+}
+.contact-img-2 {
+	background-image: url("../../medias/img/contact/contact-2.jpg");
+	height: auto!important;
 }
 
 /* SPECIFIQUE CGV - MENTIONS */
