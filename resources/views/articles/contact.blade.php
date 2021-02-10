@@ -17,6 +17,45 @@
 </div>
 
 <div class="site-section">
+    <div class="services-section mb-2" id="services-section">
+        <div class="container">
+            <div class="row d-flex no-gutters align-items-stretch">
+                <div class="col-12 col-lg-6 services-img services-img-1 radius">
+                </div>
+                <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-3" data-aos="fade" data-aos-delay="">
+                    <h2 class="mb-3 font-size-28 text-black">Votre spa à domicile</h2>
+                    <p class="">
+                        En couple, en famille ou entre amis, profitez d’un moment de détente
+                        inoubliable sans bouger de chez vous. Dans le respect de mesures sanitaires très strictes,
+                        notre équipe vous garantit une installation saine et sécurisée pour une tranquillité
+                        d’esprit inégalée. Vous n’avez rien à penser, nous nous occupons de tout.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="services-section">
+        <div class="container">
+            <div class="row d-flex no-gutters align-items-stretch mt-lg-5 mt-3">
+                <div class="col-12 col-lg-6 services-img services-img-2 radius order-lg-2" data-aos="fade" data-aos-delay="">
+                </div>
+                <div class="col-lg-5 mx-auto p-lg-5 mt-4 mt-lg-3 order-lg-1" data-aos="fade" data-aos-delay="">
+                    <h2 class="mb-3 font-size-28 text-black">Une soirée sur-mesure</h2>
+                    <p class="">
+                        Grâce à nos packs à thèmes et nos accessoires, concevez vous-même votre soirée.
+                        Imaginez, associez et offrez-vous le luxe d’un spa à domicile pour une occasion spéciale ou tout simplement un
+                        instant à deux, nous vous apportons la touche de relaxation qui fait la différence.
+                    </p>
+                    <p class="text-center mt-4">
+                        <a href="{{ url('/reservation') }}" class="btn btn-primary bg-action btn-md text-white">Réserver un spa-jacuzzi</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
     <div class="contact-section mb-5" id="contact-section">
         <div class="container">
             <div class="row d-flex no-gutters align-items-stretch">

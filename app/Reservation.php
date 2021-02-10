@@ -126,7 +126,9 @@ class Reservation extends Model
             $this->reservation_departement      = $array->departement;
             $this->reservation_heure_install    = $array->reservationHeureDebut;
             $this->reservation_heure_desinstall = $array->reservationHeureFin;
-
+            $this->reservation_remplissage      = $array->remplissage;
+            $this->reservation_moyen_paiement   = $array->moyen_paiement;
+            $this->reservation_info_complementaires = $array->info_complementaires;
 
             if(isset($array->validation) && $array->validation == "1" )
             {
@@ -182,6 +184,7 @@ class Reservation extends Model
 
             $this->reservation_client_id        = $idClient;
             $this->reservation_email            = $array->email;
+            $this->reservation_phone            = $array->phone;
             $this->save();
 
             if(isset($array->adresse1) && $array->adresse1 != "")
@@ -197,6 +200,75 @@ class Reservation extends Model
                 }
             }
         }
+    }
+
+    public function edit($array)
+    {
+
+        $daterange = $array->daterange;
+        $dates = explode(' - ', $daterange);
+
+        $dateDebut = $this->dateFr2Us($dates[0]);
+        $dateFin = $this->dateFr2Us($dates[1]);
+
+        if($dateFin == $dateDebut)
+        {
+            $dateFin = date('Y-m-d', strtotime($dateFin. ' + 1 days'));
+        }
+
+        $this->reservation_date_debut           = $dateDebut;
+        $this->reservation_date_fin             = $dateFin;
+
+        $this->reservation_spa_id               = $array->spa;
+        $spa = Spa::find($array->spa);
+        $this->reservation_spa_libelle          = $spa->spa_libelle.' '.$spa->spa_nb_place.' places';
+        $this->reservation_prix                 = $spa->spa_prix;
+
+        if(isset($array->pack) && $array->pack != "")
+        {
+            $this->reservation_pack_id          = $array->pack;
+            $pack = Pack::find($array->pack);
+            $this->reservation_prix_pack        = $pack->pack_prix;
+        }
+
+        if(isset($array->accessoires) && count($array->accessoires) > 0)
+        {
+            foreach($array->accessoires as $accessoire)
+            {
+                $reservationAccessoire = new ReservationAccessoire;
+                $reservationAccessoire->create($accessoire, $this->reservation_id);
+
+                $accessory = Accessoire::find($accessoire);
+            }
+        }
+
+        $this->reservation_montant_total    = $array->montant_total;
+        $this->reservation_emplacement      = $array->emplacement;
+        $this->reservation_type_logement    = $array->type_logement;
+        $this->reservation_creneau          = $array->creneau;
+        $this->reservation_rue              = $array->adresse1;
+        $this->reservation_cp               = $array->cp;
+        $this->reservation_ville            = ucfirst($array->ville);
+        $this->reservation_complement       = $array->adresse2;
+        $this->reservation_departement      = $array->departement;
+        $this->reservation_heure_install    = $array->reservationHeureDebut;
+        $this->reservation_heure_desinstall = $array->reservationHeureFin;
+        $this->reservation_remplissage      = $array->remplissage;
+        $this->reservation_moyen_paiement   = $array->moyen_paiement;
+        $this->reservation_info_complementaires = $array->info_complementaires;
+
+        if(isset($array->paye) && $array->paye == "1" )
+        {
+            $this->reservation_paye       = "1";
+        }
+        else
+        {
+            $this->reservation_paye       = "0";
+        }
+
+        $this->reservation_email            = $array->email;
+        $this->reservation_phone            = $array->phone;
+        $this->save();
     }
 
     public function getDateDebutAttribute()

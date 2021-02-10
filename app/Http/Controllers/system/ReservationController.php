@@ -158,9 +158,7 @@ class ReservationController extends Controller
         $request['spa'] = $spalibelle->spa_id;
 
         $reservation = Reservation::find($id);
-        $reservation->create($request);
-        $request['step'] = '2';
-        $reservation->create($request);
+        $reservation->edit($request);
 
         Session::put('success', 'La réservation a bien été modifié');
         return redirect('/system/reservations/edit/'.$id);

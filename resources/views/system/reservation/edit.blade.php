@@ -89,12 +89,14 @@
                                         <div class="col-md-12 form-group">
                                             <label for="name">Nom client</label>
                                             @if(isset($reservation))
-                                                <input type="text" class="form-control" name="name" id="name" value="{{ $reservation->client->client_name }}">
+                                                <a href="{{ url('/system/clients/edit/'.$reservation->reservation_client_id) }}"><u>(voir plus)</u></a>
+                                                <input type="text" class="form-control" name="name" id="name" value="{{ $reservation->client->client_name }}" disabled>
+                                                <input type="hidden" class="form-control" name="name" id="name" value="{{ $reservation->client->client_name }}">
                                             @else
                                                 @if($client != null)
                                                     <input type="text" class="form-control" name="name" id="name" value="{{ $client->client_name }}">
                                                 @else
-                                                    <input type="text" class="form-control" name="name" id="name">
+                                                    <input type="text" class="form-control" name="name" id="name" required>
                                                 @endif
                                             @endif
                                         </div>
@@ -215,7 +217,7 @@
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     <label for="reservationLibelleSpa">Spa</label>
-                                    <select class="form-control" name="reservationLibelleSpa" id="reservationLibelleSpa">
+                                    <select class="form-control" name="reservationLibelleSpa" id="reservationLibelleSpa" required>
                                         <option value="">Sélection du spa (obligatoire)</option>
                                         @if(isset($reservation))
                                             @foreach($spas as $spa)
@@ -264,9 +266,9 @@
                                                 <div class="col-md-4 mb-3">
                                                     <div class="form-check">
                                                         @if(isset($reservation) && in_array($accessoire->accessoire_id, $idAccessoiresReservation))
-                                                            <input class="form-check-input" type="checkbox" checked value="{{ $accessoire->accessoire_id }}" id="accessoire{{ $accessoire->accessoire_id }}">
+                                                            <input class="form-check-input" type="checkbox" checked value="{{ $accessoire->accessoire_id }}" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}">
                                                         @else
-                                                            <input class="form-check-input" type="checkbox" value="{{ $accessoire->accessoire_id }}" id="accessoire{{ $accessoire->accessoire_id }}" disabled>
+                                                            <input class="form-check-input" type="checkbox" value="{{ $accessoire->accessoire_id }}" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}">
                                                         @endif
                                                         <label class="form-check-label" for="accessoire{{ $accessoire->accessoire_id }}">
                                                             {{ $accessoire->accessoire_libelle }}
@@ -297,17 +299,18 @@
                                         <div class="col-md-12 form-group">
                                             <label for="montant_total">Montant total</label>
                                             @if(isset($reservation))
-                                                <input type="text" class="form-control" name="montant_total" id="montant_total" value="{{ $reservation->reservation_montant_total }}">
+                                                <input type="number" class="form-control" name="montant_total" id="montant_total" value="{{ $reservation->reservation_montant_total }}">
                                             @else
-                                                <input type="text" class="form-control" name="montant_total" id="montant_total">
+                                                <small>(automatique)</small>
+                                                <input type="number" class="form-control" name="montant_total" id="montant_total">
                                             @endif
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <label for="montant_total">Moyen de paiement</label>
+                                            <label for="moyen_paiement">Moyen de paiement</label>
                                             @if(isset($reservation))
-                                                <input type="text" class="form-control" name="montant_total" id="montant_total" value="{{ $reservation->reservation_moyen_paiement }}">
+                                                <input type="text" class="form-control" name="moyen_paiement" id="moyen_paiement" value="{{ $reservation->reservation_moyen_paiement }}">
                                             @else
-                                                <input type="text" class="form-control" name="montant_total" id="montant_total">
+                                                <input type="text" class="form-control" name="moyen_paiement" id="moyen_paiement">
                                             @endif
                                         </div>
                                     </div>
@@ -317,14 +320,14 @@
                                         <div class="col-md-12 form-group mt-4">
                                             @if(isset($reservation))
                                                 @if($reservation->reservation_paye == 1)
-                                                    <input type="checkbox" class="form-check-label" name="paie" value="paie" checked>
+                                                    <input type="checkbox" class="form-check-label" name="paye" value="1" checked>
                                                 @else
-                                                    <input type="checkbox" class="form-check-label" name="paie" value="paie">
+                                                    <input type="checkbox" class="form-check-label" name="paye" value="1">
                                                 @endif
                                             @else
-                                                <input type="checkbox" class="form-check-label" name="paie" value="paie">
+                                                <input type="checkbox" class="form-check-label" name="paye" value="1">
                                             @endif
-                                            <label for="">Payé</label>
+                                            <label for="paye">Payé</label>
                                         </div>
                                     </div>
                                 </div>
@@ -342,17 +345,17 @@
                                         <div class="col-md-12 form-group">
                                             <label for="phone">Téléphone</label>
                                             @if(isset($reservation))
-                                                <input type="text" class="form-control" name="phone" id="phone" value="{{ $reservation->client->client_phone }}">
+                                                <input type="text" class="form-control" maxlength="10" name="phone" id="phone" value="{{ $reservation->reservation_phone }}">
                                             @else
-                                                <input type="text" class="form-control" name="phone" id="phone">
+                                                <input type="text" class="form-control" maxlength="10" name="phone" id="phone">
                                             @endif
                                         </div>
                                         <div class="col-md-12 form-group">
                                             <label for="email">Email</label>
                                             @if(isset($reservation))
-                                                <input type="text" class="form-control" name="email" id="email" value="{{ $reservation->client->client_email }}">
+                                                <input type="text" class="form-control" name="email" id="email" value="{{ $reservation->reservation_email }}">
                                             @else
-                                                <input type="text" class="form-control" name="email" id="email">
+                                                <input type="text" class="form-control" name="email" id="email" required>
                                             @endif
                                         </div>
                                     </div>
@@ -360,11 +363,11 @@
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="col-md-12 form-group">
-                                            <label for="adresse1">Informations +</label>
+                                            <label for="info_complementaires">Informations +</label>
                                             @if(isset($reservation))
-                                                <input type="text" class="form-control" name="adresse1" id="adresse1" value="">
+                                                <input type="text" class="form-control" name="info_complementaires" id="info_complementaires" value="{{ $reservation->reservation_info_complementaires }}">
                                             @else
-                                                <input type="text" class="form-control" name="adresse1" id="adresse1">
+                                                <input type="text" class="form-control" name="info_complementaires" id="info_complementaires">
                                             @endif
                                         </div>
 

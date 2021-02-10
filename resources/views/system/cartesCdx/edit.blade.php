@@ -75,11 +75,11 @@
                             @endif
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="reservationDateFin">Code</label>
+                            <label for="CodeKdo">Code</label>
                             @if(isset($carte))
-                                <input type="text" class="form-control" name="reservationDateFin" id="reservationDateFin" value="{{ $carte->cadeau_code }}">
+                                <input type="text" class="form-control" name="CodeKdo" id="CodeKdo" value="{{ $carte->cadeau_code }}">
                             @else
-                                <input type="text" class="form-control" name="reservationDateFin" id="reservationDateFin">
+                                <input type="text" class="form-control" name="CodeKdo" id="CodeKdo">
                             @endif
                         </div>
                     </div>

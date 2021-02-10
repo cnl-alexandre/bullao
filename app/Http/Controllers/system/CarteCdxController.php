@@ -57,7 +57,7 @@ class CarteCdxController extends Controller
         // ]);
 
         $carte = Cadeau::find($id);
-        $carte->create($request);
+        $carte->edit($request);
 
         Session::put('success', 'La carte a bien été modifié');
         return redirect('/system/cartescadeaux/edit/'.$id);

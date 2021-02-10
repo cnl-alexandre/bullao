@@ -73,6 +73,27 @@ class Cadeau extends Model
         return $this->cadeau_id;
     }
 
+    public function edit($array)
+    {
+
+        $dateDebut = date('Y-m-d');
+        $dateFin = date('Y-m-d', strtotime($dateDebut. ' + 1 year'));
+
+        $this->cadeau_rue               = $array->adresse1;
+        $this->cadeau_ville             = $array->ville;
+        $this->cadeau_complement        = $array->adresse2;
+        $this->cadeau_departement       = $array->departement;
+
+        $this->cadeau_montant           = $array->montant;
+        $this->cadeau_montant_restant   = $array->montantRestant;
+        $this->cadeau_offre             = $array->offre;
+        $this->cadeau_code              = $array->CodeKdo;
+        $this->cadeau_date_fin          = $array->dateFin;
+        $this->cadeau_date_debut        = $array->dateDebut;
+        $this->save();
+
+    }
+
     public function utilisation($idUser, $cadeauId)
     {
         $carte = Cadeau::where('cadeau_id', 'LIKE', $cadeauId);
