@@ -265,12 +265,13 @@
                                             @foreach($accessoires as $accessoire)
                                                 <div class="col-md-4 mb-3">
                                                     <div class="form-check">
+                                                        <label class="form-check-label" for="accessoire-{{ $accessoire->accessoire_id }}">
                                                         @if(isset($reservation) && in_array($accessoire->accessoire_id, $idAccessoiresReservation))
                                                             <input class="form-check-input" type="checkbox" checked value="{{ $accessoire->accessoire_id }}" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}">
                                                         @else
                                                             <input class="form-check-input" type="checkbox" value="{{ $accessoire->accessoire_id }}" name="accessoires[]" id="accessoire-{{ $accessoire->accessoire_id }}">
                                                         @endif
-                                                        <label class="form-check-label" for="accessoire{{ $accessoire->accessoire_id }}">
+
                                                             {{ $accessoire->accessoire_libelle }}
                                                         </label>
                                                     </div>

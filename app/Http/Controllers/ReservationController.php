@@ -100,9 +100,10 @@ class ReservationController extends Controller
 
     public function paiement()
     {
-        $reservation = Reservation::Find(Session::get('reservation')->reservation_id);
-
         if(Session::get('reservation')){
+
+            $reservation = Session::get('reservation');
+
             if(Session::get('montant_total') > 1){
                 // Intention de paiement
                 \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
@@ -126,7 +127,7 @@ class ReservationController extends Controller
             }
         }
         else{
-            // code...
+            return redirect('/');
         }
 
     }

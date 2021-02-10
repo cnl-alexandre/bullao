@@ -63,7 +63,7 @@ class Cadeau extends Model
 
         $this->cadeau_client_id         = $idClient;
         $this->cadeau_montant           = $array->montant;
-        $this->cadeau_montant_restant   = $array->montantRestant;
+        $this->cadeau_montant_restant   = $array->montant;
         $this->cadeau_offre             = $array->offre;
         $this->cadeau_code              = $this->generateCode(10);
         $this->cadeau_date_fin          = $dateFin;

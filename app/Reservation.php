@@ -161,6 +161,9 @@ class Reservation extends Model
                     }
                 }
             }
+            else{
+                Session::put('montant_total', $this->reservation_montant_total);
+            }
 
             if(isset($array->fraisKm) && $array->fraisKm != "")
             {
@@ -230,15 +233,23 @@ class Reservation extends Model
             $pack = Pack::find($array->pack);
             $this->reservation_prix_pack        = $pack->pack_prix;
         }
+        else {
+            $this->reservation_pack_id          = NULL;
+            $this->reservation_prix_pack        = NULL;
+        }
 
-        if(isset($array->accessoires) && count($array->accessoires) > 0)
+        $ras = ReservationAccessoire::where('ra_reservation_id', '=', $this->reservation_id)->get();
+        foreach($ras as $ra)
+        {
+            $ra->delete();
+        }
+
+        if(isset($array->accessoires))
         {
             foreach($array->accessoires as $accessoire)
             {
                 $reservationAccessoire = new ReservationAccessoire;
                 $reservationAccessoire->create($accessoire, $this->reservation_id);
-
-                $accessory = Accessoire::find($accessoire);
             }
         }
 
