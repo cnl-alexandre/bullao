@@ -213,8 +213,6 @@
             scrollTop: $("#accessoires-section").offset().top
         }, 1000);
 
-        $("#btn-confirm").attr("disabled", false);
-        $("#btn-confirm").attr("title", null);
     })
 
     @if(count($packs) > 0)
@@ -231,7 +229,7 @@
     $(document).ready(function() {
 
         $('#btn-confirm').attr("disabled", true);
-        $('#btn-confirm').attr("title", "Vous devez choisir un spa et faire un choix au niveau des packs.");
+        $('#btn-confirm').attr("title", "Vous devez choisir un spa.");
 
         // Gestion du scroll automatique
         var url = $(location).attr('href');
