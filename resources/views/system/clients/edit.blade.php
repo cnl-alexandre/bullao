@@ -40,7 +40,7 @@
                                 <input type="hidden" name="id-{{ $i }}" value="{{ $adresse->adresse_id }}">
                                 <div class="col-md-9 form-group">
                                     <label for="ville-{{ $i }}">Ville</label>
-                                    <input type="text" class="form-control" name="ville-{{ $i }}" id="ville-{{ $i }}" value="{{ $adresse->adresse_ville }}">
+                                    <input type="text" class="form-control" name="ville-{{ $i }}" id="ville-{{ $i }}" value="{{ $adresse->adresse_ville }}" required>
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="cp-{{ $i }}">Code postal</label>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-md-9 form-group">
                                     <label for="adresse1-{{ $i }}">Adresse</label>
-                                    <input type="text" class="form-control" name="adresse1-{{ $i }}" id="adresse1-{{ $i }}" value="{{ $adresse->adresse_rue }}">
+                                    <input type="text" class="form-control" name="adresse1-{{ $i }}" id="adresse1-{{ $i }}" value="{{ $adresse->adresse_rue }}" required>
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="departement-{{ $i }}">Departement</label>
@@ -74,7 +74,7 @@
                         <div class="row">
                             <div class="col-md-9 form-group">
                                 <label for="ville">Ville</label>
-                                <input type="text" class="form-control" name="ville" id="ville">
+                                <input type="text" class="form-control" name="ville" id="ville" required>
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="departement">Departement</label>
@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="adresse1">Adresse</label>
-                                <input type="text" class="form-control" name="adresse1" id="adresse1">
+                                <input type="text" class="form-control" name="adresse1" id="adresse1" required>
                             </div>
                             <div class="col-md-9 form-group">
                                 <label for="adresse2">Complément</label>
@@ -105,7 +105,7 @@
                         <div class="col-md-12 form-group">
                             <label for="name">Nom</label>
                             @if(isset($client))
-                                <input type="text" class="form-control" name="name" id="name" value="{{ $client->client_name }}">
+                                <input type="text" class="form-control" name="name" id="name" value="{{ $client->client_name }}" required>
                             @else
                                 <input type="text" class="form-control" name="name" id="name" value="">
                             @endif
@@ -121,7 +121,7 @@
                         <div class="col-md-12 form-group">
                             <label for="email">Email</label>
                             @if(isset($client))
-                                <input type="text" class="form-control" name="email" id="email" value="{{ $client->client_email }}">
+                                <input type="text" class="form-control" name="email" id="email" value="{{ $client->client_email }}" required>
                             @else
                                 <input type="text" class="form-control" name="email" id="email" value="">
                             @endif
@@ -232,21 +232,21 @@
                 </div>
             @endforeach
         @else
-            <div class="row mb-4">
-                <div class="col-6 ml-auto">
-                    <div class="card">
-                        <h5 class="card-header titre-card-header">Réservation</h5>
-                        <div class="card-body text-center">
-                            Il n'y a pas de réservations <br>
-                            <a href="{{ url('/system/reservations/new/'.$client->client_id) }}">Ajouter une réservation</a>
-                        </div>
+
+        @endif
+        <div class="row mb-4">
+            <div class="col-6 ml-auto">
+                <div class="card">
+                    <h5 class="card-header titre-card-header">Réservation</h5>
+                    <div class="card-body text-center">
+                        <a href="{{ url('/system/reservations/new/'.$client->client_id) }}">Ajouter une réservation</a>
                     </div>
                 </div>
-                <div class="col-3 mr-auto">
-
-                </div>
             </div>
-        @endif
+            <div class="col-3 mr-auto">
+
+            </div>
+        </div>
     @endif
 </form>
 
