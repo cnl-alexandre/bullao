@@ -39,9 +39,7 @@
     </div>
 
     <div class="row">
-
-        <!-- Mise à jour front -->
-        <div class="col-12 col-xl-9 ml-auto mr-auto">
+        <div class="col-12 col-lg-12 ml-auto mr-auto">
             <div class="row">
                 <div class="col-12 col-lg-6 mb-4">
                     <div class="card">
@@ -185,10 +183,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <div class="col-12 col-xl-9 ml-auto mr-auto mb-4">
+        <div class="col-12 col-lg-12 ml-auto mr-auto mb-4">
             <div class="card">
                 <h5 class="card-header titre-card-header">Commande</h5>
                 <div class="card-body">
@@ -288,7 +285,7 @@
         </div>
 
 
-        <div class="col-12 col-xl-9 ml-auto mr-auto">
+        <div class="col-12 col-lg-12 ml-auto mr-auto">
             <div class="row">
                 <div class="col-12 col-lg-6 mb-4">
                     <div class="card">
@@ -382,7 +379,7 @@
         </div>
 
 
-        <div class="col-12 col-xl-9 mx-auto my-2">
+        <div class="col-12 col-lg-12 mx-auto my-2">
             @if(isset($reservation))
                 <div class="card">
                     <h5 class="card-header titre-card-header">Carte</h5>
