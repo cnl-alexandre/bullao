@@ -47,7 +47,7 @@
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                             <li><a href="{{ url('/') }}" class="nav-link">Notre concept</a></li>
                             <li><a href="{{ url('/reservation') }}" class="nav-link">Réserver un spa</a></li>
-                            <li><a href="{{ url('/cartecadeau') }}" class="nav-link" style="color:red!important">Carte cadeau</a></li>
+                            <li><a href="{{ url('/cartecadeau') }}" class="nav-link">Carte cadeau</a></li>
                             <li><a href="{{ url('/contact') }}" class="nav-link">Nous contacter</a></li>
                         </ul>
                     </nav>

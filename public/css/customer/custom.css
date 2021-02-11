@@ -314,10 +314,12 @@ input[type=text]:focus, input[type=tel]:focus, input[type=email]:focus, input[ty
 .contact-img-1 {
 	background-image: url("../../medias/img/contact/contact-1.png");
 	height: auto!important;
+	min-height: 400px;
 }
 .contact-img-2 {
 	background-image: url("../../medias/img/contact/contact-2.jpg");
 	height: auto!important;
+	min-height: 400px;
 }
 
 /* SPECIFIQUE CGV - MENTIONS */
@@ -326,9 +328,11 @@ input[type=text]:focus, input[type=tel]:focus, input[type=email]:focus, input[ty
 }
 
 .article-img-noel-1 {
-	background-image: url("../../medias/img/cadeaux/slider-1.jpg");
+	/* FOND NOEL : background-image: url("../../medias/img/cadeaux/slider-1.jpg"); */
+	background-image: url("../../medias/img/home/hero_3.webp");
 }
 
+/* Specifique carte cadeau */
 .cadeau-img-1 {
 	background-image: url("../../medias/img/cadeaux/paquet.png");
 }
