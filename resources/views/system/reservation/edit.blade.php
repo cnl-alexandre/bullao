@@ -241,15 +241,15 @@
                                             <option value="">Pas de pack sélectionné</option>
                                             @foreach($packs as $pack)
                                                 @if($reservation->reservation_pack_id == $pack->pack_id)
-                                                    <option value="{{ $pack->pack_id }}" selected>{{ $pack->pack_libelle }}</option>
+                                                    <option value="{{ $pack->pack_id }}" selected>{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</option>
                                                 @else
-                                                    <option value="{{ $pack->pack_id }}">{{ $pack->pack_libelle }}</option>
+                                                    <option value="{{ $pack->pack_id }}">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</option>
                                                 @endif
                                             @endforeach
                                         @else
                                             <option value="">Sélection du pack</option>
                                             @foreach($packs as $pack)
-                                                <option value="{{ $pack->pack_id }}">{{ $pack->pack_libelle }}</option>
+                                                <option value="{{ $pack->pack_id }}">{{ $pack->pack_libelle }} - {{ $pack->pack_prix }}€</option>
                                             @endforeach
                                         @endif
                                     </select>
