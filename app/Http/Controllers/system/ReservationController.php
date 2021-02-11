@@ -68,12 +68,11 @@ class ReservationController extends Controller
 
         Mail::send('emails.customer.confirmation', ['reservation' => $reservation], function($mess) use ($reservation){
             $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
-            $mess->to($reservation->client->client_email);          // Mail du client
-            // $mess->cc('jer.lemont@gmail.com');
+            $mess->to($reservation->reservation_email);          // Mail du client
             $mess->subject('Bullao : confirmation de réservation');
         });
 
-        Session::put('success', 'Le mail client a bien été envoyé');
+        Session::put('success', 'Le mail client a bien été envoyé à : '.$reservation->reservation_email);
         return redirect('/system/reservations/edit/'.$id);
     }
 
@@ -88,7 +87,7 @@ class ReservationController extends Controller
             $mess->subject('Bullao : Nouvelle réservation !');
         });
 
-        Session::put('success', 'Le mail admin a bien été envoyé');
+        Session::put('success', 'Le mail admin a bien été envoyé à : '.env('MAIL_ADMIN'));
         return redirect('/system/reservations/edit/'.$id);
     }
 

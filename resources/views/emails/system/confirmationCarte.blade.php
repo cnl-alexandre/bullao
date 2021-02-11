@@ -23,7 +23,7 @@
 											<tr>
 												<td width="100%" height="80" bgcolor="#194F9A" style="text-align: center;">
 													<a href="{{ url('/') }}" rel="noopener noreferrer" target="_blank" style="text-decoration: none;">
-														<img src="http://www.bullao.fr/assets/logo-blanc.png" alt="Logo Bullao" width="180">
+														<img src="https://www.bullao.fr/medias/img/logos/logo-blanc.png" alt="Logo Bullao" width="180">
 													</a>
 												</td>
 											</tr>
