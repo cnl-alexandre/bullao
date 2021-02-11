@@ -143,7 +143,7 @@
                                     <div class="col-5 form-group">
                                         <label for="departement">Le département :</label>
                                         <select class="form-control" name="departement" id="departement" required>
-                                            <option value="" disabled selected hidden>77 ou 75 ?</option>
+                                            <option value="" disabled selected hidden>Choisir</option>
                                             <option value="75">75</option>
                                             <option value="77">77</option>
                                             <option value="93">93</option>
