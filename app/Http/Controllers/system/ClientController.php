@@ -58,8 +58,10 @@ class ClientController extends Controller
     {
         $client = Client::find($id);
         $reservations = Reservation::where('reservation_client_id', '=', $id)
+                                    ->where('reservation_active', '=', 1)
                                     ->orderby('reservation_date_debut', 'ASC')
                                     ->get();
+
         $adresses = Adresse::where('adresse_client_id', '=', $id)
                             ->orderby('adresse_id', 'ASC')
                             ->get();
