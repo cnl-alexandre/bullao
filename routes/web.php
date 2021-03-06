@@ -20,8 +20,16 @@ Route::get('/maintenance', 'MaintenanceController@index');
 Route::get('/', 'HomeController@home')                                                                              ->middleware('maintenance');
 
 // RÉSERVATION
-Route::get('/reservation', 'ReservationController@reservationStep1')                                                ->middleware('maintenance');
-Route::post('/reservation', 'ReservationController@reservationStep1Submit');
+Route::get('/reservation/dates', 'ReservationController@reservationDates')                                          ->middleware('maintenance');
+Route::post('/reservation/dates', 'ReservationController@reservationDatesSubmit');
+Route::get('/reservation/spas', 'ReservationController@reservationSpas')                                            ->middleware('maintenance');
+Route::post('/reservation/spas', 'ReservationController@reservationSpasSubmit');
+Route::get('/reservation/packs', 'ReservationController@reservationPacks')                                          ->middleware('maintenance');
+Route::post('/reservation/packs', 'ReservationController@reservationPacksSubmit');
+Route::get('/reservation/accessoires', 'ReservationController@reservationAccessoires')                              ->middleware('maintenance');
+Route::post('/reservation/accessoires', 'ReservationController@reservationAccessoiresSubmit');
+Route::get('/reservation/recap', 'ReservationController@reservationRecap')                              ->middleware('maintenance');
+Route::post('/reservation/recap', 'ReservationController@reservationRecapSubmit');
 Route::get('/reservation/informations', 'ReservationController@reservationStep2')                                   ->middleware('maintenance');
 Route::post('/reservation/informations', 'ReservationController@reservationStep2Submit');
 

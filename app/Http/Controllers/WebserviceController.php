@@ -90,26 +90,19 @@ class WebserviceController extends Controller
         $reserv = [];
         $nbSpaReserv = [];
 
-        if(count($reservations) > 0)
-        {
-            foreach($reservations as $reservation)
-            {
+        if(count($reservations) > 0){
+            foreach($reservations as $reservation){
                 $nbSpaReserv[$reservation->reservation_spa_id] = 0;
             }
 
-            foreach($reservations as $reservation)
-            {
+            foreach($reservations as $reservation){
                 $nbSpaReserv[$reservation->reservation_spa_id] = $nbSpaReserv[$reservation->reservation_spa_id] + 1;
             }
 
-            foreach($reservations as $reservation)
-            {
-                if($reservation->reservation_spa_id != NULL)
-                {
-                    if($nbSpaReserv[$reservation->reservation_spa_id] >= $reservation->spa->spa_stock)
-                    {
-                        if(!in_array($reservation->reservation_spa_id, $reserv))
-                        {
+            foreach($reservations as $reservation){
+                if($reservation->reservation_spa_id != NULL){
+                    if($nbSpaReserv[$reservation->reservation_spa_id] >= $reservation->spa->spa_stock){
+                        if(!in_array($reservation->reservation_spa_id, $reserv)){
                             array_push($reserv, $reservation->reservation_spa_id);
                         }
                     }

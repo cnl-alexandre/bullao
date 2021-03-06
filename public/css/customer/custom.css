@@ -48,11 +48,6 @@ h1, h2, h3, h4, h5,
 	color : #3582EC;
 }
 
-@media all and (max-width: 425px){
-	.block-heading-1 .h2-reservation {
-			font-size: 1.6rem;
-	}
-}
 /* .block-team-member-1-spa {
 	display: flex;
 } */
@@ -63,9 +58,9 @@ h1, h2, h3, h4, h5,
 @media all and (max-width: 767px){
 	.input-row-step1-responsive {
 		display: flex;
-		flex-direction: row;
-		justify-content: space-evenly;
-		padding: 15px 10px 8px 10px;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		padding: 15px 5px 8px 5px;
 		text-align: left!important;
 	}
 	.input-row-step1-responsive img, .accessoire-recap img {
@@ -88,7 +83,7 @@ h1, h2, h3, h4, h5,
 
 @media all and (max-width: 563px){
 	.block-team-member-1 {
-	    padding: 20px;
+	    padding: 15px 0px 10px;
 	}
 	.block-team-member-1 h3 {
 	    font-size: 16px;
@@ -260,7 +255,50 @@ h1, h2, h3, h4, h5,
 	width: 100%;
 }
 
+
+/**********************************/
 /* SPECIFIQUE TUNNEL ACHAT GLOBAL */
+/**********************************/
+
+.tunnel-achat .block-heading{
+	text-align: center;
+}
+@media all and (max-width: 767px){
+	.tunnel-achat .block-heading{
+		text-align: initial;
+	}
+}
+
+.tunnel-achat .block-heading p{
+	margin-bottom: 0.5rem;
+}
+.tunnel-achat .block-heading a{
+	color: #939393;
+}
+
+.tunnel-achat h2{
+	font-size: 1.25rem;
+	color: #333333;
+}
+
+
+@media all and (max-width: 767px){
+	.tunnel-achat .sticky {
+	  position: fixed;
+	  bottom: 0;
+	  width: 100%;
+	  z-index: 10;
+	}
+}
+@media all and (max-width: 767px){
+	.tunnel-achat input[type=submit]{
+		width: 100%;
+		border-radius: 0;
+		height: 55px;
+	}
+}
+
+
 .ariane-section {
 	padding-top: 6rem;
 	padding-bottom: 2rem;
@@ -275,6 +313,8 @@ h1, h2, h3, h4, h5,
 		width: 25px;
 	}
 }
+
+
 @media all and (max-width: 767px){
 	.site-step-1 .array_packs .block-team-member-1 img {
 		width: 100px;

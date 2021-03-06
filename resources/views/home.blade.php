@@ -11,7 +11,7 @@
                 <div class="col-md-12 col-lg-8">
                     <h1 data-aos="fade-up" data-aos-delay="">Prenez le temps <br>de vous détendre</h1>
                     <p class="mt-3 mb-4" data-aos="fade-up" data-aos-delay="100">La location personnalisée de spas-jacuzzi<br>à Marne-la-Vallée et Paris.</p>
-                    <p data-aos="fade-up" data-aos-delay="200"><a href="{{ url('/reservation') }}" class="btn btn-outline-white border-w-2 btn-md">Réserver un spa-jacuzzi</a></p>
+                    <p data-aos="fade-up" data-aos-delay="200"><a href="{{ url('/reservation/dates') }}" class="btn btn-outline-white border-w-2 btn-md">Réserver un spa-jacuzzi</a></p>
                 </div>
             </div>
         </div>
