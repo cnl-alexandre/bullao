@@ -306,26 +306,26 @@ class ReservationController extends Controller
     public function reservationAccessoiresSubmit(Request $request)
     {
         $res = Session::get('reservation');
+        $accessoires = [];
 
-        // if(isset($request->accessoires) && count($request->accessoires) > 0)
-        // {
-        //     foreach($request->accessoires as $accessoire)
-        //     {
-        //         $reservationAccessoire = new ReservationAccessoire;
-        //         $reservationAccessoire->create($accessoire, $res->reservation_id);
-        //
-        //         $accessory = Accessoire::find($accessoire);
-        //
-        //         $montant_total += $accessory->accessoire_prix;
-        //     }
-        // }
-        //
-        // $res->montant_total        = $montant_total;
+        if(isset($request->accessoires) && count($request->accessoires) > 0)
+        {
+            $montant_total = $res->reservation_montant_total;
+            foreach($request->accessoires as $accessoire)
+            {
+                $accessory = Accessoire::find($accessoire);
+        
+                $montant_total += $accessory->accessoire_prix;
+
+                array_push($accessoires, $accessory);
+            }
+        }
+        
+        $res->reservation_montant_total = $montant_total;
 
 
+        Session::put('accessoires', $accessoires);
         Session::put('reservation', $res);
-
-        // var_dump($res);
 
         return redirect('/reservation/recap');
     }
@@ -335,9 +335,10 @@ class ReservationController extends Controller
         if(Session::get('reservation'))
         {
             $res = Session::get('reservation');
+            $accessoires = Session::get('reservation');
 
             return view('reservation.recap')->with([
-                // 'accessoires'   => $accessoires,
+                'accessoires'   => $accessoires,
                 // 'reserv'        => $reserv,
                 'reservation'   => $res,
                 'action'        => url('/reservation/recap')
