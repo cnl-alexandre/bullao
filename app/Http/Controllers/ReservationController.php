@@ -144,9 +144,7 @@ class ReservationController extends Controller
 
         Session::put('reservation', $res);
 
-        var_dump($res);
-
-        // return redirect('/reservation/packs');
+        return redirect('/reservation/packs');
     }
 
     public function reservationPacks()
@@ -319,13 +317,11 @@ class ReservationController extends Controller
 
                 array_push($accessoires, $accessory);
             }
+            $res->reservation_montant_total = $montant_total;
         }
-        
-        $res->reservation_montant_total = $montant_total;
 
-
-        Session::put('accessoires', $accessoires);
         Session::put('reservation', $res);
+        Session::put('accessoires', $accessoires);
 
         return redirect('/reservation/recap');
     }
@@ -335,18 +331,17 @@ class ReservationController extends Controller
         if(Session::get('reservation'))
         {
             $res = Session::get('reservation');
-            $accessoires = Session::get('reservation');
+            $accessoires = Session::get('accessoires');
 
             return view('reservation.recap')->with([
                 'accessoires'   => $accessoires,
-                // 'reserv'        => $reserv,
                 'reservation'   => $res,
                 'action'        => url('/reservation/recap')
             ]);
         }
         else
         {
-            return redirect('/reservation/recap');
+            return redirect('/reservation/dates');
         }
     }
 
