@@ -287,7 +287,7 @@ h1, h2, h3, h4, h5,
 	  position: fixed;
 	  bottom: 0;
 	  width: 100%;
-	  z-index: 10;
+	  z-index: 11110;
 	}
 }
 @media all and (max-width: 767px){

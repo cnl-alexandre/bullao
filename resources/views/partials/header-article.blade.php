@@ -1,10 +1,3 @@
-<div id="overlayer"></div>
-<div class="loader">
-    <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Chargement...</span>
-    </div>
-</div>
-
 <div class="site-wrap"  id="home-section">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -46,7 +39,7 @@
                     <nav class="site-navigation text-right ml-auto " role="navigation">
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                             <li><a href="{{ url('/') }}" class="nav-link">Notre concept</a></li>
-                            <li><a href="{{ url('/reservation') }}" class="nav-link">Réserver un spa</a></li>
+                            <li><a href="{{ url('/reservation/dates') }}" class="nav-link">Réserver un spa</a></li>
                             <li><a href="{{ url('/cartecadeau') }}" class="nav-link">Carte cadeau</a></li>
                             <li><a href="{{ url('/contact') }}" class="nav-link">Nous contacter</a></li>
                         </ul>

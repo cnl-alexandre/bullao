@@ -25,7 +25,7 @@
     <div class="site-section tunnel-achat picker-section" id="datepicker-section">
         <div class="container">
             <div class="row mt-5 justify-content-center">
-                <div class="col-md-7">
+                <div class="col-md-7 mt-2">
                     <div class="block-heading" data-aos="" data-aos-delay="">
                         <h2 class="h2-reservation">Commencer une reservation</h2>
                         <p>Choisissez les dates pour afficher les spas disponibles.</p>
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="row justify-content-center mt-4">
-                <div class="col-12 px-0 text-center sticky" style="z-index: 10;">
+                <div class="col-12 px-0 text-center sticky">
                     <input type="submit" name="" value="Continuer" id="btn-confirm" class="btn btn-primary btn-md text-white">
                 </div>
             </div>

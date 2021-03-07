@@ -25,7 +25,7 @@
     <div class="site-section tunnel-achat bg-light" id="spas-section">
         <div class="container">
             <div class="row mt-5 justify-content-center">
-                <div class="col-md-8">
+                <div class="col-md-8 mt-2">
                     <div class="block-heading" data-aos="fade-up" data-aos-delay="">
                         <h2 class="h2-reservation">Choix du spa</h2>
                         <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a></p>
@@ -36,7 +36,7 @@
                 @if(count($spas) > 0)
                     @foreach($spas as $spa)
                         @if(!in_array($spa->spa_id, $reserv) && $spa->spa_stock > 0)
-                            <label for="spa-{{$spa->spa_id}}" class="btn btn-radio-custom col-lg-4 col-md-6 mb-1 spa-recap spa-no-disabled spa">
+                            <label for="spa-{{$spa->spa_id}}" class="btn btn-radio-custom col-lg-4 col-md-6 spa-recap spa-no-disabled spa">
                                 <input type="radio" name="spa" id="spa-{{$spa->spa_id}}" class="spa" autocomplete="off" value="{{$spa->spa_id}}">
                                 <div class="block-team-member-1 text-center input-row-step1-responsive radius">
                                     <figure class="col-4 col-md-12 mt-0 mb-0 pl-0">

@@ -28,7 +28,7 @@ Route::get('/reservation/packs', 'ReservationController@reservationPacks')      
 Route::post('/reservation/packs', 'ReservationController@reservationPacksSubmit');
 Route::get('/reservation/accessoires', 'ReservationController@reservationAccessoires')                              ->middleware('maintenance');
 Route::post('/reservation/accessoires', 'ReservationController@reservationAccessoiresSubmit');
-Route::get('/reservation/recap', 'ReservationController@reservationRecap')                              ->middleware('maintenance');
+Route::get('/reservation/recap', 'ReservationController@reservationRecap')                                          ->middleware('maintenance');
 Route::post('/reservation/recap', 'ReservationController@reservationRecapSubmit');
 Route::get('/reservation/informations', 'ReservationController@reservationStep2')                                   ->middleware('maintenance');
 Route::post('/reservation/informations', 'ReservationController@reservationStep2Submit');

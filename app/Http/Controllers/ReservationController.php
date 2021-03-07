@@ -139,12 +139,14 @@ class ReservationController extends Controller
         $daterange = Session::get('daterange');
         $joursSupp = $res->joursSupp($daterange);
 
-        $res->montant_total += $spa->spa_prix;
+        $res->montant_total = $spa->spa_prix;
         $res->montant_total += $spa->calculPrixJoursSupp($joursSupp);
 
         Session::put('reservation', $res);
 
-        return redirect('/reservation/packs');
+        var_dump($res);
+
+        // return redirect('/reservation/packs');
     }
 
     public function reservationPacks()
@@ -323,20 +325,21 @@ class ReservationController extends Controller
 
         Session::put('reservation', $res);
 
-        var_dump($res);
+        // var_dump($res);
 
-        // return redirect('/reservation/recap');
+        return redirect('/reservation/recap');
     }
 
     public function reservationRecap()
     {
         if(Session::get('reservation'))
         {
+            $res = Session::get('reservation');
 
             return view('reservation.recap')->with([
                 // 'accessoires'   => $accessoires,
                 // 'reserv'        => $reserv,
-                // 'reservation'   => $res,
+                'reservation'   => $res,
                 'action'        => url('/reservation/recap')
             ]);
         }

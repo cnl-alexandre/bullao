@@ -25,7 +25,7 @@
     <div class="site-section tunnel-achat bg-light" id="spas-section">
         <div class="container">
             <div class="row mt-5 justify-content-center">
-                <div class="col-md-8">
+                <div class="col-md-8 mt-2">
                     <div class="block-heading" data-aos="fade-up" data-aos-delay="">
                         <h2 class="h2-reservation">Ajouter de la décoration en plus ?</h2>
                         <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a></p>
