@@ -12,9 +12,9 @@
     <header class="site-navbar site-navbar-target py-4 py-lg-0" role="banner" style="position: fixed;background-color: white;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.10);z-index:999999999;">
         <div class="container my-2 my-lg-0">
             <div class="row align-items-center position-relative">
-                <div class="toggle-button d-inline-block d-lg-none pl-1" style="max-width:0%;left:0;margin-top: 6px;">
+                <div class="toggle-button d-inline-block d-lg-none pl-1" style="max-width:0%;left:0;margin-top: 0;">
                     <a href="{{ url()->previous() }}" class=" text-black mr-3">
-                        <span class="icon-menu h3"></span>
+                        <img src="{{ url('/medias/img/pictos/nav_back_arrow.svg') }}" style="width:22px;" alt="">
                     </a>
                 </div>
                 <div class="site-logo"  style="margin: auto;">

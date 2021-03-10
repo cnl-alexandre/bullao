@@ -45,7 +45,8 @@
                                     <div class="col-8 col-md-12 ml-1 ml-md-0">
                                         <h3 class="font-size-20 text-primaire">{{ $spa->spa_libelle }} - {{ $spa->spa_nb_place }} pers.</h3>
                                         <span class="d-block font-gray-6 font-size-14 mb-1"><?php echo $spa->spa_desc; ?></span>
-                                        <span class="d-block font-size-14 mb-1">{{ number_format($spa->spa_prix, 0, ',', ' ') }}€ @if($reservation->joursSupp() > 0)puis {{ number_format($spa->spa_prix_jour_supp, 0, ',', ' ') }}€/jour soit {{$spa->spa_prix+($spa->spa_prix_jour_supp*$reservation->joursSupp())}}€@endif</span>
+                                        <span class="d-block font-size-14 mb-1">{{ number_format($spa->spa_prix, 0, ',', ' ') }}€ @if($reservation->joursSupp() > 0)puis {{ number_format($spa->spa_prix_jour_supp, 0, ',', ' ') }}€/jour soit {{$spa->spa_prix+($spa->spa_prix_jour_supp*$reservation->joursSupp())}}€@endif @if($reservation->joursSupp() == 0 && $spa->spa_nb_place == 6) (2 jours minimum !) @endif</span>
+
                                     </div>
                                 </div>
                             </label>

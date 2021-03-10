@@ -22,18 +22,19 @@
 
     {{ csrf_field() }}
 
-    <div class="site-section tunnel-achat picker-section" id="datepicker-section">
+    <div class="site-section tunnel-achat picker-section bg-light" id="datepicker-section">
         <div class="container">
             <div class="row mt-5 justify-content-center">
                 <div class="col-md-7 mt-2">
                     <div class="block-heading" data-aos="" data-aos-delay="">
                         <h2 class="h2-reservation">Commencer une reservation</h2>
-                        <p>Choisissez les dates pour afficher les spas disponibles.</p>
+                        <p>Quand souhaitez-vous profiter d'un spa chez vous ?
+                            <br><small>La date de pose doit être différente de la date de retrait.</small></p>
                         <br>
                         <div class="text-center" id="containerdaterange" style="height:330px;">
                           <div class="form-group">
-                              <label for="daterange">Date de pose :</label>
-                              <input type="text" id="daterange" class="form-control daterange text-center" name="daterange">
+                              <label for="daterange">Choisir les dates :</label>
+                              <input readonly required type="text" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4} - [0-9]{2}/[0-9]{2}/[0-9]{4}" id="daterange" class="form-control daterange text-center" name="daterange">
                           </div>
                         </div>
                     </div>
@@ -125,7 +126,7 @@
             autoApply: true,
             alwaysShowCalendars: true,
             maxSpan: {
-                days: 5
+                days: 20
             },
             drops: "auto",
             isInvalidDate: function(date) {

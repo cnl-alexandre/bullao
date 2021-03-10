@@ -36,14 +36,17 @@
                 @if(count($accessoires) > 0)
                     @foreach($accessoires as $accessoire)
                         @if(!in_array($accessoire->accessoire_id, $reserv) && $accessoire->accessoire_stock > 0)
-                        <label for="accessoire-{{$accessoire->accessoire_id}}" class="btn btn-checkbox-custom col-lg-3 col-md-4 col-6 mb-3 accessoire-recap" data-aos="fade-up">
+                        <label for="accessoire-{{$accessoire->accessoire_id}}" class="btn btn-checkbox-custom col-lg-3 col-md-4 col-12 accessoire-recap">
                             <input type="checkbox" name="accessoires[]" id="accessoire-{{$accessoire->accessoire_id}}" autocomplete="off" value="{{$accessoire->accessoire_id}}">
-                            <div class="block-team-member-1 text-center rounded  radius" style="height: 100%;">
-                                <figure>
+                            <div class="block-team-member-1 block-accessoires rounded radius" style="height: 100%;">
+                                <figure class="m-0">
                                     <img src="{{url($accessoire->accessoire_chemin_img)}}" alt="Image" class="img-fluid rounded-circle">
                                 </figure>
-                                <h3 class="font-size-18 text-primaire">{{$accessoire->accessoire_libelle}}</h3>
-                                <span class="d-block font-gray-5 font-size-14 mb-1">{{$accessoire->accessoire_prix}}€</span>
+                                <div class="">
+                                    <h3 class="font-size-18 text-primaire mt-1">{{$accessoire->accessoire_libelle}}</h3>
+                                    <span class="d-block font-gray-5 font-size-14 mb-0">{{$accessoire->accessoire_prix}}€</span>
+                                </div>
+
                             </div>
                         </label>
                         @else
@@ -66,6 +69,14 @@
     @include('partials.footer-tunnel')
 </footer>
 
-
+<script>
+    // $("#btn-confirm").attr("value", "Continuer sans accessoire");
+    // $(".accessoire-recap").click(function() {
+    //     $("#btn-confirm").attr("value", "Continuer avec x accessoire(s)");
+    // })
+    // $(".no-pack").click(function() {
+    //     $("#btn-confirm").attr("value", "Continuer sans accessoire");
+    // })
+</script>
 
 @endsection

@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5,
 		padding: 15px 5px 8px 5px;
 		text-align: left!important;
 	}
-	.input-row-step1-responsive img, .accessoire-recap img {
+	.input-row-step1-responsive img {
 		width: 100px!important;
 	}
 	.btn-radio-custom .input-col-step1-responsive {
@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5,
 }
 
 .radio-custom .active .block-team-member-1, .checkbox-custom .active .block-team-member-1 {
-    border: solid 2px #f5a623;
+    border: solid 2px #007BFF;
 }
 
 @media all and (max-width: 563px){
@@ -105,9 +105,20 @@ h1, h2, h3, h4, h5,
 		}
 }
 
+textarea:focus, input:focus{
+    outline: 0;
+}
+*:focus {
+    outline: 0;
+}
 .btn:focus {
-  outline: none;
+  outline: 0;
   box-shadow: 0 0 0 0;
+}
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .height-pack {
@@ -280,8 +291,15 @@ h1, h2, h3, h4, h5,
 	font-size: 1.25rem;
 	color: #333333;
 }
+/* tunnel boxes */
 
+.tunnel-achat .tunnel-box{
+	background-color: white;
+	border: solid 2px #B6D9FF;
+	padding: 10px 20px;
+}
 
+/* tunnel achat cta sticky */
 @media all and (max-width: 767px){
 	.tunnel-achat .sticky {
 	  position: fixed;
@@ -298,7 +316,21 @@ h1, h2, h3, h4, h5,
 	}
 }
 
+@media all and (max-width: 767px){
+	.tunnel-achat .block-accessoires {
+		text-align: initial;
+		display: flex;
+	    flex-direction: row-reverse;
+	    justify-content: space-between;
+		padding: 10px 20px;
+	}
+	.tunnel-achat .block-accessoires img {
+		width: 50px;
+	}
+}
 
+
+/* tunnel ariane */
 .ariane-section {
 	padding-top: 6rem;
 	padding-bottom: 2rem;

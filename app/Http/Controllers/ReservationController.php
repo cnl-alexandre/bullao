@@ -308,16 +308,15 @@ class ReservationController extends Controller
 
         if(isset($request->accessoires) && count($request->accessoires) > 0)
         {
-            $montant_total = $res->reservation_montant_total;
+            $montant_total = $res->montant_total;
             foreach($request->accessoires as $accessoire)
             {
                 $accessory = Accessoire::find($accessoire);
-        
                 $montant_total += $accessory->accessoire_prix;
 
                 array_push($accessoires, $accessory);
             }
-            $res->reservation_montant_total = $montant_total;
+            $res->montant_total = $montant_total;
         }
 
         Session::put('reservation', $res);
@@ -343,6 +342,152 @@ class ReservationController extends Controller
         {
             return redirect('/reservation/dates');
         }
+    }
+
+    public function reservationRecapSubmit(Request $request)
+    {
+
+        return redirect('/reservation/heures');
+    }
+
+    public function reservationHeures()
+    {
+        if(Session::get('reservation'))
+        {
+            $res = Session::get('reservation');
+
+            return view('reservation.heures')->with([
+                'reservation'   => $res,
+                'action'        => url('/reservation/heures')
+            ]);
+        }
+        else
+        {
+            return redirect('/reservation/dates');
+        }
+    }
+
+    public function reservationHeuresSubmit(Request $request)
+    {
+
+        return redirect('/reservation/logement');
+    }
+
+    public function reservationLogement()
+    {
+        if(Session::get('reservation'))
+        {
+            $res = Session::get('reservation');
+
+
+
+            return view('reservation.logement')->with([
+                'reservation'   => $res,
+                'action'        => url('/reservation/logement')
+            ]);
+        }
+        else
+        {
+            return redirect('/reservation/dates');
+        }
+    }
+
+    public function reservationLogementSubmit(Request $request)
+    {
+        $res = Session::get('reservation');
+
+        $res->logement = $request->logement;
+        $res->emplacement = $request->emplacement;
+        $res->remplissage = $request->remplissage;
+
+        Session::put('reservation', $res);
+
+        return redirect('/reservation/adresse');
+    }
+
+    public function reservationAdresse()
+    {
+        if(Session::get('reservation'))
+        {
+            $res = Session::get('reservation');
+
+            return view('reservation.adresse')->with([
+                'reservation'   => $res,
+                'action'        => url('/reservation/adresse')
+            ]);
+        }
+        else
+        {
+            return redirect('/reservation/dates');
+        }
+    }
+
+    public function reservationAdresseSubmit(Request $request)
+    {
+        $res = Session::get('reservation');
+
+        $res->adresse = $request->adresse;
+        $res->ville = $request->ville;
+        $res->cp = $request->cp;
+        $res->departement = $request->departement;
+        $res->complement = $request->complement;
+
+        Session::put('reservation', $res);
+
+        return redirect('/reservation/client');
+    }
+
+    public function reservationClient()
+    {
+        if(Session::get('reservation'))
+        {
+            $res = Session::get('reservation');
+
+            return view('reservation.client')->with([
+                'reservation'   => $res,
+                'action'        => url('/reservation/client')
+            ]);
+        }
+        else
+        {
+            return redirect('/reservation/dates');
+        }
+    }
+
+    public function reservationClientSubmit(Request $request)
+    {
+        $res = Session::get('reservation');
+
+        $res->name = $request->name;
+        $res->email = $request->email;
+        $res->phone = $request->phone;
+
+        Session::put('reservation', $res);
+
+        return redirect('/reservation/confirmation');
+    }
+
+    public function reservationConfirmation()
+    {
+        if(Session::get('reservation'))
+        {
+            $res = Session::get('reservation');
+
+            return view('reservation.confirmation')->with([
+                'reservation'   => $res,
+                'action'        => url('/reservation/confirmation')
+            ]);
+        }
+        else
+        {
+            return redirect('/reservation/dates');
+        }
+    }
+
+    public function reservationConfirmationSubmit(Request $request)
+    {
+
+        return redirect('/reservation/paiement');
     }
 
     public function reservationStep1($nbPlace = 4)
