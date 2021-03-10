@@ -19,7 +19,7 @@ Route::get('/maintenance', 'MaintenanceController@index');
 // HOME
 Route::get('/', 'HomeController@home')                                                                              ->middleware('maintenance');
 
-// RÉSERVATION
+// TUNNEL ACHAT (Réservation & Carte cadeau)
 Route::get('/reservation/dates', 'ReservationController@reservationDates')                                          ->middleware('maintenance');
 Route::post('/reservation/dates', 'ReservationController@reservationDatesSubmit');
 Route::get('/reservation/spas', 'ReservationController@reservationSpas')                                            ->middleware('maintenance');

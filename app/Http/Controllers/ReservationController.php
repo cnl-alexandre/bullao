@@ -338,6 +338,9 @@ class ReservationController extends Controller
                 'action'        => url('/reservation/recap')
             ]);
         }
+        elseif(Session::get('carte')) {
+
+        }
         else
         {
             return redirect('/reservation/dates');
@@ -346,6 +349,9 @@ class ReservationController extends Controller
 
     public function reservationRecapSubmit(Request $request)
     {
+        $res = Session::get('reservation');
+
+        
 
         return redirect('/reservation/heures');
     }
