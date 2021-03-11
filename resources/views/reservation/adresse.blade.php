@@ -26,33 +26,57 @@
         <div class="container">
             <div class="row mt-5 justify-content-center">
                 <div class="col-md-6 mt-2">
-                    <div class="block-heading" data-aos="" data-aos-delay="">
+                    <div class="block-heading text-left" data-aos="" data-aos-delay="">
                         <h2 class="h2-reservation">À propos de chez vous</h2>
-                        <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }} - {{ $reservation->spa_libelle }}</a></p>
-                        <br>
+                        <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}"> {{ $reservation->spa_libelle }}</a></p>
                         <div class="form-group mb-4">
-                            <label for="adresse1">L'adresse :</label>
-                            <input type="text" id="adresse1" class="form-control" name="adresse1" maxlength="100" placeholder="39 chemin de la porte verte" required>
+                            <label for="adresse">Numéro et rue :</label>
+                            <input type="text" id="adresse" class="form-control adresse" name="adresse" maxlength="100" placeholder="39 chemin de la porte verte" required>
                         </div>
                         <div class="row">
-                        <div class="col-7 form-group">
-                            <label for="ville">La ville :</label>
-                            <input type="text" id="ville" class="form-control" name="ville" maxlength="100" placeholder="Montévrain" required>
+                            <div class="col-7 form-group mb-4">
+                                <label for="ville">La ville :</label>
+                                <input type="text" id="ville" class="form-control ville" name="ville" maxlength="100" placeholder="Montévrain" required>
+                            </div>
+                            <div class="col-5 form-group mb-4">
+                                <label for="cp">Code postal :</label>
+                                <input type="text" id="cp" class="form-control cp" name="cp" maxlength="5" required>
+                            </div>
                         </div>
-                        <div class="col-5 form-group">
-                            <label for="departement">Le département :</label>
-                            <select class="form-control" name="departement" id="departement" required>
-                                <option value="" disabled selected hidden>Choisir</option>
-                                <option value="75">75</option>
-                                <option value="77">77</option>
-                                <option value="93">93</option>
-                            </select>
-                            <!-- <input type="tel" id="cp" class="form-control" name="cp"> -->
+                        <div class="row">
+                            <div class="col-12 form-group mb-4">
+                                <label for="departement">Le département :</label>
+                                <select class="form-control" name="departement" id="departement" required>
+                                    <option value="" disabled selected hidden>Choisir</option>
+                                    <option value="75">75 - Paris</option>
+                                    <option value="77">77 - Seine et Marne</option>
+                                    <option value="93">93 - Seine-Saint-Denis</option>
+                                </select>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col-7 form-group mb-4">
+                                <label for="etage">Étage :</label>
+                                <select class="form-control" name="etage" id="etage" required>
+                                    <option value="" disabled selected hidden>Choisir</option>
+                                    <option value="Rez-de-chaussé">Rez-de-chaussé</option>
+                                    <option value="1er étage">1er étage</option>
+                                    <option value="2e étage">2e étage</option>
+                                    <option value="3e étage">3e étage</option>
+                                </select>
+                            </div>
+                            <div class="col-5 form-group mb-4">
+                                <label for="ascenceur">Ascenseur :</label>
+                                <select class="form-control" name="ascenceur" id="ascenceur" required>
+                                    <option value="" disabled selected hidden>Choisir</option>
+                                    <option value="Oui">Oui</option>
+                                    <option value="Non">Non</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group mb-4">
-                            <label for="adresse2">Complément d'adresse <small>(facultatif)</small> :</label>
-                            <input type="text" id="adresse2" class="form-control" name="adresse2" placeholder="3eme étage, code 3321" maxlength="100">
+                            <label for="complement">Complément d'adresse <small>(facultatif)</small> :</label>
+                            <input type="text" id="complement" class="form-control" name="complement" placeholder="code 3321, interphone 201" maxlength="100">
                         </div>
                     </div>
                 </div>
@@ -70,5 +94,6 @@
 <footer style="background-color:#ffffff;">
     @include('partials.footer-tunnel')
 </footer>
+
 
 @endsection

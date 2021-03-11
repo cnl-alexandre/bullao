@@ -63,10 +63,6 @@
                     @endif
                     @if($reservation->reservation_pack_id != NULL)
                         <hr>
-
-                        <div class="row mb-2">
-                            <img src="{{ url($reservation->pack->pack_chemin_img) }}" width="100px" style="padding-left: 15px;" alt="">
-                        </div>
                         <div class="row">
                             <div class="col-6 text-left text-black">
                                 + {{ $reservation->pack->pack_libelle }}
@@ -78,11 +74,6 @@
                     @endif
                     @if(count($accessoires) > 0)
                         <hr>
-                        <div class="row mb-2">
-                            @foreach($accessoires as $accessoire)
-                                <img src="{{ url($accessoire->accessoire_chemin_img) }}" width="100px" style="padding-left: 15px;" alt="">
-                            @endforeach
-                        </div>
                         @foreach($accessoires as $accessoire)
                             <div class="row">
                                 <div class="col-6 text-left text-black">
@@ -96,6 +87,13 @@
                     @endif
                 </div>
 
+                <div class="col-11 col-md-6 col-xl-4 tunnel-box radius mx-auto mb-3">
+                    {{ $reservation->name }}
+                    <br>{{ $reservation->adresse }}
+                    <br>{{ $reservation->ville }} - {{ $reservation->cp }} ({{ $reservation->departement }})
+
+                </div>
+
                 <div class="col-11 col-md-6 col-xl-4 tunnel-box radius text-right mx-auto mb-3">
                     <label for="" class="text-black mb-0">Sous-total de la réservation :</label>
                     <p class="mb-0">{{ $reservation->montant_total }} €</p>
@@ -106,7 +104,7 @@
             </div>
             <div class="row justify-content-center mt-4">
                 <div class="col-12 px-0 text-center sticky">
-                    <input type="submit" name="" value="Réserver ce spa" id="btn-confirm" class="btn btn-primary btn-md text-white">
+                    <input type="submit" name="" value="Procéder au paiement" id="btn-confirm" class="btn btn-primary btn-md text-white">
                 </div>
             </div>
         </div>

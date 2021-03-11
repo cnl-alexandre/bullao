@@ -302,10 +302,11 @@ textarea:focus, input:focus{
 /* tunnel achat cta sticky */
 @media all and (max-width: 767px){
 	.tunnel-achat .sticky {
-	  position: fixed;
-	  bottom: 0;
-	  width: 100%;
-	  z-index: 11110;
+	    position: fixed;
+	    bottom: 0;
+	    width: 100%;
+	    z-index: 11110;
+	    background-color: white;
 	}
 }
 @media all and (max-width: 767px){
@@ -359,10 +360,10 @@ textarea:focus, input:focus{
 	font-size: 1.2rem;
 }
 input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, input[type=select]:hover {
-	border: 1px solid #ff8b00;
+	border: 1px solid #007BFF;
 }
 input[type=text]:focus, input[type=tel]:focus, input[type=email]:focus, input[type=select]:focus {
-	border: 2px solid #ff8b00;
+	border: 2px solid #007BFF;
 }
 
 

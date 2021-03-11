@@ -36,7 +36,7 @@
                 @if(count($packs) > 0)
                     @foreach($packs as $pack)
                         @if(!in_array($pack->pack_id, $reserv) && $pack->pack_stock > 0)
-                        <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-6 col-md-12 mb-3 pack-recap" id="label-pack-{{ $pack->pack_id }}">
+                        <label for="pack-{{ $pack->pack_id }}" class="btn btn-radio-custom col-lg-6 col-md-12 pack-recap" id="label-pack-{{ $pack->pack_id }}">
                             <input type="radio" name="pack" id="pack-{{ $pack->pack_id }}" autocomplete="off" value="{{ $pack->pack_id }}">
                             <div class="block-team-member-1 text-left rounded d-flex input-col-step1-responsive radius">
                                 <figure class="col-4">
@@ -55,7 +55,7 @@
                 <label for="0" class="btn btn-radio-custom col-md-3 pack-recap no-pack" id="0" data-aos="fade-up">
                     <input type="radio" name="pack" id="0" autocomplete="off" value="">
                     <div class="block-team-member-1 text-center rounded d-flex" style="padding:30px;">
-                        <span class="d-block font-gray-9 font-size-14 mx-auto">Je ne prends pas de pack</span>
+                        <span class="d-block font-gray-9 font-size-14 mx-auto">Pas besoin de pack</span>
                     </div>
                 </label>
             </div>

@@ -39,6 +39,7 @@ class ReservationController extends Controller
 
         return view('reservation.dates')->with([
             'indispos'      => $indispos,
+            'back'          => url('/'),
             'action'        => url('/reservation/dates')
         ]);
     }
@@ -118,6 +119,7 @@ class ReservationController extends Controller
                 'spas'          => $spas,
                 'reserv'        => $reserv,
                 'reservation'   => $res,
+                'back'          => url('/reservation/dates'),
                 'action'        => url('/reservation/spas')
             ]);
         }
@@ -131,10 +133,10 @@ class ReservationController extends Controller
     {
         $res = Session::get('reservation');
 
-        $res->spa_id                                 = $request->spa;
+        $res->reservation_spa_id                          = $request->spa;
         $spa = Spa::find($request->spa);
-        $res->spa_libelle                            = $spa->spa_libelle.' '.$spa->spa_nb_place.' pers.';
-        $res->spa_prix                               = $spa->spa_prix;
+        $res->spa_libelle                     = $spa->spa_libelle.' '.$spa->spa_nb_place.' pers.';
+        $res->spa_prix                        = $spa->spa_prix;
 
         $daterange = Session::get('daterange');
         $joursSupp = $res->joursSupp($daterange);
@@ -143,6 +145,8 @@ class ReservationController extends Controller
         $res->montant_total += $spa->calculPrixJoursSupp($joursSupp);
 
         Session::put('reservation', $res);
+
+        // var_dump($res);
 
         return redirect('/reservation/packs');
     }
@@ -201,6 +205,7 @@ class ReservationController extends Controller
                 'packs'         => $packs,
                 'reserv'        => $reserv,
                 'reservation'   => $res,
+                'back'          => url('/reservation/spas'),
                 'action'        => url('/reservation/packs')
             ]);
         }
@@ -216,7 +221,7 @@ class ReservationController extends Controller
 
         if(isset($request->pack) && $request->pack != "")
         {
-            $res->pack_id          = $request->pack;
+            $res->reservation_pack_id          = $request->pack;
             $pack = Pack::find($request->pack);
             $res->pack_prix        = $pack->pack_prix;
             $res->pack_libelle     = $pack->pack_libelle;
@@ -292,6 +297,7 @@ class ReservationController extends Controller
                 'accessoires'   => $accessoires,
                 'reserv'        => $reserv,
                 'reservation'   => $res,
+                'back'          => url('/reservation/packs'),
                 'action'        => url('/reservation/accessoires')
             ]);
         }
@@ -332,9 +338,15 @@ class ReservationController extends Controller
             $res = Session::get('reservation');
             $accessoires = Session::get('accessoires');
 
+            $daterange = Session::get('daterange');
+            $joursSupp = $res->joursSupp($daterange);
+
+
             return view('reservation.recap')->with([
                 'accessoires'   => $accessoires,
                 'reservation'   => $res,
+                'joursSupp'     => $joursSupp,
+                'back'          => url('/reservation/accessoires'),
                 'action'        => url('/reservation/recap')
             ]);
         }
@@ -351,7 +363,10 @@ class ReservationController extends Controller
     {
         $res = Session::get('reservation');
 
-        
+        // Création de l'enregistrement BDD
+
+
+        Session::put('reservation', $res);
 
         return redirect('/reservation/heures');
     }
@@ -364,6 +379,7 @@ class ReservationController extends Controller
 
             return view('reservation.heures')->with([
                 'reservation'   => $res,
+                'back'          => url('/reservation/recap'),
                 'action'        => url('/reservation/heures')
             ]);
         }
@@ -375,6 +391,12 @@ class ReservationController extends Controller
 
     public function reservationHeuresSubmit(Request $request)
     {
+        $res = Session::get('reservation');
+
+        $res->HeureInstall = $request->HeureInstall;
+        $res->HeureDesinstall = $request->HeureDesinstall;
+
+        Session::put('reservation', $res);
 
         return redirect('/reservation/logement');
     }
@@ -385,10 +407,9 @@ class ReservationController extends Controller
         {
             $res = Session::get('reservation');
 
-
-
             return view('reservation.logement')->with([
                 'reservation'   => $res,
+                'back'          => url('/reservation/heures'),
                 'action'        => url('/reservation/logement')
             ]);
         }
@@ -408,6 +429,8 @@ class ReservationController extends Controller
 
         Session::put('reservation', $res);
 
+        // var_dump($res);
+
         return redirect('/reservation/adresse');
     }
 
@@ -419,6 +442,7 @@ class ReservationController extends Controller
 
             return view('reservation.adresse')->with([
                 'reservation'   => $res,
+                'back'          => url('/reservation/logement'),
                 'action'        => url('/reservation/adresse')
             ]);
         }
@@ -451,6 +475,7 @@ class ReservationController extends Controller
 
             return view('reservation.client')->with([
                 'reservation'   => $res,
+                'back'          => url('/reservation/adresse'),
                 'action'        => url('/reservation/client')
             ]);
         }
@@ -478,11 +503,22 @@ class ReservationController extends Controller
         if(Session::get('reservation'))
         {
             $res = Session::get('reservation');
+            $accessoires = Session::get('accessoires');
+
+            $daterange = Session::get('daterange');
+            $joursSupp = $res->joursSupp($daterange);
+
 
             return view('reservation.confirmation')->with([
+                'accessoires'   => $accessoires,
                 'reservation'   => $res,
+                'joursSupp'     => $joursSupp,
+                'back'          => url('/reservation/client'),
                 'action'        => url('/reservation/confirmation')
             ]);
+        }
+        elseif(Session::get('carte')) {
+
         }
         else
         {
@@ -492,6 +528,8 @@ class ReservationController extends Controller
 
     public function reservationConfirmationSubmit(Request $request)
     {
+        // Update de l'enregistrement BDD
+
 
         return redirect('/reservation/paiement');
     }
