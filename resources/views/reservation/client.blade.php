@@ -30,7 +30,7 @@
                         <h2 class="h2-reservation">À propos de vous</h2>
                         <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}"> {{ $reservation->spa_libelle }}</a></p>
                         <div class="form-group mb-4">
-                            <label for="name">Votre nom et prénom :</label>
+                            <label for="name">Votre prénom et nom :</label>
                             <input type="text" id="name" class="form-control" name="name" maxlength="100" placeholder="John Doe" required>
                         </div>
                         <div class="form-group mb-4">

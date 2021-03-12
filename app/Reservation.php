@@ -57,46 +57,91 @@ class Reservation extends Model
     //     return $this->belongsTo('App\Client', 'reservation_client_id', '...');
     // }
 
-    public function create($array)
+    public function create($array){
+
+        $this->reservation_date_debut           = $array->reservation_date_debut;
+        $this->reservation_date_fin             = $array->reservation_date_fin;
+
+        $this->reservation_spa_id               = $array->reservation_spa_id;
+        $this->reservation_spa_libelle          = $array->spa_libelle;
+        $this->reservation_prix                 = $array->spa_prix;
+
+        if(isset($array->reservation_pack_id) && $array->reservation_pack_id != "")
+        { // Si pack -> traitement
+            $this->reservation_pack_id              = $array->reservation_pack_id;
+            $this->reservation_prix_pack            = $array->pack_prix;
+        } // Fin si
+
+
+        // Si accessoires -> traitement
+
+        // Fin si
+
+        $this->reservation_montant_total        = $array->montant_total;
+
+        $this->save();
+    }
+
+    public function edit($array){
+
+
+        // Reprise create
+        //
+        // $this->reservation_heure_install
+        // $this->reservation_heure_desinstall
+        //
+        // $this->reservation_emplacement
+        // $this->reservation_remplissage
+        // $this->reservation_type_logement
+        // $this->reservation_source
+        //
+        //
+        // $this->reservation_email
+        // $this->reservation_phone
+
+
+    }
+
+    public function create2($array)
     {
         $montant_total = 0.00;
 
         if($array->step == 1 || $array->step == "")
         {
-            $daterange = $array->daterange;
-            $dates = explode(' - ', $daterange);
+            // $daterange = $array->daterange;
+            // $dates = explode(' - ', $daterange);
+            //
+            // $dateDebut = $this->dateFr2Us($dates[0]);
+            // $dateFin = $this->dateFr2Us($dates[1]);
+            //
+            // if($dateFin == $dateDebut)
+            // {
+            //     $dateFin = date('Y-m-d', strtotime($dateFin. ' + 1 days'));
+            // }
+            //
+            // $this->reservation_date_debut           = $dateDebut;
+            // $this->reservation_date_fin             = $dateFin;
 
-            $dateDebut = $this->dateFr2Us($dates[0]);
-            $dateFin = $this->dateFr2Us($dates[1]);
+            // $this->reservation_spa_id               = $array->spa;
+            // $spa = Spa::find($array->spa);
+            // $this->reservation_spa_libelle          = $spa->spa_libelle.' '.$spa->spa_nb_place.' places';
+            // $this->reservation_prix                 = $spa->spa_prix;
+            //
+            // $joursSupp = $this->joursSupp($daterange);
+            //
+            // $montant_total += $spa->spa_prix;
+            // $montant_total += $spa->calculPrixJoursSupp($joursSupp);
+            //
+            // if(isset($array->pack) && $array->pack != "")
+            // {
+            //     $this->reservation_pack_id          = $array->pack;
+            //     $pack = Pack::find($array->pack);
+            //     $this->reservation_prix_pack        = $pack->pack_prix;
+            //
+            //     $montant_total += $pack->pack_prix;
+            // }
 
-            if($dateFin == $dateDebut)
-            {
-                $dateFin = date('Y-m-d', strtotime($dateFin. ' + 1 days'));
-            }
-
-            $this->reservation_date_debut           = $dateDebut;
-            $this->reservation_date_fin             = $dateFin;
-
-            $this->reservation_spa_id               = $array->spa;
-            $spa = Spa::find($array->spa);
-            $this->reservation_spa_libelle          = $spa->spa_libelle.' '.$spa->spa_nb_place.' places';
-            $this->reservation_prix                 = $spa->spa_prix;
-
-            $joursSupp = $this->joursSupp($daterange);
-
-            $montant_total += $spa->spa_prix;
-            $montant_total += $spa->calculPrixJoursSupp($joursSupp);
-
-            if(isset($array->pack) && $array->pack != "")
-            {
-                $this->reservation_pack_id          = $array->pack;
-                $pack = Pack::find($array->pack);
-                $this->reservation_prix_pack        = $pack->pack_prix;
-
-                $montant_total += $pack->pack_prix;
-            }
-
-            $this->save();
+            // $this->save();
 
             if(isset($array->accessoires) && count($array->accessoires) > 0)
             {
@@ -111,8 +156,8 @@ class Reservation extends Model
                 }
             }
 
-            $this->reservation_montant_total        = $montant_total;
-            $this->save();
+            // $this->reservation_montant_total        = $montant_total;
+            // $this->save();
         }
         else if($array->step == 2 || $array->step == "")
         {
@@ -205,7 +250,7 @@ class Reservation extends Model
         }
     }
 
-    public function edit($array)
+    public function edit2($array)
     {
 
         $daterange = $array->daterange;

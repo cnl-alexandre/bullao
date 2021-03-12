@@ -30,69 +30,69 @@
                         <h2 class="h2-reservation">À propos des dates</h2>
                         <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}"> {{ $reservation->spa_libelle }}</a></p>
                         Heure de pose souhaité du spa le {{ $reservation->dateDebut->format('d/m') }} ?
-                        <div class="row d-flex justify-content-start btn-group btn-group-toggle radio-custom mb-2" data-toggle="buttons" required>
-                            <label for="heures" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
-                                <input type="radio" name="heures" class="heures" value="08:00">
+                        <div class="row d-flex justify-content-start btn-group btn-group-toggle radio-custom mb-3" data-toggle="buttons" required>
+                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
+                                <input type="radio" name="HeureInstall" class="HeureInstall" value="08:00">
                                 <div class="block-team-member-1 text-center rounded" style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">08:00</p>
                                 </div>
                             </label>
-                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureInstall" class="HeureInstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">09:00</p>
                                 </div>
                             </label>
-                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureInstall" class="HeureInstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">10:00</p>
                                 </div>
                             </label>
-                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureInstall" class="HeureInstall" value="08:00">
                                 <div class="block-team-member-1 text-center rounded" style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">11:00</p>
                                 </div>
                             </label>
-                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureInstall" class="HeureInstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">12:00</p>
                                 </div>
                             </label>
-                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureInstall" class="HeureInstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">13:00</p>
                                 </div>
                             </label>
-                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureInstall" class="HeureInstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">14:00</p>
                                 </div>
                             </label>
-                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureInstall" class="HeureInstall" value="08:00">
                                 <div class="block-team-member-1 text-center rounded" style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">15:00</p>
                                 </div>
                             </label>
-                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureInstall" class="HeureInstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">16:00</p>
                                 </div>
                             </label>
-                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb0 heures">
                                 <input type="radio" name="HeureInstall" class="HeureInstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">17:00</p>
                                 </div>
                             </label>
-                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
-                                <input type="radio" name="HeureInstall" class="HeureInstall" value="">
+                            <label for="HeureInstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
+                                <input type="radio" name="HeureInstall" class="HeureInstall" value="00:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">Autre</p>
                                 </div>
@@ -100,68 +100,68 @@
                         </div>
                         Heure de retrait souhaité du spa le {{ $reservation->dateFin->format('d/m') }} ?
                         <div class="row d-flex justify-content-start btn-group btn-group-toggle radio-custom" data-toggle="buttons" required>
-                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureDesinstall" class="HeureDesinstall" value="08:00">
                                 <div class="block-team-member-1 text-center rounded" style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">08:00</p>
                                 </div>
                             </label>
-                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureDesinstall" class="HeureDesinstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">09:00</p>
                                 </div>
                             </label>
-                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureDesinstall" class="HeureDesinstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">10:00</p>
                                 </div>
                             </label>
-                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureDesinstall" class="HeureDesinstall" value="08:00">
                                 <div class="block-team-member-1 text-center rounded" style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">11:00</p>
                                 </div>
                             </label>
-                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureDesinstall" class="HeureDesinstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">12:00</p>
                                 </div>
                             </label>
-                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureDesinstall" class="HeureDesinstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">13:00</p>
                                 </div>
                             </label>
-                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureDesinstall" class="HeureDesinstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">14:00</p>
                                 </div>
                             </label>
-                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureDesinstall" class="HeureDesinstall" value="08:00">
                                 <div class="block-team-member-1 text-center rounded" style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">15:00</p>
                                 </div>
                             </label>
-                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureDesinstall" class="HeureDesinstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">16:00</p>
                                 </div>
                             </label>
-                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
+                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
                                 <input type="radio" name="HeureDesinstall" class="HeureDesinstall" value="09:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">17:00</p>
                                 </div>
                             </label>
-                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3 mb-1 heures">
-                                <input type="radio" name="HeureDesinstall" class="HeureDesinstall" value="">
+                            <label for="HeureDesinstall" class="btn btn-radio-custom col-lg-3 col-md-3 col-3  heures">
+                                <input type="radio" name="HeureDesinstall" class="HeureDesinstall" value="00:00">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">Autre</p>
                                 </div>
@@ -190,7 +190,7 @@
             </div>
             <div class="row justify-content-center mt-4">
                 <div class="col-12 px-0 text-center sticky">
-                    <input type="submit" name="" value="Réserver ce spa" id="btn-confirm" class="btn btn-primary btn-md text-white">
+                    <input type="submit" name="" value="Continuer" id="btn-confirm" class="btn btn-primary btn-md text-white">
                 </div>
             </div>
         </div>

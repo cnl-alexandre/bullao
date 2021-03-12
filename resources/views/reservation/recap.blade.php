@@ -34,67 +34,73 @@
             </div>
             <div class="row d-flex flex-column justify-content-around" data-toggle="buttons">
 
-
-                <div class="col-11 col-md-6 col-xl-4 tunnel-box radius mx-auto mb-3">
-                    <img src="{{ url($reservation->spa->spa_chemin_img) }}" alt="Spa Intex choix réservation" width="150px">
-                    <div class="row" style="color: #525252">
-                        <div class="col-12 text-left">
-                            <b>Du {{ $reservation->dateDebut->format('d/m/Y') }} au {{ $reservation->dateFin->format('d/m/Y') }}</b>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 text-left text-black">
-                            {{ $reservation->spa_libelle }}
-                        </div>
-                        <div class="col-6 text-right">
-                            {{ number_format($reservation->spa_prix, 2, '.', ' ') }}€
-                        </div>
-                    </div>
-                    @if($joursSupp != "0")
-                        <div class="row">
-                            <div class="col-6 text-left text-black">
-                                + {{ $joursSupp }} jour(s) en plus
+                @if(isset($reservation))
+                    <div class="col-11 col-md-6 col-xl-4 tunnel-box radius mx-auto mb-3">
+                        <img src="{{ url($reservation->spa->spa_chemin_img) }}" alt="Spa Intex choix réservation" width="150px">
+                        <div class="row" style="color: #525252">
+                            <div class="col-12 text-left">
+                                <b>Du {{ $reservation->dateDebut->format('d/m/Y') }} au {{ $reservation->dateFin->format('d/m/Y') }}</b>
                             </div>
-                            <div class="col-6 text-right">
-                                {{ number_format($reservation->spa->calculPrixJoursSupp($joursSupp, $reservation->spa), 2, '.', ' ') }}€
-                            </div>
-                        </div>
-                    @endif
-                    @if($reservation->reservation_pack_id != NULL)
-                        <hr>
-
-                        <div class="row mb-2">
-                            <img src="{{ url($reservation->pack->pack_chemin_img) }}" width="100px" style="padding-left: 15px;" alt="">
                         </div>
                         <div class="row">
                             <div class="col-6 text-left text-black">
-                                + {{ $reservation->pack->pack_libelle }}
+                                {{ $reservation->spa_libelle }}
                             </div>
                             <div class="col-6 text-right">
-                                {{ number_format($reservation->pack->pack_prix, 2, '.', ' ') }}€
+                                {{ number_format($reservation->spa_prix, 2, '.', ' ') }}€
                             </div>
                         </div>
-                    @endif
-                    @if(count($accessoires) > 0)
-                        <hr>
-                        <div class="row mb-2">
-                            @foreach($accessoires as $accessoire)
-                                <img src="{{ url($accessoire->accessoire_chemin_img) }}" width="100px" style="padding-left: 15px;" alt="">
-                            @endforeach
-                        </div>
-                        @foreach($accessoires as $accessoire)
+                        @if($joursSupp != "0")
                             <div class="row">
                                 <div class="col-6 text-left text-black">
-                                    + {{ $accessoire->accessoire_libelle }}
+                                    + {{ $joursSupp }} jour(s) en plus
                                 </div>
                                 <div class="col-6 text-right">
-                                    {{ number_format($accessoire->accessoire_prix, 2, '.', ' ') }}€
+                                    {{ number_format($reservation->spa->calculPrixJoursSupp($joursSupp, $reservation->spa), 2, '.', ' ') }}€
                                 </div>
                             </div>
-                        @endforeach
-                    @endif
-                </div>
+                        @endif
+                        @if($reservation->reservation_pack_id != NULL)
+                            <hr>
+
+                            <div class="row mb-2">
+                                <img src="{{ url($reservation->pack->pack_chemin_img) }}" width="100px" style="padding-left: 15px;" alt="">
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-left text-black">
+                                    + {{ $reservation->pack->pack_libelle }}
+                                </div>
+                                <div class="col-6 text-right">
+                                    {{ number_format($reservation->pack->pack_prix, 2, '.', ' ') }}€
+                                </div>
+                            </div>
+                        @endif
+                        @if(count($accessoires) > 0)
+                            <hr>
+                            <div class="row mb-2">
+                                @foreach($accessoires as $accessoire)
+                                    <img src="{{ url($accessoire->accessoire_chemin_img) }}" width="100px" style="padding-left: 15px;" alt="">
+                                @endforeach
+                            </div>
+                            @foreach($accessoires as $accessoire)
+                                <div class="row">
+                                    <div class="col-6 text-left text-black">
+                                        + {{ $accessoire->accessoire_libelle }}
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        {{ number_format($accessoire->accessoire_prix, 2, '.', ' ') }}€
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+                @endif
+
+                @if(isset($carte))
+                    <div class="col-11 col-md-6 col-xl-4 tunnel-box radius mx-auto mb-3">
+
+                    </div>
+                @endif
 
                 <div class="col-11 col-md-6 col-xl-4 tunnel-box radius text-right mx-auto mb-3">
                     <label for="" class="text-black mb-0">Sous-total de la réservation :</label>

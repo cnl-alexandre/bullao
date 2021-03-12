@@ -54,6 +54,7 @@
                                 </select>
                             </div>
                         </div>
+                        @if($reservation->logement == "Appartement")
                         <div class="row">
                             <div class="col-7 form-group mb-4">
                                 <label for="etage">Étage :</label>
@@ -63,6 +64,7 @@
                                     <option value="1er étage">1er étage</option>
                                     <option value="2e étage">2e étage</option>
                                     <option value="3e étage">3e étage</option>
+                                    <option value="3e étage"></option>
                                 </select>
                             </div>
                             <div class="col-5 form-group mb-4">
@@ -74,6 +76,7 @@
                                 </select>
                             </div>
                         </div>
+                        @endif
                         <div class="form-group mb-4">
                             <label for="complement">Complément d'adresse <small>(facultatif)</small> :</label>
                             <input type="text" id="complement" class="form-control" name="complement" placeholder="code 3321, interphone 201" maxlength="100">

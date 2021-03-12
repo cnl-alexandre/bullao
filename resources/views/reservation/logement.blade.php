@@ -32,13 +32,13 @@
                         Quel est votre logement ?
                         <div class="row d-flex justify-content-start btn-group btn-group-toggle radio-custom" data-toggle="buttons" required>
                             <label for="type_logement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3 typeLogement">
-                                <input type="radio" name="type_logement" class="typeLogement" value="Maison">
+                                <input type="radio" name="logement" class="typeLogement" value="Maison">
                                 <div class="block-team-member-1 text-center rounded" style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">Une maison</p>
                                 </div>
                             </label>
                             <label for="type_logement" class="btn btn-radio-custom col-lg-6 col-md-6 col-6 mb-3 typeLogement">
-                                <input type="radio" name="type_logement" class="typeLogement" value="Appartement">
+                                <input type="radio" name="logement" class="typeLogement" value="Appartement">
                                 <div class="block-team-member-1 text-center rounded"  style="padding: 14px 5px 8px 5px;">
                                     <p class="font-size-15" style="color: #525252;">Un appartement</p>
                                 </div>
