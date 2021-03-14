@@ -57,31 +57,6 @@ class Reservation extends Model
     //     return $this->belongsTo('App\Client', 'reservation_client_id', '...');
     // }
 
-    public function create($array){
-
-        $this->reservation_date_debut           = $array->reservation_date_debut;
-        $this->reservation_date_fin             = $array->reservation_date_fin;
-
-        $this->reservation_spa_id               = $array->reservation_spa_id;
-        $this->reservation_spa_libelle          = $array->spa_libelle;
-        $this->reservation_prix                 = $array->spa_prix;
-
-        if(isset($array->reservation_pack_id) && $array->reservation_pack_id != "")
-        { // Si pack -> traitement
-            $this->reservation_pack_id              = $array->reservation_pack_id;
-            $this->reservation_prix_pack            = $array->pack_prix;
-        } // Fin si
-
-
-        // Si accessoires -> traitement
-
-        // Fin si
-
-        $this->reservation_montant_total        = $array->montant_total;
-
-        $this->save();
-    }
-
     public function edit($array){
 
 

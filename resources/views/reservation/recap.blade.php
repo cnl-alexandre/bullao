@@ -28,7 +28,7 @@
                 <div class="col-md-8 mt-2">
                     <div class="block-heading" data-aos="fade-up" data-aos-delay="">
                         <h2 class="h2-reservation">Étape récapitulative</h2>
-                        <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}"> {{ $reservation->spa_libelle }}</a></p>
+                        <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}"> {{ $reservation->reservation_spa_libelle }}</a></p>
                     </div>
                 </div>
             </div>
@@ -44,10 +44,10 @@
                         </div>
                         <div class="row">
                             <div class="col-6 text-left text-black">
-                                {{ $reservation->spa_libelle }}
+                                {{ $reservation->reservation_spa_libelle }}
                             </div>
                             <div class="col-6 text-right">
-                                {{ number_format($reservation->spa_prix, 2, '.', ' ') }}€
+                                {{ number_format($reservation->reservation_prix, 2, '.', ' ') }}€
                             </div>
                         </div>
                         @if($joursSupp != "0")
@@ -104,7 +104,7 @@
 
                 <div class="col-11 col-md-6 col-xl-4 tunnel-box radius text-right mx-auto mb-3">
                     <label for="" class="text-black mb-0">Sous-total de la réservation :</label>
-                    <p class="mb-0">{{ $reservation->montant_total }} €</p>
+                    <p class="mb-0">{{ $reservation->reservation_montant_total }} €</p>
                 </div>
                 <!-- <div class="col-11 col-md-4 tunnel-box radius text-right mx-auto mb-3">
 

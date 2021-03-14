@@ -22,22 +22,31 @@ Route::get('/', 'HomeController@home')                                          
 // TUNNEL ACHAT (Réservation & Carte cadeau)
 Route::get('/reservation/dates', 'ReservationController@reservationDates')                                          ->middleware('maintenance');
 Route::post('/reservation/dates', 'ReservationController@reservationDatesSubmit');
+
 Route::get('/reservation/spas', 'ReservationController@reservationSpas')                                            ->middleware('maintenance');
 Route::post('/reservation/spas', 'ReservationController@reservationSpasSubmit');
+
 Route::get('/reservation/packs', 'ReservationController@reservationPacks')                                          ->middleware('maintenance');
 Route::post('/reservation/packs', 'ReservationController@reservationPacksSubmit');
+
 Route::get('/reservation/accessoires', 'ReservationController@reservationAccessoires')                              ->middleware('maintenance');
 Route::post('/reservation/accessoires', 'ReservationController@reservationAccessoiresSubmit');
+
 Route::get('/reservation/recap', 'ReservationController@reservationRecap')                                          ->middleware('maintenance');
 Route::post('/reservation/recap', 'ReservationController@reservationRecapSubmit');
+
 Route::get('/reservation/heures', 'ReservationController@reservationHeures')                                        ->middleware('maintenance');
 Route::post('/reservation/heures', 'ReservationController@reservationHeuresSubmit');
+
 Route::get('/reservation/logement', 'ReservationController@reservationLogement')                                    ->middleware('maintenance');
 Route::post('/reservation/logement', 'ReservationController@reservationLogementSubmit');
+
 Route::get('/reservation/adresse', 'ReservationController@reservationAdresse')                                      ->middleware('maintenance');
 Route::post('/reservation/adresse', 'ReservationController@reservationAdresseSubmit');
+
 Route::get('/reservation/client', 'ReservationController@reservationClient')                                        ->middleware('maintenance');
 Route::post('/reservation/client', 'ReservationController@reservationClientSubmit');
+
 Route::get('/reservation/confirmation', 'ReservationController@reservationConfirmation')                            ->middleware('maintenance');
 Route::post('/reservation/confirmation', 'ReservationController@reservationConfirmationSubmit');
 

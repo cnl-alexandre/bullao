@@ -6,6 +6,9 @@ use App\Indisponibilite;
 use App\Spa;
 use App\Pack;
 use App\Accessoire;
+use App\Adresse;
+use App\Client;
+use App\User;
 use App\ReservationAccessoire;
 use Illuminate\Http\Request;
 use App\Reservation;
@@ -20,21 +23,10 @@ class ReservationController extends Controller
         //$this->middleware('auth');
     }
 
-    // public function azerty(Request $request)
-    // {
-        // if(Session::get('reservation'))
-        // {
-        //
-        //
-        // }
-        // else
-        // {
-        //     return redirect('/reservation/dates');
-        // }
-    // }
-
     public function reservationDates()
     {
+        Session::forget('carte');
+
         $indispos       = Indisponibilite::where('indisponibilite_date', '>=', date('Y-m-d'))->get();
 
         return view('reservation.dates')->with([
@@ -141,16 +133,16 @@ class ReservationController extends Controller
 
         $res = Session::get('reservation');
 
-        $res->reservation_spa_id                          = $request->spa;
+        $res->reservation_spa_id                            = $request->spa;
         $spa = Spa::find($request->spa);
-        $res->spa_libelle                     = $spa->spa_libelle.' '.$spa->spa_nb_place.' pers.';
-        $res->spa_prix                        = $spa->spa_prix;
+        $res->reservation_spa_libelle                       = $spa->spa_libelle.' '.$spa->spa_nb_place.' pers.';
+        $res->reservation_prix                              = $spa->spa_prix;
 
         $daterange = Session::get('daterange');
         $joursSupp = $res->joursSupp($daterange);
 
-        $res->montant_total = $spa->spa_prix;
-        $res->montant_total += $spa->calculPrixJoursSupp($joursSupp);
+        $res->reservation_montant_total = $spa->spa_prix;
+        $res->reservation_montant_total += $spa->calculPrixJoursSupp($joursSupp);
 
         Session::put('reservation', $res);
 
@@ -226,18 +218,20 @@ class ReservationController extends Controller
     public function reservationPacksSubmit(Request $request)
     {
         $res = Session::get('reservation');
+        $pack = NULL;
 
         if(isset($request->pack) && $request->pack != "")
         {
-            $res->reservation_pack_id          = $request->pack;
+            $res->reservation_pack_id           = $request->pack;
             $pack = Pack::find($request->pack);
-            $res->pack_prix        = $pack->pack_prix;
-            $res->pack_libelle     = $pack->pack_libelle;
-            $res->montant_total += $pack->pack_prix;
+            $res->reservation_prix_pack         = $pack->pack_prix;
+            $res->reservation_montant_total     += $pack->pack_prix;
 
             Session::put('reservation', $res);
             // var_dump($res);
         }
+
+        Session::put('pack', $pack);
 
         return redirect('/reservation/accessoires');
     }
@@ -322,7 +316,7 @@ class ReservationController extends Controller
 
         if(isset($request->accessoires) && count($request->accessoires) > 0)
         {
-            $montant_total = $res->montant_total;
+            $montant_total = $res->reservation_montant_total;
             foreach($request->accessoires as $accessoire)
             {
                 $accessory = Accessoire::find($accessoire);
@@ -330,7 +324,7 @@ class ReservationController extends Controller
 
                 array_push($accessoires, $accessory);
             }
-            $res->montant_total = $montant_total;
+            $res->reservation_montant_total = $montant_total;
         }
 
         Session::put('reservation', $res);
@@ -358,15 +352,6 @@ class ReservationController extends Controller
                 'action'        => url('/reservation/recap')
             ]);
         }
-        elseif(Session::get('carte')) {
-            $carte = Session::get('carte');
-
-            return view('reservation.recap')->with([
-                'carte'         => $carte,
-                // 'back'          => url('/reservation/accessoires'),
-                'action'        => url('/reservation/recap')
-            ]);
-        }
         else
         {
             return redirect('/reservation/dates');
@@ -377,26 +362,25 @@ class ReservationController extends Controller
     {
         if(Session::get('reservation')){
 
-            $res = Session::get('reservation');
+            $reservation    = Session::get('reservation');
+            $pack           = Session::get('pack');
+            $accessoires    = Session::get('accessoires');
 
-            $reservation                            = new Reservation;
-            $reservation->create($res);
+            $reservation->save();
 
-            // Find id de la réservation créée
+            if($accessoires != NULL)
+            {
+                foreach($accessoires as $accessoire)
+                {
+                    $reservationAccessoire = new ReservationAccessoire;
+                    $reservationAccessoire->create($accessoire->accessoire_id, $reservation->reservation_id);
+                }
+            }
 
-            Session::put('reservation', $res);
+            Session::put('reservation', $reservation);
 
             return redirect('/reservation/heures');
 
-        }
-        elseif(Session::get('carte')) {
-        // Si carte
-            $carte = Session::get('carte');
-
-            // Création de l'enregistrement BDD
-
-
-            return redirect('/reservation/adresse');
         }
         else
         {
@@ -426,14 +410,14 @@ class ReservationController extends Controller
     public function reservationHeuresSubmit(Request $request)
     {
         $this->validate($request,[
-            'HeureInstall'               => 'required',
+            'HeureInstall'                  => 'required',
             'HeureDesinstall'               => 'required'
         ]);
 
         $res = Session::get('reservation');
 
-        $res->HeureInstall    = $request->HeureInstall;
-        $res->HeureDesinstall = $request->HeureDesinstall;
+        $res->reservation_heure_install    = $request->HeureInstall;
+        $res->reservation_heure_desinstall = $request->HeureDesinstall;
 
         Session::put('reservation', $res);
 
@@ -464,15 +448,15 @@ class ReservationController extends Controller
             'logement'                  => 'required',
             'emplacement'               => 'required',
             'remplissage'               => 'required',
-            'sources'                   => 'required'
+            'source'                    => 'required'
         ]);
 
         $res = Session::get('reservation');
 
-        $res->logement      = $request->logement;
-        $res->emplacement   = $request->emplacement;
-        $res->remplissage   = $request->remplissage;
-        $res->source        = $request->sources;
+        $res->reservation_type_logement         = $request->logement;
+        $res->reservation_emplacement           = $request->emplacement;
+        $res->reservation_remplissage           = $request->remplissage;
+        $res->reservation_source                = $request->source;
 
         Session::put('reservation', $res);
 
@@ -501,7 +485,6 @@ class ReservationController extends Controller
 
     public function reservationAdresseSubmit(Request $request)
     {
-
         $this->validate($request,[
             'adresse'               => 'required',
             'ville'                 => 'required',
@@ -511,16 +494,25 @@ class ReservationController extends Controller
         ]);
 
         $res = Session::get('reservation');
-
-        $res->adresse       = $request->adresse;
-        $res->ville         = $request->ville;
-        $res->cp            = $request->cp;
-        $res->departement   = $request->departement;
-        $res->complement    = $request->complement;
-        $res->etage         = $request->etage;
-        $res->ascenseur     = $request->ascenseur;
-
+        $res->reservation_rue           = $request->adresse;
+        $res->reservation_ville         = $request->ville;
+        $res->reservation_cp            = $request->cp;
+        $res->reservation_departement   = $request->departement;
+        $res->reservation_complement    = $request->complement;
+        $res->reservation_etage         = $request->etage;
+        $res->reservation_ascenseur     = $request->ascenseur;
         Session::put('reservation', $res);
+
+        $address = new Adresse;
+        $address->adresse_name              = "Principal";
+        $address->adresse_rue               = $request->adresse;
+        $address->adresse_cp                = $request->cp;
+        $address->adresse_ville             = $request->ville;
+        $address->adresse_complement        = $request->complement;
+        $address->adresse_departement       = $request->departement;
+        $address->adresse_etage             = $request->etage;
+        $address->adresse_ascenseur         = $request->ascenseur;
+        Session::put('address', $address);
 
         return redirect('/reservation/client');
     }
@@ -551,13 +543,16 @@ class ReservationController extends Controller
             'phone'                 => 'required'
         ]);
 
-        $res = Session::get('reservation');
+        $client = new Client;
+        $client->client_name        = $request->name;
+        $client->client_email       = $request->email;
+        $client->client_phone       = $request->phone;
+        Session::put('client', $client);
 
-        $res->name = $request->name;
-        $res->email = $request->email;
-        $res->phone = $request->phone;
-
-        Session::put('reservation', $res);
+        $reservation = Session::get('reservation');
+        $reservation->reservation_email = $request->email;
+        $reservation->reservation_phone = $request->phone;
+        Session::put('reservation', $reservation);
 
         return redirect('/reservation/confirmation');
     }
@@ -566,24 +561,26 @@ class ReservationController extends Controller
     {
         if(Session::get('reservation'))
         {
-            $res = Session::get('reservation');
-            $accessoires = Session::get('accessoires');
+            $res            = Session::get('reservation');
+            $accessoires    = Session::get('accessoires');
+            $adr            = Session::get('address');
+            $client         = Session::get('client');
 
-            $daterange = Session::get('daterange');
-            $joursSupp = $res->joursSupp($daterange);
+            $daterange      = Session::get('daterange');
+            $joursSupp      = $res->joursSupp($daterange);
 
-            var_dump($res);
+            // echo "<pre>";
+            // var_dump($client);
+            // echo "</pre>";
 
-            // return view('reservation.confirmation')->with([
-            //     'accessoires'   => $accessoires,
-            //     'reservation'   => $res,
-            //     'joursSupp'     => $joursSupp,
-            //     'back'          => url('/reservation/client'),
-            //     'action'        => url('/reservation/confirmation')
-            // ]);
-        }
-        elseif(Session::get('carte')) {
-
+            return view('reservation.confirmation')->with([
+                'accessoires'   => $accessoires,
+                'client'        => $client,
+                'reservation'   => $res,
+                'joursSupp'     => $joursSupp,
+                'back'          => url('/reservation/client'),
+                'action'        => url('/reservation/confirmation')
+            ]);
         }
         else
         {
@@ -593,90 +590,37 @@ class ReservationController extends Controller
 
     public function reservationConfirmationSubmit(Request $request)
     {
-        // Update de l'enregistrement BDD
-
-
-
-
-        return redirect('/reservation/paiement');
-    }
-
-    public function reservationStep1($nbPlace = 4)
-    {
-        $indispos       = Indisponibilite::where('indisponibilite_date', '>=', date('Y-m-d'))->get();
-        $packs          = Pack::orderby('pack_id', 'ASC')->get();
-
-        return view('reservation.step1')->with([
-            'indispos'      => $indispos,
-            'packs'         => $packs,
-            'nbPlace'       => $nbPlace
-        ]);
-    }
-
-    public function reservationStep1Submit(Request $request)
-    {
-        /*$this->validate($request,[
-            'daterange'         => 'required',
-            'spa'               => 'required',
-            'emplacement'       => 'required',
-            'installation'      => 'required',
-            'creneau'           => 'required',
-            'name'              => 'required',
-            'email'             => 'required',
-            'phone'             => 'required',
-            'adresse1'          => 'required',
-            'ville'             => 'required',
-            'cp'                => 'required'
-        ]);*/
-
-        $reservation                            = new Reservation;
-        $reservation->create($request);
-
-        $joursSupp = $reservation->joursSupp($request->daterange);
-
-        Session::put('reservation', $reservation);
-        Session::put('joursSupp', $joursSupp);
-        return redirect('/reservation/informations');
-    }
-
-    public function reservationStep2()
-    {
-        if(Session::get('reservation'))
+        // Enregistrement du client en BDD
+        $client = Session::get('client');
+        $u = User::where('user_login', 'LIKE', $client->client_email)->get();
+        if(count($u) == 0)
         {
-            $reservation = Session::get('reservation');
-            $joursSupp = Session::get('joursSupp');
+            $user = new User;
+            $user->user_login           = $client->client_email;
+            $user->user_password        = sha1($user->randomPassword(10));
+            $user->user_rank_id         = 2;
+            $user->save();
 
-            return view('reservation.step2')->with([
-                'reservation'   => $reservation,
-                'joursSupp'     => $joursSupp
-            ]);
+            $idUser = $user->user_id;
         }
         else
         {
-            return redirect('/');
+            $idUser = $u[0]->user_id;
         }
-    }
 
-    public function reservationStep2Submit(Request $request)
-    {
-        /*$this->validate($request,[
-            'daterange'         => 'required',
-            'spa'               => 'required',
-            'emplacement'       => 'required',
-            'installation'      => 'required',
-            'creneau'           => 'required',
-            'name'              => 'required',
-            'email'             => 'required',
-            'phone'             => 'required',
-            'adresse1'          => 'required',
-            'ville'             => 'required',
-            'cp'                => 'required'
-        ]);*/
+        $client->client_user_id       = $idUser;
+        $client->save();
 
-        $reservation                            = Reservation::find($request->id);
-        $reservation->create($request);
+        // Enregistrement de l'adresse dans la BDD
+        $adr = Session::get('address');
+        $adr->adresse_client_id = $client->client_id;
+        $adr->save();
 
-        Session::put('reservation', $reservation);
+        // Enregistrement de la réservation dans la BDD
+        $reservation = Session::get('reservation');
+        $reservation->reservation_client_id = $client->client_id;
+        $reservation->save();
+
         return redirect('/reservation/paiement');
     }
 
@@ -686,7 +630,7 @@ class ReservationController extends Controller
 
             $reservation = Session::get('reservation');
 
-            if(Session::get('montant_total') > 1){
+            if($reservation->reservation_montant_total > 1){
                 // Intention de paiement
                 \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
 
@@ -716,12 +660,14 @@ class ReservationController extends Controller
 
     public function success()
     {
-        $reservation = Session::get('reservation');
+        if(Session::get('reservation')) {
 
-        if (Session::get('reservation')) {
+            $reservation = Session::get('reservation');
+
             $r = Reservation::Find($reservation->reservation_id);
             $r->reservation_paye = 1;
             $r->reservation_active = 1;
+            $r->reservation_moyen_paiement = "Stripe";
 
             if(isset($reservation->reservation_cadeau_id) && $reservation->reservation_cadeau_id != NULL)
             {
@@ -762,18 +708,16 @@ class ReservationController extends Controller
 
             Session::put('reservation', $r);
 
-            $reservation = Session::get('reservation');
-
             // Mail destiné au client
-            Mail::send('emails.customer.confirmation', ['reservation' => $reservation], function($mess) use ($reservation){
+            Mail::send('emails.customer.confirmation', ['reservation' => $r], function($mess) use ($r){
                 $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
-                $mess->to($reservation->client->client_email);          // Mail du client
+                $mess->to($r->client->client_email);          // Mail du client
                 // $mess->cc('jer.lemont@gmail.com');
                 $mess->subject('Bullao : confirmation de réservation');
             });
 
             // Mail destiné aux Admins
-            Mail::send('emails.system.confirmation', ['reservation' => $reservation], function($mess){
+            Mail::send('emails.system.confirmation', ['reservation' => $r], function($mess){
                 $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
                 $mess->to(env('MAIL_ADMIN'));                           // Mail de l'admin
                 $mess->cc('contact@bullao.fr');
@@ -781,7 +725,9 @@ class ReservationController extends Controller
             });
 
             Session::forget('reservation');
-            Session::forget('montant_total');
+            Session::forget('client');
+            Session::forget('adresse');
+            Session::forget('accessoires');
             Session::forget('joursSupp');
 
             return view('reservation.paiement-accepte')->with([]);
@@ -795,6 +741,9 @@ class ReservationController extends Controller
     public function cancel()
     {
         Session::forget('reservation');
+        Session::forget('client');
+        Session::forget('adresse');
+        Session::forget('accessoires');
         Session::forget('joursSupp');
 
         return view('reservation.paiement-refuse')->with([]);

@@ -28,7 +28,7 @@
                 <div class="col-md-6 mt-2">
                     <div class="block-heading text-left" data-aos="" data-aos-delay="">
                         <h2 class="h2-reservation">À propos de chez vous</h2>
-                        <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}"> {{ $reservation->spa_libelle }}</a></p>
+                        <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}"> {{ $reservation->reservation_spa_libelle }}</a></p>
                         <div class="form-group mb-4">
                             <label for="adresse">Numéro et rue :</label>
                             <input type="text" id="adresse" class="form-control adresse" name="adresse" maxlength="100" placeholder="39 chemin de la porte verte" required>
@@ -54,28 +54,27 @@
                                 </select>
                             </div>
                         </div>
-                        @if($reservation->logement == "Appartement")
-                        <div class="row">
-                            <div class="col-7 form-group mb-4">
-                                <label for="etage">Étage :</label>
-                                <select class="form-control" name="etage" id="etage" required>
-                                    <option value="" disabled selected hidden>Choisir</option>
-                                    <option value="Rez-de-chaussé">Rez-de-chaussé</option>
-                                    <option value="1er étage">1er étage</option>
-                                    <option value="2e étage">2e étage</option>
-                                    <option value="3e étage">3e étage</option>
-                                    <option value="3e étage"></option>
-                                </select>
+                        @if($reservation->reservation_type_logement == "Appartement")
+                            <div class="row">
+                                <div class="col-7 form-group mb-4">
+                                    <label for="etage">Étage :</label>
+                                    <select class="form-control" name="etage" id="etage" required>
+                                        <option value="" disabled selected hidden>Choisir</option>
+                                        <option value="Rez-de-chaussé">Rez-de-chaussé</option>
+                                        <option value="1er étage">1er étage</option>
+                                        <option value="2e étage">2e étage</option>
+                                        <option value="3e étage">3e étage</option>
+                                    </select>
+                                </div>
+                                <div class="col-5 form-group mb-4">
+                                    <label for="ascenseur">Ascenseur :</label>
+                                    <select class="form-control" name="ascenseur" id="ascenseur" required>
+                                        <option value="" disabled selected hidden>Choisir</option>
+                                        <option value="Oui">Oui</option>
+                                        <option value="Non">Non</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-5 form-group mb-4">
-                                <label for="ascenceur">Ascenseur :</label>
-                                <select class="form-control" name="ascenceur" id="ascenceur" required>
-                                    <option value="" disabled selected hidden>Choisir</option>
-                                    <option value="Oui">Oui</option>
-                                    <option value="Non">Non</option>
-                                </select>
-                            </div>
-                        </div>
                         @endif
                         <div class="form-group mb-4">
                             <label for="complement">Complément d'adresse <small>(facultatif)</small> :</label>
