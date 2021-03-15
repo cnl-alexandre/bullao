@@ -28,7 +28,13 @@
                 <div class="col-md-8 mt-2">
                     <div class="block-heading" data-aos="fade-up" data-aos-delay="">
                         <h2 class="h2-reservation">Étape récapitulative</h2>
-                        <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}"> {{ $reservation->reservation_spa_libelle }}</a></p>
+                        <p>
+                            @if(isset($reservation))
+                                <a href="{{ url('/reservation/dates') }}">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}">{{ $reservation->reservation_spa_libelle }}</a>
+                            @elseif(isset($cadeau))
+                                {{ $cadeau->cadeau_offre }}
+                            @endif
+                        </p>
                     </div>
                 </div>
             </div>
@@ -94,25 +100,24 @@
                             @endforeach
                         @endif
                     </div>
-                @endif
-
-                @if(isset($carte))
+                    <div class="col-11 col-md-6 col-xl-4 tunnel-box radius text-right mx-auto mb-3">
+                        <label for="" class="text-black mb-0">Sous-total de la réservation :</label>
+                        <p class="mb-0">{{ $reservation->reservation_montant_total }} €</p>
+                    </div>
+                @elseif(isset($cadeau))
                     <div class="col-11 col-md-6 col-xl-4 tunnel-box radius mx-auto mb-3">
-
+                        <label for="" class="text-black mb-0">Sous-total de l'achat :</label>
+                        <p class="mb-0">{{ $cadeau->cadeau_montant }} €</p>
                     </div>
                 @endif
-
-                <div class="col-11 col-md-6 col-xl-4 tunnel-box radius text-right mx-auto mb-3">
-                    <label for="" class="text-black mb-0">Sous-total de la réservation :</label>
-                    <p class="mb-0">{{ $reservation->reservation_montant_total }} €</p>
-                </div>
-                <!-- <div class="col-11 col-md-4 tunnel-box radius text-right mx-auto mb-3">
-
-                </div> -->
             </div>
             <div class="row justify-content-center mt-4">
                 <div class="col-12 px-0 text-center sticky">
-                    <input type="submit" name="" value="Réserver ce spa" id="btn-confirm" class="btn btn-primary btn-md text-white">
+                    @if(isset($reservation))
+                        <input type="submit" name="" value="Réserver ce spa" id="btn-confirm" class="btn btn-primary btn-md text-white">
+                    @elseif(isset($cadeau))
+                        <input type="submit" name="" value="Réserver cette carte" id="btn-confirm" class="btn btn-primary btn-md text-white">
+                    @endif
                 </div>
             </div>
         </div>

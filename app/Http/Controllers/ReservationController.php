@@ -644,7 +644,8 @@ class ReservationController extends Controller
 
                 return view('reservation.paiement')->with([
                     'reservation'   => $reservation,
-                    'intent'        => $intent
+                    'intent'        => $intent,
+                    'action'        => url('/reservation/paiement')
                 ]);
             }
             else{

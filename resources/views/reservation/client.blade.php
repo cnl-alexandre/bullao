@@ -28,7 +28,13 @@
                 <div class="col-md-6 mt-2">
                     <div class="block-heading text-left" data-aos="" data-aos-delay="">
                         <h2 class="h2-reservation">À propos de vous</h2>
-                        <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}"> {{ $reservation->reservation_spa_libelle }}</a></p>
+                        <p>
+                            @if(isset($reservation))
+                                <a href="{{ url('/reservation/dates') }}">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}">{{ $reservation->reservation_spa_libelle }}</a>
+                            @elseif(isset($cadeau))
+                                {{ $cadeau->cadeau_offre }}
+                            @endif
+                        </p>
                         <div class="form-group mb-4">
                             <label for="name">Votre prénom et nom :</label>
                             <input type="text" id="name" class="form-control" name="name" maxlength="100" placeholder="John Doe" required>

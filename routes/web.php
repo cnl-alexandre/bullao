@@ -52,10 +52,21 @@ Route::post('/reservation/confirmation', 'ReservationController@reservationConfi
 
 // CARTE CADEAU
 Route::get('/cartecadeau', 'customer\CadeauController@presentation')                                                ->middleware('maintenance');
-Route::get('/cartecadeau/offrir', 'customer\CadeauController@creationCarte')                                        ->middleware('maintenance');
-Route::post('/cartecadeau/offrir', 'customer\CadeauController@creationCarte');
-Route::post('/cartecadeau/offrir/submit', 'customer\CadeauController@creationCarteSubmit');
+
+Route::get('/cartecadeau/recap', 'customer\CadeauController@cadeauRecap')                                           ->middleware('maintenance');
+Route::post('/cartecadeau/recap', 'customer\CadeauController@cadeauRecapSubmit');
+
+Route::get('/cartecadeau/adresse', 'customer\CadeauController@cadeauAdresse')                                       ->middleware('maintenance');
+Route::post('/cartecadeau/adresse', 'customer\CadeauController@cadeauAdresseSubmit');
+
+Route::get('/cartecadeau/client', 'customer\CadeauController@cadeauClient')                                         ->middleware('maintenance');
+Route::post('/cartecadeau/client', 'customer\CadeauController@cadeauClientSubmit');
+
+Route::get('/cartecadeau/confirmation', 'customer\CadeauController@cadeauConfirmation')                             ->middleware('maintenance');
+Route::post('/cartecadeau/confirmation', 'customer\CadeauController@cadeauConfirmationSubmit');
+
 Route::get('/cartecadeau/paiement', 'customer\CadeauController@paiement')                                           ->middleware('maintenance');
+Route::post('/cartecadeau/paiement', 'customer\CadeauController@paiementSubmit');
 Route::get('/cartecadeau/paiement-accepte', 'customer\CadeauController@success')                                    ->middleware('maintenance');
 
 // PAIEMENT

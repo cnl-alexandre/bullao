@@ -16,13 +16,18 @@
 
         <div style="background-color: #fff;border-radius: .25rem;padding: .2rem .5rem;text-align: center">
             <p class="font-size-14">
-                {{ $reservation->reservation_spa_libelle }}
-                <br>Du {{ $reservation->DateDebut->format('d/m/Y') }} au {{ $reservation->DateFin->format('d/m/Y') }}
-                <br>Montant total : {{ number_format(Session::get('montant_total'), 2, '.', ' ') }}€
+                @if(isset($reservation))
+                    {{ $reservation->reservation_spa_libelle }}
+                    <br>Du {{ $reservation->DateDebut->format('d/m/Y') }} au {{ $reservation->DateFin->format('d/m/Y') }}
+                    <br>Montant total : {{ number_format(Session::get('montant_total'), 2, '.', ' ') }}€
+                @elseif(isset($cadeau))
+                    {{ $cadeau->cadeau_offre }}
+                    <br>Montant total : {{ number_format($cadeau->cadeau_montant, 2, '.', ' ') }}€
+                @endif
             </p>
         </div>
 
-        <form action="{{ url('/reservation/paiement') }}" method="post" id="payment-form" style="margin-top: 3vh;">
+        <form action="{{ $action }}" method="post" id="payment-form" style="margin-top: 3vh;">
             {{ csrf_field() }}
             <div class="form-row" >
                 <div id="errors"></div>
@@ -36,9 +41,16 @@
                 <!-- Used to display form errors. -->
                 <div id="card-errors" role="alert"></div>
             </div>
-            <input type="hidden" name="reservation_id" value="{{ $reservation->reservation_id }}">
+            @if(isset($reservation))
+                <input type="hidden" name="reservation_id" value="{{ $reservation->reservation_id }}">
+            @elseif(isset($cadeau))
+                <input type="hidden" name="cadeau_id" value="{{ $cadeau->cadeau_id }}">
+            @endif
             <div style="text-align: center;">
-                <button id="card-button" type="button" data-secret="<?= $intent['client_secret'] ?>" style="color: #fff;background-color: #ff8b00;border-color: #ff8b00;margin: 35px 25% 20px 25%;font-size: 1rem;width: 50%; height: 40px;cursor: pointer;border-radius: .25rem;">Payer la réservation</button>
+                <button id="card-button" type="button" data-secret="<?= $intent['client_secret'] ?>" style="color: #fff;background-color: #ff8b00;border-color: #ff8b00;margin: 35px 25% 20px 25%;font-size: 1rem;width: 50%; height: 40px;cursor: pointer;border-radius: .25rem;">
+                    <span id="loader" style="display: none;">TOP</span>
+                    Payer
+                </button>
                 <a href="{{ url('/') }}" style="margin-top: 30px;">Annuler</a>
             </div>
         </form>
@@ -54,7 +66,11 @@ let stripe = Stripe('{{ env("STRIPE_API_KEY") }}');
 let elements = stripe.elements();
 
 // Définit la redirection en cas de succès du paiement
-let redirect = "{{ url('/reservation/paiement-accepte') }}";
+@if(isset($reservation))
+    let redirect = "{{ url('/reservation/paiement-accepte') }}";
+@elseif(isset($cadeau))
+    let redirect = "{{ url('/cartecadeau/paiement-accepte') }}";
+@endif
 
 // Récupère l'élément qui contiendra le nom du titulaire de la carte
 let cardholderName = document.getElementById('cardholder-name');
@@ -85,6 +101,9 @@ card.addEventListener('change', function(event) {
 });
 
 cardButton.addEventListener('click', () => {
+    let loader = document.getElementById('loader');
+    loader.style.display = "block";
+
     // On envoie la promesse contenant le code de l'intention, l'objet "card" contenant les informations de carte et le nom du client
     stripe.handleCardPayment(
         clientSecret, card, {

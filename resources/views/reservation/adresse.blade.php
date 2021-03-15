@@ -28,7 +28,13 @@
                 <div class="col-md-6 mt-2">
                     <div class="block-heading text-left" data-aos="" data-aos-delay="">
                         <h2 class="h2-reservation">À propos de chez vous</h2>
-                        <p><a href="{{ url('/reservation/dates') }}" style="">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}"> {{ $reservation->reservation_spa_libelle }}</a></p>
+                        <p>
+                            @if(isset($reservation))
+                                <a href="{{ url('/reservation/dates') }}">Du {{ $reservation->dateDebut->format('d/m') }} au {{ $reservation->dateFin->format('d/m') }}</a> - <a href="{{ url('/reservation/spas') }}">{{ $reservation->reservation_spa_libelle }}</a>
+                            @elseif(isset($cadeau))
+                                {{ $cadeau->cadeau_offre }}
+                            @endif
+                        </p>
                         <div class="form-group mb-4">
                             <label for="adresse">Numéro et rue :</label>
                             <input type="text" id="adresse" class="form-control adresse" name="adresse" maxlength="100" placeholder="39 chemin de la porte verte" required>
@@ -54,7 +60,7 @@
                                 </select>
                             </div>
                         </div>
-                        @if($reservation->reservation_type_logement == "Appartement")
+                        @if(isset($reservation) && $reservation->reservation_type_logement == "Appartement")
                             <div class="row">
                                 <div class="col-7 form-group mb-4">
                                     <label for="etage">Étage :</label>
