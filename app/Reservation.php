@@ -57,8 +57,7 @@ class Reservation extends Model
     //     return $this->belongsTo('App\Client', 'reservation_client_id', '...');
     // }
 
-    public function edit($array){
-
+    // public function edit($array){
 
         // Reprise create
         //
@@ -73,50 +72,48 @@ class Reservation extends Model
         //
         // $this->reservation_email
         // $this->reservation_phone
+    // }
 
-
-    }
-
-    public function create2($array)
+    public function create($array)
     {
         $montant_total = 0.00;
 
         if($array->step == 1 || $array->step == "")
         {
-            // $daterange = $array->daterange;
-            // $dates = explode(' - ', $daterange);
-            //
-            // $dateDebut = $this->dateFr2Us($dates[0]);
-            // $dateFin = $this->dateFr2Us($dates[1]);
-            //
-            // if($dateFin == $dateDebut)
-            // {
-            //     $dateFin = date('Y-m-d', strtotime($dateFin. ' + 1 days'));
-            // }
-            //
-            // $this->reservation_date_debut           = $dateDebut;
-            // $this->reservation_date_fin             = $dateFin;
+            $daterange = $array->daterange;
+            $dates = explode(' - ', $daterange);
 
-            // $this->reservation_spa_id               = $array->spa;
-            // $spa = Spa::find($array->spa);
-            // $this->reservation_spa_libelle          = $spa->spa_libelle.' '.$spa->spa_nb_place.' places';
-            // $this->reservation_prix                 = $spa->spa_prix;
-            //
-            // $joursSupp = $this->joursSupp($daterange);
-            //
-            // $montant_total += $spa->spa_prix;
-            // $montant_total += $spa->calculPrixJoursSupp($joursSupp);
-            //
-            // if(isset($array->pack) && $array->pack != "")
-            // {
-            //     $this->reservation_pack_id          = $array->pack;
-            //     $pack = Pack::find($array->pack);
-            //     $this->reservation_prix_pack        = $pack->pack_prix;
-            //
-            //     $montant_total += $pack->pack_prix;
-            // }
+            $dateDebut = $this->dateFr2Us($dates[0]);
+            $dateFin = $this->dateFr2Us($dates[1]);
 
-            // $this->save();
+            if($dateFin == $dateDebut)
+            {
+                $dateFin = date('Y-m-d', strtotime($dateFin. ' + 1 days'));
+            }
+
+            $this->reservation_date_debut           = $dateDebut;
+            $this->reservation_date_fin             = $dateFin;
+
+            $this->reservation_spa_id               = $array->spa;
+            $spa = Spa::find($array->spa);
+            $this->reservation_spa_libelle          = $spa->spa_libelle.' '.$spa->spa_nb_place.' places';
+            $this->reservation_prix                 = $spa->spa_prix;
+
+            $joursSupp = $this->joursSupp($daterange);
+
+            $montant_total += $spa->spa_prix;
+            $montant_total += $spa->calculPrixJoursSupp($joursSupp);
+
+            if(isset($array->pack) && $array->pack != "")
+            {
+                $this->reservation_pack_id          = $array->pack;
+                $pack = Pack::find($array->pack);
+                $this->reservation_prix_pack        = $pack->pack_prix;
+
+                $montant_total += $pack->pack_prix;
+            }
+
+            $this->save();
 
             if(isset($array->accessoires) && count($array->accessoires) > 0)
             {
@@ -225,7 +222,7 @@ class Reservation extends Model
         }
     }
 
-    public function edit2($array)
+    public function edit($array)
     {
 
         $daterange = $array->daterange;

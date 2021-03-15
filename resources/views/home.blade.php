@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Accueil | '.env('APP_NAME'))
+@section('pageTitle', 'Location de jacuzzi, livraison de spa, location à domicile et personnalisée  | '.env('APP_NAME'))
 
 @section('content')
 

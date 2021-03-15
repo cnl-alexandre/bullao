@@ -489,8 +489,7 @@ class ReservationController extends Controller
             'adresse'               => 'required',
             'ville'                 => 'required',
             'cp'                    => 'required',
-            'departement'           => 'required',
-            'complement'            => 'required'
+            'departement'           => 'required'
         ]);
 
         $res = Session::get('reservation');
