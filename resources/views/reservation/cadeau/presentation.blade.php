@@ -78,7 +78,7 @@
     </div>
 </div>
 
-<form class="site-step-1" action="{{ url('/cartecadeau/offrir') }}" method="post">
+<form class="site-step-1" action="{{ url('/cartecadeau') }}" method="post">
 
     {{ csrf_field() }}
 

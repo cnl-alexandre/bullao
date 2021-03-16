@@ -52,6 +52,7 @@ Route::post('/reservation/confirmation', 'ReservationController@reservationConfi
 
 // CARTE CADEAU
 Route::get('/cartecadeau', 'customer\CadeauController@presentation')                                                ->middleware('maintenance');
+Route::post('/cartecadeau', 'customer\CadeauController@creationCarte');
 
 Route::get('/cartecadeau/recap', 'customer\CadeauController@cadeauRecap')                                           ->middleware('maintenance');
 Route::post('/cartecadeau/recap', 'customer\CadeauController@cadeauRecapSubmit');

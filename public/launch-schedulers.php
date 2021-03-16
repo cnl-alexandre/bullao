@@ -1,6 +1,5 @@
 <?php
 
-header('Location: /schedulers/launch');
-exit();
+header("Location: schedulers/launch");
 
 ?>
