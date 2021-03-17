@@ -22,6 +22,14 @@ class SchedulersController extends Controller
     {
         Log::info('Début du launcher de schedulers');
 
+        // Mail pour avertir du bon déroulement des schedulers
+        Mail::send('emails.system.launch-schedulers', [], function($mess) {
+            $mess->from(env('MAIL_EMAIL'));                         // Mail de départ Bullao contact@bullao.fr
+            $mess->to("jerem-lem@hotmail.fr");          // Mail du client
+            // $mess->cc('jer.lemont@gmail.com');
+            $mess->subject('Bullao : Lancement des schedulers');
+        });
+
         /**
          * CECI EST LANCÉ TOUTES LES HEURES PAR UNE TÂCHE CRON SUR OVH
          * -----------------------------------------------------------
